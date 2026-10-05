@@ -1,0 +1,34 @@
+{
+  "players": {
+    "taborgreat": {
+      "voice": "design",
+      "voice_desc": "tired voice that sighs before speaking",
+      "profile_id": "player_taborgreat"
+    },
+    "Strongs": {
+      "voice": "design",
+      "voice_desc": "booming theatrical voice that treats everything as drama",
+      "profile_id": "player_strongs"
+    },
+    "Surfs": {
+      "voice": "design",
+      "voice_desc": "bright confident voice, fast talker",
+      "profile_id": "player_surfs"
+    },
+    "LiteByte_": {
+      "voice": "design",
+      "voice_desc": "young gamer voice, quick and cocky, slight rasp",
+      "profile_id": "player_litebyte"
+    },
+    "KoolKross": {
+      "voice": "design",
+      "voice_desc": "smooth relaxed radio voice",
+      "profile_id": "player_koolkross"
+    },
+    ".maxc153": {
+      "voice": "design",
+      "voice_desc": "excitable teenage voice that cracks when shouting",
+      "profile_id": "player_b_maxc153"
+    }
+  }
+}

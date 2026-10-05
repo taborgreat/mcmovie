@@ -1,0 +1,43 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "world.json - set requirements built before shooting",
+  "type": "object",
+  "required": ["sets"],
+  "properties": {
+    "ground_y": { "type": "integer", "description": "Top solid block of the flat world. Feet stand at ground_y + 1." },
+    "time_of_day": { "oneOf": [{ "type": "integer" }, { "type": "string" }] },
+    "weather": { "type": "string", "enum": ["clear", "rain", "thunder"] },
+    "sets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "origin", "ops"],
+        "properties": {
+          "id": { "type": "string" },
+          "origin": { "type": "array", "items": { "type": "number" }, "minItems": 3, "maxItems": 3 },
+          "radius": { "type": "integer", "description": "Chunk radius to record for rendering (default 6)" },
+          "ops": { "type": "array", "items": { "$ref": "#/definitions/op" } }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "op": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": { "type": "string", "enum": ["fill", "setblock", "clear", "command", "load", "summon", "box", "floor", "line"] },
+        "from": { "type": "array", "items": { "type": "number" }, "minItems": 3, "maxItems": 3 },
+        "to": { "type": "array", "items": { "type": "number" }, "minItems": 3, "maxItems": 3 },
+        "at": { "type": "array", "items": { "type": "number" }, "minItems": 3, "maxItems": 3 },
+        "block": { "type": "string" },
+        "mode": { "type": "string", "enum": ["replace", "hollow", "outline", "keep", "destroy"] },
+        "cmd": { "type": "string" },
+        "name": { "type": "string" },
+        "entity": { "type": "string" },
+        "nbt": { "type": "string" },
+        "size": { "type": "array", "items": { "type": "number" }, "minItems": 3, "maxItems": 3 }
+      }
+    }
+  }
+}

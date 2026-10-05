@@ -1,0 +1,55 @@
+{
+  "characters": {
+    "narrator": {
+      "voice": "stock:narrator",
+      "voice_desc": "documentary baritone, brisk and clear",
+      "speed": 1.05,
+      "profile_id": "narrator"
+    },
+    "taborgreat": {
+      "voice": "stock:adult_male",
+      "voice_desc": "relaxed adult man, dry",
+      "profile_id": "adult_male"
+    },
+    "DummyOne": {
+      "voice": "stock:goofy",
+      "voice_desc": "flat adult man",
+      "profile_id": "goofy"
+    },
+    "DummyTwo": {
+      "voice": "stock:goofy",
+      "voice_desc": "flat adult man",
+      "profile_id": "goofy"
+    },
+    "DummyThree": {
+      "voice": "stock:goofy",
+      "voice_desc": "flat adult man",
+      "profile_id": "goofy"
+    },
+    "WispDecoy1": {
+      "voice": "stock:adult_male",
+      "voice_desc": "silent",
+      "profile_id": "adult_male"
+    },
+    "WispDecoy2": {
+      "voice": "stock:adult_male",
+      "voice_desc": "silent",
+      "profile_id": "adult_male"
+    },
+    "WispDecoy3": {
+      "voice": "stock:adult_male",
+      "voice_desc": "silent",
+      "profile_id": "adult_male"
+    },
+    "WispDecoy4": {
+      "voice": "stock:adult_male",
+      "voice_desc": "silent",
+      "profile_id": "adult_male"
+    },
+    "WispDecoy5": {
+      "voice": "stock:adult_male",
+      "voice_desc": "silent",
+      "profile_id": "adult_male"
+    }
+  }
+}

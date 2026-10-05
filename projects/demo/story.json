@@ -1,0 +1,69 @@
+{
+  "title": "The Miner's Price",
+  "logline": "A miner shows up late with a diamond. The merchant who waited all day is not in the mood to haggle.",
+  "tone": "dry, warm, a little funny",
+  "setting": {
+    "biome": "plains",
+    "time_of_day": "sunset",
+    "weather": "clear",
+    "style": "small rustic village, oak and cobblestone"
+  },
+  "characters": [
+    {
+      "id": "Bram",
+      "name": "Bram",
+      "role": "miner",
+      "personality": "tired, blunt, secretly proud",
+      "voice_desc": "tired middle-aged man, slow, gravelly, low",
+      "skin_desc": "dusty leather clothes, iron helmet",
+      "skin": "taborgreat"
+    },
+    {
+      "id": "Ola",
+      "name": "Ola",
+      "role": "merchant",
+      "personality": "impatient, sharp, curious when money is near",
+      "voice_desc": "brisk adult woman, crisp, slightly nasal, quick",
+      "skin_desc": "green merchant robe, satchel",
+      "skin": "Strongs"
+    }
+  ],
+  "scenes": [
+    {
+      "id": "s1",
+      "title": "Late",
+      "summary": "Bram walks into the square at sunset. Ola has been waiting by her stall and lets him know it. He shrugs it off.",
+      "location": "square",
+      "characters": [
+        "Bram",
+        "Ola"
+      ],
+      "target_seconds": 13
+    },
+    {
+      "id": "s2",
+      "title": "The price",
+      "summary": "At the well Bram shows the diamond. Ola names a price. Bram sprints off with it instead.",
+      "location": "square",
+      "characters": [
+        "Bram",
+        "Ola"
+      ],
+      "target_seconds": 11
+    }
+  ],
+  "music": {
+    "mood_tags": [
+      "calm",
+      "rustic",
+      "warm"
+    ],
+    "tempo": "slow"
+  },
+  "cards": {
+    "title": true,
+    "title_seconds": 2.5,
+    "end_text": "mcmovie demo",
+    "end_seconds": 2
+  }
+}

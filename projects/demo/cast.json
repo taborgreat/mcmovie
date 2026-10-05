@@ -1,0 +1,14 @@
+{
+  "characters": {
+    "Bram": {
+      "voice": "stock:elderly_male",
+      "voice_desc": "tired middle-aged man, slow, gravelly, low",
+      "profile_id": "elderly_male"
+    },
+    "Ola": {
+      "voice": "stock:adult_female",
+      "voice_desc": "brisk adult woman, crisp, slightly nasal, quick",
+      "profile_id": "adult_female"
+    }
+  }
+}

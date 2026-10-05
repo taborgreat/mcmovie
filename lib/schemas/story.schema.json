@@ -1,0 +1,85 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "story.json - the story bible written by the outline agent",
+  "type": "object",
+  "required": ["title", "logline", "tone", "setting", "characters", "scenes", "music"],
+  "additionalProperties": true,
+  "properties": {
+    "title": { "type": "string", "minLength": 1 },
+    "format": { "type": "string", "enum": ["long", "short"], "description": "long = 16:9 video, short = vertical YouTube Short (35-90 s total)" },
+    "logline": { "type": "string" },
+    "premise": { "type": "string", "description": "Who wants what and what is in the way, in one sentence" },
+    "turn": { "type": "string", "description": "The visible moment that changes everything" },
+    "final_image": { "type": "string", "description": "The last picture on screen" },
+    "feeling": { "type": "string", "description": "The one emotion the viewer leaves with" },
+    "tone": { "type": "string" },
+    "setting": {
+      "type": "object",
+      "required": ["biome", "time_of_day", "style"],
+      "properties": {
+        "biome": { "type": "string" },
+        "time_of_day": { "oneOf": [{ "type": "integer", "minimum": 0, "maximum": 24000 }, { "type": "string", "enum": ["day", "noon", "sunset", "night", "midnight", "sunrise"] }] },
+        "weather": { "type": "string", "enum": ["clear", "rain", "thunder"] },
+        "style": { "type": "string" }
+      }
+    },
+    "characters": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "role", "personality", "voice_desc", "skin_desc"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[A-Za-z0-9_]{1,16}$", "description": "Also the bot username. 1-16 chars, letters/digits/underscore." },
+          "kit": { "type": "string", "description": "The Hardcore Games kit this character plays, e.g. Turtle. The checker enforces the kit's physical rules (config/kit_rules.json)." },
+          "name": { "type": "string" },
+          "role": { "type": "string" },
+          "personality": { "type": "string" },
+          "voice_desc": { "type": "string" },
+          "skin_desc": { "type": "string" },
+          "skin": { "type": "string", "description": "skins/<name>.png or a real player name from skins/players.json" },
+          "player": { "type": "string", "description": "Real player this character is based on (name shown in credits)." },
+          "voice": { "type": "string", "description": "Optional stock voice id, e.g. stock:adult_male. Casting may override." },
+          "group": { "type": "boolean", "description": "true for crowd/background groups" }
+        }
+      }
+    },
+    "scenes": {
+      "type": "array", "minItems": 1, "maxItems": 12,
+      "items": {
+        "type": "object",
+        "required": ["id", "summary", "location", "characters", "target_seconds"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9_]+$" },
+          "title": { "type": "string" },
+          "summary": { "type": "string" },
+          "location": { "type": "string", "description": "Must match a set id in world.json" },
+          "origin": { "type": "array", "items": { "type": "number" }, "minItems": 3, "maxItems": 3 },
+          "characters": { "type": "array", "items": { "type": "string" } },
+          "target_seconds": { "type": "number", "minimum": 3 },
+          "music_mood": { "description": "Mood for this scene's music, e.g. \"sad\" or [\"tense\",\"battle\"]. Omit to keep the story's default. The track changes with a crossfade when the mood does." }
+        }
+      }
+    },
+    "music": {
+      "type": "object",
+      "required": ["mood_tags", "tempo"],
+      "properties": {
+        "mood_tags": { "type": "array", "items": { "type": "string" } },
+        "tempo": { "type": "string", "enum": ["slow", "mid", "fast"] },
+        "track_id": { "type": "string" },
+        "in_sec": { "type": "number" },
+        "out_sec": { "type": "number" },
+        "gain_db": { "type": "number" }
+      }
+    },
+    "cards": {
+      "type": "object",
+      "properties": {
+        "title": { "type": "boolean" },
+        "title_seconds": { "type": "number" },
+        "end_text": { "type": "string" },
+        "end_seconds": { "type": "number" }
+      }
+    }
+  }
+}

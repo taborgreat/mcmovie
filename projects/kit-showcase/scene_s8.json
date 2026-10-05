@@ -1,0 +1,1787 @@
+{
+ "scene_id": "s8",
+ "title": "Timelord to Wisp",
+ "duration_ticks": 800,
+ "beats": [
+  {
+   "id": "b1",
+   "description": "Timelord: three dummies walk at him, the clock clicks and they stop mid-stride; he walks among them and frees one with a hit.",
+   "start_tick": 0
+  },
+  {
+   "id": "b2",
+   "description": "Turtle: crouched, he takes four sword blows and is still there; he stands, hits back once, and crouches again.",
+   "start_tick": 112
+  },
+  {
+   "id": "b3",
+   "description": "Vampire: he kills DummyTwo and without a pause turns and sprints at DummyOne.",
+   "start_tick": 224
+  },
+  {
+   "id": "b4",
+   "description": "Viper: two hits on DummyThree, and he keeps flashing red while he backs away.",
+   "start_tick": 336
+  },
+  {
+   "id": "b5",
+   "description": "Werewolf: by day his hit does little and DummyThree knocks him back; night falls, he sprints in and kills in two.",
+   "start_tick": 448
+  },
+  {
+   "id": "b6",
+   "description": "Wisp: one magma cream and he is six identical players walking off in six directions; DummyOne kills a decoy and flinches.",
+   "start_tick": 578
+  },
+  {
+   "id": "b7",
+   "description": "Final image: the copies scatter across the snow and the field goes quiet.",
+   "start_tick": 678
+  }
+ ],
+ "lines": [
+  {
+   "id": "timelord",
+   "tick": 6,
+   "character": "narrator",
+   "text": "Timelord. Freezes everyone nearby for ten seconds.",
+   "emotion": "matter-of-fact, lightly amused",
+   "delivery": "brisk and clear, like a field guide; the kit name lands as its own beat",
+   "offscreen": true
+  },
+  {
+   "id": "turtle",
+   "tick": 118,
+   "character": "narrator",
+   "text": "Turtle. While crouching, no hit takes more than a heart.",
+   "emotion": "matter-of-fact, lightly amused",
+   "delivery": "brisk and clear, like a field guide; the kit name lands as its own beat",
+   "offscreen": true
+  },
+  {
+   "id": "vampire",
+   "tick": 230,
+   "character": "narrator",
+   "text": "Vampire. Every kill heals him.",
+   "emotion": "matter-of-fact, lightly amused",
+   "delivery": "brisk and clear, like a field guide; the kit name lands as its own beat",
+   "offscreen": true
+  },
+  {
+   "id": "viper",
+   "tick": 342,
+   "character": "narrator",
+   "text": "Viper. One hit in three poisons.",
+   "emotion": "matter-of-fact, lightly amused",
+   "delivery": "brisk and clear, like a field guide; the kit name lands as its own beat",
+   "offscreen": true
+  },
+  {
+   "id": "werewolf",
+   "tick": 454,
+   "character": "narrator",
+   "text": "Werewolf. Weak by day, strong and fast at night.",
+   "emotion": "matter-of-fact, lightly amused",
+   "delivery": "brisk and clear, like a field guide; the kit name lands as its own beat",
+   "offscreen": true
+  },
+  {
+   "id": "wisp",
+   "tick": 584,
+   "character": "narrator",
+   "text": "Wisp. Splits into five decoys that punish whoever hits them.",
+   "emotion": "matter-of-fact, lightly amused",
+   "delivery": "brisk and clear, like a field guide; the kit name lands as its own beat",
+   "offscreen": true
+  },
+  {
+   "id": "outro",
+   "tick": 683,
+   "character": "narrator",
+   "text": "That is every kit. Pick yours.",
+   "emotion": "matter-of-fact, lightly amused",
+   "delivery": "brisk and clear, like a field guide; the kit name lands as its own beat",
+   "offscreen": true
+  }
+ ],
+ "keyframes": [
+  {
+   "actor": "taborgreat",
+   "tick": 0,
+   "x": -2684.5,
+   "y": 66,
+   "z": 1695.5,
+   "anim": "idle",
+   "yaw": 180
+  },
+  {
+   "actor": "taborgreat",
+   "tick": 4,
+   "x": -2684.5,
+   "y": 66,
+   "z": 1695.5,
+   "anim": "hold:minecraft:clock",
+   "yaw": 180
+  },
+  {
+   "actor": "taborgreat",
+   "tick": 30,
+   "x": -2684.5,
+   "y": 66,
+   "z": 1695.5,
+   "anim": "swing_once",
+   "yaw": 180
+  },
+  {
+   "actor": "taborgreat",
+   "tick": 40,
+   "x": -2684.5,
+   "y": 66,
+   "z": 1695.5,
+   "anim": "walk",
+   "look_at": "DummyOne"
+  },
+  {
+   "actor": "taborgreat",
+   "tick": 44,
+   "x": -2684.5,
+   "y": 66,
+   "z": 1694.8,
+   "anim": "idle",
+   "look_at": "DummyOne"
+  },
+  {
+   "actor": "taborgreat",
+   "tick": 50,
+   "x": -2684.5,
+   "y": 66,
+   "z": 1694.8,
+   "anim": "idle",
+   "look_at": "DummyThree"
+  },
+  {
+   "actor": "taborgreat",
+   "tick": 58,
+   "x": -2684.5,
+   "y": 66,
+   "z": 1694.8,
+   "anim": "idle",
+   "look_at": "DummyTwo"
+  },
+  {
+   "actor": "taborgreat",
+   "tick": 66,
+   "x": -2684.5,
+   "y": 66,
+   "z": 1694.8,
+   "anim": "swing_once",
+   "look_at": "DummyTwo"
+  },
+  {
+   "actor": "taborgreat",
+   "tick": 112,
+   "x": -2684.5,
+   "y": 66,
+   "z": 1694.8,
+   "anim": "hold:minecraft:stone_sword",
+   "look_at": "DummyTwo"
+  },
+  {
+   "actor": "taborgreat",
+   "tick": 114,
+   "x": -2684.5,
+   "y": 66,
+   "z": 1694.8,
+   "anim": "sneak",
+   "look_at": "DummyTwo"
+  },
+  {
+   "actor": "taborgreat",
+   "tick": 132,
+   "x": -2684.5,
+   "y": 66,
+   "z": 1694.8,
+   "anim": "hurt",
+   "look_at": "DummyTwo"
+  },
+  {
+   "actor": "taborgreat",
+   "tick": 142,
+   "x": -2684.5,
+   "y": 66,
+   "z": 1694.8,
+   "anim": "hurt",
+   "look_at": "DummyTwo"
+  },
+  {
+   "actor": "taborgreat",
+   "tick": 152,
+   "x": -2684.5,
+   "y": 66,
+   "z": 1694.8,
+   "anim": "hurt",
+   "look_at": "DummyTwo"
+  },
+  {
+   "actor": "taborgreat",
+   "tick": 162,
+   "x": -2684.5,
+   "y": 66,
+   "z": 1694.8,
+   "anim": "hurt",
+   "look_at": "DummyTwo"
+  },
+  {
+   "actor": "taborgreat",
+   "tick": 174,
+   "x": -2684.5,
+   "y": 66,
+   "z": 1694.8,
+   "anim": "idle",
+   "look_at": "DummyTwo"
+  },
+  {
+   "actor": "taborgreat",
+   "tick": 178,
+   "x": -2684.5,
+   "y": 66,
+   "z": 1694.8,
+   "anim": "swing_once",
+   "look_at": "DummyTwo"
+  },
+  {
+   "actor": "taborgreat",
+   "tick": 184,
+   "x": -2684.5,
+   "y": 66,
+   "z": 1694.8,
+   "anim": "sneak",
+   "look_at": "DummyTwo"
+  },
+  {
+   "actor": "taborgreat",
+   "tick": 212,
+   "x": -2684.5,
+   "y": 66,
+   "z": 1694.8,
+   "anim": "hurt",
+   "look_at": "DummyTwo"
+  },
+  {
+   "actor": "taborgreat",
+   "tick": 218,
+   "x": -2684.5,
+   "y": 66,
+   "z": 1694.8,
+   "anim": "idle",
+   "look_at": "DummyTwo"
+  },
+  {
+   "actor": "taborgreat",
+   "tick": 224,
+   "x": -2684.5,
+   "y": 66,
+   "z": 1694.8,
+   "anim": "hold:minecraft:stone_sword",
+   "look_at": "DummyTwo"
+  },
+  {
+   "actor": "taborgreat",
+   "tick": 240,
+   "x": -2684.5,
+   "y": 66,
+   "z": 1694.8,
+   "anim": "swing_once",
+   "look_at": "DummyTwo"
+  },
+  {
+   "actor": "taborgreat",
+   "tick": 243,
+   "x": -2684.5,
+   "y": 66,
+   "z": 1694.8,
+   "anim": "walk"
+  },
+  {
+   "actor": "taborgreat",
+   "tick": 257,
+   "x": -2684.5,
+   "y": 66,
+   "z": 1691.8,
+   "anim": "idle",
+   "look_at": "DummyTwo"
+  },
+  {
+   "actor": "taborgreat",
+   "tick": 262,
+   "x": -2684.5,
+   "y": 66,
+   "z": 1691.8,
+   "anim": "swing_once",
+   "look_at": "DummyTwo"
+  },
+  {
+   "actor": "taborgreat",
+   "tick": 264,
+   "x": -2684.5,
+   "y": 66,
+   "z": 1691.8,
+   "anim": "sprint"
+  },
+  {
+   "actor": "taborgreat",
+   "tick": 274,
+   "x": -2687.1,
+   "y": 66,
+   "z": 1691.9,
+   "anim": "idle",
+   "look_at": "DummyOne"
+  },
+  {
+   "actor": "taborgreat",
+   "tick": 277,
+   "x": -2687.1,
+   "y": 66,
+   "z": 1691.9,
+   "anim": "swing_once",
+   "look_at": "DummyOne"
+  },
+  {
+   "actor": "taborgreat",
+   "tick": 280,
+   "x": -2687.1,
+   "y": 66,
+   "z": 1691.9,
+   "anim": "walk"
+  },
+  {
+   "actor": "taborgreat",
+   "tick": 294,
+   "x": -2687.1,
+   "y": 66,
+   "z": 1694.9,
+   "anim": "idle",
+   "look_at": "DummyOne"
+  },
+  {
+   "actor": "taborgreat",
+   "tick": 298,
+   "x": -2687.1,
+   "y": 66,
+   "z": 1694.9,
+   "anim": "swing_once",
+   "look_at": "DummyOne"
+  },
+  {
+   "actor": "taborgreat",
+   "tick": 316,
+   "x": -2687.1,
+   "y": 66,
+   "z": 1694.9,
+   "anim": "walk"
+  },
+  {
+   "actor": "taborgreat",
+   "tick": 335,
+   "x": -2690,
+   "y": 66,
+   "z": 1697.7,
+   "anim": "idle",
+   "look_at": "DummyThree"
+  },
+  {
+   "actor": "taborgreat",
+   "tick": 336,
+   "x": -2690,
+   "y": 66,
+   "z": 1697.7,
+   "anim": "hold:minecraft:stone_sword",
+   "look_at": "DummyThree"
+  },
+  {
+   "actor": "taborgreat",
+   "tick": 354,
+   "x": -2690,
+   "y": 66,
+   "z": 1697.7,
+   "anim": "swing_once",
+   "look_at": "DummyThree"
+  },
+  {
+   "actor": "taborgreat",
+   "tick": 357,
+   "x": -2690,
+   "y": 66,
+   "z": 1697.7,
+   "anim": "walk"
+  },
+  {
+   "actor": "taborgreat",
+   "tick": 371,
+   "x": -2687,
+   "y": 66,
+   "z": 1697.7,
+   "anim": "idle",
+   "look_at": "DummyThree"
+  },
+  {
+   "actor": "taborgreat",
+   "tick": 376,
+   "x": -2687,
+   "y": 66,
+   "z": 1697.7,
+   "anim": "swing_once",
+   "look_at": "DummyThree"
+  },
+  {
+   "actor": "taborgreat",
+   "tick": 424,
+   "x": -2687,
+   "y": 66,
+   "z": 1697.7,
+   "anim": "walk"
+  },
+  {
+   "actor": "taborgreat",
+   "tick": 448,
+   "x": -2682,
+   "y": 66,
+   "z": 1696.7,
+   "anim": "hold:minecraft:clock",
+   "look_at": "DummyThree"
+  },
+  {
+   "actor": "taborgreat",
+   "tick": 448,
+   "x": -2682,
+   "y": 66,
+   "z": 1696.7,
+   "anim": "idle",
+   "look_at": "DummyThree"
+  },
+  {
+   "actor": "taborgreat",
+   "tick": 466,
+   "x": -2682,
+   "y": 66,
+   "z": 1696.7,
+   "anim": "swing_once",
+   "look_at": "DummyThree"
+  },
+  {
+   "actor": "taborgreat",
+   "tick": 478,
+   "x": -2682,
+   "y": 66,
+   "z": 1696.7,
+   "anim": "knockback:0"
+  },
+  {
+   "actor": "taborgreat",
+   "tick": 493,
+   "x": -2682,
+   "y": 66,
+   "z": 1699.725,
+   "anim": "idle",
+   "look_at": "DummyThree"
+  },
+  {
+   "actor": "taborgreat",
+   "tick": 504,
+   "x": -2682,
+   "y": 66,
+   "z": 1699.725,
+   "anim": "sprint"
+  },
+  {
+   "actor": "taborgreat",
+   "tick": 516,
+   "x": -2682,
+   "y": 66,
+   "z": 1696.5,
+   "anim": "swing_once",
+   "look_at": "DummyThree"
+  },
+  {
+   "actor": "taborgreat",
+   "tick": 516,
+   "x": -2682,
+   "y": 66,
+   "z": 1696.5,
+   "anim": "idle",
+   "look_at": "DummyThree"
+  },
+  {
+   "actor": "taborgreat",
+   "tick": 518,
+   "x": -2682,
+   "y": 66,
+   "z": 1696.5,
+   "anim": "sprint"
+  },
+  {
+   "actor": "taborgreat",
+   "tick": 546,
+   "x": -2682,
+   "y": 66,
+   "z": 1688.9,
+   "anim": "idle",
+   "look_at": "DummyThree"
+  },
+  {
+   "actor": "taborgreat",
+   "tick": 548,
+   "x": -2682,
+   "y": 66,
+   "z": 1688.9,
+   "anim": "swing_once",
+   "look_at": "DummyThree"
+  },
+  {
+   "actor": "taborgreat",
+   "tick": 552,
+   "x": -2682,
+   "y": 66,
+   "z": 1688.9,
+   "anim": "walk"
+  },
+  {
+   "actor": "taborgreat",
+   "tick": 578,
+   "x": -2684.241,
+   "y": 66,
+   "z": 1693.921,
+   "anim": "hold:minecraft:magma_cream"
+  },
+  {
+   "actor": "taborgreat",
+   "tick": 581,
+   "x": -2684.5,
+   "y": 66,
+   "z": 1694.5,
+   "anim": "idle",
+   "yaw": 0
+  },
+  {
+   "actor": "taborgreat",
+   "tick": 606,
+   "x": -2684.5,
+   "y": 66,
+   "z": 1694.5,
+   "anim": "swing_once",
+   "yaw": 0
+  },
+  {
+   "actor": "taborgreat",
+   "tick": 608,
+   "x": -2684.5,
+   "y": 66,
+   "z": 1694.5,
+   "anim": "walk"
+  },
+  {
+   "actor": "taborgreat",
+   "tick": 640,
+   "x": -2689,
+   "y": 66,
+   "z": 1689.5,
+   "anim": "idle",
+   "yaw": 138.013
+  },
+  {
+   "actor": "taborgreat",
+   "tick": 640,
+   "x": -2689,
+   "y": 66,
+   "z": 1689.5,
+   "anim": "walk"
+  },
+  {
+   "actor": "taborgreat",
+   "tick": 662,
+   "x": -2691.3,
+   "y": 66,
+   "z": 1685.5,
+   "anim": "idle",
+   "yaw": 150.101
+  },
+  {
+   "actor": "DummyOne",
+   "tick": 0,
+   "x": -2690,
+   "y": 66,
+   "z": 1690.7,
+   "anim": "idle",
+   "look_at": "taborgreat"
+  },
+  {
+   "actor": "DummyOne",
+   "tick": 8,
+   "x": -2690,
+   "y": 66,
+   "z": 1690.7,
+   "anim": "walk"
+  },
+  {
+   "actor": "DummyOne",
+   "tick": 30,
+   "x": -2687.1,
+   "y": 66,
+   "z": 1693.9,
+   "anim": "idle",
+   "look_at": "taborgreat"
+  },
+  {
+   "actor": "DummyOne",
+   "tick": 277,
+   "x": -2687.1,
+   "y": 66,
+   "z": 1693.9,
+   "anim": "knockback:0"
+  },
+  {
+   "actor": "DummyOne",
+   "tick": 292,
+   "x": -2687.1,
+   "y": 66,
+   "z": 1696.925,
+   "anim": "idle",
+   "look_at": "taborgreat"
+  },
+  {
+   "actor": "DummyOne",
+   "tick": 298,
+   "x": -2687.1,
+   "y": 66,
+   "z": 1696.925,
+   "anim": "knockback:0"
+  },
+  {
+   "actor": "DummyOne",
+   "tick": 313,
+   "x": -2687.1,
+   "y": 66,
+   "z": 1699.95,
+   "anim": "idle",
+   "look_at": "taborgreat"
+  },
+  {
+   "actor": "DummyOne",
+   "tick": 614,
+   "x": -2687.1,
+   "y": 66,
+   "z": 1699.95,
+   "anim": "walk"
+  },
+  {
+   "actor": "DummyOne",
+   "tick": 630,
+   "x": -2685.316,
+   "y": 66,
+   "z": 1700.774,
+   "anim": "idle",
+   "look_at": "WispDecoy4"
+  },
+  {
+   "actor": "DummyOne",
+   "tick": 632,
+   "x": -2685.316,
+   "y": 66,
+   "z": 1700.774,
+   "anim": "swing_once",
+   "look_at": "WispDecoy4"
+  },
+  {
+   "actor": "DummyOne",
+   "tick": 632,
+   "x": -2685.316,
+   "y": 66,
+   "z": 1700.774,
+   "anim": "hurt",
+   "look_at": "WispDecoy4"
+  },
+  {
+   "actor": "DummyTwo",
+   "tick": 0,
+   "x": -2684.5,
+   "y": 66,
+   "z": 1689.1,
+   "anim": "idle",
+   "look_at": "taborgreat"
+  },
+  {
+   "actor": "DummyTwo",
+   "tick": 8,
+   "x": -2684.5,
+   "y": 66,
+   "z": 1689.1,
+   "anim": "walk"
+  },
+  {
+   "actor": "DummyTwo",
+   "tick": 30,
+   "x": -2684.5,
+   "y": 66,
+   "z": 1693.3,
+   "anim": "idle",
+   "look_at": "taborgreat"
+  },
+  {
+   "actor": "DummyTwo",
+   "tick": 66,
+   "x": -2684.5,
+   "y": 66,
+   "z": 1693.3,
+   "anim": "knockback:0"
+  },
+  {
+   "actor": "DummyTwo",
+   "tick": 81,
+   "x": -2684.5,
+   "y": 66,
+   "z": 1690.275,
+   "anim": "idle",
+   "look_at": "taborgreat"
+  },
+  {
+   "actor": "DummyTwo",
+   "tick": 85,
+   "x": -2684.5,
+   "y": 66,
+   "z": 1690.275,
+   "anim": "walk"
+  },
+  {
+   "actor": "DummyTwo",
+   "tick": 100,
+   "x": -2684.5,
+   "y": 66,
+   "z": 1693.3,
+   "anim": "idle",
+   "look_at": "taborgreat"
+  },
+  {
+   "actor": "DummyTwo",
+   "tick": 112,
+   "x": -2684.5,
+   "y": 66,
+   "z": 1693.3,
+   "anim": "hold:minecraft:iron_sword",
+   "look_at": "taborgreat"
+  },
+  {
+   "actor": "DummyTwo",
+   "tick": 132,
+   "x": -2684.5,
+   "y": 66,
+   "z": 1693.3,
+   "anim": "swing_once",
+   "look_at": "taborgreat"
+  },
+  {
+   "actor": "DummyTwo",
+   "tick": 142,
+   "x": -2684.5,
+   "y": 66,
+   "z": 1693.3,
+   "anim": "swing_once",
+   "look_at": "taborgreat"
+  },
+  {
+   "actor": "DummyTwo",
+   "tick": 152,
+   "x": -2684.5,
+   "y": 66,
+   "z": 1693.3,
+   "anim": "swing_once",
+   "look_at": "taborgreat"
+  },
+  {
+   "actor": "DummyTwo",
+   "tick": 162,
+   "x": -2684.5,
+   "y": 66,
+   "z": 1693.3,
+   "anim": "swing_once",
+   "look_at": "taborgreat"
+  },
+  {
+   "actor": "DummyTwo",
+   "tick": 178,
+   "x": -2684.5,
+   "y": 66,
+   "z": 1693.3,
+   "anim": "knockback:0"
+  },
+  {
+   "actor": "DummyTwo",
+   "tick": 193,
+   "x": -2684.5,
+   "y": 66,
+   "z": 1690.275,
+   "anim": "idle",
+   "look_at": "taborgreat"
+  },
+  {
+   "actor": "DummyTwo",
+   "tick": 196,
+   "x": -2684.5,
+   "y": 66,
+   "z": 1690.275,
+   "anim": "walk"
+  },
+  {
+   "actor": "DummyTwo",
+   "tick": 208,
+   "x": -2684.5,
+   "y": 66,
+   "z": 1692.8,
+   "anim": "idle",
+   "look_at": "taborgreat"
+  },
+  {
+   "actor": "DummyTwo",
+   "tick": 212,
+   "x": -2684.5,
+   "y": 66,
+   "z": 1692.8,
+   "anim": "swing_once",
+   "look_at": "taborgreat"
+  },
+  {
+   "actor": "DummyTwo",
+   "tick": 240,
+   "x": -2684.5,
+   "y": 66,
+   "z": 1692.8,
+   "anim": "knockback:0"
+  },
+  {
+   "actor": "DummyTwo",
+   "tick": 255,
+   "x": -2684.5,
+   "y": 66,
+   "z": 1689.775,
+   "anim": "idle",
+   "look_at": "taborgreat"
+  },
+  {
+   "actor": "DummyTwo",
+   "tick": 262,
+   "x": -2684.5,
+   "y": 66,
+   "z": 1689.775,
+   "anim": "death",
+   "look_at": "taborgreat"
+  },
+  {
+   "actor": "DummyTwo",
+   "tick": 262,
+   "x": -2684.5,
+   "y": 66,
+   "z": 1689.775,
+   "anim": "idle",
+   "look_at": "taborgreat"
+  },
+  {
+   "actor": "DummyTwo",
+   "tick": 288,
+   "x": -2684.5,
+   "y": 66,
+   "z": 1689.775,
+   "anim": "fly",
+   "look_at": "taborgreat"
+  },
+  {
+   "actor": "DummyTwo",
+   "tick": 289,
+   "x": -2684.5,
+   "y": 40,
+   "z": 1689.775,
+   "anim": "fly",
+   "look_at": "taborgreat"
+  },
+  {
+   "actor": "DummyThree",
+   "tick": 0,
+   "x": -2691.5,
+   "y": 66,
+   "z": 1701,
+   "anim": "idle",
+   "look_at": "taborgreat"
+  },
+  {
+   "actor": "DummyThree",
+   "tick": 6,
+   "x": -2691.5,
+   "y": 66,
+   "z": 1701,
+   "anim": "walk"
+  },
+  {
+   "actor": "DummyThree",
+   "tick": 30,
+   "x": -2688,
+   "y": 66,
+   "z": 1697.7,
+   "anim": "idle",
+   "look_at": "taborgreat"
+  },
+  {
+   "actor": "DummyThree",
+   "tick": 316,
+   "x": -2688,
+   "y": 66,
+   "z": 1697.7,
+   "anim": "idle",
+   "look_at": "taborgreat"
+  },
+  {
+   "actor": "DummyThree",
+   "tick": 354,
+   "x": -2688,
+   "y": 66,
+   "z": 1697.7,
+   "anim": "knockback:0"
+  },
+  {
+   "actor": "DummyThree",
+   "tick": 369,
+   "x": -2684.975,
+   "y": 66,
+   "z": 1697.7,
+   "anim": "idle",
+   "look_at": "taborgreat"
+  },
+  {
+   "actor": "DummyThree",
+   "tick": 376,
+   "x": -2684.975,
+   "y": 66,
+   "z": 1697.7,
+   "anim": "knockback:0"
+  },
+  {
+   "actor": "DummyThree",
+   "tick": 391,
+   "x": -2681.95,
+   "y": 66,
+   "z": 1697.7,
+   "anim": "idle",
+   "look_at": "taborgreat"
+  },
+  {
+   "actor": "DummyThree",
+   "tick": 394,
+   "x": -2681.95,
+   "y": 66,
+   "z": 1697.7,
+   "anim": "walk"
+  },
+  {
+   "actor": "DummyThree",
+   "tick": 401,
+   "x": -2681.974,
+   "y": 66,
+   "z": 1696.207,
+   "anim": "hurt"
+  },
+  {
+   "actor": "DummyThree",
+   "tick": 409,
+   "x": -2682,
+   "y": 66,
+   "z": 1694.5,
+   "anim": "idle",
+   "look_at": "taborgreat"
+  },
+  {
+   "actor": "DummyThree",
+   "tick": 426,
+   "x": -2682,
+   "y": 66,
+   "z": 1694.5,
+   "anim": "hurt",
+   "look_at": "taborgreat"
+  },
+  {
+   "actor": "DummyThree",
+   "tick": 451,
+   "x": -2682,
+   "y": 66,
+   "z": 1694.5,
+   "anim": "hurt",
+   "look_at": "taborgreat"
+  },
+  {
+   "actor": "DummyThree",
+   "tick": 466,
+   "x": -2682,
+   "y": 66,
+   "z": 1694.5,
+   "anim": "hurt",
+   "look_at": "taborgreat"
+  },
+  {
+   "actor": "DummyThree",
+   "tick": 478,
+   "x": -2682,
+   "y": 66,
+   "z": 1694.5,
+   "anim": "swing_once",
+   "look_at": "taborgreat"
+  },
+  {
+   "actor": "DummyThree",
+   "tick": 516,
+   "x": -2682,
+   "y": 66,
+   "z": 1694.5,
+   "anim": "knockback:1"
+  },
+  {
+   "actor": "DummyThree",
+   "tick": 535,
+   "x": -2682,
+   "y": 66,
+   "z": 1686.895,
+   "anim": "idle",
+   "look_at": "taborgreat"
+  },
+  {
+   "actor": "DummyThree",
+   "tick": 548,
+   "x": -2682,
+   "y": 66,
+   "z": 1686.895,
+   "anim": "death",
+   "look_at": "taborgreat"
+  },
+  {
+   "actor": "DummyThree",
+   "tick": 548,
+   "x": -2682,
+   "y": 66,
+   "z": 1686.895,
+   "anim": "idle",
+   "look_at": "taborgreat"
+  },
+  {
+   "actor": "DummyThree",
+   "tick": 574,
+   "x": -2682,
+   "y": 66,
+   "z": 1686.895,
+   "anim": "fly",
+   "look_at": "taborgreat"
+  },
+  {
+   "actor": "DummyThree",
+   "tick": 575,
+   "x": -2682,
+   "y": 40,
+   "z": 1686.895,
+   "anim": "fly",
+   "look_at": "taborgreat"
+  },
+  {
+   "actor": "WispDecoy1",
+   "tick": 0,
+   "x": -2691.5,
+   "y": 50,
+   "z": 1681.5,
+   "anim": "idle",
+   "yaw": 180
+  },
+  {
+   "actor": "WispDecoy1",
+   "tick": 8,
+   "x": -2691.5,
+   "y": 50,
+   "z": 1681.5,
+   "anim": "hold:minecraft:magma_cream",
+   "yaw": 180
+  },
+  {
+   "actor": "WispDecoy1",
+   "tick": 605,
+   "x": -2691.5,
+   "y": 50,
+   "z": 1681.5,
+   "anim": "fly",
+   "yaw": 180
+  },
+  {
+   "actor": "WispDecoy1",
+   "tick": 606,
+   "x": -2685.5,
+   "y": 66,
+   "z": 1694.5,
+   "anim": "idle",
+   "yaw": 0
+  },
+  {
+   "actor": "WispDecoy1",
+   "tick": 606,
+   "x": -2685.5,
+   "y": 66,
+   "z": 1694.5,
+   "anim": "walk"
+  },
+  {
+   "actor": "WispDecoy1",
+   "tick": 632,
+   "x": -2691,
+   "y": 66,
+   "z": 1695.5,
+   "anim": "idle",
+   "yaw": 79.695
+  },
+  {
+   "actor": "WispDecoy1",
+   "tick": 632,
+   "x": -2691,
+   "y": 66,
+   "z": 1695.5,
+   "anim": "walk"
+  },
+  {
+   "actor": "WispDecoy1",
+   "tick": 679,
+   "x": -2691,
+   "y": 66,
+   "z": 1705.5,
+   "anim": "idle",
+   "yaw": 0
+  },
+  {
+   "actor": "WispDecoy1",
+   "tick": 679,
+   "x": -2691,
+   "y": 66,
+   "z": 1705.5,
+   "anim": "walk"
+  },
+  {
+   "actor": "WispDecoy1",
+   "tick": 715,
+   "x": -2683.5,
+   "y": 66,
+   "z": 1707,
+   "anim": "idle",
+   "yaw": -78.69
+  },
+  {
+   "actor": "WispDecoy2",
+   "tick": 0,
+   "x": -2690.5,
+   "y": 50,
+   "z": 1681.5,
+   "anim": "idle",
+   "yaw": 180
+  },
+  {
+   "actor": "WispDecoy2",
+   "tick": 8,
+   "x": -2690.5,
+   "y": 50,
+   "z": 1681.5,
+   "anim": "hold:minecraft:magma_cream",
+   "yaw": 180
+  },
+  {
+   "actor": "WispDecoy2",
+   "tick": 605,
+   "x": -2690.5,
+   "y": 50,
+   "z": 1681.5,
+   "anim": "fly",
+   "yaw": 180
+  },
+  {
+   "actor": "WispDecoy2",
+   "tick": 606,
+   "x": -2683.5,
+   "y": 66,
+   "z": 1694.5,
+   "anim": "idle",
+   "yaw": 0
+  },
+  {
+   "actor": "WispDecoy2",
+   "tick": 606,
+   "x": -2683.5,
+   "y": 66,
+   "z": 1694.5,
+   "anim": "walk"
+  },
+  {
+   "actor": "WispDecoy2",
+   "tick": 630,
+   "x": -2678.5,
+   "y": 66,
+   "z": 1693.5,
+   "anim": "idle",
+   "yaw": -101.31
+  },
+  {
+   "actor": "WispDecoy2",
+   "tick": 630,
+   "x": -2678.5,
+   "y": 66,
+   "z": 1693.5,
+   "anim": "walk"
+  },
+  {
+   "actor": "WispDecoy2",
+   "tick": 672,
+   "x": -2678.5,
+   "y": 66,
+   "z": 1684.5,
+   "anim": "idle",
+   "yaw": -180
+  },
+  {
+   "actor": "WispDecoy2",
+   "tick": 672,
+   "x": -2678.5,
+   "y": 66,
+   "z": 1684.5,
+   "anim": "walk"
+  },
+  {
+   "actor": "WispDecoy2",
+   "tick": 699,
+   "x": -2682.5,
+   "y": 66,
+   "z": 1680.5,
+   "anim": "idle",
+   "yaw": 135
+  },
+  {
+   "actor": "WispDecoy3",
+   "tick": 0,
+   "x": -2689.5,
+   "y": 50,
+   "z": 1681.5,
+   "anim": "idle",
+   "yaw": 180
+  },
+  {
+   "actor": "WispDecoy3",
+   "tick": 8,
+   "x": -2689.5,
+   "y": 50,
+   "z": 1681.5,
+   "anim": "hold:minecraft:magma_cream",
+   "yaw": 180
+  },
+  {
+   "actor": "WispDecoy3",
+   "tick": 605,
+   "x": -2689.5,
+   "y": 50,
+   "z": 1681.5,
+   "anim": "fly",
+   "yaw": 180
+  },
+  {
+   "actor": "WispDecoy3",
+   "tick": 606,
+   "x": -2684.5,
+   "y": 66,
+   "z": 1693.5,
+   "anim": "idle",
+   "yaw": 0
+  },
+  {
+   "actor": "WispDecoy3",
+   "tick": 606,
+   "x": -2684.5,
+   "y": 66,
+   "z": 1693.5,
+   "anim": "walk"
+  },
+  {
+   "actor": "WispDecoy3",
+   "tick": 644,
+   "x": -2684.5,
+   "y": 66,
+   "z": 1685.5,
+   "anim": "idle",
+   "yaw": -180
+  },
+  {
+   "actor": "WispDecoy3",
+   "tick": 644,
+   "x": -2684.5,
+   "y": 66,
+   "z": 1685.5,
+   "anim": "walk"
+  },
+  {
+   "actor": "WispDecoy3",
+   "tick": 679,
+   "x": -2690.5,
+   "y": 66,
+   "z": 1681,
+   "anim": "idle",
+   "yaw": 126.87
+  },
+  {
+   "actor": "WispDecoy4",
+   "tick": 0,
+   "x": -2688.5,
+   "y": 50,
+   "z": 1681.5,
+   "anim": "idle",
+   "yaw": 180
+  },
+  {
+   "actor": "WispDecoy4",
+   "tick": 8,
+   "x": -2688.5,
+   "y": 50,
+   "z": 1681.5,
+   "anim": "hold:minecraft:magma_cream",
+   "yaw": 180
+  },
+  {
+   "actor": "WispDecoy4",
+   "tick": 605,
+   "x": -2688.5,
+   "y": 50,
+   "z": 1681.5,
+   "anim": "fly",
+   "yaw": 180
+  },
+  {
+   "actor": "WispDecoy4",
+   "tick": 606,
+   "x": -2684.5,
+   "y": 66,
+   "z": 1695.5,
+   "anim": "idle",
+   "yaw": 0
+  },
+  {
+   "actor": "WispDecoy4",
+   "tick": 606,
+   "x": -2684.5,
+   "y": 66,
+   "z": 1695.5,
+   "anim": "walk"
+  },
+  {
+   "actor": "WispDecoy4",
+   "tick": 632,
+   "x": -2683.816,
+   "y": 66,
+   "z": 1700.974,
+   "anim": "death"
+  },
+  {
+   "actor": "WispDecoy4",
+   "tick": 632,
+   "x": -2683.816,
+   "y": 66,
+   "z": 1700.974,
+   "anim": "idle"
+  },
+  {
+   "actor": "WispDecoy4",
+   "tick": 658,
+   "x": -2683.816,
+   "y": 66,
+   "z": 1700.974,
+   "anim": "fly"
+  },
+  {
+   "actor": "WispDecoy4",
+   "tick": 659,
+   "x": -2683.816,
+   "y": 40,
+   "z": 1700.974,
+   "anim": "fly"
+  },
+  {
+   "actor": "WispDecoy5",
+   "tick": 0,
+   "x": -2687.5,
+   "y": 50,
+   "z": 1681.5,
+   "anim": "idle",
+   "yaw": 180
+  },
+  {
+   "actor": "WispDecoy5",
+   "tick": 8,
+   "x": -2687.5,
+   "y": 50,
+   "z": 1681.5,
+   "anim": "hold:minecraft:magma_cream",
+   "yaw": 180
+  },
+  {
+   "actor": "WispDecoy5",
+   "tick": 605,
+   "x": -2687.5,
+   "y": 50,
+   "z": 1681.5,
+   "anim": "fly",
+   "yaw": 180
+  },
+  {
+   "actor": "WispDecoy5",
+   "tick": 606,
+   "x": -2683.5,
+   "y": 66,
+   "z": 1695.5,
+   "anim": "idle",
+   "yaw": 0
+  },
+  {
+   "actor": "WispDecoy5",
+   "tick": 606,
+   "x": -2683.5,
+   "y": 66,
+   "z": 1695.5,
+   "anim": "walk"
+  },
+  {
+   "actor": "WispDecoy5",
+   "tick": 638,
+   "x": -2679,
+   "y": 66,
+   "z": 1700.5,
+   "anim": "idle",
+   "yaw": -41.987
+  },
+  {
+   "actor": "WispDecoy5",
+   "tick": 638,
+   "x": -2679,
+   "y": 66,
+   "z": 1700.5,
+   "anim": "walk"
+  },
+  {
+   "actor": "WispDecoy5",
+   "tick": 666,
+   "x": -2679,
+   "y": 66,
+   "z": 1706.5,
+   "anim": "idle",
+   "yaw": 0
+  },
+  {
+   "actor": "WispDecoy5",
+   "tick": 666,
+   "x": -2679,
+   "y": 66,
+   "z": 1706.5,
+   "anim": "walk"
+  },
+  {
+   "actor": "WispDecoy5",
+   "tick": 701,
+   "x": -2671.5,
+   "y": 66,
+   "z": 1706,
+   "anim": "idle",
+   "yaw": -93.814
+  }
+ ],
+ "world_events": [
+  {
+   "tick": 0,
+   "type": "fill",
+   "from": [
+    -2692,
+    49,
+    1681
+   ],
+   "to": [
+    -2688,
+    49,
+    1681
+   ],
+   "block": "minecraft:stone"
+  },
+  {
+   "tick": 0,
+   "type": "fill",
+   "from": [
+    -2692,
+    50,
+    1681
+   ],
+   "to": [
+    -2688,
+    51,
+    1681
+   ],
+   "block": "minecraft:air"
+  },
+  {
+   "tick": 0,
+   "type": "time",
+   "value": 1000
+  },
+  {
+   "tick": 0,
+   "type": "command",
+   "cmd": "/tp @e[type=minecraft:wolf,x=-2686,y=66,z=1693,distance=..70] -2686 -120 1693"
+  },
+  {
+   "tick": 1,
+   "type": "command",
+   "cmd": "/clear taborgreat"
+  },
+  {
+   "tick": 1,
+   "type": "command",
+   "cmd": "/clear DummyOne"
+  },
+  {
+   "tick": 1,
+   "type": "command",
+   "cmd": "/clear DummyTwo"
+  },
+  {
+   "tick": 1,
+   "type": "command",
+   "cmd": "/clear DummyThree"
+  },
+  {
+   "tick": 1,
+   "type": "command",
+   "cmd": "/clear WispDecoy1"
+  },
+  {
+   "tick": 1,
+   "type": "command",
+   "cmd": "/clear WispDecoy2"
+  },
+  {
+   "tick": 1,
+   "type": "command",
+   "cmd": "/clear WispDecoy3"
+  },
+  {
+   "tick": 1,
+   "type": "command",
+   "cmd": "/clear WispDecoy4"
+  },
+  {
+   "tick": 1,
+   "type": "command",
+   "cmd": "/clear WispDecoy5"
+  },
+  {
+   "tick": 448,
+   "type": "summon",
+   "entity": "minecraft:wolf",
+   "at": [
+    -2685,
+    66,
+    1696
+   ]
+  },
+  {
+   "tick": 498,
+   "type": "time",
+   "value": 13000
+  },
+  {
+   "tick": 578,
+   "type": "command",
+   "cmd": "/tp @e[type=minecraft:wolf,x=-2686,y=66,z=1693,distance=..70] -2686 -120 1693"
+  },
+  {
+   "tick": 578,
+   "type": "time",
+   "value": 1000
+  },
+  {
+   "tick": 799,
+   "type": "fill",
+   "from": [
+    -2692,
+    50,
+    1681
+   ],
+   "to": [
+    -2688,
+    51,
+    1681
+   ],
+   "block": "minecraft:stone"
+  }
+ ],
+ "shots": [
+  {
+   "id": "sh_timelord",
+   "start_tick": 0,
+   "end_tick": 112,
+   "fov": 60,
+   "covers_lines": [
+    "timelord"
+   ],
+   "path": {
+    "type": "orbit",
+    "target": [
+     -2685,
+     67.2,
+     1694.5
+    ],
+    "radius": 6.5,
+    "height": 1.6,
+    "start_deg": 250,
+    "end_deg": 300,
+    "easing": "ease_in_out"
+   }
+  },
+  {
+   "id": "sh_turtle",
+   "start_tick": 112,
+   "end_tick": 224,
+   "fov": 52,
+   "covers_lines": [
+    "turtle"
+   ],
+   "path": {
+    "type": "static",
+    "pos": [
+     -2680,
+     68.5,
+     1699
+    ],
+    "look": [
+     -2684.5,
+     66.9,
+     1694.1
+    ]
+   }
+  },
+  {
+   "id": "sh_vampire",
+   "start_tick": 224,
+   "end_tick": 336,
+   "fov": 60,
+   "covers_lines": [
+    "vampire"
+   ],
+   "path": {
+    "type": "dolly",
+    "from": [
+     -2678,
+     68.6,
+     1690.5
+    ],
+    "to": [
+     -2678,
+     68.6,
+     1695.5
+    ],
+    "look": "taborgreat",
+    "easing": "ease_in_out"
+   }
+  },
+  {
+   "id": "sh_viper",
+   "start_tick": 336,
+   "end_tick": 448,
+   "fov": 66,
+   "covers_lines": [
+    "viper"
+   ],
+   "path": {
+    "type": "static",
+    "pos": [
+     -2686,
+     68.5,
+     1690.9
+    ],
+    "look": [
+     -2686,
+     66.9,
+     1697.7
+    ]
+   }
+  },
+  {
+   "id": "sh_werewolf",
+   "start_tick": 448,
+   "end_tick": 578,
+   "fov": 66,
+   "covers_lines": [
+    "werewolf"
+   ],
+   "path": {
+    "type": "static",
+    "pos": [
+     -2676,
+     68.8,
+     1693
+    ],
+    "look": {
+     "between": [
+      "taborgreat",
+      "DummyThree"
+     ]
+    }
+   }
+  },
+  {
+   "id": "sh_wisp",
+   "start_tick": 578,
+   "end_tick": 678,
+   "fov": 62,
+   "covers_lines": [
+    "wisp"
+   ],
+   "path": {
+    "type": "static",
+    "pos": [
+     -2675,
+     69.4,
+     1695
+    ],
+    "look": [
+     -2684.5,
+     67,
+     1695
+    ]
+   }
+  },
+  {
+   "id": "sh_final",
+   "start_tick": 678,
+   "end_tick": 800,
+   "fov": 78,
+   "covers_lines": [
+    "outro"
+   ],
+   "path": {
+    "type": "dolly",
+    "from": [
+     -2675.5,
+     69,
+     1682.5
+    ],
+    "to": [
+     -2673,
+     72,
+     1680.5
+    ],
+    "look": [
+     -2685.5,
+     66.5,
+     1695.5
+    ],
+    "easing": "ease_out"
+   }
+  }
+ ]
+}

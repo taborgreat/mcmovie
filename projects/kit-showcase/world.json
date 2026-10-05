@@ -1,0 +1,63 @@
+{
+  "ground_y": 65,
+  "time_of_day": "day",
+  "weather": "clear",
+  "sets": [
+    {
+      "id": "range",
+      "origin": [
+        -2678,
+        66,
+        1694
+      ],
+      "radius": 6,
+      "ops": [
+        {
+          "type": "setblock",
+          "at": [
+            -2676,
+            66,
+            1703
+          ],
+          "block": "minecraft:campfire"
+        },
+        {
+          "type": "setblock",
+          "at": [
+            -2674,
+            66,
+            1703
+          ],
+          "block": "minecraft:spruce_log[axis=z]"
+        },
+        {
+          "type": "setblock",
+          "at": [
+            -2677,
+            66,
+            1704
+          ],
+          "block": "minecraft:chest[facing=north]"
+        },
+        {
+          "type": "setblock",
+          "at": [
+            -2675,
+            66,
+            1704
+          ],
+          "block": "minecraft:spruce_fence"
+        },
+        {
+          "type": "setblock",
+          "at": [
+            -2675,
+            67,
+            1704
+          ],
+          "block": "minecraft:lantern"
+        }
+      ]
+    }
+  ]
+}

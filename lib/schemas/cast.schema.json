@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "cast.json - character -> voice profile",
+  "type": "object",
+  "required": ["characters"],
+  "properties": {
+    "characters": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["voice"],
+        "properties": {
+          "voice": { "type": "string", "description": "stock:<id> | design | clone:<wav path> | crowd" },
+          "voice_desc": { "type": "string" },
+          "language": { "type": "string" },
+          "profile_id": { "type": "string", "description": "Filled by voice:cast after the server creates the profile" },
+          "ref_audio": { "type": "string" },
+          "speed": { "type": "number" },
+          "gain_db": { "type": "number" }
+        }
+      }
+    }
+  }
+}

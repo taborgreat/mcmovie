@@ -1,0 +1,7 @@
+{
+  "name": "node-canvas-webgl",
+  "version": "0.3.0-mcmovie",
+  "description": "Minimal canvas+headless-gl bridge used by prismarine-viewer in node (replaces the upstream package, which pins an old canvas build).",
+  "main": "lib/index.js",
+  "license": "MIT"
+}

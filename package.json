@@ -1,0 +1,33 @@
+{
+  "name": "mcmovie",
+  "version": "0.1.0",
+  "description": "Minecraft movie generator: one prompt in, one finished MP4 out. Bots act, a bot films, ffmpeg cuts.",
+  "license": "MIT",
+  "private": true,
+  "bin": {
+    "mcmovie": "bin/mcmovie.js",
+    "mcmatch": "bin/mcmatch.js",
+    "mcpublish": "bin/mcpublish.js",
+    "mcauto": "bin/mcauto.js"
+  },
+  "scripts": {
+    "test": "node test/run.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "ajv": "^8.17.1",
+    "canvas": "^3.2.3",
+    "gl": "^8.1.6",
+    "mineflayer": "^4.39.0",
+    "minecraft-data": "^3.114.0",
+    "node-canvas-webgl": "file:vendor/node-canvas-webgl",
+    "prismarine-chunk": "^1.41.0",
+    "prismarine-registry": "^1.10.0",
+    "prismarine-viewer": "^1.33.0",
+    "prismarine-world": "^3.6.0",
+    "three": "0.128.0",
+    "vec3": "^0.1.10"
+  }
+}

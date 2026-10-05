@@ -1,0 +1,8 @@
+fastapi>=0.115
+uvicorn[standard]>=0.30
+numpy
+soundfile
+qwen-tts
+# torch must match the NVIDIA driver. Driver 550 (CUDA 12.4) needs:
+#   pip install torch==2.6.0 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/cu124
+# Newer drivers can use the default `pip install torch torchaudio`.

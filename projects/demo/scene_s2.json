@@ -1,0 +1,202 @@
+{
+  "scene_id": "s2",
+  "title": "The price",
+  "duration_ticks": 300,
+  "beats": [
+    {
+      "id": "b1",
+      "description": "At the well, Bram shows the diamond.",
+      "start_tick": 0
+    },
+    {
+      "id": "b2",
+      "description": "Ola names a price. A cow wanders through.",
+      "start_tick": 70
+    },
+    {
+      "id": "b3",
+      "description": "Bram pockets it and sprints off; Ola is left shouting.",
+      "start_tick": 150
+    }
+  ],
+  "lines": [
+    {
+      "id": "l1",
+      "tick": 20,
+      "character": "Bram",
+      "text": "Three days in the dark for this.",
+      "emotion": "proud, quiet"
+    },
+    {
+      "id": "l2",
+      "tick": 95,
+      "character": "Ola",
+      "text": "Twelve emeralds. Final offer, and generous.",
+      "emotion": "businesslike"
+    },
+    {
+      "id": "l3",
+      "tick": 165,
+      "character": "Bram",
+      "text": "Generous. Right.",
+      "emotion": "dry"
+    },
+    {
+      "id": "l4",
+      "tick": 225,
+      "character": "Ola",
+      "text": "Bram! Bram, get back here!",
+      "emotion": "angry, shouting",
+      "delivery": "shouted after him"
+    }
+  ],
+  "keyframes": [
+    {
+      "actor": "Bram",
+      "tick": 0,
+      "x": 98,
+      "y": 65,
+      "z": 103,
+      "anim": "hold:minecraft:diamond",
+      "look_at": "Ola"
+    },
+    {
+      "actor": "Bram",
+      "tick": 10,
+      "x": 98,
+      "y": 65,
+      "z": 103,
+      "anim": "swing_once",
+      "look_at": "Ola"
+    },
+    {
+      "actor": "Bram",
+      "tick": 195,
+      "x": 98,
+      "y": 65,
+      "z": 103,
+      "anim": "sprint",
+      "yaw": 90
+    },
+    {
+      "actor": "Bram",
+      "tick": 260,
+      "x": 80,
+      "y": 65,
+      "z": 101,
+      "anim": "idle",
+      "yaw": 90
+    },
+    {
+      "actor": "Ola",
+      "tick": 0,
+      "x": 102,
+      "y": 65,
+      "z": 103,
+      "anim": "idle",
+      "look_at": "Bram"
+    },
+    {
+      "actor": "Ola",
+      "tick": 200,
+      "x": 102,
+      "y": 65,
+      "z": 103,
+      "anim": "walk",
+      "look_at": "Bram"
+    },
+    {
+      "actor": "Ola",
+      "tick": 230,
+      "x": 96,
+      "y": 65,
+      "z": 102,
+      "anim": "idle",
+      "look_at": "Bram"
+    }
+  ],
+  "world_events": [
+    {
+      "tick": 60,
+      "type": "summon",
+      "entity": "minecraft:cow",
+      "at": [
+        95,
+        65,
+        108
+      ]
+    }
+  ],
+  "shots": [
+    {
+      "id": "sh1",
+      "start_tick": 0,
+      "end_tick": 90,
+      "fov": 55,
+      "covers_lines": [
+        "l1"
+      ],
+      "path": {
+        "type": "static",
+        "pos": [
+          100.5,
+          66.8,
+          106.5
+        ],
+        "look": [
+          99,
+          66.2,
+          103
+        ]
+      }
+    },
+    {
+      "id": "sh2",
+      "start_tick": 90,
+      "end_tick": 195,
+      "fov": 60,
+      "covers_lines": [
+        "l2",
+        "l3"
+      ],
+      "path": {
+        "type": "dolly",
+        "from": [
+          103,
+          67,
+          107
+        ],
+        "to": [
+          97,
+          67,
+          108
+        ],
+        "look": [
+          100,
+          66.2,
+          103
+        ],
+        "easing": "linear"
+      }
+    },
+    {
+      "id": "sh3",
+      "start_tick": 195,
+      "end_tick": 300,
+      "fov": 70,
+      "covers_lines": [
+        "l4"
+      ],
+      "path": {
+        "type": "follow",
+        "actor": "Bram",
+        "rel": {
+          "back": 5,
+          "up": 2.4,
+          "right": 1.5
+        },
+        "smoothing": 0.3
+      }
+    }
+  ]
+}

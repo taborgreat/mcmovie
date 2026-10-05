@@ -1,0 +1,12 @@
+{
+  "comment": "How the voice model should say a username. Anything not listed is guessed (camelCase split, digits and underscores dropped).",
+  "names": {
+    "taborgreat": "Tabor Great",
+    "KoolKross": "Kool Cross",
+    "LiteByte_": "Light Byte",
+    "HabKeinWlan": "Hab Kine Vlahn",
+    "ichschalteaus": "Ich Shalta Ows",
+    "Ozikasu": "Oh-zee-kah-soo",
+    "Optimieren": "Optimeeren"
+  }
+}

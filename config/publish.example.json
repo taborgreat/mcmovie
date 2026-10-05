@@ -1,0 +1,18 @@
+{
+  "site": "hardcorepvp.com",
+  "brand": "HardcorePvP.com",
+  "youtube": {
+    "client_id": "xxxxxxxx.apps.googleusercontent.com",
+    "client_secret": "",
+    "refresh_token": "",
+    "privacy": "public",
+    "category_id": "20",
+    "made_for_kids": false,
+    "hashtags": ["minecraft", "server", "pvp", "java", "bedrock", "26.3", "{year}", "notch", "herobrine"],
+    "tags": ["minecraft", "hardcore games", "minecraft pvp", "hardcorepvp", "machinima"]
+  },
+  "discord": {
+    "webhook_url": "",
+    "username": "HardcorePVP Films"
+  }
+}

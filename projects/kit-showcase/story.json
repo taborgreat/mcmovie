@@ -1,0 +1,235 @@
+{
+  "title": "Every Kit in Five Seconds",
+  "format": "long",
+  "logline": "All 48 Hardcore Games kits back to back, about five seconds each. One guy runs through every kit on three very patient test dummies, from the anchor to the wisp.",
+  "point": "Every kit in the game, what each one does, in under five minutes.",
+  "premise": "One player wants to show all 48 kits doing their signature thing, and has five seconds and three test dummies for each.",
+  "turn": "Every few seconds the item in his hand changes and something new visibly happens to a dummy: a stick launch, a pit opening, a bedrock arena, a lightning strike on a tower.",
+  "final_image": "Six identical copies of him, the Wisp and his decoys, walk apart across the snow and the field goes quiet.",
+  "feeling": "delight",
+  "tone": "fast, clear, playful field guide",
+  "setting": {
+    "biome": "snowy_plains",
+    "time_of_day": "day",
+    "weather": "clear",
+    "style": "an open snowy plain used as a test range: bare snow, a small camp at the edge, and only the temporary things a kit needs (a pillar, a pool, a pit)"
+  },
+  "characters": [
+    {
+      "id": "taborgreat",
+      "name": "taborgreat",
+      "role": "the demonstrator: plays every kit in turn",
+      "personality": "calm, methodical, a little smug",
+      "voice_desc": "relaxed adult man, dry",
+      "skin_desc": "his own player skin",
+      "skin": "taborgreat",
+      "player": "taborgreat"
+    },
+    {
+      "id": "DummyOne",
+      "name": "Dummy One",
+      "role": "test dummy",
+      "personality": "patient, unlucky",
+      "voice_desc": "flat adult man",
+      "skin_desc": "default skin"
+    },
+    {
+      "id": "DummyTwo",
+      "name": "Dummy Two",
+      "role": "test dummy",
+      "personality": "patient, unlucky",
+      "voice_desc": "flat adult man",
+      "skin_desc": "default skin"
+    },
+    {
+      "id": "DummyThree",
+      "name": "Dummy Three",
+      "role": "test dummy",
+      "personality": "patient, unlucky",
+      "voice_desc": "flat adult man",
+      "skin_desc": "default skin"
+    },
+    {
+      "id": "WispDecoy1",
+      "name": "Wisp decoy 1",
+      "role": "a Wisp decoy: a silent copy of taborgreat, only in the last scene",
+      "personality": "none, it only walks",
+      "voice_desc": "silent",
+      "skin_desc": "the same skin as taborgreat",
+      "skin": "taborgreat"
+    },
+    {
+      "id": "WispDecoy2",
+      "name": "Wisp decoy 2",
+      "role": "a Wisp decoy: a silent copy of taborgreat, only in the last scene",
+      "personality": "none, it only walks",
+      "voice_desc": "silent",
+      "skin_desc": "the same skin as taborgreat",
+      "skin": "taborgreat"
+    },
+    {
+      "id": "WispDecoy3",
+      "name": "Wisp decoy 3",
+      "role": "a Wisp decoy: a silent copy of taborgreat, only in the last scene",
+      "personality": "none, it only walks",
+      "voice_desc": "silent",
+      "skin_desc": "the same skin as taborgreat",
+      "skin": "taborgreat"
+    },
+    {
+      "id": "WispDecoy4",
+      "name": "Wisp decoy 4",
+      "role": "a Wisp decoy: a silent copy of taborgreat, only in the last scene",
+      "personality": "none, it only walks",
+      "voice_desc": "silent",
+      "skin_desc": "the same skin as taborgreat",
+      "skin": "taborgreat"
+    },
+    {
+      "id": "WispDecoy5",
+      "name": "Wisp decoy 5",
+      "role": "a Wisp decoy: a silent copy of taborgreat, only in the last scene",
+      "personality": "none, it only walks",
+      "voice_desc": "silent",
+      "skin_desc": "the same skin as taborgreat",
+      "skin": "taborgreat"
+    },
+    {
+      "id": "narrator",
+      "name": "Narrator",
+      "role": "narrator, offscreen: names each kit and says what it does",
+      "personality": "brisk, dry, knows the game",
+      "voice_desc": "documentary baritone, brisk and clear",
+      "skin_desc": "never seen"
+    }
+  ],
+  "scenes": [
+    {
+      "id": "s1",
+      "title": "Anchor to Cookiemonster",
+      "summary": "Opens wide on taborgreat at 1,2 (local) facing DummyOne, DummyTwo and DummyThree in a row. Anchor: sword blows traded with DummyTwo, nobody moves. Barbarian: three wooden sword hits kill DummyOne and the sword turns to stone. Beastmaster: three summoned wolves, a bone click on each, DummyTwo bitten. Berserker: a pig is killed, then DummyThree dies in three hits. Cannibal: cod hits, DummyTwo kneels to eat. Cookiemonster: a grass tuft punched, a cookie, a sprint away from the walking dummy. Events: wolves and a pig summoned and removed. DummyOne and DummyThree end dead. Natural snowy plains, set \"range\": origin -2678,66,1694, stage x -2692..-2665, z 1680..1707, feet at y 66. The flat working area is the west half (x -2692..-2679); a one block rise covers the east middle, where most cameras stand.",
+      "location": "range",
+      "characters": [
+        "taborgreat",
+        "DummyOne",
+        "DummyTwo",
+        "DummyThree",
+        "narrator"
+      ],
+      "target_seconds": 37
+    },
+    {
+      "id": "s2",
+      "title": "Cultivator to Fireman",
+      "summary": "Cultivator: an oak sapling becomes a full tree in one tick (removed at the cut). Demoman: a stone plate on gravel at the north end, DummyTwo walks onto it, a power 4 explosion kills him. Digger: a dragon egg beside DummyThree, 30 ticks later a 5x5 pit 8 deep opens and he falls in. Endermage: a portal frame at the rim pulls DummyThree out of the pit to his side. Fighter: plain wooden sword hits traded with DummyOne. Fireman: fire under and around him, he is unhurt, DummyThree steps in and burns. The crater and pit are refilled after their slots. DummyTwo ends dead. Natural snowy plains, set \"range\": origin -2678,66,1694, stage x -2692..-2665, z 1680..1707, feet at y 66. The flat working area is the west half (x -2692..-2679); a one block rise covers the east middle, where most cameras stand.",
+      "location": "range",
+      "characters": [
+        "taborgreat",
+        "DummyOne",
+        "DummyTwo",
+        "DummyThree",
+        "narrator"
+      ],
+      "target_seconds": 34
+    },
+    {
+      "id": "s3",
+      "title": "Fisherman to Grandpa",
+      "summary": "Fisherman: DummyTwo starts 11 blocks north and is reeled through the air to his feet. Flash: redstone torch, a 10 block teleport north with a real lightning bolt 4 blocks beside the arrival. Forger: raw iron, an ingot, then full iron armour (kept for the rest of the scene). Gambler: a stone button on the ground, a press, poison flashes. Gladiator: iron bars touch DummyOne and both stand in a sealed bedrock box in the sky (built for this scene only, removed at its end) where DummyOne dies after the 60 tick immunity. Grandpa: back on the ground, one stick hit sends DummyTwo 12.5 blocks. DummyOne ends dead. Natural snowy plains, set \"range\": origin -2678,66,1694, stage x -2692..-2665, z 1680..1707, feet at y 66. The flat working area is the west half (x -2692..-2679); a one block rise covers the east middle, where most cameras stand.",
+      "location": "range",
+      "characters": [
+        "taborgreat",
+        "DummyOne",
+        "DummyTwo",
+        "DummyThree",
+        "narrator"
+      ],
+      "target_seconds": 34
+    },
+    {
+      "id": "s4",
+      "title": "Grappler to Jackhammer",
+      "summary": "DummyOne starts on top of an 8 block cobblestone pillar in the north west. Grappler: a cast and a 15 block flight across the field. Hades: a cow, a wolf and an iron golem summoned around DummyThree, an ingot click on each, the dummy mauled. Hermit: empty handed he walks off alone to the north edge. Horseman: a saddled armoured horse summoned beside him as a prop, fed hay. Hulk: DummyThree lifted onto his shoulders, a crouch to charge, a 19 block throw south. Jackhammer: a stone axe breaks the pillar base, the column goes block by block and DummyOne falls. Nobody dies. Natural snowy plains, set \"range\": origin -2678,66,1694, stage x -2692..-2665, z 1680..1707, feet at y 66. The flat working area is the west half (x -2692..-2679); a one block rise covers the east middle, where most cameras stand.",
+      "location": "range",
+      "characters": [
+        "taborgreat",
+        "DummyOne",
+        "DummyTwo",
+        "DummyThree",
+        "narrator"
+      ],
+      "target_seconds": 34
+    },
+    {
+      "id": "s5",
+      "title": "Jellyfish to Ninja",
+      "summary": "Jellyfish: an empty hand puts real water at DummyTwo's feet for 60 ticks. Kangaroo: a rocket leap six blocks high over DummyTwo. Kaya: a pit hidden under ordinary ground in the north, he lays the last grass block and walks over, DummyTwo follows and drops through. Launcher: two stacked sponges, DummyThree sprints over them and is shot 8 blocks up. Monk: a blaze rod touch empties DummyOne's sword hand. Ninja: a hit, DummyOne sprints south, a crouch, and he is at the dummy's back. DummyTwo stays in the pit; nobody dies. Natural snowy plains, set \"range\": origin -2678,66,1694, stage x -2692..-2665, z 1680..1707, feet at y 66. The flat working area is the west half (x -2692..-2679); a one block rise covers the east middle, where most cameras stand.",
+      "location": "range",
+      "characters": [
+        "taborgreat",
+        "DummyOne",
+        "DummyTwo",
+        "DummyThree",
+        "narrator"
+      ],
+      "target_seconds": 34
+    },
+    {
+      "id": "s6",
+      "title": "Poseidon to Soulstealer",
+      "summary": "taborgreat starts standing in a 5x5 pool one block deep. Poseidon: he knocks DummyTwo out of the pool twice (pool filled in at the cut). Pyro: a fire charge, a power 1.5 blast and fire beside DummyOne, who keeps flashing. Reaper: one hoe hit and DummyThree withers while running north. Scorch: leather boots and blaze powder, a ten block sprint east with real fire lit two blocks behind him; DummyTwo runs into it. Snail: two hits, DummyOne walks away and is sprinted down. Soulstealer: DummyOne kills him, he respawns under an invisibility effect, touches the dummy, appears with a stone sword and kills him. DummyOne ends dead. Natural snowy plains, set \"range\": origin -2678,66,1694, stage x -2692..-2665, z 1680..1707, feet at y 66. The flat working area is the west half (x -2692..-2679); a one block rise covers the east middle, where most cameras stand.",
+      "location": "range",
+      "characters": [
+        "taborgreat",
+        "DummyOne",
+        "DummyTwo",
+        "DummyThree",
+        "narrator"
+      ],
+      "target_seconds": 34
+    },
+    {
+      "id": "s7",
+      "title": "Spiderman to Thor",
+      "summary": "An 8 block cobblestone tower with a ladder stands in the west. Spiderman: a snowball becomes a 2x2 of cobweb on DummyTwo, he sprints through it. Spy: he climbs the ladder with the compass out, already watching DummyThree sneak up. Stomper: he steps off the tower onto DummyOne (crouched) and DummyThree, all three flash. Switcher: a snowball and he and DummyTwo trade places across the field. Tank: his kill on DummyOne explodes at power 4 and he stands in the crater. Thor: he clicks the tower foot with a wooden axe, real lightning hits its top and DummyThree is knocked off it. DummyOne ends dead. Natural snowy plains, set \"range\": origin -2678,66,1694, stage x -2692..-2665, z 1680..1707, feet at y 66. The flat working area is the west half (x -2692..-2679); a one block rise covers the east middle, where most cameras stand.",
+      "location": "range",
+      "characters": [
+        "taborgreat",
+        "DummyOne",
+        "DummyTwo",
+        "DummyThree",
+        "narrator"
+      ],
+      "target_seconds": 34
+    },
+    {
+      "id": "s8",
+      "title": "Timelord to Wisp",
+      "summary": "Timelord: three dummies walk at him and freeze on the clock click; he frees DummyTwo with a hit. Turtle: crouched, he takes four blows, stands to hit back once. Vampire: he kills DummyTwo and turns straight on DummyOne. Viper: two hits and DummyThree flashes with poison. Werewolf: weak by day and knocked back, then the time jumps to night and he sprint-hits DummyThree dead. Wisp: back in daylight, five decoys with his skin (waiting in a room under the stage until then) appear beside him and all six walk off; DummyOne kills one and flinches. The last twelve seconds hold on the copies scattering over the snow. Natural snowy plains, set \"range\": origin -2678,66,1694, stage x -2692..-2665, z 1680..1707, feet at y 66. The flat working area is the west half (x -2692..-2679); a one block rise covers the east middle, where most cameras stand.",
+      "location": "range",
+      "characters": [
+        "taborgreat",
+        "DummyOne",
+        "DummyTwo",
+        "DummyThree",
+        "WispDecoy1",
+        "WispDecoy2",
+        "WispDecoy3",
+        "WispDecoy4",
+        "WispDecoy5",
+        "narrator"
+      ],
+      "target_seconds": 40
+    }
+  ],
+  "music": {
+    "mood_tags": [
+      "funny",
+      "playful"
+    ],
+    "tempo": "mid"
+  },
+  "cards": {
+    "end_text": "hardcorepvp.com"
+  }
+}

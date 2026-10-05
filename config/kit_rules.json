@@ -1,0 +1,386 @@
+{
+  "anchor": {
+    "no_knockback": "always",
+    "deals_knockback_level": null,
+    "deals_no_knockback": true,
+    "no_fall_damage": false,
+    "signature_item": null,
+    "notes": "Melee knockback is cancelled both ways (arrows and explosions still move it); cannot wear boots."
+  },
+  "barbarian": {
+    "no_knockback": null,
+    "deals_knockback_level": null,
+    "deals_no_knockback": false,
+    "no_fall_damage": false,
+    "signature_item": "minecraft:wooden_sword",
+    "notes": "Tyrfing upgrades with kills: 1 kill stone_sword, 2 iron_sword, 4 diamond_sword, then Sharpness at 6, 8 and 10."
+  },
+  "beastmaster": {
+    "no_knockback": null,
+    "deals_knockback_level": null,
+    "deals_no_knockback": false,
+    "no_fall_damage": false,
+    "signature_item": "minecraft:bone",
+    "notes": "3 wolf eggs and 4 bones, every bone tames; wolves attack whoever the owner fights and never a Werewolf."
+  },
+  "berserker": {
+    "no_knockback": null,
+    "deals_knockback_level": null,
+    "deals_no_knockback": false,
+    "no_fall_damage": false,
+    "signature_item": null,
+    "notes": "Strength I for 200 ticks after a mob kill, Strength II for 300 after a player kill, and cannot jump while it lasts."
+  },
+  "cannibal": {
+    "no_knockback": null,
+    "deals_knockback_level": null,
+    "deals_no_knockback": false,
+    "no_fall_damage": false,
+    "signature_item": null,
+    "notes": "Each hit on a player feeds the Cannibal and gives the victim Hunger I for 30 s; starts with a cod and an ocelot egg."
+  },
+  "cookiemonster": {
+    "no_knockback": null,
+    "deals_knockback_level": null,
+    "deals_no_knockback": false,
+    "no_fall_damage": false,
+    "signature_item": "minecraft:cookie",
+    "notes": "Grass drops cookies 1 in 5; a cookie is instant: food first, then 1 heart, then Speed II for 5 s at full health."
+  },
+  "cultivator": {
+    "no_knockback": null,
+    "deals_knockback_level": null,
+    "deals_no_knockback": false,
+    "no_fall_damage": false,
+    "signature_item": null,
+    "notes": "Anything planted is fully grown a tick later; starts with nothing."
+  },
+  "demoman": {
+    "no_knockback": null,
+    "deals_knockback_level": null,
+    "deals_no_knockback": false,
+    "no_fall_damage": false,
+    "signature_item": "minecraft:stone_pressure_plate",
+    "notes": "2 mines: a stone pressure plate on gravel explodes at power 4 under anyone who steps on it, the Demoman included."
+  },
+  "digger": {
+    "no_knockback": null,
+    "deals_knockback_level": null,
+    "deals_no_knockback": false,
+    "no_fall_damage": false,
+    "signature_item": "minecraft:dragon_egg",
+    "notes": "6 eggs; 30 ticks after one is placed the 5x5 column under it, 8 deep, is removed."
+  },
+  "endermage": {
+    "no_knockback": null,
+    "deals_knockback_level": null,
+    "deals_no_knockback": false,
+    "no_fall_damage": false,
+    "signature_item": "minecraft:end_portal_frame",
+    "notes": "Placing the frame teleports everyone in its 5x5 column, any height, to it; all moved are immune for 100 ticks."
+  },
+  "fighter": {
+    "no_knockback": null,
+    "deals_knockback_level": null,
+    "deals_no_knockback": false,
+    "no_fall_damage": false,
+    "signature_item": "minecraft:wooden_sword",
+    "notes": "A wooden sword and 2 cooked beef; no ability."
+  },
+  "fireman": {
+    "no_knockback": null,
+    "deals_knockback_level": null,
+    "deals_no_knockback": false,
+    "no_fall_damage": false,
+    "signature_item": "minecraft:water_bucket",
+    "notes": "Takes no damage from fire, burning, lava, lightning or hot blocks; still drowns and is still shoved by a Thor strike."
+  },
+  "fisherman": {
+    "no_knockback": null,
+    "deals_knockback_level": null,
+    "deals_no_knockback": false,
+    "no_fall_damage": false,
+    "signature_item": "minecraft:fishing_rod",
+    "notes": "Reeling a hooked player flies them in an arc to the Fisherman's feet, up to 32 blocks, once per 40 ticks per victim."
+  },
+  "flash": {
+    "no_knockback": null,
+    "deals_knockback_level": null,
+    "deals_no_knockback": false,
+    "no_fall_damage": false,
+    "signature_item": "minecraft:redstone_torch",
+    "notes": "Teleports up to 60 blocks to where it looks, with cosmetic lightning on arrival, Weakness for 1 s per 2 blocks and a 150 s cooldown."
+  },
+  "forger": {
+    "no_knockback": null,
+    "deals_knockback_level": null,
+    "deals_no_knockback": false,
+    "no_fall_damage": false,
+    "signature_item": "minecraft:coal",
+    "notes": "Smelts iron, gold and copper in the inventory, one coal per ingot; no combat effect."
+  },
+  "gambler": {
+    "no_knockback": null,
+    "deals_knockback_level": null,
+    "deals_no_knockback": false,
+    "no_fall_damage": false,
+    "signature_item": "minecraft:stone_button",
+    "notes": "Pressing its own placed button every 10 s rolls a random 30 s effect, good or bad; 1 in 1000 diamond armour, 1 in 1000 death."
+  },
+  "gladiator": {
+    "no_knockback": null,
+    "deals_knockback_level": null,
+    "deals_no_knockback": false,
+    "no_fall_damage": false,
+    "signature_item": "minecraft:iron_bars",
+    "notes": "Right-clicking a player takes both to a sealed 9x9 bedrock box at y 230 for 60 s; 3 s arrival immunity, 90 s cooldown."
+  },
+  "grandpa": {
+    "no_knockback": null,
+    "deals_knockback_level": 2,
+    "deals_no_knockback": false,
+    "no_fall_damage": false,
+    "signature_item": "minecraft:stick",
+    "notes": "The stick has hidden Knockback II: knockback:2 on a hit, knockback:3 when sprinting, and a fist's damage."
+  },
+  "grappler": {
+    "no_knockback": null,
+    "deals_knockback_level": null,
+    "deals_no_knockback": false,
+    "no_fall_damage": false,
+    "signature_item": "minecraft:fishing_rod",
+    "notes": "Reeling launches the Grappler toward the hook and wipes its fall distance; 3 pulls, then 60 ticks rest."
+  },
+  "hades": {
+    "no_knockback": null,
+    "deals_knockback_level": null,
+    "deals_no_knockback": false,
+    "no_fall_damage": false,
+    "signature_item": "minecraft:iron_ingot",
+    "notes": "Right-clicking a mob makes it a minion, up to 5; minions never hurt the owner and attack whoever the owner fights."
+  },
+  "hermit": {
+    "no_knockback": null,
+    "deals_knockback_level": null,
+    "deals_no_knockback": false,
+    "no_fall_damage": false,
+    "signature_item": null,
+    "notes": "Starts alone in the furthest swamp, jungle or desert; no items and no ability."
+  },
+  "horseman": {
+    "no_knockback": null,
+    "deals_knockback_level": null,
+    "deals_no_knockback": false,
+    "no_fall_damage": false,
+    "signature_item": null,
+    "notes": "Recognised by its saddled, iron-armoured horse that only the owner can ride; starts with a horse egg and 2 hay bales."
+  },
+  "hulk": {
+    "no_knockback": null,
+    "deals_knockback_level": null,
+    "deals_no_knockback": false,
+    "no_fall_damage": false,
+    "signature_item": null,
+    "notes": "Needs an empty main hand: right-click lifts a player or mob, left-click throws them 14 to 38 blocks; 5 s cooldown."
+  },
+  "jackhammer": {
+    "no_knockback": null,
+    "deals_knockback_level": null,
+    "deals_no_knockback": false,
+    "no_fall_damage": false,
+    "signature_item": "minecraft:stone_axe",
+    "notes": "Breaking a block with the stone axe breaks the whole column above it, one block every 2 ticks; 5 uses, then 30 s."
+  },
+  "jellyfish": {
+    "no_knockback": null,
+    "deals_knockback_level": null,
+    "deals_no_knockback": false,
+    "no_fall_damage": false,
+    "signature_item": null,
+    "notes": "Needs an empty hand: right-clicking a block places water there for 60 ticks; 80 ticks between uses."
+  },
+  "kangaroo": {
+    "no_knockback": null,
+    "deals_knockback_level": null,
+    "deals_no_knockback": false,
+    "no_fall_damage": false,
+    "signature_item": "minecraft:firework_rocket",
+    "notes": "The rocket hops it about 6 blocks up and 5 forward every 5 s; fall damage is off only for 8 s after it hits a player."
+  },
+  "kaya": {
+    "no_knockback": null,
+    "deals_knockback_level": null,
+    "deals_no_knockback": false,
+    "no_fall_damage": false,
+    "signature_item": "minecraft:grass_block",
+    "notes": "Grass blocks it places vanish under any other player who steps on them; its own steps never trigger them."
+  },
+  "launcher": {
+    "no_knockback": null,
+    "deals_knockback_level": null,
+    "deals_no_knockback": false,
+    "no_fall_damage": false,
+    "signature_item": "minecraft:sponge",
+    "notes": "Sponges it places throw anyone who steps on them straight up; the first landing within 15 s of a launch takes no fall damage."
+  },
+  "monk": {
+    "no_knockback": null,
+    "deals_knockback_level": null,
+    "deals_no_knockback": false,
+    "no_fall_damage": false,
+    "signature_item": "minecraft:blaze_rod",
+    "notes": "Right-clicking a player with the rod moves their held item into their backpack; no damage, 5 s cooldown."
+  },
+  "ninja": {
+    "no_knockback": null,
+    "deals_knockback_level": null,
+    "deals_no_knockback": false,
+    "no_fall_damage": false,
+    "signature_item": null,
+    "notes": "After hitting a player it can crouch within 10 s to teleport onto them; 7 s between teleports."
+  },
+  "poseidon": {
+    "no_knockback": null,
+    "deals_knockback_level": null,
+    "deals_no_knockback": false,
+    "no_fall_damage": false,
+    "signature_item": null,
+    "notes": "Melee does 1.6x damage while it stands in water; Slowness I for 5 s after leaving water."
+  },
+  "pyro": {
+    "no_knockback": null,
+    "deals_knockback_level": null,
+    "deals_no_knockback": false,
+    "no_fall_damage": false,
+    "signature_item": "minecraft:fire_charge",
+    "notes": "5 thrown fire charges: each lands as a power 1.5 explosion and ignites everything within 3 blocks for 5 s, except the Pyro."
+  },
+  "reaper": {
+    "no_knockback": null,
+    "deals_knockback_level": null,
+    "deals_no_knockback": false,
+    "no_fall_damage": false,
+    "signature_item": "minecraft:wooden_hoe",
+    "notes": "Every hit with the wooden hoe gives Wither I for 5 s, which can kill."
+  },
+  "scorch": {
+    "no_knockback": null,
+    "deals_knockback_level": null,
+    "deals_no_knockback": false,
+    "no_fall_damage": false,
+    "signature_item": "minecraft:blaze_powder",
+    "notes": "With leather Flame Boots on and blaze powder in hand it leaves real fire 2 blocks behind every step; the fire burns it too."
+  },
+  "snail": {
+    "no_knockback": null,
+    "deals_knockback_level": null,
+    "deals_no_knockback": false,
+    "no_fall_damage": false,
+    "signature_item": null,
+    "notes": "Each hit has a 1 in 3 chance to give Slowness II for 5 s, on players and mobs."
+  },
+  "soulstealer": {
+    "no_knockback": null,
+    "deals_knockback_level": null,
+    "deals_no_knockback": false,
+    "no_fall_damage": false,
+    "signature_item": null,
+    "notes": "Its first death revives it invisible: 10 s to hit a player, then 10 s for that player to die, at 40% damage with a stone sword."
+  },
+  "spiderman": {
+    "no_knockback": null,
+    "deals_knockback_level": null,
+    "deals_no_knockback": false,
+    "no_fall_damage": false,
+    "signature_item": "minecraft:snowball",
+    "notes": "Each snowball lands as a 2x2 cobweb patch for 20 s; 3 throws, then 30 s; webs do not hold the Spiderman."
+  },
+  "spy": {
+    "no_knockback": null,
+    "deals_knockback_level": null,
+    "deals_no_knockback": false,
+    "no_fall_damage": false,
+    "signature_item": "minecraft:compass",
+    "notes": "The compass reports the nearest opponent's position and kit and warns of anyone within 40 blocks; information only."
+  },
+  "stomper": {
+    "no_knockback": null,
+    "deals_knockback_level": null,
+    "deals_no_knockback": false,
+    "no_fall_damage": false,
+    "signature_item": null,
+    "notes": "Its own fall damage is capped at 4 (not zero) and the uncapped amount hits players within 5 blocks of the landing; starts with 16 ladders."
+  },
+  "switcher": {
+    "no_knockback": null,
+    "deals_knockback_level": null,
+    "deals_no_knockback": false,
+    "no_fall_damage": false,
+    "signature_item": "minecraft:snowball",
+    "notes": "A Switcher Ball that hits swaps the thrower's and target's positions; both immune for 3 s, 10 s between throws, 10 balls."
+  },
+  "tank": {
+    "no_knockback": null,
+    "deals_knockback_level": null,
+    "deals_no_knockback": false,
+    "no_fall_damage": false,
+    "signature_item": null,
+    "notes": "Explosions never damage it, and every player it kills explodes at power 4 where they died."
+  },
+  "thor": {
+    "no_knockback": null,
+    "deals_knockback_level": null,
+    "deals_no_knockback": false,
+    "no_fall_damage": false,
+    "signature_item": "minecraft:wooden_axe",
+    "notes": "Right-clicking a block strikes lightning on the top of that column and shoves players within 4 blocks; 3 strikes, then 5 s."
+  },
+  "timelord": {
+    "no_knockback": null,
+    "deals_knockback_level": null,
+    "deals_no_knockback": false,
+    "no_fall_damage": false,
+    "signature_item": "minecraft:clock",
+    "notes": "The watch freezes every other player and mob within 6 blocks for 10 s; a hit frees the victim; 40 s between casts."
+  },
+  "turtle": {
+    "no_knockback": null,
+    "deals_knockback_level": null,
+    "deals_no_knockback": false,
+    "no_fall_damage": false,
+    "signature_item": null,
+    "notes": "Crouching caps each hit at 2 damage and cancels its own attacks; the code leaves knockback unchanged, so no knockback immunity is recorded."
+  },
+  "vampire": {
+    "no_knockback": null,
+    "deals_knockback_level": null,
+    "deals_no_knockback": false,
+    "no_fall_damage": false,
+    "signature_item": null,
+    "notes": "A player kill heals 6, a mob kill 2; a kill taken unhurt for 10 s gives a splash vial that heals it and hurts others."
+  },
+  "viper": {
+    "no_knockback": null,
+    "deals_knockback_level": null,
+    "deals_no_knockback": false,
+    "no_fall_damage": false,
+    "signature_item": null,
+    "notes": "Each hit on a player has a 33% chance to give Poison I for 5 s; poison never kills."
+  },
+  "werewolf": {
+    "no_knockback": null,
+    "deals_knockback_level": null,
+    "deals_no_knockback": false,
+    "no_fall_damage": false,
+    "signature_item": "minecraft:clock",
+    "notes": "Strength I and Speed I at night (13000-23000), Weakness I by day; wolves never attack it."
+  },
+  "wisp": {
+    "no_knockback": null,
+    "deals_knockback_level": null,
+    "deals_no_knockback": false,
+    "no_fall_damage": false,
+    "signature_item": "minecraft:magma_cream",
+    "notes": "Each magma cream spawns 5 harmless decoys in its skin and armour for 60 s; killing one costs the killer 1 heart."
+  }
+}

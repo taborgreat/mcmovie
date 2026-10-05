@@ -1,0 +1,217 @@
+{
+  "scene_id": "s1",
+  "title": "Late",
+  "duration_ticks": 330,
+  "beats": [
+    {
+      "id": "b1",
+      "description": "Bram trudges in from the west road at sunset.",
+      "start_tick": 0
+    },
+    {
+      "id": "b2",
+      "description": "Ola calls him out for being late; he deflects.",
+      "start_tick": 50
+    },
+    {
+      "id": "b3",
+      "description": "She asks what he brought; he swings his pick and reveals nothing yet.",
+      "start_tick": 170
+    }
+  ],
+  "lines": [
+    {
+      "id": "l1",
+      "tick": 50,
+      "character": "Ola",
+      "text": "You're late, Bram. The whole square has been waiting.",
+      "emotion": "annoyed"
+    },
+    {
+      "id": "l2",
+      "tick": 150,
+      "character": "Bram",
+      "text": "The mine doesn't care about your schedule, Ola.",
+      "emotion": "tired",
+      "delivery": "flat, slow"
+    },
+    {
+      "id": "l3",
+      "tick": 215,
+      "character": "Ola",
+      "text": "Then show me what it gave you.",
+      "emotion": "curious"
+    },
+    {
+      "id": "l4",
+      "tick": 275,
+      "character": "Bram",
+      "text": "After I sit down.",
+      "emotion": "dry"
+    }
+  ],
+  "keyframes": [
+    {
+      "actor": "Bram",
+      "tick": 0,
+      "x": 84,
+      "y": 65,
+      "z": 100,
+      "anim": "walk",
+      "look_at": "Ola"
+    },
+    {
+      "actor": "Bram",
+      "tick": 70,
+      "x": 98,
+      "y": 65,
+      "z": 100,
+      "anim": "idle",
+      "look_at": "Ola"
+    },
+    {
+      "actor": "Bram",
+      "tick": 220,
+      "x": 98,
+      "y": 65,
+      "z": 100,
+      "anim": "hold:minecraft:iron_pickaxe",
+      "look_at": "Ola"
+    },
+    {
+      "actor": "Bram",
+      "tick": 250,
+      "x": 98,
+      "y": 65,
+      "z": 100,
+      "anim": "swing",
+      "look_at": "Ola"
+    },
+    {
+      "actor": "Bram",
+      "tick": 265,
+      "x": 98,
+      "y": 65,
+      "z": 100,
+      "anim": "idle",
+      "look_at": "Ola"
+    },
+    {
+      "actor": "Ola",
+      "tick": 0,
+      "x": 104,
+      "y": 65,
+      "z": 96,
+      "anim": "idle",
+      "look_at": "Bram"
+    },
+    {
+      "actor": "Ola",
+      "tick": 45,
+      "x": 104,
+      "y": 65,
+      "z": 96,
+      "anim": "walk",
+      "look_at": "Bram"
+    },
+    {
+      "actor": "Ola",
+      "tick": 70,
+      "x": 102,
+      "y": 65,
+      "z": 100,
+      "anim": "idle",
+      "look_at": "Bram"
+    }
+  ],
+  "world_events": [],
+  "shots": [
+    {
+      "id": "sh1",
+      "start_tick": 0,
+      "end_tick": 80,
+      "fov": 70,
+      "covers_lines": [
+        "l1"
+      ],
+      "path": {
+        "type": "dolly",
+        "from": [
+          86,
+          67.5,
+          94
+        ],
+        "to": [
+          95,
+          67.2,
+          94
+        ],
+        "look": "Bram",
+        "easing": "ease_in_out"
+      }
+    },
+    {
+      "id": "sh2",
+      "start_tick": 80,
+      "end_tick": 200,
+      "fov": 60,
+      "covers_lines": [
+        "l1",
+        "l2"
+      ],
+      "path": {
+        "type": "static",
+        "pos": [
+          100,
+          67.6,
+          95.5
+        ],
+        "look": [
+          100,
+          66.3,
+          100.5
+        ]
+      }
+    },
+    {
+      "id": "sh3",
+      "start_tick": 200,
+      "end_tick": 250,
+      "fov": 50,
+      "covers_lines": [
+        "l3"
+      ],
+      "path": {
+        "type": "static",
+        "pos": [
+          99.2,
+          66.9,
+          101.6
+        ],
+        "look": "Ola"
+      }
+    },
+    {
+      "id": "sh4",
+      "start_tick": 250,
+      "end_tick": 330,
+      "fov": 65,
+      "covers_lines": [
+        "l4"
+      ],
+      "path": {
+        "type": "orbit",
+        "target": [
+          100,
+          65.6,
+          100
+        ],
+        "radius": 7,
+        "height": 2.2,
+        "start_deg": 200,
+        "end_deg": 290,
+        "easing": "ease_in_out"
+      }
+    }
+  ]
+}

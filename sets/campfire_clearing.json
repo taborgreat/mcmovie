@@ -1,0 +1,14 @@
+{
+  "name": "campfire_clearing",
+  "description": "Campfire with log seats and a tent of white wool. 9x9. Place at ground_y+1.",
+  "size": [9, 3, 9],
+  "ops": [
+    { "type": "fill", "from": [0, -1, 0], "to": [8, -1, 8], "block": "minecraft:coarse_dirt" },
+    { "type": "setblock", "at": [4, 0, 4], "block": "minecraft:campfire" },
+    { "type": "fill", "from": [2, 0, 2], "to": [2, 0, 6], "block": "minecraft:oak_log[axis=z]" },
+    { "type": "fill", "from": [6, 0, 2], "to": [6, 0, 6], "block": "minecraft:oak_log[axis=z]" },
+    { "type": "fill", "from": [0, 0, 0], "to": [2, 1, 2], "block": "minecraft:white_wool", "mode": "hollow" },
+    { "type": "setblock", "at": [2, 0, 1], "block": "minecraft:air" },
+    { "type": "setblock", "at": [1, 2, 1], "block": "minecraft:white_wool" }
+  ]
+}

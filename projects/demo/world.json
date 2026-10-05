@@ -1,0 +1,41 @@
+{
+  "ground_y": 64,
+  "time_of_day": "sunset",
+  "weather": "clear",
+  "sets": [
+    {
+      "id": "square",
+      "origin": [100, 65, 100],
+      "radius": 6,
+      "ops": [
+        { "type": "fill", "from": [86, 64, 86], "to": [114, 64, 114], "block": "minecraft:stone_bricks" },
+        { "type": "fill", "from": [88, 64, 88], "to": [112, 64, 112], "block": "minecraft:cobblestone" },
+        { "type": "fill", "from": [92, 64, 92], "to": [108, 64, 108], "block": "minecraft:stone_bricks" },
+        { "type": "box", "at": [106, 65, 106], "size": [7, 5, 7], "block": "minecraft:oak_planks", "mode": "hollow" },
+        { "type": "fill", "from": [106, 70, 106], "to": [112, 70, 112], "block": "minecraft:dark_oak_slab" },
+        { "type": "setblock", "at": [106, 65, 109], "block": "minecraft:oak_door[facing=west,half=lower]" },
+        { "type": "setblock", "at": [106, 66, 109], "block": "minecraft:oak_door[facing=west,half=upper]" },
+        { "type": "fill", "from": [99, 65, 99], "to": [101, 65, 101], "block": "minecraft:cobblestone_wall" },
+        { "type": "setblock", "at": [100, 65, 100], "block": "minecraft:water" },
+        { "type": "fill", "from": [103, 65, 93], "to": [107, 65, 93], "block": "minecraft:barrel" },
+        { "type": "fill", "from": [103, 66, 93], "to": [107, 66, 93], "block": "minecraft:oak_slab" },
+        { "type": "fill", "from": [103, 65, 94], "to": [107, 65, 94], "block": "minecraft:oak_fence" },
+        { "type": "fill", "from": [103, 68, 92], "to": [107, 68, 94], "block": "minecraft:white_wool" },
+        { "type": "setblock", "at": [103, 65, 92], "block": "minecraft:oak_fence" },
+        { "type": "setblock", "at": [107, 65, 92], "block": "minecraft:oak_fence" },
+        { "type": "setblock", "at": [103, 66, 92], "block": "minecraft:oak_fence" },
+        { "type": "setblock", "at": [107, 66, 92], "block": "minecraft:oak_fence" },
+        { "type": "setblock", "at": [103, 67, 92], "block": "minecraft:oak_fence" },
+        { "type": "setblock", "at": [107, 67, 92], "block": "minecraft:oak_fence" },
+        { "type": "setblock", "at": [94, 65, 94], "block": "minecraft:lantern" },
+        { "type": "setblock", "at": [94, 65, 106], "block": "minecraft:lantern" },
+        { "type": "setblock", "at": [106, 65, 94], "block": "minecraft:lantern" },
+        { "type": "fill", "from": [90, 65, 109], "to": [90, 67, 109], "block": "minecraft:oak_log" },
+        { "type": "fill", "from": [88, 68, 107], "to": [92, 69, 111], "block": "minecraft:oak_leaves[persistent=true]" },
+        { "type": "fill", "from": [89, 70, 108], "to": [91, 70, 110], "block": "minecraft:oak_leaves[persistent=true]" },
+        { "type": "fill", "from": [84, 64, 99], "to": [86, 64, 101], "block": "minecraft:dirt_path" },
+        { "type": "fill", "from": [80, 64, 99], "to": [83, 64, 101], "block": "minecraft:dirt_path" }
+      ]
+    }
+  ]
+}

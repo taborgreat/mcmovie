@@ -1,0 +1,94 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "scene_<id>.json - one scene fully planned, local ticks starting at 0",
+  "type": "object",
+  "required": ["scene_id", "beats", "lines", "keyframes", "shots"],
+  "properties": {
+    "scene_id": { "type": "string" },
+    "title": { "type": "string" },
+    "duration_ticks": { "type": "integer", "minimum": 20 },
+    "beats": {
+      "type": "array", "minItems": 1,
+      "items": { "type": "object", "required": ["id", "description"], "properties": { "id": { "type": "string" }, "description": { "type": "string" }, "start_tick": { "type": "integer" } } }
+    },
+    "lines": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "tick", "character", "text", "emotion"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[A-Za-z0-9_]+$" },
+          "tick": { "type": "integer", "minimum": 0 },
+          "character": { "type": "string" },
+          "text": { "type": "string", "minLength": 1 },
+          "emotion": { "type": "string" },
+          "delivery": { "type": "string", "description": "Extra direction for the voice: whispered, shouted, through tears..." },
+          "offscreen": { "type": "boolean" },
+          "gain_db": { "type": "number" }
+        }
+      }
+    },
+    "keyframes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["actor", "tick", "x", "y", "z"],
+        "properties": {
+          "actor": { "type": "string" },
+          "tick": { "type": "integer", "minimum": 0 },
+          "x": { "type": "number" }, "y": { "type": "number" }, "z": { "type": "number" },
+          "yaw": { "type": "number", "description": "Minecraft degrees: 0 south, 90 west, 180 north, -90 east" },
+          "pitch": { "type": "number", "description": "Minecraft degrees: 0 level, +90 down, -90 up" },
+          "look_at": { "description": "[x,y,z] or actor id; overrides yaw/pitch each tick" },
+          "anim": { "type": "string", "description": "idle|walk|sprint|sneak|swing|jump|fly|hurt|death|hold:<item>|swing_once|jump_once" },
+          "snap_to_ground": { "type": "boolean" }
+        }
+      }
+    },
+    "world_events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["tick", "type"],
+        "properties": {
+          "tick": { "type": "integer", "minimum": 0 },
+          "type": { "type": "string", "enum": ["command", "setblock", "fill", "summon", "kill", "time", "weather", "explode", "lightning", "sound", "particle", "item", "load"] },
+          "at": { "type": "array", "items": { "type": "number" }, "minItems": 3, "maxItems": 3 },
+          "from": { "type": "array", "items": { "type": "number" }, "minItems": 3, "maxItems": 3 },
+          "to": { "type": "array", "items": { "type": "number" }, "minItems": 3, "maxItems": 3 },
+          "block": { "type": "string" },
+          "entity": { "type": "string" },
+          "nbt": { "type": "string" },
+          "selector": { "type": "string" },
+          "cmd": { "type": "string" },
+          "value": {},
+          "power": { "type": "number" },
+          "name": { "type": "string" }
+        }
+      }
+    },
+    "shots": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "start_tick", "end_tick", "path"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[A-Za-z0-9_]+$" },
+          "start_tick": { "type": "integer", "minimum": 0 },
+          "end_tick": { "type": "integer", "minimum": 1 },
+          "fov": { "type": "number", "minimum": 20, "maximum": 120 },
+          "priority": { "type": "integer" },
+          "covers_lines": { "type": "array", "items": { "type": "string" } },
+          "path": {
+            "type": "object",
+            "required": ["type"],
+            "properties": {
+              "type": { "type": "string", "enum": ["static", "dolly", "orbit", "follow", "crane", "pov"] },
+              "easing": { "type": "string", "enum": ["linear", "ease_in", "ease_out", "ease_in_out"] }
+            }
+          }
+        }
+      }
+    }
+  }
+}
