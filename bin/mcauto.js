@@ -143,6 +143,7 @@ async function main () {
     const cfg = C.load() // re-read so settings can change without a restart
     // finished films whose upload failed earlier (YouTube's daily limit, a network blip)
     for (const h of await jobs.retryUploads(cfg, log)) { h.started = h.finished = new Date().toISOString(); state.history.push(h); saveState(state) }
+    await jobs.socialTick(cfg, log)
     const job = storyFirst ? { kind: 'story' } : nextJob(cfg, state)
     storyFirst = false
     if (job) await runJob(cfg, state, job)

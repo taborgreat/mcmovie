@@ -47,8 +47,13 @@ Check your plan with `node bin/mcmatch.js check <slug>`.
   in. `check` fails if the final kill is not inside a segment.
 - For a long film (180-300 s): the drop (first 8-12 s of the match), 3 to 6
   moments from the middle, the ending.
-- For a Short (35-90 s): two to four segments. Usually one early moment,
-  one side moment, the ending. Skip the drop unless it matters.
+- For a Short (35 s to 3 minutes): two to four segments for a small match,
+  up to six or seven when a bigger one has the moments. Make it as short as
+  the match allows; a Short is not a quota to fill. Nearly every match is a
+  Short now (a full 16:9 video only for ten or more players over a long
+  match), so a Short carries the whole story, not a teaser. The usual shape:
+  one early moment, one side moment, the ending. Skip the drop unless it
+  matters.
 - Segments are real time unless `speed` > 1 (use 3-6x for travel and quiet
   stretches; never for a kill). Players standing still or only walking were
   recorded sparsely, so travel looks best sped up or kept short.

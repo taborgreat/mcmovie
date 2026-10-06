@@ -133,7 +133,7 @@ Rules:
   triumphant, funny, suspense, dark, warm, romantic, mysterious (see
   `music/music_manifest.json` for what the library has). `track_id` pins a
   track.
-- `"format": "short"` makes a vertical YouTube Short (scenes total 35-90 s);
+- `"format": "short"` makes a vertical YouTube Short (scenes total 35-180 s);
   omit it or use `"long"` for a regular 16:9 video.
 - Every scene `location` must be a set id in world.json.
 
