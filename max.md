@@ -234,9 +234,12 @@ things you can fetch yourself are in this commit; the rest is explained.
    pipeline, is YouTube #3: https://youtube.com/shorts/38Aab5aAgBo. Tabor watched the
    example render and kept it; treat it as "what the pipeline makes today", not as the best
    film it ever made.
-5. **Deployment.** Push your work to a branch (or a fork), never to `main`; Tabor pulls it on
-   his box, reads `FOR_TABOR.md`, merges, and restarts the loop
-   (`tools/stop-films.sh && tools/start-films.sh`). Untouched on production, so do not depend
+5. **Deployment.** You work in Max's fork of this repo. Keep the fork up to date with
+   Tabor's `main` (fetch his repo and merge it in, so your changes sit on top of what
+   production runs), and push your work to the fork. When a piece is ready, open a pull
+   request from the fork to Tabor's `main`, or tell him the commit; he pulls it on his box,
+   reads `FOR_TABOR.md`, merges, and restarts the loop
+   (`tools/stop-films.sh && tools/start-films.sh`). Never push to Tabor's repo directly. Untouched on production, so do not depend
    on changing them: everything under `config/` except `kit_rules.json` and
    `pronunciations.json` (his `publish.json`, `auto.json`, `mix.json` values,
    `player_voices.json` entries), and the ignored folders `automation/`, `keep/`, `studio/`,
