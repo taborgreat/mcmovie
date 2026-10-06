@@ -1,0 +1,15 @@
+{
+  "characters": {
+    "narrator": {
+      "voice": "stock:deadpan",
+      "voice_desc": "dry sports documentary narrator, a little amused",
+      "profile_id": "deadpan",
+      "speed": 1
+    },
+    "taborgreat": {
+      "voice": "design",
+      "voice_desc": "tired voice that sighs before speaking",
+      "profile_id": "player_taborgreat"
+    }
+  }
+}

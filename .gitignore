@@ -22,7 +22,6 @@ projects/*/wav/
 projects/*/final*.mp4
 projects/*/logs/
 projects/*/cards/
-voice_server/voices/
 voice_server/.venv/
 voice_server/__pycache__/
 *.log
@@ -68,3 +67,6 @@ assets/outro/work/
 /recordings/
 projects/match-outrotest/
 projects/outro-test/
+
+# finished films never go to git (sample/ included)
+sample/**/*.mp4

@@ -132,7 +132,12 @@ class Qwen3TTSBackend:
             save_profile(prof)
         key = prof["id"]
         if key not in self.prompt_cache:
-            self.prompt_cache[key] = self.clone_model.create_voice_clone_prompt(ref_audio=prof["ref_audio"], ref_text=prof.get("ref_text") or "")
+            ref = prof["ref_audio"]
+            if not os.path.exists(ref):  # a profile made on another machine: the audio sits beside it
+                beside = os.path.join(os.path.dirname(os.path.abspath(__file__)), "voices", os.path.basename(ref))
+                if os.path.exists(beside):
+                    ref = beside
+            self.prompt_cache[key] = self.clone_model.create_voice_clone_prompt(ref_audio=ref, ref_text=prof.get("ref_text") or "")
         kwargs = dict(text=text, language=lang, voice_clone_prompt=self.prompt_cache[key])
         if instructions:
             kwargs["instruct"] = instructions

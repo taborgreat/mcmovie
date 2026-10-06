@@ -191,3 +191,55 @@ Keep `FOR_TABOR.md` current as you go, in plain words:
    setting or new file.
 3. **Loose ends**: anything half-done, anything that only works on Max's
    machine, any new music and where it came from (with its licence).
+
+## Answers to Max's agent (2026-10-06)
+
+Your list of what would make the test setup match production, answered in order. The
+things you can fetch yourself are in this commit; the rest is explained.
+
+1. **The actual voices.** Now in the repo: `voice_server/voices/` (39 designed voices,
+   each a `.json` profile and its `.wav` reference) and `config/player_voices.json` (which
+   voice each real player has; it was already tracked). The profiles store the audio path as
+   it was on Tabor's machine; the voice server now falls back to the `.wav` beside the
+   profile, so they work where you put them. You still need the voice server itself running
+   on a GPU (`voice_server/README.md`): Qwen3-TTS through the `qwen-tts` package
+   (0.1.1), models `Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign` and
+   `Qwen/Qwen3-TTS-12Hz-1.7B-Base`, bf16 on `cuda:0`, about 8 GB of VRAM; torch
+   2.6.0+cu124, transformers 4.57.3, fastapi 0.142.2, uvicorn 0.54.0 on Tabor's box
+   (driver 550). Without it, `--mock-voice` as before.
+2. **Players' choices.** Not sent, on purpose. Tabor's call: your work does not need them.
+   `movie-prefs.json` is players' own opt-outs and stays on the live server. The
+   `movie.voices` list (the bank voices a player can pick) is in the plugin's config in the
+   public server repo: `src/main/resources/config.yml` in
+   https://github.com/taborgreat/hardcorekits.
+3. **How production runs.** Branch `main` of this repo; production is the commit that added
+   this section (Tabor's box runs the working tree of `~/github/mcmovie` at that commit).
+   The pipeline is started with `tools/start-films.sh`, which runs `node bin/mcauto.js run`
+   in a tmux window; `node bin/mcauto.js status` shows its state. The planner is Claude Code
+   headless: `claude -p --permission-mode acceptEdits --allowedTools Read Write Edit Glob Grep`
+   (Claude Code 2.1.291, model not pinned, so Claude Code's current default), fed the
+   prompts in `prompts/auto/` (`match_plan.md`, then `fix.md` with the checker's errors, up to
+   3 rounds). Production's `config/auto.json` is just `{"publish": true, "idle_stories": false}`;
+   every other setting is the default in `lib/auto/config.js`. `config/mix.json` is tracked
+   as it runs.
+4. **A complete production example.** Being straight about this: uploaded films are deleted
+   from the machine once they are up (the "nothing lingers" rule), and until today the
+   recordings were too, so no uploaded film still exists as a file with its inputs. The
+   closest thing is in `sample/last-match/example/`: the `doc.json` the planner wrote for the
+   sample recording, its `cast.json`, `plan.txt` (the planner's run, including the exact
+   prompt it was given) and `film.txt` (the studio take and the export). The finished film
+   itself is not in the repo (a 93 MB video does not belong in git): make it yourself from
+   those exact inputs with the `make` command above, with the real client, and you have the
+   same film Tabor's box produced. The same match as uploaded, from an earlier build of the
+   pipeline, is YouTube #3: https://youtube.com/shorts/38Aab5aAgBo. Tabor watched the
+   example render and kept it; treat it as "what the pipeline makes today", not as the best
+   film it ever made.
+5. **Deployment.** Push your work to a branch (or a fork), never to `main`; Tabor pulls it on
+   his box, reads `FOR_TABOR.md`, merges, and restarts the loop
+   (`tools/stop-films.sh && tools/start-films.sh`). Untouched on production, so do not depend
+   on changing them: everything under `config/` except `kit_rules.json` and
+   `pronunciations.json` (his `publish.json`, `auto.json`, `mix.json` values,
+   `player_voices.json` entries), and the ignored folders `automation/`, `keep/`, `studio/`,
+   `capture/`, `server/`. A test render that stops before uploading is exactly the `make`
+   command in "Making a film from the sample match": `make` never uploads anywhere;
+   publishing is a separate command (`bin/mcpublish.js`) that only the loop or a person runs.
