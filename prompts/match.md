@@ -121,7 +121,12 @@ matches), `storyteller` (warm), `trailer` (epic, use sparingly).
 
 A line with no `speaker` is the narrator. A line with `"speaker": "<player>"`
 is spoken in that player's own (made-up, permanent) voice and cuts in between
-narrator lines. Two kinds:
+narrator lines. The film cuts to
+that player on the frame their line starts and stays on them while they say
+it, so the voice always has a face (a kill close by keeps the camera). So
+put a player's line at a moment when that player is in the segment. Only when
+a voice is meant to be heard over someone or something else, add
+`"show_speaker": false` to the line; that is rare and deliberate. Two kinds:
 
 - **Real chat**: a chat line from the digest, word for word, with
   `"chat": true`. Place it where it was said (digest time minus the
@@ -143,6 +148,34 @@ mood changes. General moods: calm, sad, tense, intense, battle, epic,
 triumphant, funny, suspense, dark, warm, mysterious. Shape the film: calm
 or suspense for the drop and travel, battle or intense for fights, sad for
 a death that matters, triumphant or funny for the ending.
+
+## Real speed only
+
+Never set `"speed"` on a segment. The footage is the real game played back,
+and a player running or building at three times speed reads as a glitch. For
+something long (a tower going up, a walk across the map) show its last few
+seconds and let the narrator cover the rest in a line. Only the finale is
+ever slowed, and the program does that itself.
+
+## No holes in the chain
+
+A film is a chain of causes. If the picture shows a player walking toward a
+tower and the next shot has him standing on top of it, the viewer has been
+cheated of the thing that happened, and that thing (a kit pulling him up, a
+leap into the lake) is usually the best moment in the match.
+
+- The moment list now includes what nobody was hurt in: a kit used on
+  someone (`ability`), a long drop (`fall`), a tower going up (`tower`).
+  Read them the way you read kills.
+- digest.md ends with "Must be on screen": the kit uses and leaps between the
+  last two players in the final minutes. Every one of them gets a segment
+  covering the seconds listed, and those seconds include the lead-up: the
+  walk into the trap is part of the trap. `check` enforces this.
+- When a kit does something, show the five to ten seconds before it, the
+  thing itself, and what it changed, in that order, and say plainly what the
+  kit did ("the Endermage's portal drags him up the tower").
+- If the film is running long, cut explanation, not events. A line that
+  explains towering can go; the pull up the tower cannot.
 
 ## The finale (every film)
 
@@ -180,6 +213,10 @@ right second, never a list read out.
   they did something cool, and said why. Look at that moment before anything
   else of the same size. If it holds up, it goes in, and their words can be a
   chat line. If nothing is there, leave it out without comment.
+- **Kit abilities used**: when each kit actually fired, and any kill that
+  came right after. This is the plugin's own record, so trust it over a
+  guess: say the kit did it when it did ("that is the Thor's lightning"),
+  and do not credit a kit that never fired.
 - **Teaming**: two players who stayed together and did not fight each other.
   Say they teamed. If it started late, or ended with one killing the other,
   that is a story beat (an alliance, a betrayal), so build to it.

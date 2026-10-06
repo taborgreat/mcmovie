@@ -40,6 +40,7 @@
                 "text": { "type": "string", "minLength": 1 },
                 "speaker": { "type": "string", "description": "Omit for the narrator. A player name makes it that player's voice: a real chat line (set chat true) or an invented in-character line." },
                 "chat": { "type": "boolean", "description": "true when the text is a real chat line from the digest" },
+                "show_speaker": { "type": "boolean", "description": "false keeps the camera where it is while a player's line is heard (a voice aimed over other footage); by default the film cuts to the player speaking as the line starts" },
                 "emotion": { "type": "string" },
                 "delivery": { "type": "string" }
               }

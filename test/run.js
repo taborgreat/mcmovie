@@ -225,6 +225,18 @@ test('captions: narrator plain, players named, words chunked', () => {
   assert(/PlayResY: 1920/.test(ass))
 })
 
+test('match: the camera goes to a player on the frame their own line starts', () => {
+  const A = require('../lib/match/autoshots')
+  let x = 7; const rand = () => { x = (x * 9301 + 49297) % 233280; return x / 233280 }
+  const w = A.planWindows(248, [], rand, [], [{ tick: 144, ticks: 38, who: 'bob' }])
+  const sp = w.find(v => v.anchor === 'speech')
+  assert(sp && sp.lead === 'bob' && sp.start <= 144 && sp.start >= 140 && sp.end >= 144 + 38, JSON.stringify(w))
+  for (let i = 1; i < w.length; i++) assert.strictEqual(w[i].start, w[i - 1].end)
+  // a kill close by keeps the camera
+  const k = A.planWindows(300, [{ tick: 200, victim: 'a', killer: 'b' }], rand, [], [{ tick: 150, ticks: 38, who: 'a' }])
+  assert(!k.some(v => v.anchor === 'speech') && k.some(v => v.anchor === 'death'))
+})
+
 test('publish: stories are just the title, matches are numbered, descriptions stay plain', () => {
   const fs = require('fs'); const os = require('os')
   const P = require('../lib/publish/publish')
@@ -235,12 +247,13 @@ test('publish: stories are just the title, matches are numbered, descriptions st
   U.writeJson(path.join(dir, 'story.json'), { title: 'Feast or Bust', logline: 'Three friends camp next to the feast.', characters: [] })
   const st = P.metadata(dir, cfg)
   assert.strictEqual(st.title, 'Feast or Bust')
-  assert.strictEqual(st.description, `Three friends camp next to the feast.\n\nIP is hardcorepvp.com\n\n#minecraft #pvp #${new Date().getFullYear()}`)
+  assert.strictEqual(st.description, `Three friends camp next to the feast.\n\nEvery match on the server is recorded. Want to be in a video? Play a match at hardcorepvp.com.\n\nIP is hardcorepvp.com\n\n#minecraft #pvp #${new Date().getFullYear()}`)
   U.writeJson(path.join(dir, 'doc.json'), { title: 'Death by Compass', logline: 'Two players settle it with a compass.', segments: [] })
   U.writeJson(path.join(dir, 'published.json'), { number: 4 })
   const m = P.metadata(dir, cfg)
   assert.strictEqual(m.title, 'HardcorePvP.com #4: Death by Compass')
-  assert(m.description.startsWith('Two players settle it with a compass.\n\nIP is hardcorepvp.com\n\n#minecraft'))
+  assert(m.description.startsWith('Two players settle it with a compass.\n\nEvery match on the server is recorded. Want to be in a video? Play a match at hardcorepvp.com.\n\nIP is hardcorepvp.com\n\n#minecraft'))
+  assert(!P.metadata(dir, { ...cfg, youtube: { ...cfg.youtube, invite: '' } }).description.includes('recorded'))
   fs.rmSync(dir, { recursive: true })
   assert.strictEqual(copy.problems('Death by Compass', 'Two players settle it with a compass.').length, 0)
   assert(copy.problems('Stomper: The Last Stand', 'x').some(e => /":"/.test(e)))
@@ -361,7 +374,7 @@ test('finale: silent build-up on the faces, the drop on the first hit, then the 
     seg({ id: 'finale_build', finale: true, from_sec: 285.5, to_sec: 290 }),
     seg({ id: 'finale_fight', finale: true, from_sec: 290, to_sec: 291.5, narration: [{ id: 'n2', at_sec: 0.6, text: 'He hits hard.' }] }),
     seg({ id: 'finale_kill', finale: true, from_sec: 297.4, to_sec: 300.9 }),
-    seg({ id: 'cake', from_sec: 300.9, to_sec: 365 })] }
+    seg({ id: 'cake', from_sec: 300.9, to_sec: w.celebration_to_sec })] }
   assert.deepStrictEqual(finaleErrors(good, long, w), [])
   assert(finaleErrors({ segments: [seg({ id: 'a', from_sec: 250, to_sec: 305 })] }, long, w)[0].includes('needs the finale segment'))
   const talk = JSON.parse(JSON.stringify(good)); talk.segments[1].narration = [{ id: 'x', at_sec: 1, text: 'They stare.' }]
@@ -369,6 +382,87 @@ test('finale: silent build-up on the faces, the drop on the first hit, then the 
   const late = JSON.parse(JSON.stringify(good)); late.segments[0].narration[0].at_sec = 34.5
   assert(finaleErrors(late, long, w).some(e => /still being spoken when the finale song starts/.test(e)))
   assert(/"finale_build"/.test(finale.toMarkdown(w)))
+})
+
+test('match: kit abilities become studio effects, checked against what the recording shows', () => {
+  const track = [{ t: 0, x: 10, y: 65, z: 10, yaw: 0, pitch: 0, flags: 0, hp: 20 }, { t: 400, x: 10, y: 65, z: 10, yaw: 0, pitch: 0, flags: 0, hp: 20 }]
+  const rec = {
+    players: [{ name: 'Thor1', kit: 'thor', track }, { name: 'Glad', kit: 'gladiator', track }, { name: 'Vip', kit: 'viper', track }],
+    events: [
+      { type: 'ability', t: 100, p: 0, kit: 'thor', x: 10, y: 65, z: 10 }, // a real strike: the bolt is on the record
+      { type: 'lightning', t: 101, x: 14.5, y: 66, z: 10.5 },
+      { type: 'ability', t: 160, p: 0, kit: 'thor', x: 10, y: 65, z: 10 }, // a click during the cooldown: no bolt
+      { type: 'lightning', t: 300, x: 90, y: 66, z: 90 }, // a storm's own bolt, nobody's
+      { type: 'ability', t: 200, p: 1, kit: 'gladiator', x: 10, y: 65, z: 10 }, // right click on someone with a sword: no arena
+      { type: 'ability', t: 240, p: 1, kit: 'gladiator', x: 10, y: 65, z: 10 }, // the challenge: both are lifted into the arena
+      { type: 'teleport', t: 240, p: 1, cause: 'plugin', x: 8.5, y: 201, z: 10.5 },
+      { type: 'ability', t: 250, p: 2, kit: 'viper' } // older line with no position: taken from the track
+    ]
+  }
+  const fx = matchBuild.abilityEffects(rec)
+  assert.deepStrictEqual(fx.map(f => `${f.t}:${f.fx.kit}`), ['100:thor', '240:gladiator', '250:viper'])
+  assert.deepStrictEqual(fx[0].fx.aim, [14.5, 66, 10.5], 'Thor is aimed where the bolt really struck')
+  assert.strictEqual(rec.events[1].kit, 'thor', 'that bolt is the ability\'s own: the studio does not replay it twice')
+  assert.strictEqual(rec.events[3].kit, undefined, 'a bolt nobody called is still replayed')
+  assert.strictEqual(fx[1].fx.aim, undefined)
+  assert(close(fx[2].fx.x, 10) && fx[2].fx.player === 'Vip')
+  const { abilityCommand } = require('../lib/studio/perform')
+  assert.strictEqual(abilityCommand(fx[0].fx), '/studio fire Thor1 thor 14.50 66.00 10.50')
+  assert.strictEqual(abilityCommand(fx[2].fx), '/studio fire Vip viper')
+})
+
+test('studio: the game plugin is optional, and only ever boots in studio mode', () => {
+  const studio = require('../lib/studio/server')
+  assert.strictEqual(typeof studio.kits(), 'boolean')
+  if (studio.kits()) {
+    studio.setup()
+    assert(/^studio:\s*\n\s+enabled:\s*true/m.test(require('fs').readFileSync(path.join(studio.DIR, 'plugins', 'HardcoreGames', 'config.yml'), 'utf8')))
+  }
+})
+
+test('ending: every film closes on the flash card and the outro of its shape, or the plain card without one', () => {
+  const fs = require('fs'); const os = require('os')
+  const asset = require('../lib/outro/asset')
+  const edl = require('../lib/assemble/edl')
+  const mix = require('../lib/assemble/mix').load()
+  assert.strictEqual(asset.shapeFor(1080, 1920), 'short'); assert.strictEqual(asset.shapeFor(1920, 1080), 'long')
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'mcmovie-ending-'))
+  const timeline = (cards) => U.writeJson(path.join(dir, 'timeline.json'), { fps: 30, tick_rate: 20, title: 't', cards, cuts: [{ shot_id: 'a', scene_id: 's', start_tick: 0, end_tick: 40, clip: null }], lines: [], shots: [], scenes: [] })
+  for (const [w, h, shape] of [[1080, 1920, 'short'], [1920, 1080, 'long']]) {
+    timeline({})
+    const e = edl.build(dir, { width: w, height: h })
+    const last = e.video[e.video.length - 1]; const clip = asset.clipFor(w, h)
+    if (clip && mix.outro !== false) {
+      assert.strictEqual(last.outro, shape, 'the outro of the frame\'s own shape')
+      assert(close(last.out_sec, clip.seconds), 'as long as the clip')
+      const card = e.video[e.video.length - 2]
+      if (mix.end_flash_sec > 0) { assert.strictEqual(card.card, 'flash'); assert(close(card.seconds, mix.end_flash_sec)); assert(/GO TO$/.test(card.text), 'the card hands over to the outro, which spells the address') }
+      assert(close(e.total_sec, e.program_end_sec + (mix.end_flash_sec > 0 ? mix.end_flash_sec : 0) + clip.seconds, 0.002), 'the film is as long as its shots, the card and the outro')
+      assert(!e.video.some(v => v.card === 'end'), 'no plain end card as well')
+    } else assert.strictEqual(last.card, 'end', 'without a clip: the plain end card')
+    // one film can opt out
+    timeline({ outro: false })
+    const plain = edl.build(dir, { width: w, height: h })
+    assert.strictEqual(plain.video[plain.video.length - 1].card, 'end')
+    assert(!plain.video.some(v => v.outro || v.card === 'flash'))
+  }
+  // the first shot is still the freeze that fades out before the ending
+  assert(edl.build(dir, { width: 1080, height: 1920 }).video[0].freeze_out)
+  fs.rmSync(dir, { recursive: true, force: true })
+})
+
+test('outro: the plan keeps its rhythm and its sizes', () => {
+  const O = require('../lib/outro/make')
+  const [b1, b2, b3] = O.PLAN.breaks
+  assert(b2 - b1 < b3 - b2, 'two breaks as a pair, then a held beat: never evenly spaced')
+  assert.strictEqual(O.PLAN.ignite, O.PLAN.blast - O.PLAN.fuse, 'the creeper is lit back from the blast')
+  assert(O.PLAN.blast - b3 >= 5 && O.PLAN.blast - b3 <= 7, 'the blast is on the last block\'s heels')
+  assert(O.PLAN.bolt1 > O.PLAN.blast && O.PLAN.lookup > O.PLAN.bolt1 && O.PLAN.bolt2 > O.PLAN.lookup + O.PLAN.lookup_ticks, 'far bolt, look up (and hold), second bolt')
+  for (const s of Object.values(O.SHAPES)) {
+    assert(s.line > s.pop, 'the joined address is bigger than the words on their blocks')
+    assert(O.WORDS.reduce((n, w) => n + w.text.length, 0) * s.line < s.width, 'and fits the frame on one line')
+  }
+  assert.strictEqual(O.WORDS.map(w => w.text).join('').toLowerCase(), 'hardcorepvp.com')
 })
 
 console.log(`${n} passed${process.exitCode ? ', with failures' : ''}`)

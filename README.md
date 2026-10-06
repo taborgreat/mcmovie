@@ -8,6 +8,10 @@ ffmpeg cuts it together with music from your library.
 See `instructions.md` for the design spec and `CLAUDE.md` for how the LLM
 operator drives it.
 
+Working on a copy away from the production server (Max): start with `max.md`.
+It has a recorded match to practise on (`sample/last-match/`) and the steps
+to a first film.
+
 ## Requirements
 
 - Node 20+, Java 21+ (Paper 1.21.4), ffmpeg/ffprobe
@@ -34,6 +38,18 @@ xvfb-run -a -s "-screen 0 1920x1080x24" node bin/mcmovie.js make demo --mock-voi
 
 The set server is started and stopped automatically by `shoot` if it is not
 already running (`server:start` keeps one up between runs, faster).
+
+## Filming in the real game
+
+Films are shot by the real Minecraft client (`lib/capture/`, `lib/studio/`):
+bots replay the scene on a private server and the game itself is recorded.
+On a fresh Linux machine with an NVIDIA card:
+
+```bash
+tools/setup-real-client.sh    # launcher, VirtualGL, the game, the studio server; all inside this folder
+```
+`--offline` on `mcmatch make` uses the old built-in renderer instead (rough,
+for checking cuts only). See `max.md` and CLAUDE.md, "Real client filming".
 
 ## Match mode
 

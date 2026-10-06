@@ -14,6 +14,8 @@ server/whitelist.json
 server/config/
 music/*
 !music/.keep
+!music/kevin_macleod/
+!music/music_manifest.json
 projects/*/replay/
 projects/*/clips/
 projects/*/wav/
@@ -26,11 +28,11 @@ voice_server/__pycache__/
 *.log
 config/publish.json
 config/auto.json
-automation/
+/automation/
 voice_server/*.log
 projects/*/moments/
 server/set*/
-studio/
+/studio/
 capture/.venv/
 capture/mc/
 capture/vgl/
@@ -61,3 +63,8 @@ projects/*/frame*.png
 projects/*/publish.json
 .env
 .env.*
+/keep/
+assets/outro/work/
+/recordings/
+projects/match-outrotest/
+projects/outro-test/

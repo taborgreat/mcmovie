@@ -1,5 +1,9 @@
 # mcmovie - operator manual for the LLM
 
+> **Not on Tabor's production box?** If this is Max's copy (or any clone without
+> `~/hgserver`, `config/publish.json` and the film loop), read `max.md` first. It
+> says what applies there and what to leave alone.
+
 One prompt in, one finished MP4 out. You (Claude Code) are the orchestrator
 and the planner. The scripts are deterministic plumbing; you write the plan
 files and run the commands. Spec: `instructions.md`. Nothing runs on a timer.
@@ -79,6 +83,17 @@ nothing to do. `--no-film` / `--offline` falls back to the old renderer.
   really switched (a few frames either side of the plan; the scene keeps its
   length), never on a frozen or repeated frame. A camera aimed at a player
   eases toward them (`look_smoothing`, 0.18 s) instead of copying each twitch.
+- **The camera keeps its subject in sight** (`Film.pose` in
+  `lib/capture/film.js`): for any shot aimed at a player, a ray is cast from
+  the player to where the plan wants the camera. If something is in the way
+  the camera slides in along that line (fast) and eases back out (slow); if
+  a wall is close on that side it swings round the player to the nearest
+  clear side, eased, instead of squeezing against the wall. It never moves a
+  block at a time. Only a fixed shot with nothing to track is lifted out of
+  the ground. Follow cameras also keep at least 85% of their planned distance.
+- A clip filmed dark (a cave, a night fight) gets a gentle gamma lift when it
+  is cut from the take; daylight clips are left as filmed. The client itself
+  runs at the game's "bright" setting.
 - The lens is lifted out of blocks and plants; tall grass is trimmed from the
   stage. FOV is the client's (70, or 92 for vertical), not per shot.
 - **Match films are filmed the same way, in the studio** (`lib/studio/`):
@@ -88,19 +103,46 @@ nothing to do. `--no-film` / `--offline` falls back to the old renderer.
   region files into it, replay every segment with one bot per player
   (positions, held items, armour, swings, hit flashes, real `/kill` deaths,
   block changes by name, lightning, explosions, fireworks) and film it with
-  the 26.2 client. If the studio is missing or fails, the offline renderer
-  makes the film instead (`--offline` forces that); the upload check still
-  applies either way. A live take is never frozen mid-way by the match gate.
+  the 26.2 client. A take that fails (a hung login, a client that did not
+  come up) is tried again, three times, and then the job fails: there is no
+  quiet fallback to the offline renderer, because a film drawn by it must
+  never go out by accident (Tabor's rule, after one slipped into a test
+  export). `--offline` draws a film with it on purpose, `--offline-fallback`
+  allows it after the failed takes, and either way the upload check refuses
+  any shot not filmed in the real game unless `"allow_offline_render": true`
+  is set in `config/mix.json`. The usual cause of a hung login is
+  SkinsRestorer waiting on a rate-limited skin lookup: both private servers
+  keep lookups for a month (`U.calmSkinLookups`, applied at every start), and
+  the director's join is retried three times. A live take is never frozen mid-way by the match gate.
   Recorded creatures and projectiles are replayed too: each mob the recorder
   followed (golems, zombies, wolves, animals, arrows) is summoned as itself
   with its AI off and walked along its track. When the recording says a
   creature hit a player, its mind is switched on for a moment so it really
   swings (the golem's arms come up); when a player hits a creature it
   flinches, and dies on the blow the recording marks as the last. Older
-  recordings without those marks fall back to who is nearest. Not replayed yet: kit effects that the recorder does not
-  log. Next step (Tabor's ask): run the hardcorekits plugin
-  in the studio in a "studio mode", log each kit action as an event, and fire
-  the plugin's own ability code at the recorded tick.
+  recordings without those marks fall back to who is nearest. Also real in
+  the studio: a block broken by hand breaks with its crack, bits and dropped
+  item (`setblock ... destroy`), a placed block makes its sound, a death
+  spills the loot the recorder listed, a thrown item leaves the hand, a stew
+  burps, a player's blow sounds like one, a teleport puffs, and a player the
+  recording saw as invisible is invisible. Not shown: riding, elytra flight,
+  fishing lines, chests opening, and kit effects the recorder does not log.
+
+- **Real kits in the studio** (studio mode): the studio server runs the
+  hardcorekits plugin itself with `studio.enabled: true`
+  (`studio/plugins/HardcoreGames.jar`, built only in a scratch copy, never in
+  the plugin repo). In that mode the plugin starts no match, no stats, no web
+  port and no recorder: only the kits, every gate open, and `/studio kit
+  <player> <kit>`, `/studio fire <player> [kit] [x y z]`, `/studio clear`,
+  `/studio reset`. The recorder logs an `ability` event whenever a kit is
+  allowed to fire; `build.js` carries those into the replay with each
+  player's kit, and `perform.js` assigns the kits at the start of a scene and
+  calls `/studio fire` at each one, so the effect on screen is the plugin's
+  own code (26 kits fire this way; passive kits need nothing). The plugin's
+  `StudioGuard` keeps the puppets safe: nothing it does can kill or move a
+  bot. With the jar absent, films are made exactly as before. The live
+  server only gets studio-mode source when someone builds the plugin repo;
+  it cannot switch on there (it needs `studio.enabled` and offline mode).
 
 ## Match mode (a real match in, a narrated film out)
 
@@ -163,7 +205,22 @@ xvfb-run -a -s "-screen 0 1920x1080x24" node bin/mcmatch.js make <slug> [--mock-
   the build-up, the segment before has finished talking). The builder sets
   speed, music and the face shots; when it is slow, the studio lowers the server tick rate so
   the slow motion is the game itself. The song always plays out, over the
-  start of the celebration if the fight ends first. No song file means no finale.
+  start of the celebration if the fight ends first. The celebration ends when the winner stops doing anything on the
+  cake tower or hops off (at least 4 s, at most 12 s; `check` enforces the
+  end time digest.md gives), so the end card comes promptly. No song file means no finale.
+- **Whoever speaks is on screen.** A line with a player `speaker` (their chat
+  or a line in their voice) gets its own camera window in `autoShots`
+  (`speech`): the cut goes to that player on the frame the line starts, from
+  the front and close, and holds until it is said. A death window nearby
+  wins, a speaker who is not in the segment is skipped, and
+  `"show_speaker": false` on the line leaves the picture alone.
+- **A Stomper's kill is filmed from above** (`stomp` in `finale.plan`,
+  `stompShots` in `lib/match/autoshots.js`): when the last kill is a Stomper
+  landing on someone from 4 blocks or more, the fight segment opens half a
+  second before he leaves the height (not on the hit), is slowed so leap, fall
+  and hit take about 5 s on screen, and one camera rides 7.5 blocks over him
+  and a little to the side, looking down past him at his victim, on whichever
+  side keeps the tower or cliff he jumped from out of the lens.
 - `lib/match/anvil.js` reads the 26.2 region files and maps blocks by name
   onto the renderer's 1.21.4; newer blocks become look-alikes or air.
 - `lib/match/build.js` cuts each segment out of the recording into a replay,
@@ -200,8 +257,47 @@ xvfb-run -a -s "-screen 0 1920x1080x24" node bin/mcmatch.js make <slug> [--mock-
   each other speaker has their name above the words in their own colour.
   Voices sit a little lower and music a little higher than neutral
   (`voice_gain_db`, `music_gain_db`, `duck_ratio`). Films open on the action:
-  no title card unless `title_card` is set; the end card defaults to
-  hardcorepvp.com. Changing any of this only needs `assemble`, not a re-render.
+  no title card unless `title_card` is set. Changing any of this only needs
+  `assemble`, not a re-render.
+- **The ending: flash card + outro** (every film, staged and match, both
+  shapes). After the last shot's freeze and fade (`end_freeze_sec`) comes a
+  flash of text in the site's pixel font on black, up for `end_flash_sec`
+  (1.2 s: Tabor wanted it to hang a little longer than a flash): `end_flash_text` ("EVERY VIDEO IS
+  A REAL MATCH / WANT TO BE IN ONE WITHIN THE HOUR? / GO TO", line
+  `end_flash_highlight` in yellow); a staged story is not a match, so its card
+  is `end_flash_text_story` ("EVERY MATCH IS RECORDED / WANT TO BE IN A VIDEO
+  WITHIN THE HOUR? / GO TO"). Then the outro clip for the film's shape,
+  `assets/outro/outro_short.mp4` (1080x1920) or `outro_long.mp4` (1920x1080),
+  with its own sound at `outro_volume_db` (never ducked; the film's music has
+  faded by then). `"outro": false` in `config/mix.json` (or `cards.outro:
+  false` in one film's timeline), or a missing clip, gives the old plain end
+  card (`end_text`, `end_seconds`). `lib/assemble/edl.js` adds the two
+  segments, `lib/assemble/ffmpeg.js` draws the card and lays the clip in,
+  `lib/publish/verify.js` checks the outro is really on the end (its daylight,
+  its sound, a black last frame). Re-assemble any project with
+  `node bin/mcmovie.js assemble <slug>`.
+- **The outro clip** (`lib/outro/`, about 6 s): real game footage. The camera
+  is in a dark pocket inside a mass of stone; a miner (`noob`, Steve, no name
+  tag) breaks three blocks of the wall toward it, the last an iron ore
+  ("buda buda, buda": strike then break, never evenly spaced), and
+  HARDCORE / PVP / .COM pop on the holes and stay there, trembling. A creeper
+  behind him goes off: the stone is gone, he is knocked into a crater. A far
+  bolt of lightning sets a cow alight. He looks up at the words, holds it, a
+  second bolt lands on him (seen for six frames), and on the cut to black the
+  words slam into HARDCOREPVP.COM, branded white-hot and cooling, which fades
+  with the thunder. Remake: `node bin/mcmovie.js outro:make` films both shapes
+  with the real client on the set server (check `mcauto status` first; it
+  refuses while the client or studio is in use) and writes `raw_<shape>.mp4`,
+  `outro_<shape>.mp4` and `outro.json` (the measured beats and levels);
+  `outro:make --post` redoes only the words and sound from the raw takes.
+  Everything is a named setting in `lib/outro/make.js`: `PLAN` (ticks of
+  every beat, the spot on the set world, lens), `SHAPES` (word sizes),
+  `CHARGE` (the tremble), `STAMP` (hit-stop, slam, heat, glow, sparks, thump,
+  levels). The font is Press Start 2P (`assets/fonts/`, SIL OFL). The set
+  server now runs with `spawn-monsters=true` so the creeper can be summoned
+  (peaceful difficulty and `bukkit.yml` still keep monsters out of stories).
+  Tabor approved the clips in `assets/outro/` by eye: do not remake them
+  unasked (copies in `keep/outro-approved-0707/`).
 - The renderer animates idle life itself (arm sway, small head movement) and
   makes whoever is speaking nod and gesture; plans do not need to ask for it.
   It also draws clouds and a sun, hit sparks, death puffs with scattered
@@ -242,7 +338,9 @@ node bin/mcauto.js status | once | story | run
   published as written (Tabor's format, keep it plain): a story is just its
   title; a match is `HardcorePvP.com #<n>: <title>`, numbered in upload order
   (`automation/match_number.json`, edit `last` to renumber). The description
-  is the logline, `IP is hardcorepvp.com`, the hashtags (`youtube.hashtags`
+  is the logline, one line saying every match is recorded and to play one at
+  the site to be in a video (`youtube.invite` in the config, `{site}` allowed,
+  empty to drop it), `IP is hardcorepvp.com`, the hashtags (`youtube.hashtags`
   in the config, defaults in `lib/publish/publish.js`), then credits for
   licensed music. The style is in `prompts/match.md` and `prompts/outline.md`
   ("Title and logline"); `lib/publish/copy.js` is the part `check` and
@@ -304,8 +402,10 @@ node bin/mcauto.js status | once | story | run
   with a clear outcome, told by a narrator, an event in every scene. The loop
   then runs an editor pass (`prompts/auto/story_review.md`) that rewrites an
   outline with no point. `mcauto story --no-publish` makes one and keeps it
-  without uploading. Idle stories are off in `config/auto.json`
-  (`idle_stories`) until Tabor likes a test one.
+  without uploading. Idle stories are OFF in `config/auto.json`
+  (`idle_stories: false`, 2026-10-05): Tabor watched the automatic ones and
+  found them hollow next to real matches, so the channel is real matches
+  only. Do not turn them back on unasked.
 
 ## Stage files (all in projects/<slug>/)
 

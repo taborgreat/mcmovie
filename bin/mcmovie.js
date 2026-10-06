@@ -51,6 +51,9 @@ Server and assets:
   music:mock                    synthetic test tracks
   skins:sync <name...> | --usercache <path/to/usercache.json> | --roster
   skins:list
+  outro:make [--shape short|long] [--post] [--near x,z] [--facing 0-3]
+                                film the outro every film ends on (real client, set server) and
+                                lay the words over it -> assets/outro/; --post redoes only the words
 
 Environment: MCMOVIE_TTS_URL (default http://127.0.0.1:8880)
 `
@@ -247,6 +250,15 @@ async function main () {
     case 'skins:list': {
       const sk = require('../lib/skins')
       for (const p of sk.readRoster().players) console.log(`${p.name.padEnd(17)} ${p.model.padEnd(8)} ${p.skin}`)
+      return
+    }
+
+    // the outro every film ends on: filmed with the real client, then the words are laid over it
+    case 'outro:make': {
+      const shapes = args.shape ? [args.shape] : undefined
+      const near = args.near ? String(args.near).split(',').map(Number) : undefined
+      const r = await require('../lib/outro/make').make({ shapes, near, facing: args.facing !== undefined ? Number(args.facing) : undefined, postOnly: !!args.post, verbose: !!args.verbose })
+      for (const o of r) { console.log(`${o.file}: ${o.seconds}s, breaks at ${o.measured.breaks.join(', ')} s, blast ${o.measured.blast} s, far bolt ${o.measured.bolt1} s, second bolt ${o.measured.bolt2} s, words lock ${o.measured.seal} s, address gone ${o.measured.title_gone} s`); for (const pr of o.problems) console.log('  PROBLEM: ' + pr) }
       return
     }
 

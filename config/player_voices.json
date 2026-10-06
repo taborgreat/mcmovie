@@ -29,6 +29,11 @@
       "voice": "design",
       "voice_desc": "excitable teenage voice that cracks when shouting",
       "profile_id": "player_b_maxc153"
+    },
+    ".DreamyARL0": {
+      "voice": "design",
+      "voice_desc": "soft-spoken, dry and sarcastic voice",
+      "profile_id": "player_b_dreamyarl0"
     }
   }
 }

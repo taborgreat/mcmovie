@@ -53,22 +53,39 @@ function ensureDisplay () {
   if (process.platform === 'linux' && !process.env.DISPLAY) throw new Error('rendering needs an X display: run under  xvfb-run -a -s "-screen 0 1920x1080x24"')
 }
 
-// Picture for a match film. First choice: the studio (lib/studio): the match is played back
+// Film the project's cuts. With the studio set up (lib/studio), the match is replayed live
 // in its own world on a private copy of the game and filmed by the real Minecraft client.
-// If the studio is not set up, or fails for any reason, the offline renderer does it instead,
-// so a film is always made. --offline skips the studio.
+// A take that fails is tried again (a hung login, a client that did not come up): Tabor's
+// rule is that a film drawn by the offline renderer never goes out by accident, so there is
+// no quiet fallback. The offline renderer only runs when asked for: --offline (skip the
+// studio) or --offline-fallback (use it if the studio keeps failing), and what it makes is
+// refused by the upload check (lib/publish/verify.js) unless that is switched off too.
+const TAKES = 3
 async function film (dir, common, args) {
   const studio = require('../lib/studio/server')
   const capture = require('../lib/capture/client')
-  if (!args.offline && capture.config().enabled && studio.available() && capture.available()) {
-    try {
-      let regionDir = null
-      try { regionDir = path.join(R.resolve(recordingOf(dir)), 'region') } catch { /* recording gone */ }
-      const r = await require('../lib/studio/perform').perform(dir, { ...common, regionDir, keepWorld: !!args['keep-world'], scene: args.scene, verbose: !!args.verbose })
-      U.log('match', `filmed ${r.clips} clips in the studio with the real client`)
-      return
-    } catch (e) {
-      U.log('match', `studio filming failed (${e.message}); using the offline renderer`)
+  if (!args.offline) {
+    if (!(capture.config().enabled && studio.available() && capture.available())) {
+      if (!args['offline-fallback']) throw new Error('the studio or the filming client is not set up (studio/, capture/); pass --offline to draw this film with the offline renderer instead')
+    } else {
+      let last = null
+      for (let take = 1; take <= TAKES; take++) {
+        try {
+          let regionDir = null
+          try { regionDir = path.join(R.resolve(recordingOf(dir)), 'region') } catch { /* recording gone */ }
+          const r = await require('../lib/studio/perform').perform(dir, { ...common, regionDir, keepWorld: !!args['keep-world'], scene: args.scene, verbose: !!args.verbose })
+          U.log('match', `filmed ${r.clips} clips in the studio with the real client`)
+          return
+        } catch (e) {
+          last = e
+          U.log('match', `studio filming failed (${e.message})${take < TAKES ? `; take ${take + 1} of ${TAKES}` : ''}`)
+          try { await capture.stop() } catch { /* not running */ }
+          try { await studio.stopRunning() } catch { /* not running */ }
+          await U.sleep(5000)
+        }
+      }
+      if (!args['offline-fallback']) throw new Error(`the real-client take failed ${TAKES} times (${last.message}); no film was made. Fix the studio and run finish again, or pass --offline`)
+      U.log('match', 'using the offline renderer (--offline-fallback)')
     }
   }
   ensureDisplay()

@@ -1,0 +1,258 @@
+{
+  "short": {
+    "shape": "short",
+    "file": "assets/outro/outro_short.mp4",
+    "seconds": 6.233,
+    "planned": {
+      "breaks": [
+        0.45,
+        0.9,
+        1.65
+      ],
+      "ignite": 0.95,
+      "blast": 1.95,
+      "bolt1": 2.75,
+      "lookup": 3.25,
+      "bolt2": 4
+    },
+    "measured": {
+      "breaks": [
+        0.467,
+        0.9,
+        1.633
+      ],
+      "blast": 2,
+      "bolt1": 2.8,
+      "lookup": 3.3,
+      "lookup_reached": 3.6,
+      "bolt2": 3.9667,
+      "stamp_sounds_in_take": 4.22,
+      "seal": 4.1667,
+      "bolt2_frames_on_screen": 6,
+      "picture_stops": 4.033,
+      "first_black_frame": 4.1667,
+      "title_fade_start": 5.1167,
+      "title_gone": 6.1167,
+      "end": 6.233
+    },
+    "sound_in_take": {
+      "early_by": 0.12,
+      "breaks": [
+        {
+          "heard_at": 0.48,
+          "rms_db": -32.6,
+          "peak_db": -13.4
+        },
+        {
+          "heard_at": 0.9,
+          "rms_db": -33.1,
+          "peak_db": -12.1
+        },
+        {
+          "heard_at": 1.5,
+          "rms_db": -29.2,
+          "peak_db": -13.4
+        }
+      ],
+      "hiss": {
+        "rms_db": -37.3,
+        "peak_db": -14.8
+      },
+      "blast": {
+        "heard_at": 2,
+        "rms_db": -13.2,
+        "peak_db": -2.9
+      },
+      "bolt1": {
+        "heard_at": 2.77,
+        "rms_db": -14.2,
+        "peak_db": -6.1
+      },
+      "before_bolt2": {
+        "rms_db": -19.5,
+        "peak_db": -9.8
+      },
+      "bolt2": {
+        "heard_at": 4.09,
+        "rms_db": -11.6,
+        "peak_db": -0.9
+      },
+      "dark_start_luma": 0
+    },
+    "echo_added": false,
+    "finished": {
+      "last_frame_luma": 0,
+      "title_on_black_luma": 6.41,
+      "bolt_on_him_luma": 184.8,
+      "relief_luma": 116.3,
+      "peak_db": {
+        "breaks": -10.4,
+        "creeper_blast": -7,
+        "far_bolt": -9.7,
+        "silence_before_crack": -120,
+        "crack": -6.1,
+        "stamp": -4.2
+      },
+      "rms_db": {
+        "title_fade_start": -15.9,
+        "halfway": -30.2,
+        "title_gone": -67.4,
+        "last_100ms": -120
+      }
+    },
+    "problems": [],
+    "words_at": [
+      {
+        "x": 540,
+        "y": 448,
+        "size": 597,
+        "opening": 512,
+        "word_y": 448
+      },
+      {
+        "x": 540,
+        "y": 960,
+        "size": 597,
+        "opening": 512,
+        "word_y": 1006
+      },
+      {
+        "x": 540,
+        "y": 1472,
+        "size": 597,
+        "opening": 512,
+        "word_y": 1472
+      }
+    ],
+    "late_ticks": 0,
+    "filmed": "2026-10-05T14:07:02.752Z"
+  },
+  "long": {
+    "shape": "long",
+    "file": "assets/outro/outro_long.mp4",
+    "seconds": 6.233,
+    "planned": {
+      "breaks": [
+        0.45,
+        0.9,
+        1.65
+      ],
+      "ignite": 0.95,
+      "blast": 1.95,
+      "bolt1": 2.75,
+      "lookup": 3.25,
+      "bolt2": 4
+    },
+    "measured": {
+      "breaks": [
+        0.467,
+        0.9,
+        1.667
+      ],
+      "blast": 2,
+      "bolt1": 2.8,
+      "lookup": 3.3,
+      "lookup_reached": 3.6,
+      "bolt2": 3.9667,
+      "stamp_sounds_in_take": 4.2,
+      "seal": 4.1667,
+      "bolt2_frames_on_screen": 6,
+      "picture_stops": 4.033,
+      "first_black_frame": 4.1667,
+      "title_fade_start": 5.1167,
+      "title_gone": 6.1167,
+      "end": 6.233
+    },
+    "sound_in_take": {
+      "early_by": 0.11,
+      "breaks": [
+        {
+          "heard_at": 0.44,
+          "rms_db": -32.3,
+          "peak_db": -11.8
+        },
+        {
+          "heard_at": 0.9,
+          "rms_db": -32.7,
+          "peak_db": -16.2
+        },
+        {
+          "heard_at": 1.92,
+          "rms_db": -16.9,
+          "peak_db": -3.9
+        }
+      ],
+      "hiss": {
+        "rms_db": -41,
+        "peak_db": -18.3
+      },
+      "blast": {
+        "heard_at": 2.14,
+        "rms_db": -13.1,
+        "peak_db": -2.4
+      },
+      "bolt1": {
+        "heard_at": 2.98,
+        "rms_db": -16,
+        "peak_db": -7.3
+      },
+      "before_bolt2": {
+        "rms_db": -20.1,
+        "peak_db": -8.3
+      },
+      "bolt2": {
+        "heard_at": 4.09,
+        "rms_db": -11.5,
+        "peak_db": -0.9
+      },
+      "dark_start_luma": 0
+    },
+    "echo_added": false,
+    "finished": {
+      "last_frame_luma": 0,
+      "title_on_black_luma": 18.93,
+      "bolt_on_him_luma": 165.8,
+      "relief_luma": 121.2,
+      "peak_db": {
+        "breaks": -10.4,
+        "creeper_blast": -6.9,
+        "far_bolt": -9.6,
+        "silence_before_crack": -120,
+        "crack": -6.6,
+        "stamp": -4.3
+      },
+      "rms_db": {
+        "title_fade_start": -17.3,
+        "halfway": -25.3,
+        "title_gone": -63.5,
+        "last_100ms": -120
+      }
+    },
+    "problems": [],
+    "words_at": [
+      {
+        "x": 960,
+        "y": 252,
+        "size": 336,
+        "opening": 288,
+        "word_y": 252
+      },
+      {
+        "x": 960,
+        "y": 540,
+        "size": 336,
+        "opening": 288,
+        "word_y": 566
+      },
+      {
+        "x": 960,
+        "y": 828,
+        "size": 336,
+        "opening": 288,
+        "word_y": 828
+      }
+    ],
+    "late_ticks": 0,
+    "filmed": "2026-10-05T14:07:41.541Z"
+  }
+}
