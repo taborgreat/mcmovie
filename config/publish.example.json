@@ -26,7 +26,8 @@
       "minecraft pvp",
       "hardcorepvp",
       "machinima"
-    ]
+    ],
+    "upload_mbps": 0
   },
   "discord": {
     "webhook_url": "",

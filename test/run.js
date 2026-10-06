@@ -254,6 +254,19 @@ test('formats: a match is a Short unless it is big and long', () => {
   assert.strictEqual(F.FORMATS.short.max_sec, 180)
 })
 
+test('youtube: the upload cap holds the stream to the speed asked', async () => {
+  const fs = require('fs'); const os = require('os')
+  const Y = require('../lib/publish/youtube')
+  const f = path.join(os.tmpdir(), 'mcmovie-cap.bin'); fs.writeFileSync(f, Buffer.alloc(500 * 1024)) // 500 KB = 4 Mbit
+  const t0 = Date.now(); let n = 0
+  await new Promise((res, rej) => Y.throttled(f, 8).on('data', c => { n += c.length }).on('end', res).on('error', rej)) // 8 Mbps -> about half a second
+  const ms = Date.now() - t0
+  fs.unlinkSync(f)
+  assert.strictEqual(n, 500 * 1024)
+  assert(ms > 350 && ms < 1500, 'took ' + ms + ' ms')
+  const t1 = Date.now(); await new Promise((res, rej) => Y.throttled(__filename, 0).on('data', () => {}).on('end', res).on('error', rej)); assert(Date.now() - t1 < 200)
+})
+
 test('social: captions per platform, sign-in links, and what is skipped', async () => {
   const social = require('../lib/publish/social')
   const ig = require('../lib/publish/instagram'); const tt = require('../lib/publish/tiktok')

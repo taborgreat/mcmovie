@@ -18,7 +18,7 @@ const HELP = `mcpublish - upload a finished film and announce it
   social status                 which accounts are connected, and what happened to the last films
   social connect <platform> [--state s]   the sign-in link, as JSON (what the admin page uses)
   social finish <platform> --code <c>     finish a sign-in, as JSON
-  social send [--to tiktok,instagram] [--again]   send the newest Short by hand
+  social send [--id <youtube id>] [--to tiktok,instagram] [--again]   send a kept Short by hand (newest if no id)
   social tick                   retry failed Instagram/TikTok posts, renew tokens, clear old hosted clips
   social <slug>                 send an already-uploaded project to Instagram/TikTok now
   show <slug>                   print the title/description that would be used
@@ -99,7 +99,7 @@ async function socialCmd (args) {
   const social = require('../lib/publish/social')
   const cfg = P.config()
   const what = args._[1]
-  if (!what || what === 'status') { console.log(JSON.stringify(social.status(cfg), null, 2)); return }
+  if (!what || what === 'status') { console.log(JSON.stringify(await social.status(cfg), null, 2)); return }
   if (what === 'connect') {
     const platform = args._[2]
     if (platform !== 'instagram' && platform !== 'tiktok') throw new Error('social connect instagram|tiktok')
@@ -119,7 +119,7 @@ async function socialCmd (args) {
   }
   if (what === 'send') {
     const to = args.to ? String(args.to).split(',').map(x => x.trim()).filter(Boolean) : null
-    console.log(JSON.stringify(await social.sendLatest(cfg, { platforms: to, again: !!args.again, log: m => console.error('[social] ' + m) }), null, 2)); return
+    console.log(JSON.stringify(await social.sendLatest(cfg, { id: args.id ? String(args.id) : null, platforms: to, again: !!args.again, log: m => console.error('[social] ' + m) }), null, 2)); return
   }
   if (what === 'tick') { console.log(JSON.stringify(await social.tick(cfg, m => console.error('[social] ' + m)), null, 2)); return }
   const dir = U.projectDir(what)

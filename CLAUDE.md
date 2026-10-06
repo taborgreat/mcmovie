@@ -386,8 +386,8 @@ node bin/mcauto.js status | once | story | run
   (hardcorekits `http/admin.html`, HTTP basic auth; user and password in
   `http/admin-secret.json` on this box, Tabor's choice) shows which account is connected (name
   and avatar, scope `user.info.basic`), has Connect buttons that finish the
-  sign-in through `/oauth` automatically, and sends the newest Short by hand
-  (`automation/latest_short.mp4`, kept by the publisher). It only ever runs
+  sign-in through `/oauth` automatically, and sends any of the last five Shorts by hand
+  (the last five Shorts, kept by the publisher in `automation/shorts/`). It only ever runs
   `bin/mcpublish.js social ...` as a separate process.
   TikTok must have hardcorepvp.com verified for the app (URL properties in
   its developer portal) or it refuses to fetch the clip. The website's side:
