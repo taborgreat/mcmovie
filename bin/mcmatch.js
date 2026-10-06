@@ -118,7 +118,7 @@ async function main () {
       const dir = U.projectDir(slug)
       fs.mkdirSync(dir, { recursive: true })
       fs.writeFileSync(path.join(dir, 'recording.txt'), recDir + '\n')
-      const fmt = formats.writeProject(dir, args.format || formats.forMatch(rec.meta.ticks / 20).id, args.format ? 'forced' : 'short-form match edit')
+      const fmt = formats.writeProject(dir, args.format || formats.forMatch(rec.meta.ticks / 20, rec.meta.starting_players || (rec.meta.players || []).length, { preferred: 'short' }).id, args.format ? 'forced' : 'short-form match edit')
       const d = require('../lib/match/digest').write(rec, dir, fmt)
       console.log(`format: ${fmt.id} (${fmt.label})`)
       const sk = await require('../lib/skins').sync(rec.players.filter(p => !p.anon).map(p => ({ name: p.name, uuid: p.uuid })), { source: 'match' })

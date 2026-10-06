@@ -8,11 +8,47 @@
     "privacy": "public",
     "category_id": "20",
     "made_for_kids": false,
-    "hashtags": ["minecraft", "server", "pvp", "java", "bedrock", "26.3", "{year}", "notch", "herobrine"],
-    "tags": ["minecraft", "hardcore games", "minecraft pvp", "hardcorepvp", "machinima"]
+    "hashtags": [
+      "minecraft",
+      "minecraftpvp",
+      "hungergames",
+      "minecraftserver",
+      "minecraftsmp",
+      "smp",
+      "minecraftshorts",
+      "minecraftmemes",
+      "gaming",
+      "hardcorepvp"
+    ],
+    "tags": [
+      "minecraft",
+      "hardcore games",
+      "minecraft pvp",
+      "hardcorepvp",
+      "machinima"
+    ],
+    "upload_mbps": 0
   },
   "discord": {
     "webhook_url": "",
     "username": "HardcorePVP Films"
+  },
+  "social": {
+    "long_too": false
+  },
+  "instagram": {
+    "enabled": true,
+    "app_id": "",
+    "app_secret": "",
+    "redirect_uri": "https://hardcorepvp.com/oauth",
+    "share_to_feed": true
+  },
+  "tiktok": {
+    "enabled": true,
+    "client_key": "",
+    "client_secret": "",
+    "redirect_uri": "https://hardcorepvp.com/oauth",
+    "mode": "inbox",
+    "username": ""
   }
 }

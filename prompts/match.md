@@ -49,7 +49,7 @@ Check your plan with `node bin/mcmatch.js check <slug>`.
   moments from the middle, the ending.
 - For a Short, build a concise setup, turn and payoff. Use as many brief
   segments as the story needs; no mandatory side moment or opening drop.
-  The 35-90 second range is guidance, not a reason to pad a thin match.
+  The 35-second to 3-minute range is guidance, not a reason to pad a thin match.
 - Keep match footage at real speed. Cut uneventful travel instead of
   speeding it up. Only the optional music finale uses planned slow motion.
 - A player must be alive during a segment that focuses on them; `check`

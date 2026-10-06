@@ -53,9 +53,9 @@ const blockedWorld = { isSolid: (x, y, z) => z > 1.5 && z < 2.5 }
 assert(shotScore(frame(4), ['A'], stationary, blockedWorld) > shotScore(frame(22), ['A'], stationary, openWorld), 'framing size must not outweigh a blocked subject')
 console.log('Portrait framing checks passed')
 const formats = require('../lib/formats')
-assert.strictEqual(formats.forMatch(45 * 60).id, 'short', 'a long recording still needs a vertical short-form edit by default')
-assert.strictEqual(formats.forMatch(45 * 60, 12, 'long').id, 'long', 'explicit long-video choice remains available')
-assert.strictEqual(formats.forMatch(45 * 60, 12, 'auto').id, 'long', 'legacy length-based selection requires an explicit choice')
+assert.strictEqual(formats.forMatch(45 * 60, 100, { preferred: require('../lib/auto/config').DEFAULTS.match_format }).id, 'short', 'Max\'s short-form preference applies even to a large, long match')
+assert.strictEqual(formats.forMatch(45 * 60, 2, { preferred: 'long' }).id, 'long', 'explicit long-video choice remains available')
+assert.strictEqual(formats.forMatch(45 * 60, 100, { preferred: 'auto' }).id, 'long', 'Tabor\'s automatic player-count/duration selection remains available')
 const lensFilm = new Film({ director: { bot: { blockAt: () => ({ name: 'air', boundingBox: 'empty', shapes: [] }) } }, dir: '.', fps: 30, width: 1080, height: 1920 })
 lensFilm.cfg.fov_portrait = 92
 const lensCut = { local_start: 0, local_end: 40, cam: { target: { x: 0, y: 72, z: 0 }, evaluate: () => ({ x: 0, y: 72, z: 6, yaw: 0, pitch: 0, fov: 55 }) }, shot: { path: {} } }

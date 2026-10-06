@@ -1,0 +1,43 @@
+[14:36:25] [studio] loaded 16 region files of the match world
+[14:37:02] [director] kicked: "{\"translate\":\"multiplayer.disconnect.slow_login\"}"
+[14:37:02] [studio] the director could not join (director disconnected before spawn); joining again (2 of 3)
+[14:37:36] [director] kicked: "{\"translate\":\"multiplayer.disconnect.slow_login\"}"
+[14:37:36] [studio] the director could not join (director disconnected before spawn); joining again (3 of 3)
+[14:37:41] [capture] client starting on :77 (1080x1920)
+[14:38:01] [capture] client joined after 20s
+[14:38:01] [studio] kit abilities are played by the game plugin (/studio)
+[14:38:01] [studio] scene tower: 200 ticks, 2 cuts
+[14:38:02] [studio] rewinding 117 blocks to this moment
+[14:38:23] [capture] cut tower.a1: ticks 0-79 -> 117 frames from 2.07s of the take (cut moved -2 frames to the real switch)
+[14:38:25] [capture] cut tower.a2: ticks 79-200 -> 183 frames from 5.97s of the take (cut moved +1 frames to the real switch)
+[14:38:25] [studio] scene tower filmed (0 late ticks)
+[14:38:25] [studio] scene pull: 300 ticks, 2 cuts
+[14:38:26] [studio] rewinding 4 blocks to this moment
+[14:38:53] [capture] cut pull.a1: ticks 0-238 -> 354 frames from 2.10s of the take (cut moved -3 frames to the real switch)
+[14:38:55] [capture] cut pull.a2: ticks 238-300 -> 96 frames from 13.90s of the take (cut moved +3 frames to the real switch)
+[14:38:55] [studio] scene pull filmed (0 late ticks)
+[14:38:55] [studio] scene setup: 248 ticks, 4 cuts
+[14:39:18] [capture] cut setup.a1: ticks 0-83 -> 123 frames from 2.07s of the take (cut moved -2 frames to the real switch)
+[14:39:20] [capture] cut setup.a2: ticks 83-142 -> 88 frames from 6.17s of the take (cut moved -1 frames to the real switch)
+[14:39:21] [capture] cut setup.a3: ticks 142-188 -> 69 frames from 9.10s of the take
+[14:39:23] [capture] cut setup.a4: ticks 188-248 -> 92 frames from 11.40s of the take (cut moved +2 frames to the real switch)
+[14:39:23] [studio] scene setup filmed (0 late ticks)
+[14:39:23] [studio] scene finale_build: 180 ticks, 2 cuts
+[14:39:43] [capture] cut finale_build.f1: ticks 0-90 -> 133 frames from 2.50s of the take (cut moved -2 frames to the real switch)
+[14:39:45] [capture] cut finale_build.f2: ticks 90-180 -> 137 frames from 6.93s of the take (cut moved +2 frames to the real switch)
+[14:39:45] [studio] scene finale_build filmed (0 late ticks)
+[14:39:45] [studio] scene finale_fight: 100 ticks, 1 cuts
+[14:40:02] [capture] cut finale_fight.a1: ticks 0-100 -> 150 frames from 2.47s of the take
+[14:40:02] [studio] scene finale_fight filmed (0 late ticks)
+[14:40:02] [studio] scene celebration: 240 ticks, 2 cuts
+[14:40:26] [capture] cut celebration.a1: ticks 0-86 -> 130 frames from 3.17s of the take (cut moved +1 frames to the real switch)
+[14:40:29] [capture] cut celebration.a2: ticks 86-240 -> 230 frames from 7.50s of the take (cut moved -1 frames to the real switch)
+[14:40:29] [studio] scene celebration filmed (0 late ticks)
+[14:40:31] [match] filmed 13 clips in the studio with the real client
+[14:40:31] [match] warn: held celebration.a2 by 0.682s so dialogue finishes
+[14:40:32] [assemble] 30 inputs, 15 video segments, 12 lines, music km_sneaky_snitch > km_hidden_agenda > km_anxiety > finale_song, game sound, outro
+frame=    0 fps=0.0 q=0.0 size=       0kB time=-00:00:00.02 bitrate=  -0.0kbits/s speed=N/A    frame=  107 fps= 75 q=16.0 size=    6912kB time=00:00:04.28 bitrate=13205.1kbits/s speed=2.99x    frame=  246 fps=127 q=18.0 size=   15616kB time=00:00:08.93 bitrate=14311.6kbits/s speed=4.62x    frame=  386 fps=159 q=13.0 size=   20224kB time=00:00:13.54 bitrate=12230.0kbits/s speed=5.56x    frame=  524 fps=178 q=14.0 size=   21248kB time=00:00:18.19 bitrate=9565.4kbits/s speed= 6.2x    frame=  663 fps=193 q=15.0 size=   24320kB time=00:00:22.80 bitrate=8736.1kbits/s speed=6.64x    frame=  803 fps=204 q=15.0 size=   32256kB time=00:00:27.45 bitrate=9624.2kbits/s speed=6.97x    frame=  940 fps=212 q=14.0 size=   35328kB time=00:00:32.06 bitrate=9025.9kbits/s speed=7.23x    frame= 1081 fps=219 q=15.0 size=   39424kB time=00:00:36.71 bitrate=8796.5kbits/s speed=7.44x    frame= 1231 fps=225 q=17.0 size=   47616kB time=00:00:41.19 bitrate=9469.0kbits/s speed=7.52x    frame= 1368 fps=229 q=14.0 size=   51712kB time=00:00:46.05 bitrate=9197.5kbits/s speed=7.71x    frame= 1518 fps=233 q=15.0 size=   60160kB time=00:00:50.75 bitrate=9710.6kbits/s speed= 7.8x    frame= 1651 fps=236 q=20.0 size=   70144kB time=00:00:55.70 bitrate=10316.1kbits/s speed=7.95x    frame= 1791 fps=238 q=27.0 size=   80128kB time=00:01:00.41 bitrate=10864.8kbits/s speed=8.04x    frame= 1924 fps=240 q=15.0 size=   86016kB time=00:01:04.96 bitrate=10847.3kbits/s speed=8.11x    frame= 2061 fps=242 q=15.0 size=   89344kB time=00:01:09.48 bitrate=10533.7kbits/s speed=8.16x    frame= 2161 fps=243 q=14.0 Lsize=   90785kB time=00:01:12.02 bitrate=10326.3kbits/s speed= 8.1x    
+[14:40:42] [assemble] wrote final.mp4 (72.033s)
+FINAL <repo>/projects/match-outrotest/final.mp4
+deleted recording <recording folder>
+EXIT 0

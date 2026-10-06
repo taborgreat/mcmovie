@@ -1,0 +1,217 @@
+
+$ node bin/mcmatch.js import <recording folder> match-outrotest --format short
+format: short (YouTube Short, vertical 9:16, 35-90 seconds)
+[14:05:05] [skins] skip bedrock player .taborgreat
+project match-outrotest: 2 players, 5m32s, winner taborgreat; 1 skins ready
+read projects/match-outrotest/digest.md, then write projects/match-outrotest/doc.json (prompts/match.md)
+
+===== 2026-10-05T14:05:05.870Z prompt =====
+You are the storyteller for an unattended film pipeline. A real hardcorepvp match was recorded and you must write its narration plan.
+
+Project folder: projects/match-outrotest/
+Film format: short (YouTube Short, vertical 9:16, 35-90 seconds). Plan 35 to 90 seconds of film in total.
+
+Do exactly this:
+1. Read prompts/match.md (the method, the rules and the doc.json format).
+2. Read projects/match-outrotest/digest.md. It is the skeleton of the match: the ending, the winner's road backwards, side moments, one line per player.
+3. Plan backwards from the ending as prompts/match.md describes: the ending, then the moments on the winner's road that explain it, then one to three side moments about players off the main road.
+4. Open only the moment files you chose (projects/match-outrotest/moments/<id>.md) for the detail and the suggested segment times. Use prompts/reference/kits.md for what a kit does.
+5. Write projects/match-outrotest/doc.json, segments in chronological order.
+
+Narration rule that the checker enforces: narrate the data, do not list it. A raw number (blocks, damage, hp, seconds) now and then is good, but never two such lines in a row and no more than about one narrator line in three. The rest of the time say what it meant: hearts and how close to death, a place or an effort, a moment. Start from "In plain words" at the bottom of digest.md.
+
+Rules that are checked by a program after you finish:
+- The final kill must be inside a segment.
+- Every `focus` name must be a player from the digest, spelled exactly, and alive during that segment.
+- Segment times must lie inside the match.
+- Total film length must fit the format above.
+- `title` and `logline` are published on YouTube exactly as written. Follow "Title and logline" in prompts/match.md: a short plain title, and one or two casual sentences that call players by their kit.
+
+Do not run any commands and do not edit any other file. When doc.json is written, reply with the single word DONE.
+
+===== output =====
+
+$ node bin/mcmatch.js import <recording folder> match-outrotest --format short
+format: short (YouTube Short, vertical 9:16, 35-90 seconds)
+[14:05:14] [skins] skip bedrock player .taborgreat
+project match-outrotest: 2 players, 5m32s, winner taborgreat; 1 skins ready
+read projects/match-outrotest/digest.md, then write projects/match-outrotest/doc.json (prompts/match.md)
+
+===== 2026-10-05T14:05:14.695Z prompt =====
+You are the storyteller for an unattended film pipeline. A real hardcorepvp match was recorded and you must write its narration plan.
+
+Project folder: projects/match-outrotest/
+Film format: short (YouTube Short, vertical 9:16, 35-90 seconds). Plan 35 to 90 seconds of film in total.
+
+Do exactly this:
+1. Read prompts/match.md (the method, the rules and the doc.json format).
+2. Read projects/match-outrotest/digest.md. It is the skeleton of the match: the ending, the winner's road backwards, side moments, one line per player.
+3. Plan backwards from the ending as prompts/match.md describes: the ending, then the moments on the winner's road that explain it, then one to three side moments about players off the main road.
+4. Open only the moment files you chose (projects/match-outrotest/moments/<id>.md) for the detail and the suggested segment times. Use prompts/reference/kits.md for what a kit does.
+5. Write projects/match-outrotest/doc.json, segments in chronological order.
+
+Narration rule that the checker enforces: narrate the data, do not list it. A raw number (blocks, damage, hp, seconds) now and then is good, but never two such lines in a row and no more than about one narrator line in three. The rest of the time say what it meant: hearts and how close to death, a place or an effort, a moment. Start from "In plain words" at the bottom of digest.md.
+
+Rules that are checked by a program after you finish:
+- The final kill must be inside a segment.
+- Every `focus` name must be a player from the digest, spelled exactly, and alive during that segment.
+- Segment times must lie inside the match.
+- Total film length must fit the format above.
+- `title` and `logline` are published on YouTube exactly as written. Follow "Title and logline" in prompts/match.md: a short plain title, and one or two casual sentences that call players by their kit.
+
+Do not run any commands and do not edit any other file. When doc.json is written, reply with the single word DONE.
+
+===== output =====
+DONE
+
+===== 2026-10-05T14:06:33.798Z prompt =====
+You are fixing a plan file for an unattended film pipeline. A checker found problems.
+
+Project folder: projects/match-outrotest/
+File(s) to fix: projects/match-outrotest/doc.json
+Format guide: prompts/match.md
+
+Problems reported by the checker:
+/music/tempo must be equal to one of the allowed values
+
+Read the guide and the file, fix every problem listed, and write the corrected file back to the same path. Change only what is needed. Do not run any commands. When done, reply with the single word DONE.
+
+===== output =====
+DONE
+
+$ node bin/mcmatch.js build match-outrotest
+built 6 segments, 12 shots, 10 narration lines, 60s of film
+
+$ node bin/mcmatch.js voice match-outrotest --url http://127.0.0.1:8880
+[14:07:18] [voice] 10 rendered, 0 cached, 0 failed
+
+$ nice -n 10 xvfb-run -a -s -screen 0 1920x1080x24 node bin/mcmatch.js finish match-outrotest
+[14:07:44] [studio] loaded 16 region files of the match world
+[14:07:56] [capture] client starting on :77 (1080x1920)
+[14:08:16] [capture] client joined after 21s
+[14:08:16] [studio] kit abilities are played by the game plugin (/studio)
+[14:08:16] [studio] scene tower: 200 ticks, 2 cuts
+[14:08:17] [studio] rewinding 117 blocks to this moment
+[14:08:38] [capture] cut tower.a1: ticks 0-79 -> 117 frames from 2.07s of the take (cut moved -2 frames to the real switch)
+[14:08:40] [capture] cut tower.a2: ticks 79-200 -> 183 frames from 5.97s of the take (cut moved +1 frames to the real switch)
+[14:08:40] [studio] scene tower filmed (0 late ticks)
+[14:08:40] [studio] scene pull: 320 ticks, 3 cuts
+[14:08:40] [studio] rewinding 4 blocks to this moment
+[14:09:08] [capture] cut pull.a1: ticks 0-60 -> 88 frames from 2.10s of the take (cut moved -2 frames to the real switch)
+[14:09:10] [capture] cut pull.a2: ticks 60-250 -> 285 frames from 5.03s of the take
+[14:09:11] [capture] cut pull.a3: ticks 250-320 -> 107 frames from 14.53s of the take (cut moved +2 frames to the real switch)
+[14:09:11] [studio] scene pull filmed (0 late ticks)
+[14:09:11] [studio] scene setup: 178 ticks, 2 cuts
+[14:09:32] [capture] cut setup.a1: ticks 0-83 -> 122 frames from 2.10s of the take (cut moved -3 frames to the real switch)
+[14:09:33] [capture] cut setup.a2: ticks 83-178 -> 145 frames from 6.17s of the take (cut moved +2 frames to the real switch)
+[14:09:33] [studio] scene setup filmed (0 late ticks)
+[14:09:33] [studio] scene finale_build: 180 ticks, 2 cuts
+[14:09:54] [capture] cut finale_build.f1: ticks 0-90 -> 133 frames from 2.50s of the take (cut moved -2 frames to the real switch)
+[14:09:56] [capture] cut finale_build.f2: ticks 90-180 -> 137 frames from 6.93s of the take (cut moved +2 frames to the real switch)
+[14:09:56] [studio] scene finale_build filmed (0 late ticks)
+[14:09:56] [studio] scene finale_fight: 72 ticks, 1 cuts
+[14:10:12] [capture] cut finale_fight.a1: ticks 0-72 -> 108 frames from 2.47s of the take
+[14:10:12] [studio] scene finale_fight filmed (0 late ticks)
+[14:10:12] [studio] scene celebration: 240 ticks, 2 cuts
+[14:10:36] [capture] cut celebration.a1: ticks 0-86 -> 130 frames from 3.13s of the take (cut moved +1 frames to the real switch)
+[14:10:39] [capture] cut celebration.a2: ticks 86-240 -> 230 frames from 7.47s of the take (cut moved -1 frames to the real switch)
+[14:10:39] [studio] scene celebration filmed (0 late ticks)
+[14:10:41] [match] filmed 12 clips in the studio with the real client
+[14:10:42] [assemble] 27 inputs, 14 video segments, 10 lines, music km_darkest_child > km_impact_moderato > km_darkest_child > finale_song, game sound, outro
+frame=    0 fps=0.0 q=0.0 size=       0kB time=-00:00:00.02 bitrate=  -0.0kbits/s speed=N/A    frame=  106 fps= 78 q=14.0 size=    6912kB time=00:00:04.28 bitrate=13205.1kbits/s speed=3.14x    frame=  246 fps=132 q=20.0 size=   16128kB time=00:00:08.93 bitrate=14780.8kbits/s speed=4.79x    frame=  383 fps=162 q=14.0 size=   20736kB time=00:00:13.50 bitrate=12579.2kbits/s speed= 5.7x    frame=  524 fps=183 q=14.0 size=   22272kB time=00:00:18.15 bitrate=10049.9kbits/s speed=6.33x    frame=  660 fps=196 q=13.0 size=   24576kB time=00:00:22.69 bitrate=8869.6kbits/s speed=6.73x    frame=  802 fps=207 q=14.0 size=   30208kB time=00:00:27.41 bitrate=9027.2kbits/s speed=7.08x    frame=  940 fps=215 q=24.0 size=   37888kB time=00:00:32.02 bitrate=9692.9kbits/s speed=7.32x    frame= 1079 fps=221 q=16.0 size=   46336kB time=00:00:36.67 bitrate=10350.8kbits/s speed=7.52x    frame= 1218 fps=226 q=12.0 size=   52992kB time=00:00:41.32 bitrate=10505.4kbits/s speed=7.68x    frame= 1358 fps=231 q=16.0 size=   56064kB time=00:00:45.93 bitrate=9999.3kbits/s speed=7.81x    frame= 1496 fps=234 q=17.0 size=   65792kB time=00:00:50.53 bitrate=10664.5kbits/s speed=7.92x    frame= 1631 fps=237 q=25.0 size=   75520kB time=00:00:55.16 bitrate=11214.1kbits/s speed=8.02x    frame= 1761 fps=239 q=18.0 size=   83712kB time=00:00:59.26 bitrate=11571.4kbits/s speed=8.03x    frame= 1902 fps=241 q=15.0 size=   86784kB time=00:01:04.21 bitrate=11071.5kbits/s speed=8.15x    frame= 2026 fps=243 q=14.0 Lsize=   89266kB time=00:01:07.52 bitrate=10830.4kbits/s speed=8.09x    
+[14:10:52] [assemble] wrote final.mp4 (67.533s)
+FINAL <repo>/projects/match-outrotest/final.mp4
+deleted recording <recording folder>
+
+$ node bin/mcmatch.js import <recording folder> match-outrotest --format short
+format: short (YouTube Short, vertical 9:16, 35-90 seconds)
+[14:18:46] [skins] skip bedrock player .taborgreat
+project match-outrotest: 2 players, 5m32s, winner taborgreat; 1 skins ready
+read projects/match-outrotest/digest.md, then write projects/match-outrotest/doc.json (prompts/match.md)
+
+===== 2026-10-05T14:18:46.379Z prompt =====
+You are the storyteller for an unattended film pipeline. A real hardcorepvp match was recorded and you must write its narration plan.
+
+Project folder: projects/match-outrotest/
+Film format: short (YouTube Short, vertical 9:16, 35-90 seconds). Plan 35 to 90 seconds of film in total.
+
+Do exactly this:
+1. Read prompts/match.md (the method, the rules and the doc.json format).
+2. Read projects/match-outrotest/digest.md. It is the skeleton of the match: the ending, the winner's road backwards, side moments, one line per player.
+3. Plan backwards from the ending as prompts/match.md describes: the ending, then the moments on the winner's road that explain it, then one to three side moments about players off the main road.
+4. Open only the moment files you chose (projects/match-outrotest/moments/<id>.md) for the detail and the suggested segment times. Use prompts/reference/kits.md for what a kit does.
+5. Write projects/match-outrotest/doc.json, segments in chronological order.
+
+Narration rule that the checker enforces: narrate the data, do not list it. A raw number (blocks, damage, hp, seconds) now and then is good, but never two such lines in a row and no more than about one narrator line in three. The rest of the time say what it meant: hearts and how close to death, a place or an effort, a moment. Start from "In plain words" at the bottom of digest.md.
+
+Rules that are checked by a program after you finish:
+- The final kill must be inside a segment.
+- Every `focus` name must be a player from the digest, spelled exactly, and alive during that segment.
+- Segment times must lie inside the match.
+- Total film length must fit the format above.
+- `title` and `logline` are published on YouTube exactly as written. Follow "Title and logline" in prompts/match.md: a short plain title, and one or two casual sentences that call players by their kit.
+
+Do not run any commands and do not edit any other file. When doc.json is written, reply with the single word DONE.
+
+===== output =====
+DONE
+
+===== 2026-10-05T14:20:01.534Z prompt =====
+You are fixing a plan file for an unattended film pipeline. A checker found problems.
+
+Project folder: projects/match-outrotest/
+File(s) to fix: projects/match-outrotest/doc.json
+Format guide: prompts/match.md
+
+Problems reported by the checker:
+/music/tempo must be equal to one of the allowed values
+
+Read the guide and the file, fix every problem listed, and write the corrected file back to the same path. Change only what is needed. Do not run any commands. When done, reply with the single word DONE.
+
+===== output =====
+DONE
+
+$ node bin/mcmatch.js build match-outrotest
+built 6 segments, 12 shots, 12 narration lines, 63s of film
+
+$ node bin/mcmatch.js voice match-outrotest --url http://127.0.0.1:8880
+[14:20:42] [voice] 12 rendered, 0 cached, 0 failed
+
+$ nice -n 10 xvfb-run -a -s -screen 0 1920x1080x24 node bin/mcmatch.js finish match-outrotest
+[14:20:43] [studio] loaded 16 region files of the match world
+[14:20:52] [capture] client starting on :77 (1080x1920)
+[14:21:12] [capture] client joined after 20s
+[14:21:12] [studio] kit abilities are played by the game plugin (/studio)
+[14:21:12] [studio] scene tower: 200 ticks, 2 cuts
+[14:21:12] [studio] rewinding 117 blocks to this moment
+[14:21:34] [capture] cut tower.a1: ticks 0-79 -> 117 frames from 2.07s of the take (cut moved -2 frames to the real switch)
+[14:21:36] [capture] cut tower.a2: ticks 79-200 -> 183 frames from 5.97s of the take (cut moved +1 frames to the real switch)
+[14:21:36] [studio] scene tower filmed (0 late ticks)
+[14:21:36] [studio] scene pull: 300 ticks, 2 cuts
+[14:21:36] [studio] rewinding 4 blocks to this moment
+[14:22:04] [capture] cut pull.a1: ticks 0-238 -> 356 frames from 2.07s of the take (cut moved -1 frames to the real switch)
+[14:22:05] [capture] cut pull.a2: ticks 238-300 -> 94 frames from 13.93s of the take (cut moved +1 frames to the real switch)
+[14:22:05] [studio] scene pull filmed (0 late ticks)
+[14:22:05] [studio] scene setup: 248 ticks, 3 cuts
+[14:22:29] [capture] cut setup.a1: ticks 0-83 -> 123 frames from 2.10s of the take (cut moved -2 frames to the real switch)
+[14:22:31] [capture] cut setup.a2: ticks 83-188 -> 157 frames from 6.20s of the take (cut moved -1 frames to the real switch)
+[14:22:32] [capture] cut setup.a3: ticks 188-248 -> 92 frames from 11.43s of the take (cut moved +2 frames to the real switch)
+[14:22:32] [studio] scene setup filmed (0 late ticks)
+[14:22:32] [studio] scene finale_build: 180 ticks, 2 cuts
+[14:22:53] [capture] cut finale_build.f1: ticks 0-90 -> 133 frames from 2.47s of the take (cut moved -2 frames to the real switch)
+[14:22:55] [capture] cut finale_build.f2: ticks 90-180 -> 137 frames from 6.90s of the take (cut moved +2 frames to the real switch)
+[14:22:55] [studio] scene finale_build filmed (0 late ticks)
+[14:22:55] [studio] scene finale_fight: 100 ticks, 1 cuts
+[14:23:12] [capture] cut finale_fight.a1: ticks 0-100 -> 150 frames from 2.50s of the take
+[14:23:12] [studio] scene finale_fight filmed (0 late ticks)
+[14:23:12] [studio] scene celebration: 240 ticks, 2 cuts
+[14:23:36] [capture] cut celebration.a1: ticks 0-86 -> 130 frames from 3.17s of the take (cut moved +1 frames to the real switch)
+[14:23:39] [capture] cut celebration.a2: ticks 86-240 -> 230 frames from 7.50s of the take (cut moved -1 frames to the real switch)
+[14:23:39] [studio] scene celebration filmed (0 late ticks)
+[14:23:41] [match] filmed 12 clips in the studio with the real client
+[14:23:41] [match] warn: held celebration.a2 by 0.682s so dialogue finishes
+[14:23:42] [assemble] 29 inputs, 14 video segments, 12 lines, music km_sneaky_snitch > km_hidden_agenda > km_anxiety > finale_song, game sound, outro
+frame=    0 fps=0.0 q=0.0 size=       0kB time=-00:00:00.02 bitrate=  -0.0kbits/s speed=N/A    frame=  108 fps= 80 q=19.0 size=    6912kB time=00:00:04.28 bitrate=13205.1kbits/s speed=3.16x    frame=  246 fps=133 q=19.0 size=   15872kB time=00:00:08.93 bitrate=14546.2kbits/s speed=4.81x    frame=  387 fps=164 q=14.0 size=   20480kB time=00:00:13.56 bitrate=12365.3kbits/s speed=5.76x    frame=  525 fps=184 q=14.0 size=   21504kB time=00:00:18.19 bitrate=9680.6kbits/s speed=6.37x    frame=  664 fps=198 q=15.0 size=   24320kB time=00:00:22.80 bitrate=8736.1kbits/s speed=6.79x    frame=  804 fps=208 q=15.0 size=   32512kB time=00:00:27.45 bitrate=9700.6kbits/s speed=7.11x    frame=  943 fps=216 q=12.0 size=   35584kB time=00:00:32.14 bitrate=9067.2kbits/s speed=7.37x    frame= 1097 fps=226 q=15.0 size=   39424kB time=00:00:36.75 bitrate=8786.3kbits/s speed=7.56x    frame= 1231 fps=228 q=16.0 size=   46592kB time=00:00:41.19 bitrate=9265.3kbits/s speed=7.64x    frame= 1368 fps=232 q=14.0 size=   51200kB time=00:00:46.05 bitrate=9106.4kbits/s speed=7.81x    frame= 1518 fps=236 q=15.0 size=   59648kB time=00:00:50.75 bitrate=9627.9kbits/s speed= 7.9x    frame= 1653 fps=239 q=24.0 size=   69632kB time=00:00:55.78 bitrate=10225.1kbits/s speed=8.05x    frame= 1792 fps=241 q=25.0 size=   79872kB time=00:01:00.50 bitrate=10814.8kbits/s speed=8.14x    frame= 1924 fps=243 q=15.0 size=   85760kB time=00:01:04.96 bitrate=10815.1kbits/s speed=8.19x    frame= 2062 fps=244 q=14.0 size=   89088kB time=00:01:09.56 bitrate=10490.6kbits/s speed=8.25x    frame= 2155 fps=245 q=14.0 Lsize=   90479kB time=00:01:11.82 bitrate=10319.0kbits/s speed=8.18x    
+[14:23:51] [assemble] wrote final.mp4 (71.833s)
+FINAL <repo>/projects/match-outrotest/final.mp4
+deleted recording <recording folder>

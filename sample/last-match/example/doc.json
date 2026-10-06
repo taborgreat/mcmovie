@@ -1,0 +1,37 @@
+{
+  "title": "A Tower For The Stomper",
+  "logline": "An endermage builds a huge dirt tower, pulls the stomper up to the top of it and then jumps off. You can guess where the stomper landed.",
+  "narrator": { "voice": "stock:deadpan", "voice_desc": "dry sports documentary narrator, a little amused" },
+  "music": { "mood_tags": ["funny", "tense"], "tempo": "mid" },
+  "cards": { "end_text": "hardcorepvp.com" },
+  "segments": [
+    { "id": "tower", "title": "The tower", "from_sec": 188, "to_sec": 198, "focus": [".taborgreat"], "music": "funny",
+      "narration": [
+        { "id": "n1", "at_sec": 0.3, "text": "Two players in this match, and both are called taborgreat.", "emotion": "dry" },
+        { "id": "n2", "at_sec": 5.3, "text": "The Endermage stacks a dirt tower twenty six blocks straight up.", "emotion": "curious" }
+      ] },
+    { "id": "pull", "title": "The portal", "from_sec": 262, "to_sec": 277, "focus": [".taborgreat", "taborgreat"], "music": "suspense",
+      "narration": [
+        { "id": "n1", "at_sec": 1.0, "text": "The Stomper wanders over to the bottom for a look.", "emotion": "dry" },
+        { "id": "n2", "at_sec": 6.4, "text": "The Endermage's portal yanks the Stomper to the top.", "emotion": "building" },
+        { "id": "n3", "at_sec": 10.9, "text": "And the Endermage jumps straight off, unhurt.", "emotion": "amused" }
+      ] },
+    { "id": "setup", "title": "The wrong passenger", "from_sec": 295, "to_sec": 307.4, "focus": ["taborgreat", ".taborgreat"], "music": "tense",
+      "narration": [
+        { "id": "n1", "at_sec": 0.3, "text": "A Stomper's fall damage lands on whoever is underneath.", "emotion": "dry" },
+        { "id": "n2", "at_sec": 4.6, "text": "The Endermage walks back anyway.", "emotion": "ominous" },
+        { "id": "p1", "at_sec": 7.2, "speaker": "taborgreat", "chat": true, "text": "im a stomper silly", "emotion": "amused" }
+      ] },
+    { "id": "finale_build", "finale": true, "from_sec": 307.4, "to_sec": 311.9, "focus": ["taborgreat", ".taborgreat"], "narration": [] },
+    { "id": "finale_fight", "finale": true, "from_sec": 311.9, "to_sec": 314.3, "focus": ["taborgreat", ".taborgreat"],
+      "narration": [
+        { "id": "n1", "at_sec": 0.8, "text": "Twenty seven blocks, straight down.", "emotion": "building" }
+      ] },
+    { "id": "celebration", "title": "The cake", "from_sec": 314.3, "to_sec": 326.3, "focus": ["taborgreat"], "music": "triumphant",
+      "narration": [
+        { "id": "n1", "at_sec": 0.8, "text": "One stomp, ten hearts.", "emotion": "dry" },
+        { "id": "n2", "at_sec": 3.6, "text": "The Endermage built that tower, then put a Stomper on it.", "emotion": "amused" },
+        { "id": "n3", "at_sec": 8.8, "text": "taborgreat, Stomper, wins with one kill.", "emotion": "warm" }
+      ] }
+  ]
+}

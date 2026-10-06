@@ -237,9 +237,13 @@ xvfb-run -a -s "-screen 0 1920x1080x24" node bin/mcmatch.js make <slug> [--mock-
 ## Formats, music moods, voices (both modes)
 
 - **Format**: `long` = 1920x1080, 3-5 minutes. `short` = vertical 1080x1920
-  YouTube Short, 35-90 seconds. Staged: `"format"` in story.json. Match:
-  short by default regardless of match length, stored in `format.json`,
-  `--format` to force. `--size WxH` still overrides
+  YouTube Short, 35 seconds to 3 minutes, as short as the match allows.
+  Staged: `"format"` in story.json. Match imports default to short-form for
+  Max. Automation's `match_format: "short"` does the same. Setting it to
+  `"auto"` uses Tabor's rule: a full video only for 10+ players
+  (`long_min_players`) AND 12+ minutes (`short_match_minutes`).
+  Stored in `format.json`, `--format` to
+  force. `--size WxH` still overrides
   pixels for quick tests. See `lib/formats.js`.
 - **Music moods**: films ask for music by mood and can change mood per scene
   (`"music_mood"` on a story scene) or per segment (`"music"` in doc.json).
@@ -331,6 +335,8 @@ node bin/mcpublish.js show <slug>          title/description that would be used
 node bin/mcpublish.js <slug> --dry-run     no upload
 node bin/mcpublish.js <slug>               YouTube upload + Discord post -> published.json
 node bin/mcpublish.js auth                 one-time YouTube consent (saves refresh token)
+node bin/mcpublish.js auth instagram|tiktok  connect those accounts (prints a sign-in link)
+node bin/mcpublish.js social status        what is connected, what happened to the last films
 node bin/mcauto.js status | once | story | run
 ```
 - Credentials live in `config/publish.json` (gitignored; copy
@@ -348,6 +354,48 @@ node bin/mcauto.js status | once | story | run
   `validate` enforce. No `#Shorts` suffix: YouTube classifies by shape.
 - **Discord posts are flat text**: a match is just `Hardcore Game #<n>` and the
   link; a story is its description and the link. No bold titles.
+- **Instagram Reels and TikTok** (`lib/publish/social.js`, `instagram.js`,
+  `tiktok.js`, `hosting.js`): after a Short is up on YouTube the same file
+  goes to both. Neither takes an upload: they fetch the clip from a public
+  address, so it is copied to `automation/clips/<youtube id>.mp4`, which the
+  website serves at `https://hardcorepvp.com/clips/<id>.mp4` (hardcorekits
+  `http/server.js`; whole file or byte ranges, never a redirect). It is
+  public only while needed: taken down the moment every connected platform
+  confirms it has the clip, or after a 48-hour retry window if one never
+  does. TikTok's limits are respected (5 waiting drafts per 24 hours in inbox
+  mode, about 15 posts a day in direct mode; `tiktok.max_per_day`): a film
+  over the limit waits and goes when there is room, first come first served. Instagram: a container is created (`media_type=REELS`),
+  polled until `FINISHED`, then published; the 60-day token renews itself
+  weekly. TikTok: `mode: "inbox"` (the default) drops the clip in the
+  account's drafts for Tabor to caption and post by hand, which needs no app
+  audit; `mode: "direct"` posts it with the caption (private until TikTok
+  audits the app; sign in again after switching, it needs one more scope).
+  One platform failing never blocks the other or the YouTube upload; a
+  failure is retried up to 4 times by the loop's half-hourly `social tick`
+  while the clip is still hosted. Only public Shorts are sent (`social.long_too`
+  for wide videos). The caption on both is the same words YouTube got (title,
+  then the YouTube description); a TikTok draft cannot carry one through the
+  API, so the admin page shows it to paste in the app. Outcomes, ids and the
+  captions used are in `automation/social.json`; links are added to the film's record
+  (`links` in `automation/films.json`) for the website. Keys and tokens live
+  under `instagram` and `tiktok` in `config/publish.json`
+  (`config/publish.example.json` shows the fields). Connecting an account:
+  `node bin/mcpublish.js auth instagram` (or `tiktok`) prints a sign-in link;
+  the platform sends the browser to `https://hardcorepvp.com/oauth`, which
+  only displays the code; `auth instagram --code "<code>"` finishes.
+  `mcpublish social status` shows what is connected and the last films.
+  The same can be done from the browser: `https://hardcorepvp.com/taborgreatadmin`
+  (hardcorekits `http/admin.html`, HTTP basic auth; user and password in
+  `http/admin-secret.json` on this box, Tabor's choice) shows which account is connected (name
+  and avatar, scope `user.info.basic`), has Connect buttons that finish the
+  sign-in through `/oauth` automatically, and sends any of the last five Shorts by hand
+  (the last five Shorts, kept by the publisher in `automation/shorts/`). It only ever runs
+  `bin/mcpublish.js social ...` as a separate process.
+  TikTok must have hardcorepvp.com verified for the app (URL properties in
+  its developer portal) or it refuses to fetch the clip. The website's side:
+  `http/public/site.js` holds the three account addresses (an empty one hides
+  that platform everywhere) and draws the Watch menu and the footer logos;
+  the profile's Movies tab filters by platform.
 - **Who is in each film** (`lib/publish/films.js`): at upload the publisher
   works out the players who appear: everyone the camera caught in a frame of
   any cut (inside the lens and within 64 blocks; walking through the back of

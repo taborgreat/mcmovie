@@ -77,7 +77,7 @@ node bin/mcauto.js run                               # the unattended loop (keep
 The loop films every finished match as a vertical short by default,
 uploads, posts to Discord, and after 8 idle hours stages a story from random
 recent players and kits. `config/auto.json` can set `match_format` to `long`,
-or `auto` for the old match-duration rule. See CLAUDE.md. Max's isolated
+or `auto` for Tabor's player-count and match-duration rule. See CLAUDE.md. Max's isolated
 review workflow stops at the MP4 and does not run this publishing loop.
 
 ## Commands

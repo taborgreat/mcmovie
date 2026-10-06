@@ -12,7 +12,13 @@ const { opToCommands } = require('../lib/mc/director')
 
 let n = 0
 process.env.MCMOVIE_NO_FINALE = '1' // the plan checks are tested without the finale song; it has its own test
-function test (name, fn) { try { fn(); n++; console.log('ok   ' + name) } catch (e) { console.log('FAIL ' + name + ': ' + e.message); process.exitCode = 1 } }
+// a test may be async: it is then counted when it settles, and the summary waits for it
+const pending = []
+function test (name, fn) {
+  const pass = () => { n++; console.log('ok   ' + name) }
+  const fail = e => { console.log('FAIL ' + name + ': ' + e.message); process.exitCode = 1 }
+  try { const r = fn(); if (r && typeof r.then === 'function') pending.push(r.then(pass, fail)); else pass() } catch (e) { fail(e) }
+}
 const close = (a, b, eps = 1e-6) => Math.abs(a - b) < eps
 
 test('yaw conventions round-trip', () => {
@@ -237,17 +243,72 @@ test('match: the camera goes to a player on the frame their own line starts', ()
   assert(!k.some(v => v.anchor === 'speech') && k.some(v => v.anchor === 'death'))
 })
 
+test('formats: a match is a Short unless it is big and long', () => {
+  const F = require('../lib/formats')
+  assert.strictEqual(F.forMatch(5 * 60, 2).id, 'short')
+  assert.strictEqual(F.forMatch(40 * 60, 2).id, 'short') // long but small: still a Short
+  assert.strictEqual(F.forMatch(40 * 60, 9).id, 'short')
+  assert.strictEqual(F.forMatch(8 * 60, 14).id, 'short') // big but over quickly
+  assert.strictEqual(F.forMatch(25 * 60, 14).id, 'long')
+  assert.strictEqual(F.forMatch(25 * 60).id, 'short') // unknown player count counts as small
+  assert.strictEqual(F.FORMATS.short.max_sec, 180)
+})
+
+test('youtube: the upload cap holds the stream to the speed asked', async () => {
+  const fs = require('fs'); const os = require('os')
+  const Y = require('../lib/publish/youtube')
+  const f = path.join(os.tmpdir(), 'mcmovie-cap.bin'); fs.writeFileSync(f, Buffer.alloc(500 * 1024)) // 500 KB = 4 Mbit
+  const t0 = Date.now(); let n = 0
+  await new Promise((res, rej) => Y.throttled(f, 8).on('data', c => { n += c.length }).on('end', res).on('error', rej)) // 8 Mbps -> about half a second
+  const ms = Date.now() - t0
+  fs.unlinkSync(f)
+  assert.strictEqual(n, 500 * 1024)
+  assert(ms > 350 && ms < 1500, 'took ' + ms + ' ms')
+  const t1 = Date.now(); await new Promise((res, rej) => Y.throttled(__filename, 0).on('data', () => {}).on('end', res).on('error', rej)); assert(Date.now() - t1 < 200)
+})
+
+test('social: captions per platform, sign-in links, and what is skipped', async () => {
+  const social = require('../lib/publish/social')
+  const ig = require('../lib/publish/instagram'); const tt = require('../lib/publish/tiktok')
+  const hosting = require('../lib/publish/hosting')
+  const cfg = { site: 'hardcorepvp.com', instagram: { app_id: 'A', app_secret: 'S', redirect_uri: 'https://hardcorepvp.com/oauth' }, tiktok: { client_key: 'K', client_secret: 'S', redirect_uri: 'https://hardcorepvp.com/oauth' } }
+  const meta = { title: 'HardcorePvP.com #9: Out of Fireballs', logline: 'A pyro runs dry.', short: true }
+  const yt = 'A pyro runs dry.\n\nEvery match on the server is recorded. Want to be in a video? Play a match at hardcorepvp.com.\n\nIP is hardcorepvp.com\n\n#minecraft #pvp'
+  const c = social.captions({ ...meta, description: yt }, cfg)
+  // the same words YouTube got, on both
+  assert.strictEqual(c.instagram, 'HardcorePvP.com #9: Out of Fireballs\n\n' + yt)
+  assert.strictEqual(c.tiktok, c.instagram)
+  assert(social.captions(meta, cfg).tiktok.endsWith('A pyro runs dry.')) // no description yet: title and logline
+  // keys alone do not switch a platform on: it has to be signed in
+  assert(ig.configured(cfg.instagram) && !ig.ready(cfg.instagram) && tt.configured(cfg.tiktok) && !tt.ready(cfg.tiktok))
+  assert.deepStrictEqual(social.enabled(cfg), [])
+  assert.deepStrictEqual(await social.post('/nonexistent.mp4', meta, { youtube_id: 'x' }, cfg), {})
+  const igUrl = new URL(ig.authUrl(cfg.instagram, 'st'))
+  assert.strictEqual(igUrl.origin + igUrl.pathname, 'https://www.instagram.com/oauth/authorize')
+  assert.strictEqual(igUrl.searchParams.get('scope'), 'instagram_business_basic,instagram_business_content_publish')
+  const ttUrl = new URL(tt.authUrl(cfg.tiktok, 'st'))
+  assert.strictEqual(ttUrl.origin + ttUrl.pathname, 'https://www.tiktok.com/v2/auth/authorize/')
+  assert.strictEqual(ttUrl.searchParams.get('scope'), 'user.info.basic,video.upload') // drafts only until the app is audited
+  assert.strictEqual(new URL(tt.authUrl({ ...cfg.tiktok, mode: 'direct' }, 'st')).searchParams.get('scope'), 'user.info.basic,video.upload,video.publish')
+  // signed in: wide videos and non-public uploads are still not cross-posted
+  const on = { ...cfg, instagram: { ...cfg.instagram, access_token: 't', ig_user_id: '1' } }
+  assert.deepStrictEqual(social.enabled(on), ['instagram'])
+  assert((await social.post('/nonexistent.mp4', { ...meta, short: false }, { youtube_id: 'x' }, on)).social_skipped)
+  assert(/unlisted/.test((await social.post('/nonexistent.mp4', { ...meta, privacy: 'unlisted' }, { youtube_id: 'x' }, on)).social_skipped))
+  assert.strictEqual(hosting.urlFor(cfg, 'abc/../_-9'), 'https://hardcorepvp.com/clips/abc_-9.mp4')
+})
+
 test('publish: stories are just the title, matches are numbered, descriptions stay plain', () => {
   const fs = require('fs'); const os = require('os')
   const P = require('../lib/publish/publish')
   const copy = require('../lib/publish/copy')
-  const cfg = { site: 'hardcorepvp.com', youtube: { hashtags: ['minecraft', '#pvp', '{year}'] } }
+  const cfg = { site: 'hardcorepvp.com', youtube: { hashtags: ['minecraft', '#pvp', '{year}', '26.3', 'minecraft'] } } // a year, a version and a repeat: cleaned out
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'mcpub-'))
   U.writeJson(path.join(dir, 'format.json'), { format: 'short' })
   U.writeJson(path.join(dir, 'story.json'), { title: 'Feast or Bust', logline: 'Three friends camp next to the feast.', characters: [] })
   const st = P.metadata(dir, cfg)
   assert.strictEqual(st.title, 'Feast or Bust')
-  assert.strictEqual(st.description, `Three friends camp next to the feast.\n\nEvery match on the server is recorded. Want to be in a video? Play a match at hardcorepvp.com.\n\nIP is hardcorepvp.com\n\n#minecraft #pvp #${new Date().getFullYear()}`)
+  assert.strictEqual(st.description, `Three friends camp next to the feast.\n\nEvery match on the server is recorded. Want to be in a video? Play a match at hardcorepvp.com.\n\nIP is hardcorepvp.com\n\n#minecraft #pvp`)
   U.writeJson(path.join(dir, 'doc.json'), { title: 'Death by Compass', logline: 'Two players settle it with a compass.', segments: [] })
   U.writeJson(path.join(dir, 'published.json'), { number: 4 })
   const m = P.metadata(dir, cfg)
@@ -465,4 +526,4 @@ test('outro: the plan keeps its rhythm and its sizes', () => {
   assert.strictEqual(O.WORDS.map(w => w.text).join('').toLowerCase(), 'hardcorepvp.com')
 })
 
-console.log(`${n} passed${process.exitCode ? ', with failures' : ''}`)
+Promise.all(pending).then(() => console.log(`${n} passed${process.exitCode ? ', with failures' : ''}`))

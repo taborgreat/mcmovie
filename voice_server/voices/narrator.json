@@ -1,0 +1,7 @@
+{
+  "id": "narrator",
+  "description": "Narrator, deep smooth baritone, measured pace, documentary authority with a hint of dry humor.",
+  "language": "en",
+  "ref_audio": "/home/tabor/github/mcmovie/voice_server/voices/narrator.wav",
+  "ref_text": "Every line in this film is spoken by someone like me. The square was quiet when he finally arrived, and nobody knew what would happen next."
+}
