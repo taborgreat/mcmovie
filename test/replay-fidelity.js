@@ -13,6 +13,8 @@ assert.notStrictEqual(ids[0].bot, ids[1].bot)
 assert.strictEqual(ids[0].display, 'Alex', 'transport platform must not leak into film labels')
 assert.notStrictEqual(ids[0].id, ids[1].id, 'same display names must retain distinct recorded identities')
 assert.strictEqual(ids[0].skin, null, 'a Bedrock player must not borrow a same-named Java skin')
+assert.strictEqual(identities([{ name: 'FilmTestA', uuid: require('../lib/util').offlineUUID('FilmTestA') }])[0].skin, null, 'offline test identities cannot borrow a Java account skin')
+assert.strictEqual(ids[1].skin, 'Alex', 'ordinary Java identities retain verified skin lookup')
 let wall = false
 const film = new Film({ director: { bot: { blockAt: v => ({ name: wall && v.x === 3 ? 'stone' : 'air', boundingBox: wall && v.x === 3 ? 'block' : 'empty' }) } }, dir: '.', fps: 30, width: 1080, height: 1920 })
 const cut = { local_start: 0, local_end: 100, cam: { target: { x: 0, y: 2, z: 0 }, evaluate: () => ({ x: 6, y: 2, z: 0, yaw: 0, pitch: 0 }) }, shot: { path: {} } }
@@ -68,7 +70,10 @@ assert(Math.hypot(bodySafe.x - body.x, bodySafe.z - body.z) >= 0.85 || bodySafe.
 assert(Math.hypot(bodySafe.x, bodySafe.y - 1.5, bodySafe.z) >= 1.2, 'avoiding another player must not put the camera inside the subject')
 const speechNames = require('../lib/voice/pronounce')
 assert.strictEqual(speechNames.speakable('im a stomper silly', [], { chat: true }), "I'm a stomper, silly")
-assert.strictEqual(speechNames.speakable('u r afk', [], { chat: true }), 'you are A F K')
+assert.strictEqual(speechNames.speakable('u r afk', [], { chat: true }), 'you are ay eff kay')
+assert.strictEqual(speechNames.speakable('He went AFK. GG!', []), 'He went ay eff kay. gee gee!')
+assert.strictEqual(speechNames.speakable('AFKing GGamer XPAlex', []), 'AFKing GGamer XPAlex', 'initialisms must be whole words')
+assert.strictEqual(speechNames.speakable('GG won.', ['GG']), 'Gg won.', 'known usernames take precedence over slang')
 assert.strictEqual(speechNames.speakable('cant won', ['cant'], { chat: true }), 'cant won', 'chat contractions must not corrupt a known username')
 
 // Context must retain late conversations, including ones outside combat moments.

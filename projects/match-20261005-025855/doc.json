@@ -2,8 +2,8 @@
   "title": "Thanks for the High Ground",
   "logline": "A head start, a tower, and a trap that hands the trash-talker exactly what he needs.",
   "narrator": {
-    "voice": "design",
-    "voice_desc": "Young adult American male Minecraft video creator. Casual, clear and quick, amused disbelief and dry humor, natural conversational speech. Medium pitch with a slight warm rasp. Engaged without shouting, no announcer voice, no exaggerated performance."
+    "voice": "stock:deadpan",
+    "voice_desc": "Dry deadpan announcer, flat and unimpressed, slow, understated sarcasm."
   },
   "music": {
     "mood_tags": [
