@@ -384,6 +384,11 @@ node bin/mcauto.js status | once | story | run
   size, have picture and sound, contain no placeholder or missing shots and
   no unvoiced lines, and not be mostly black or frozen. A failure is a failed
   job, never an upload (`mcpublish verify <slug>` shows the checks).
+- **The newest matches are kept.** The loop copies each recording, and the
+  plan written for it, to `keep/matches/<id>/` before the film is made
+  (`keep_recordings` in `config/auto.json`, default 3, 0 = none; older
+  copies are pruned). That is the data to re-film, test on, or hand to
+  someone; `keep/` is never uploaded or committed.
 - **Nothing lingers.** Once a film is uploaded its whole project folder is
   deleted (replays, clips, voice lines, the rendered file); the match
   recording is already gone by then. What stays is the record in
