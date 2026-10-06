@@ -1,0 +1,456 @@
+{
+  "title": "Thanks for the High Ground",
+  "logline": "A head start, a tower, and a trap that hands the trash-talker exactly what he needs.",
+  "narrator": {
+    "voice": "design",
+    "voice_desc": "Young adult American male Minecraft video creator. Casual, clear and quick, amused disbelief and dry humor, natural conversational speech. Medium pitch with a slight warm rasp. Engaged without shouting, no announcer voice, no exaggerated performance."
+  },
+  "music": {
+    "mood_tags": [
+      "funny",
+      "tense"
+    ],
+    "tempo": "mid"
+  },
+  "cards": {
+    "end_text": "hardcorepvp.com"
+  },
+  "segments": [
+    {
+      "id": "boast",
+      "from_sec": 101,
+      "to_sec": 106.5,
+      "focus": [
+        "taborgreat"
+      ],
+      "music": "funny",
+      "narration": [
+        {
+          "id": "chat",
+          "at_sec": 0.2,
+          "speaker": "taborgreat",
+          "chat": true,
+          "text": "im gonna go afk to give a headstart since u r a noob",
+          "emotion": "smug",
+          "delivery": "Casual teasing, conversational."
+        }
+      ],
+      "shots": [
+        {
+          "id": "face",
+          "start_sec": 0,
+          "end_sec": 3.2,
+          "fov": 55,
+          "path": {
+            "type": "follow",
+            "actor": "taborgreat",
+            "rel": {
+              "back": -3.1,
+              "up": 1.7,
+              "right": 0.6
+            },
+            "look": {
+              "actor": "taborgreat",
+              "offset": [
+                0,
+                1.4,
+                0
+              ]
+            },
+            "smoothing": 0.4,
+            "look_smoothing": 0.22
+          }
+        },
+        {
+          "id": "reaction",
+          "start_sec": 3.2,
+          "end_sec": 5.5,
+          "fov": 60,
+          "path": {
+            "type": "follow",
+            "actor": ".taborgreat",
+            "offset": [
+              4,
+              2.8,
+              3
+            ],
+            "look": {
+              "actor": ".taborgreat",
+              "offset": [
+                0,
+                1.25,
+                0
+              ]
+            },
+            "smoothing": 0.18,
+            "look_smoothing": 0.12
+          }
+        }
+      ]
+    },
+    {
+      "id": "tower",
+      "from_sec": 188,
+      "to_sec": 192,
+      "focus": [
+        ".taborgreat"
+      ],
+      "music": "suspense",
+      "narration": [
+        {
+          "id": "cook",
+          "at_sec": 0.35,
+          "text": "Let him cook.",
+          "emotion": "amused"
+        }
+      ],
+      "shots": [
+        {
+          "id": "build",
+          "start_sec": 0,
+          "end_sec": 4,
+          "fov": 56,
+          "path": {
+            "type": "follow",
+            "actor": ".taborgreat",
+            "offset": [
+              3.4,
+              2,
+              2.4
+            ],
+            "look": {
+              "actor": ".taborgreat",
+              "offset": [
+                0,
+                1.25,
+                0
+              ]
+            },
+            "smoothing": 0.18,
+            "look_smoothing": 0.12
+          }
+        }
+      ]
+    },
+    {
+      "id": "question",
+      "from_sec": 215.2,
+      "to_sec": 217.5,
+      "focus": [
+        "taborgreat"
+      ],
+      "music": "suspense",
+      "narration": [
+        {
+          "id": "chat",
+          "at_sec": 0.7,
+          "speaker": "taborgreat",
+          "chat": true,
+          "text": "a tower?",
+          "emotion": "skeptical"
+        }
+      ],
+      "shots": [
+        {
+          "id": "face",
+          "start_sec": 0,
+          "end_sec": 2.3,
+          "fov": 55,
+          "path": {
+            "type": "follow",
+            "actor": "taborgreat",
+            "rel": {
+              "back": -3.1,
+              "up": 1.7,
+              "right": 0.6
+            },
+            "look": {
+              "actor": "taborgreat",
+              "offset": [
+                0,
+                1.4,
+                0
+              ]
+            },
+            "smoothing": 0.4,
+            "look_smoothing": 0.22
+          }
+        }
+      ]
+    },
+    {
+      "id": "pull",
+      "from_sec": 263,
+      "to_sec": 274.3,
+      "focus": [
+        "taborgreat",
+        ".taborgreat"
+      ],
+      "music": "suspense",
+      "narration": [
+        {
+          "id": "trap",
+          "at_sec": 0.6,
+          "text": "He walked straight into the trap.",
+          "emotion": "anticipating"
+        },
+        {
+          "id": "turn",
+          "at_sec": 8.1,
+          "text": "Except the high ground is exactly what he needed.",
+          "emotion": "amused realization"
+        }
+      ],
+      "shots": [
+        {
+          "id": "approach",
+          "start_sec": 0,
+          "end_sec": 3.7,
+          "fov": 56,
+          "path": {
+            "type": "follow",
+            "actor": "taborgreat",
+            "offset": [
+              3.5,
+              1.8,
+              2.8
+            ],
+            "look": {
+              "actor": "taborgreat",
+              "offset": [
+                0,
+                1.25,
+                0
+              ]
+            },
+            "smoothing": 0.18,
+            "look_smoothing": 0.12
+          }
+        },
+        {
+          "id": "waiting",
+          "start_sec": 3.7,
+          "end_sec": 6.3,
+          "fov": 55,
+          "path": {
+            "type": "follow",
+            "actor": ".taborgreat",
+            "rel": {
+              "back": -3.1,
+              "up": 1.7,
+              "right": 0.6
+            },
+            "look": {
+              "actor": ".taborgreat",
+              "offset": [
+                0,
+                1.4,
+                0
+              ]
+            },
+            "smoothing": 0.4,
+            "look_smoothing": 0.22
+          }
+        },
+        {
+          "id": "teleport",
+          "start_sec": 6.3,
+          "end_sec": 8.3,
+          "fov": 92,
+          "path": {
+            "type": "static",
+            "pos": [
+              94,
+              92,
+              -22
+            ],
+            "look": [
+              77.4,
+              90,
+              -32
+            ]
+          }
+        },
+        {
+          "id": "stranded",
+          "start_sec": 8.3,
+          "end_sec": 11.3,
+          "fov": 56,
+          "path": {
+            "type": "follow",
+            "actor": "taborgreat",
+            "offset": [
+              -3.7,
+              1.8,
+              1.5
+            ],
+            "look": {
+              "actor": "taborgreat",
+              "offset": [
+                0,
+                1.25,
+                0
+              ]
+            },
+            "smoothing": 0.18,
+            "look_smoothing": 0.12
+          }
+        }
+      ]
+    },
+    {
+      "id": "warning",
+      "from_sec": 301.8,
+      "to_sec": 305.8,
+      "focus": [
+        "taborgreat",
+        ".taborgreat"
+      ],
+      "music": "tense",
+      "narration": [
+        {
+          "id": "chat",
+          "at_sec": 0.4,
+          "speaker": "taborgreat",
+          "chat": true,
+          "text": "im a stomper silly",
+          "emotion": "amused"
+        }
+      ],
+      "shots": [
+        {
+          "id": "face",
+          "start_sec": 0,
+          "end_sec": 4,
+          "fov": 55,
+          "path": {
+            "type": "follow",
+            "actor": "taborgreat",
+            "rel": {
+              "back": -3.1,
+              "up": 1.7,
+              "right": 0.6
+            },
+            "look": {
+              "actor": "taborgreat",
+              "offset": [
+                0,
+                1.4,
+                0
+              ]
+            },
+            "smoothing": 0.4,
+            "look_smoothing": 0.22
+          }
+        }
+      ]
+    },
+    {
+      "id": "landing",
+      "from_sec": 310,
+      "to_sec": 314.8,
+      "focus": [
+        "taborgreat",
+        ".taborgreat"
+      ],
+      "music": "tense",
+      "narration": [],
+      "shots": [
+        {
+          "id": "leap",
+          "start_sec": 0,
+          "end_sec": 3.45,
+          "fov": 62,
+          "path": {
+            "type": "follow",
+            "actor": "taborgreat",
+            "offset": [
+              3.8,
+              2.7,
+              -1.8
+            ],
+            "look": {
+              "actor": "taborgreat",
+              "offset": [
+                0,
+                1.25,
+                0
+              ]
+            },
+            "smoothing": 0.18,
+            "look_smoothing": 0.12
+          }
+        },
+        {
+          "id": "impact",
+          "start_sec": 3.45,
+          "end_sec": 4.8,
+          "fov": 62,
+          "path": {
+            "type": "follow",
+            "actor": ".taborgreat",
+            "offset": [
+              4.1,
+              2,
+              2.3
+            ],
+            "look": {
+              "actor": ".taborgreat",
+              "offset": [
+                0,
+                1.25,
+                0
+              ]
+            },
+            "smoothing": 0.18,
+            "look_smoothing": 0.12
+          }
+        }
+      ]
+    },
+    {
+      "id": "payoff",
+      "from_sec": 316,
+      "to_sec": 319,
+      "focus": [
+        "taborgreat"
+      ],
+      "music": "triumphant",
+      "narration": [
+        {
+          "id": "fumble",
+          "at_sec": 0.25,
+          "text": "Generational fumble.",
+          "emotion": "dry amusement"
+        }
+      ],
+      "shots": [
+        {
+          "id": "winner",
+          "start_sec": 0,
+          "end_sec": 3,
+          "fov": 55,
+          "path": {
+            "type": "follow",
+            "actor": "taborgreat",
+            "rel": {
+              "back": -3.1,
+              "up": 1.7,
+              "right": 0.6
+            },
+            "look": {
+              "actor": "taborgreat",
+              "offset": [
+                0,
+                1.4,
+                0
+              ]
+            },
+            "smoothing": 0.4,
+            "look_smoothing": 0.22
+          }
+        }
+      ]
+    }
+  ]
+}

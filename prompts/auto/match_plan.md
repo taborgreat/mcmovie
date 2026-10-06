@@ -6,11 +6,12 @@ Film format: {{format}} ({{format_label}}). Plan {{min_sec}} to {{max_sec}} seco
 Do exactly this:
 1. Read prompts/match.md (the method, the rules and the doc.json format).
 2. Read projects/{{slug}}/digest.md. It is the skeleton of the match: the ending, the winner's road backwards, side moments, one line per player.
-3. Plan backwards from the ending as prompts/match.md describes: the ending, then the moments on the winner's road that explain it, then one to three side moments about players off the main road.
-4. Open only the moment files you chose (projects/{{slug}}/moments/<id>.md) for the detail and the suggested segment times. Use prompts/reference/kits.md for what a kit does.
-5. Write projects/{{slug}}/doc.json, segments in chronological order.
+3. Read projects/{{slug}}/context/index.md and the relevant complete conversation pages. Look for promises, insults, alliances, betrayals and running jokes that the ending pays off. A chat excerpt alone can miss a reply or change its meaning. Preserve the speaker and wording of every quote.
+4. Choose one causal story: the setup, a choice or conflict, the reversal, and the payoff. Trace its evidence back through the moment files. Include a side story only if it is interesting on its own and connects to the main story; do not invent one to fill a quota. Never infer an unrecorded motive as a fact. Use prompts/reference/kits.md to understand an ability, not as narration to recite.
+5. Direct the edit as machinima: close and medium shots of players, faces for chat, reactions, and brief establishing views only when needed. Put the insult/promise itself on screen if it drives the hook. A wide shot that holds the whole map is not automatically a good shot. Use explicit shots for the important beats, with the path grammar in prompts/scene.md; automatic shots fill ordinary coverage.
+6. Write projects/{{slug}}/doc.json, segments in chronological order. Reread the script as one story, remove redundant explanations and proofread narration and captions. Natural slang is welcome; repeated kit names and inventory explanations are not. The audience should see a memorable encounter they would want to be part of, without a generic call to action.
 
-Narration rule that the checker enforces: narrate the data, do not list it. A raw number (blocks, damage, hp, seconds) now and then is good, but never two such lines in a row and no more than about one narrator line in three. The rest of the time say what it meant: hearts and how close to death, a place or an effort, a moment. Start from "In plain words" at the bottom of digest.md.
+Narration rule: every line must set up a question, connect a cause to a consequence, change the stakes, reveal relevant context, or land a specific joke. Passing the raw-number checker is only a minimum: replacing numbers with generic commentary still makes a dull film. Do not speak just because there is room. Chat, action, music and silence can carry the story. Shorten a thin match instead of padding it.
 
 Rules that are checked by a program after you finish:
 - The final kill must be inside a segment.

@@ -1,0 +1,16 @@
+name: FilmLabels
+version: 1.0.0
+main: movie.labels.FilmLabels
+api-version: '1.21'
+commands:
+  filmlabel:
+    description: Attach a film-only label to a replay actor
+    usage: /filmlabel set <actor> <text> or /filmlabel clear
+    permission: filmlabel.admin
+  filmactor:
+    description: Recorded hurt/death effects without autonomous combat
+    usage: /filmactor <hurt|die|remove> <actor or selector>
+    permission: filmlabel.admin
+permissions:
+  filmlabel.admin:
+    default: op

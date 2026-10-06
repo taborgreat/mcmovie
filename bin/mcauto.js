@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 'use strict'
 // The unattended loop. One job at a time, never interrupted:
-//   - every finished match recording becomes a film (short match -> Short,
-//     long match -> full video), uploaded and announced;
+//   - every finished match recording becomes a vertical short by default
+//     (match_format can override), uploaded and announced;
 //   - if no match has been played for idle_hours, a staged story is made
 //     from random recent players and kits, then the idle clock restarts.
 // A match that ends while a story is being made simply waits its turn.

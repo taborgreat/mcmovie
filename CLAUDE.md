@@ -228,7 +228,8 @@ xvfb-run -a -s "-screen 0 1920x1080x24" node bin/mcmatch.js make <slug> [--mock-
   Between sparse points a walker takes the footing closest to its path and
   ignores leaves, so passing a tree keeps it on the ground.
 - `lib/match/autoshots.js` picks cameras against the real terrain.
-- Films are 3-5 minutes and must contain the final kill (`check` enforces it).
+- Match films default to vertical short-form and must contain the final kill.
+  A long landscape edit remains available through `--format long`.
 - Never build hardcorekits in its repo casually: `tools/run-loop.sh` installs
   `build/libs/*.jar` into production at the next match rotation. Building
   there IS deploying. Test builds go in a scratch copy.
@@ -237,8 +238,8 @@ xvfb-run -a -s "-screen 0 1920x1080x24" node bin/mcmatch.js make <slug> [--mock-
 
 - **Format**: `long` = 1920x1080, 3-5 minutes. `short` = vertical 1080x1920
   YouTube Short, 35-90 seconds. Staged: `"format"` in story.json. Match:
-  chosen at import from the match length (under 12 minutes -> short),
-  stored in `format.json`, `--format` to force. `--size WxH` still overrides
+  short by default regardless of match length, stored in `format.json`,
+  `--format` to force. `--size WxH` still overrides
   pixels for quick tests. See `lib/formats.js`.
 - **Music moods**: films ask for music by mood and can change mood per scene
   (`"music_mood"` on a story scene) or per segment (`"music"` in doc.json).
@@ -358,12 +359,14 @@ node bin/mcauto.js status | once | story | run
   player's videos on their profile; unlisted uploads are not shown. Blocked
   players never appear in it.
 - `mcauto run` is the loop Tabor wants running in tmux: every finished match
-  recording becomes a film (short match -> Short, long -> video), uploaded
+  recording becomes a vertical short by default, uploaded
   and announced on Discord with the match date; after `idle_hours` (8) with
   no match it makes a staged story from random recent players and kits, then
   the idle clock restarts. One job at a time, never interrupted; a match that
   ends during a story waits its turn. Settings: `config/auto.json` over the
-  defaults in `lib/auto/config.js`. State and logs: `automation/`.
+  defaults in `lib/auto/config.js`. `match_format: "long"` requests a long
+  edit; `"auto"` restores the old `short_match_minutes` duration rule.
+  State and logs: `automation/`.
 - **What runs when** (`lib/auto/gate.js`): planning (Claude, in the cloud) and
   voices (the 3090) never touch the game server's CPU, so they run at any
   time, including during a live match. The bot shoot, render and export are

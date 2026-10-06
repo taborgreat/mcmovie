@@ -122,14 +122,14 @@ test('match: track sampling interpolates and respects gaps', () => {
   const mid = R.sampleAt(track, 1)
   assert(close(mid.x, 0.5), 'lerp x')
   assert(Math.abs(mid.yaw) >= 170, 'yaw takes the short way across 180: ' + mid.yaw)
-  assert(mid.flags & R.FLAGS.SWUNG, 'swing flag carried from the next sample')
+  assert(!(mid.flags & R.FLAGS.SWUNG), 'a future swing must not leak into interpolated frames')
   const far = R.sampleAt(track, 20) // 49 blocks in 38 ticks: a sprint-speed gap, interpolated and marked sparse
   assert(far && far.sparse && far.x > 20 && far.x < 30, 'sparse gaps are walked, not skipped')
-  assert(Math.abs(far.yaw - -90) < 1, 'over a sparse gap the player faces the way they travel: ' + far.yaw)
+  assert(Math.abs(far.yaw - (-170 + 170 * 18 / 38)) < 1, 'sparse facing follows recorded rotation: ' + far.yaw)
   assert.strictEqual(R.sampleAt(track, 100), null, 'null past the end')
   const tp = [{ t: 0, x: 0, y: 65, z: 0, yaw: 0, pitch: 0, flags: 0, hp: 20 }, { t: 2, x: 80, y: 90, z: 0, yaw: 0, pitch: 0, flags: 0, hp: 20 }]
   assert.strictEqual(R.sampleAt(tp, 0.9).x, 0, 'a teleport is a cut: before')
-  assert.strictEqual(R.sampleAt(tp, 1.1).x, 80, 'a teleport is a cut: after')
+  assert.strictEqual(R.sampleAt(tp, 1.1).x, 0, 'a teleport must not happen before its recorded sample')
 })
 
 test('match: block states map by name onto the renderer version', () => {

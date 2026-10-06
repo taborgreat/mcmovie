@@ -94,7 +94,8 @@ export MCMOVIE_RECORDINGS=$PWD/recordings
 node bin/mcmatch.js import latest      # -> projects/match-20261005-025855/digest.md and moments/
 
 # 3. you write projects/match-20261005-025855/doc.json: the narration plan.
-#    prompts/match.md is the brief; digest.md is the only thing you plan from.
+#    prompts/match.md is the brief. Read digest.md, context/index.md and the
+#    relevant complete chat pages before planning the story.
 #    (To see a film first: cp sample/last-match/doc.example.json projects/match-20261005-025855/doc.json)
 node bin/mcmatch.js check match-20261005-025855
 

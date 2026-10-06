@@ -38,7 +38,7 @@
                 "id": { "type": "string", "pattern": "^[A-Za-z0-9_]+$" },
                 "at_sec": { "type": "number", "minimum": 0, "description": "Seconds after the segment starts, in video time" },
                 "text": { "type": "string", "minLength": 1 },
-                "speaker": { "type": "string", "description": "Omit for the narrator. A player name makes it that player's voice: a real chat line (set chat true) or an invented in-character line." },
+                "speaker": { "type": "string", "description": "Omit for narrator commentary. A player may speak only their recorded chat, with chat true and the original text." },
                 "chat": { "type": "boolean", "description": "true when the text is a real chat line from the digest" },
                 "show_speaker": { "type": "boolean", "description": "false keeps the camera where it is while a player's line is heard (a voice aimed over other footage); by default the film cuts to the player speaking as the line starts" },
                 "emotion": { "type": "string" },

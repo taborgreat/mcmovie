@@ -16,6 +16,7 @@ Run:  MCMOVIE_TTS_BACKEND=qwen3tts uvicorn server:app --host 0.0.0.0 --port 8880
       (default backend is mock)
 """
 import io
+import inspect
 import json
 import os
 import shutil
@@ -49,7 +50,15 @@ def profile_path(vid: str) -> Path:
 def load_profile(vid: str):
     p = profile_path(vid)
     if p.exists():
-        return json.loads(p.read_text())
+        prof = json.loads(p.read_text())
+        # A copied voice folder must not retain Tabor's machine-specific paths.
+        # Prefer the bundled reference when the old absolute path is unavailable.
+        ref = prof.get("ref_audio")
+        if ref and not Path(ref).is_file():
+            local_ref = VOICES_DIR / f"{vid}.wav"
+            if local_ref.is_file():
+                prof["ref_audio"] = str(local_ref)
+        return prof
     if vid in BANK["voices"]:
         # stock voice not built yet: describe it so backends can design on the fly
         return {"id": vid, "description": BANK["voices"][vid], "language": BANK.get("language", "en"), "ref_audio": None, "ref_text": None, "stock": True}
@@ -134,13 +143,12 @@ class Qwen3TTSBackend:
         if key not in self.prompt_cache:
             self.prompt_cache[key] = self.clone_model.create_voice_clone_prompt(ref_audio=prof["ref_audio"], ref_text=prof.get("ref_text") or "")
         kwargs = dict(text=text, language=lang, voice_clone_prompt=self.prompt_cache[key])
-        if instructions:
+        # Base cloning preserves the saved voice; released Qwen Base versions
+        # do not all support per-line style instructions. Do not forward an
+        # unsupported keyword into Transformers generation (it raises ValueError).
+        if instructions and "instruct" in inspect.signature(self.clone_model.generate_voice_clone).parameters:
             kwargs["instruct"] = instructions
-        try:
-            wavs, sr = self.clone_model.generate_voice_clone(**kwargs)
-        except TypeError:
-            kwargs.pop("instruct", None)
-            wavs, sr = self.clone_model.generate_voice_clone(**kwargs)
+        wavs, sr = self.clone_model.generate_voice_clone(**kwargs)
         data = np.asarray(wavs[0], dtype=np.float32)
         if sr != SR:
             idx = np.linspace(0, len(data) - 1, int(len(data) * SR / sr)).astype(int)

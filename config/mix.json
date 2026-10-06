@@ -1,4 +1,5 @@
 {
-  "music_gain_db": 6.5,
-  "duck_ratio": 5
+  "voice_gain_db": 4,
+  "music_gain_db": -2,
+  "duck_ratio": 8
 }

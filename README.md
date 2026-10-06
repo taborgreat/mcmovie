@@ -53,7 +53,8 @@ for checking cuts only). See `max.md` and CLAUDE.md, "Real client filming".
 
 ## Match mode
 
-A real hardcorepvp match in, a narrated 3-5 minute film out. The plugin
+A real hardcorepvp match in, a vertical short-form film out by default. Use
+`import --format long` to request a 3-5 minute landscape film. The plugin
 (`~/github/hardcorekits`, `recording:` in its config.yml) records each match;
 `bin/mcmatch.js` turns a recording into a film and deletes the recording
 when the film is written.
@@ -61,7 +62,7 @@ when the film is written.
 ```bash
 node bin/mcmatch.js list
 node bin/mcmatch.js import latest            # -> projects/match-<id>/digest.md
-# the LLM writes projects/match-<id>/doc.json from the digest (prompts/match.md)
+# the LLM reads digest.md and context/index.md plus relevant chat pages, then writes doc.json
 xvfb-run -a -s "-screen 0 1920x1080x24" node bin/mcmatch.js make match-<id>
 ```
 
@@ -73,9 +74,11 @@ node bin/mcpublish.js auth                           # one-time YouTube consent
 node bin/mcpublish.js <slug> --dry-run
 node bin/mcauto.js run                               # the unattended loop (keep it in tmux)
 ```
-The loop films every finished match (short match -> Short, long -> video),
+The loop films every finished match as a vertical short by default,
 uploads, posts to Discord, and after 8 idle hours stages a story from random
-recent players and kits. See CLAUDE.md.
+recent players and kits. `config/auto.json` can set `match_format` to `long`,
+or `auto` for the old match-duration rule. See CLAUDE.md. Max's isolated
+review workflow stops at the MP4 and does not run this publishing loop.
 
 ## Commands
 
