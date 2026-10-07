@@ -248,6 +248,24 @@ xvfb-run -a -s "-screen 0 1920x1080x24" node bin/mcmatch.js make <slug> [--mock-
   and hit take about 5 s on screen, and one camera rides 7.5 blocks over him
   and a little to the side, looking down past him at his victim, on whichever
   side keeps the tower or cliff he jumped from out of the lens.
+- **What the match is** (`traits` in `lib/match/digest.js`, the first section
+  of digest.md): labels from the data (`chat-heavy`, `duel`, `rampage`,
+  `brawl`, `quiet`, `mob-heavy`, `mob-deaths`) with what each means for the
+  film. Strategies name the labels they are made for (`fits.prefers`) and
+  are chosen first when a match carries them, so a match full of typed
+  dialogue goes to a chat-led recipe. Tabor's rule after a dialogue-heavy
+  love story came out as two creeper explosions: creatures are scenery
+  (a bite that did not kill is a low moment, an explosion or a bolt gets a
+  camera window only when a player is within 10 blocks, `GROUND_KITS`
+  abilities such as the Jackhammer's column get one when they fire).
+- **Block changes the recorder could not see**: a kit that changes blocks
+  through the API (Jackhammer column, Digger hole, Endermage portal, Scorch
+  fire, Cultivator crops and trees, the endgame arena) now reports each block
+  with `recorder().pluginSet(block, was)`, and the recorder listens for the
+  world's own changes (burn, spread, fade, grow, leaves decay, falling
+  blocks, tree growth). Needs the hardcorekits build of 2026-10-07 on the
+  live server. The bot's crouch and sprint are sent as the player-input keys
+  every tick besides the old command (1.21.2+ servers only read the keys).
 - `lib/match/anvil.js` reads the 26.2 region files and maps blocks by name
   onto the renderer's 1.21.4; newer blocks become look-alikes or air.
 - `lib/match/build.js` cuts each segment out of the recording into a replay,

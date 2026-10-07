@@ -41,6 +41,15 @@ strategies from the films' numbers. `node bin/mcmatch.js strategy list` shows th
   that changes one thing, with the reason in `notes`; `store.retire(id, why)` retires one.
   Change one knob at a time, and write the hypothesis down, or the scores mean nothing.
 
+## `fits.prefers` (which matches a recipe is made for)
+
+digest.md opens with "What this match is": labels worked out from the data
+(`chat-heavy`, `duel`, `rampage`, `brawl`, `quiet`, `mob-heavy`,
+`mob-deaths`). A strategy lists the labels it is made for in `fits.prefers`;
+when a match carries them, those strategies are chosen before the rest. So
+a match full of typed dialogue goes to the chat-led recipes, a small match
+with one fight to the caster, a quiet one to the nature documentary.
+
 ## `narration.player_lines` and `structure.travel` (Max's rules as modes)
 
 - `player_lines`: `any` (default: real chat and short invented in-character

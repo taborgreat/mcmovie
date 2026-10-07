@@ -9,7 +9,8 @@
       "version": 1,
       "fits": {
         "min_players": 2,
-        "needs": []
+        "needs": [],
+        "prefers": []
       },
       "knobs": {
         "frame": "match-story",
@@ -53,7 +54,11 @@
       "version": 1,
       "fits": {
         "min_players": 2,
-        "needs": []
+        "needs": [],
+        "prefers": [
+          "duel",
+          "rampage"
+        ]
       },
       "knobs": {
         "frame": "intense-fight",
@@ -103,7 +108,11 @@
       "version": 1,
       "fits": {
         "min_players": 2,
-        "needs": []
+        "needs": [],
+        "prefers": [
+          "quiet",
+          "mob-deaths"
+        ]
       },
       "knobs": {
         "frame": "comedy",
@@ -155,6 +164,9 @@
         "min_players": 2,
         "needs": [
           "chat"
+        ],
+        "prefers": [
+          "chat-heavy"
         ]
       },
       "knobs": {
@@ -207,6 +219,9 @@
         "min_players": 2,
         "needs": [
           "abilities"
+        ],
+        "prefers": [
+          "abilities"
         ]
       },
       "knobs": {
@@ -257,7 +272,8 @@
       "version": 1,
       "fits": {
         "min_players": 2,
-        "needs": []
+        "needs": [],
+        "prefers": []
       },
       "knobs": {
         "frame": "machinima-story",
@@ -309,6 +325,10 @@
         "min_players": 3,
         "needs": [
           "teaming"
+        ],
+        "prefers": [
+          "chat-heavy",
+          "teaming"
         ]
       },
       "knobs": {
@@ -359,7 +379,8 @@
       "version": 1,
       "fits": {
         "min_players": 2,
-        "needs": []
+        "needs": [],
+        "prefers": []
       },
       "knobs": {
         "frame": "intense-fight",
@@ -409,7 +430,10 @@
       "version": 1,
       "fits": {
         "min_players": 2,
-        "needs": []
+        "needs": [],
+        "prefers": [
+          "quiet"
+        ]
       },
       "knobs": {
         "frame": "machinima-story",
@@ -459,7 +483,11 @@
       "version": 1,
       "fits": {
         "min_players": 2,
-        "needs": []
+        "needs": [],
+        "prefers": [
+          "rampage",
+          "brawl"
+        ]
       },
       "knobs": {
         "frame": "intense-fight",
@@ -511,6 +539,9 @@
         "min_players": 2,
         "needs": [
           "chat"
+        ],
+        "prefers": [
+          "chat-heavy"
         ]
       },
       "knobs": {

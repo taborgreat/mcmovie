@@ -140,6 +140,18 @@ The finale song decides how much may be said over the fight: a feel song
 (digest.md says which) carries at most one short line, and silence is
 better. Let the picture and the song do it.
 
+## What the match is
+
+digest.md opens with "What this match is": a few labels from the data. Start
+there. A **chat-heavy** match is a dialogue film: the players' own words are
+the story, quoted where they were said, and the narrator connects them. A
+**duel** is the matchup and one epic last fight. A **rampage** is one
+player's run and who ends it. Creatures (golems, zombies, wolves) are
+scenery: a bite that did not kill is never a moment, an explosion in an
+empty field is never a segment. A creature only enters the story when it
+kills somebody. If the players typed a lot and the film is about two creeper
+explosions, the plan is wrong.
+
 ## Effects (stings, inserts, transitions)
 
 digest.md lists the effects on offer for this film: short clips laid over
