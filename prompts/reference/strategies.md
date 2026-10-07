@@ -41,6 +41,15 @@ strategies from the films' numbers. `node bin/mcmatch.js strategy list` shows th
   that changes one thing, with the reason in `notes`; `store.retire(id, why)` retires one.
   Change one knob at a time, and write the hypothesis down, or the scores mean nothing.
 
+## `narration.player_lines` and `structure.travel` (Max's rules as modes)
+
+- `player_lines`: `any` (default: real chat and short invented in-character
+  lines, in the player's permanent voice) or `chat-only` (a player speaks
+  only what they really typed, word for word, `"chat": true`; `check`
+  refuses anything else). `players-only` and `story-first` use chat-only.
+- `travel`: `any` (default: 3-6x for dull stretches) or `cut` (nothing is
+  sped up; `check` refuses `speed` > 1, so a dull stretch is cut instead).
+
 ## `effects` (what the plan may lay over the picture)
 
 - `register`: `clean` (default) or `memed`. Clean offers only the game-native

@@ -490,6 +490,35 @@ test('match walker stays on the ground under a tree', () => {
   assert.notDeepStrictEqual(unstick(world, 9.5, 65, 0.5), { x: 9.5, z: 0.5 }) // a trunk does
 })
 
+test('replay owns the bot\'s movement packets; the rest pass through (from Max\'s pull request)', () => {
+  const packets = []
+  const bot = { _client: { write: (name, data) => packets.push({ name, data }) } }
+  const pose = require('../lib/mc/puppet').ownMovement(bot)
+  bot._client.write('look', { yaw: -30 }); bot._client.write('position_look', { x: -99 }); bot._client.write('flying', {})
+  pose({ x: 1, yaw: 120 }); bot._client.write('teleport_confirm', { teleportId: 7 }); bot._client.write('arm_animation', { hand: 0 }); pose({ x: 2, yaw: 130 })
+  assert.deepStrictEqual(packets.map(p => p.name), ['position_look', 'teleport_confirm', 'arm_animation', 'position_look'])
+})
+
+test('proofread: misspellings and doubled words are caught, chat and usernames are left alone', () => {
+  const pr = require('../lib/match/proofread')
+  const errs = pr.problems({ segments: [{ id: 's1', narration: [{ id: 'n1', text: 'He could of won teh fight at the the end' }, { id: 'c1', chat: true, text: 'teh' }, { id: 'n2', text: 'alot is a name here' }] }] }, ['alot'])
+  assert.strictEqual(errs.length, 3, errs.join('\n'))
+  assert(errs.some(e => /"teh"/.test(e)) && errs.some(e => /repeated word/.test(e)) && errs.some(e => /could\/would\/should have/.test(e)))
+})
+
+test('spoken text: initialisms are spelled, chat contractions are said, names stay', () => {
+  const P = require('../lib/voice/pronounce')
+  assert.strictEqual(P.speakable('gg afk im here', ['Alex'], { chat: true }), 'gee gee ay eff kay I\'m here')
+  assert.strictEqual(P.speakable('hp low', ['hp']), 'hp low', 'a player called hp keeps the name')
+  assert.strictEqual(P.guess('DEMON8672'), 'Demon')
+})
+
+test('captions: proportional chunk timing keeps the last words of a line', () => {
+  const C = require('../lib/assemble/captions')
+  const ass = C.build({ audio: [{ line_id: 'a', character: 'narrator', name: 'Narrator', at_sec: 0, duration_sec: 1.0, text: 'one two three four five six seven eight nine ten eleven twelve' }], fps: 30, width: 1080, height: 1920 }, {})
+  assert(/twelve/.test(ass), 'the last word must be on screen')
+})
+
 test('narration: raw data is caught, caster language is not', () => {
   const { rawDataLines } = require('../lib/match/build')
   const doc = { segments: [{ id: 'a', narration: [

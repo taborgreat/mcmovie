@@ -145,7 +145,7 @@ async function main () {
     case 'assemble': {
       const edl = require('../lib/assemble/edl').build(dir, common)
       for (const w of edl.warnings) console.log('warn: ' + w)
-      const out = await require('../lib/assemble/ffmpeg').assemble(dir, { preset: args.preset, crf: args.crf, verbose: !!args.verbose })
+      const out = await require('../lib/assemble/ffmpeg').assemble(dir, { preset: args.preset, crf: args.crf, verbose: !!args.verbose, allowMissing: !!args['allow-missing'] })
       console.log(out)
       return
     }
@@ -168,7 +168,7 @@ async function main () {
       if (!film) { ensureDisplay(); await require('../lib/render/render').render(dir, { ...common, scene: args.scene }) }
       const edl = require('../lib/assemble/edl').build(dir, common)
       for (const w of edl.warnings) U.log('make', 'warn: ' + w)
-      const out = await require('../lib/assemble/ffmpeg').assemble(dir, { preset: args.preset, crf: args.crf })
+      const out = await require('../lib/assemble/ffmpeg').assemble(dir, { preset: args.preset, crf: args.crf, allowMissing: !!args['allow-missing'] })
       console.log('FINAL ' + out)
       return
     }

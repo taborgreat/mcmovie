@@ -18,11 +18,13 @@
           "voice": null,
           "wpm": null,
           "data": "some",
-          "persona": null
+          "persona": null,
+          "player_lines": "any"
         },
         "structure": {
           "open": "any",
-          "segments": null
+          "segments": null,
+          "travel": "any"
         },
         "music": {
           "opening": "any",
@@ -63,14 +65,16 @@
             140
           ],
           "data": "some",
-          "persona": "an esports caster calling it live: present tense, shouting at the big moments, hearts and pressure"
+          "persona": "an esports caster calling it live: present tense, shouting at the big moments, hearts and pressure",
+          "player_lines": "any"
         },
         "structure": {
           "open": "kill-first",
           "segments": [
             3,
             6
-          ]
+          ],
+          "travel": "any"
         },
         "music": {
           "opening": "epic",
@@ -111,14 +115,16 @@
             75
           ],
           "data": "little",
-          "persona": "a bored referee reading out what happened, unimpressed by everyone including the winner"
+          "persona": "a bored referee reading out what happened, unimpressed by everyone including the winner",
+          "player_lines": "any"
         },
         "structure": {
           "open": "chronological",
           "segments": [
             2,
             5
-          ]
+          ],
+          "travel": "any"
         },
         "music": {
           "opening": "funny",
@@ -161,14 +167,16 @@
             70
           ],
           "data": "none",
-          "persona": null
+          "persona": null,
+          "player_lines": "chat-only"
         },
         "structure": {
           "open": "chat-line",
           "segments": [
             2,
             6
-          ]
+          ],
+          "travel": "any"
         },
         "music": {
           "opening": "any",
@@ -211,14 +219,16 @@
             110
           ],
           "data": "some",
-          "persona": "a coach explaining to a new player exactly what each kit is for, from what just happened"
+          "persona": "a coach explaining to a new player exactly what each kit is for, from what just happened",
+          "player_lines": "any"
         },
         "structure": {
           "open": "any",
           "segments": [
             3,
             6
-          ]
+          ],
+          "travel": "any"
         },
         "music": {
           "opening": "any",
@@ -259,14 +269,16 @@
             100
           ],
           "data": "little",
-          "persona": "a short-story narrator: what someone wanted, what they did, what it cost; people, never classes"
+          "persona": "a short-story narrator: what someone wanted, what they did, what it cost; people, never classes",
+          "player_lines": "any"
         },
         "structure": {
           "open": "any",
           "segments": [
             2,
             6
-          ]
+          ],
+          "travel": "any"
         },
         "music": {
           "opening": "quiet",
@@ -309,14 +321,16 @@
             95
           ],
           "data": "little",
-          "persona": "someone telling a friend about a couple they knew, fond and a little sad"
+          "persona": "someone telling a friend about a couple they knew, fond and a little sad",
+          "player_lines": "any"
         },
         "structure": {
           "open": "chronological",
           "segments": [
             3,
             6
-          ]
+          ],
+          "travel": "any"
         },
         "music": {
           "opening": "warm",
@@ -357,14 +371,16 @@
             50
           ],
           "data": "none",
-          "persona": "a film trailer voice: four or five lines, each one heavy"
+          "persona": "a film trailer voice: four or five lines, each one heavy",
+          "player_lines": "any"
         },
         "structure": {
           "open": "leap-or-kill",
           "segments": [
             2,
             5
-          ]
+          ],
+          "travel": "any"
         },
         "music": {
           "opening": "epic",
@@ -405,14 +421,16 @@
             95
           ],
           "data": "little",
-          "persona": "a nature documentary: the players are creatures observed in their habitat, their habits and instincts described gently and precisely; the winner is simply the one best adapted"
+          "persona": "a nature documentary: the players are creatures observed in their habitat, their habits and instincts described gently and precisely; the winner is simply the one best adapted",
+          "player_lines": "any"
         },
         "structure": {
           "open": "any",
           "segments": [
             2,
             6
-          ]
+          ],
+          "travel": "any"
         },
         "music": {
           "opening": "enchanting",
@@ -453,14 +471,16 @@
             140
           ],
           "data": "some",
-          "persona": "an esports caster calling it live: present tense, shouting at the big moments, hearts and pressure"
+          "persona": "an esports caster calling it live: present tense, shouting at the big moments, hearts and pressure",
+          "player_lines": "any"
         },
         "structure": {
           "open": "kill-first",
           "segments": [
             3,
             6
-          ]
+          ],
+          "travel": "any"
         },
         "music": {
           "opening": "epic",
@@ -480,6 +500,58 @@
       },
       "brief": "Esports energy. The very first thing on screen is the last second before the final blow (the leap, the swing), with the caster already mid-shout, cut on the blow itself so the result stays unknown; then rewind and show how it came to that. Fast talk, excited, every line about pressure and hearts. Dramatic finale song. This one may use the meme clips (a WASTED on a death, a FIGHT on the first hit, the Hulk on a rampage, the troll face on a pause): up to three in the film, each on a moment that really is that, never two on one beat.",
       "notes": "Hypothesis: a meme on the right beat lifts shares and comments on a Short without hurting hold. Compare with caster-kill-first."
+    },
+    {
+      "id": "story-first",
+      "name": "Story first (Max's cut)",
+      "status": "active",
+      "parent": null,
+      "version": 1,
+      "fits": {
+        "min_players": 2,
+        "needs": [
+          "chat"
+        ]
+      },
+      "knobs": {
+        "frame": "story",
+        "narration": {
+          "mode": "narrator",
+          "voice": null,
+          "wpm": [
+            70,
+            115
+          ],
+          "data": "few",
+          "persona": "a Minecraft creator telling a friend what just happened: a setup, a choice, a reversal, a payoff; every line explains a cause, raises the stakes or lands a joke, or it is cut; silence is allowed",
+          "player_lines": "chat-only"
+        },
+        "structure": {
+          "open": "any",
+          "segments": [
+            3,
+            7
+          ],
+          "travel": "cut"
+        },
+        "music": {
+          "opening": null,
+          "finale_song": null
+        },
+        "camera": {
+          "style": "close"
+        },
+        "text": {
+          "title": "plain"
+        },
+        "effects": {
+          "register": "clean",
+          "max": 1,
+          "promo": false
+        }
+      },
+      "brief": "Max's editorial rules as a recipe. Find the one causal story the chat and the fights support (setup, choice, reversal, payoff) and tell only that; no side moment for its own sake, no kit lecture, no winner's stats after the climax. Players speak only what they really typed, word for word. Nothing is sped up: a dull stretch is cut. Close, readable shots of people, not landscape.",
+      "notes": "Hypothesis (Max): restraint and real chat hold viewers better than hype and invented lines. Only offered when the match has chat to build on."
     }
   ]
 }

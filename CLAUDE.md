@@ -553,6 +553,27 @@ node bin/mcauto.js status | once | story | run
   round. Heavy steps run under `nice`.
 - A match job that fails `max_attempts` times deletes its recording (disk
   rule). A project is never published twice (`published.json`).
+- **Nothing with a hole in it is exported** (`missingMedia` in
+  `lib/assemble/ffmpeg.js`, from Max's pull request): `assemble` refuses an
+  edit with a clip that was never filmed, a line never spoken or a track that
+  is not there; `--allow-missing` makes a test build with placeholder cards.
+  The export is written beside final.mp4 and checked for size, length and
+  sound before it replaces the last film. A take that missed its beat too
+  often (`late` ticks over 2%) is retried, not exported; a cut the take does
+  not cover fails it; a scene being reshot drops its old clips first.
+- **Narration is proofread** (`lib/match/proofread.js`): common misspellings,
+  doubled words and "could of" are checker errors; chat lines and usernames
+  are exempt. The spoken text (`lib/voice/pronounce.js`) spells initialisms
+  ("gee gee", "pee vee pee") and says chat contractions; captions keep the
+  script as written.
+- **Max's editorial rules are a strategy, not the law**: `story-first` in
+  `config/edit_strategies.json` (players speak only their recorded chat,
+  `narration.player_lines: chat-only`; nothing sped up, `structure.travel:
+  cut`; his persona). Other strategies keep invented in-character lines in
+  the players' permanent voices. His movement model, studio plugin, mix
+  retune and prompt rewrite stayed out (see max.md, "Your first pull
+  request"). `match_format` in `config/auto.json` is `auto` (Tabor's rule);
+  `short` would force every film into a Short.
 - **Nothing unverified is uploaded.** `lib/publish/verify.js` runs inside the
   publisher: the file must decode end to end, match the edit's length and
   size, have picture and sound, contain no placeholder or missing shots and

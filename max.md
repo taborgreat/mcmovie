@@ -246,3 +246,49 @@ things you can fetch yourself are in this commit; the rest is explained.
    `capture/`, `server/`. A test render that stops before uploading is exactly the `make`
    command in "Making a film from the sample match": `make` never uploads anywhere;
    publishing is a separate command (`bin/mcpublish.js`) that only the loop or a person runs.
+
+
+## Your first pull request (merged 2026-10-07): what came in, what changed
+
+Thanks, Max. It is merged. Here is what landed as you wrote it, what landed
+as a mode, and what stayed out and why, so the next one goes in cleaner.
+
+**In as written**: the mock-voice refusal (a real render will not use the
+placeholder TTS), the export gate (no missing clip, voice or track goes into
+an export; the file is written beside final.mp4 and checked for size, length
+and sound before it replaces the last one), the caption timing fix (the last
+words of a line were being dropped), the voice cache keyed on text plus
+voice and delivery, a newer in-game voice choice overriding an older one,
+the puppet movement guard (mineflayer's own movement packets no longer
+interleave with the replay's), the lens compensating for the client's fixed
+field of view, the per-camera update toggle, the ffmpeg error handling and
+abort, the take-coverage check, the late-tick threshold that retries a take,
+dropping a scene's old clips before it is reshot, the invisibility toggle,
+the camera planning against the segment's starting terrain, the sky fix,
+the proofreader (as checker errors), the spoken initialisms and chat
+contractions, the pronunciation entries, the server.py fixes, and the
+`match_format` setting (default `auto`, Tabor's rule: Shorts unless a big,
+long match; `short` forces every film into a Short).
+
+**In as a mode** (lib/strategy, prompts/reference/strategies.md): films are
+planned under an edit strategy now, and your editorial rules are one of
+them, `story-first`: players speak only their recorded chat
+(`narration.player_lines: chat-only`), nothing is sped up
+(`structure.travel: cut`), your persona and brief. The checker enforces
+those knobs for films planned under it. Under other strategies a player
+may still have a short invented line in their permanent voice, which Tabor
+built on purpose.
+
+**Out, for now**: the new movement model (no terrain following, no sprint
+jumps, bounded interpolation) and everything tied to its `motionEpoch`; the
+FilmLabels plugin, the FilmActorN renaming and the skin-settle wait; the
+creature changes (a golem that never swings, no pre-placed villagers); the
+mix retune (Tabor set voices a little lower and music a little higher on
+purpose; put yours in your own config/mix.json); the camera-distance taste
+in autoshots; the chat context pages for the planner (we keep the planner's
+input small); the rewrite of prompts/match.md (its good lines are in the
+story-first brief); your sample doc.json under projects/. The movement model
+is the big one: it may well be better, but it replaces behaviour that
+shipped films, so it needs one match filmed both ways and compared before
+it goes in. If you want to push it, make it a pull request on its own with
+that comparison.
