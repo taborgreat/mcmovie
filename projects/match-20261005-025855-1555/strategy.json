@@ -1,0 +1,69 @@
+{
+  "id": "deadpan-chrono",
+  "name": "Deadpan, in order",
+  "version": 1,
+  "parent": null,
+  "chosen_at": "2026-10-07T15:55:17.595Z",
+  "why": "still learning: deadpan-chrono has 0 of 5 films; fits the match (quiet)",
+  "eligible": [
+    "default",
+    "caster-kill-first",
+    "deadpan-chrono",
+    "kit-focused",
+    "no-kits-story",
+    "music-first",
+    "nature-doc",
+    "memed-caster"
+  ],
+  "skipped": {
+    "players-only": "needs players who typed (4+ chat lines)",
+    "love-story": "needs 3+ players",
+    "story-first": "needs players who typed (4+ chat lines)"
+  },
+  "fits": {
+    "min_players": 2,
+    "needs": [],
+    "prefers": [
+      "quiet",
+      "mob-deaths"
+    ]
+  },
+  "knobs": {
+    "frame": "comedy",
+    "narration": {
+      "mode": "narrator",
+      "voice": "stock:deadpan",
+      "wpm": [
+        40,
+        75
+      ],
+      "data": "little",
+      "persona": "a bored referee reading out what happened, unimpressed by everyone including the winner",
+      "player_lines": "any"
+    },
+    "structure": {
+      "open": "chronological",
+      "segments": [
+        2,
+        5
+      ],
+      "travel": "any"
+    },
+    "music": {
+      "opening": "funny",
+      "finale_song": "whatcha-say"
+    },
+    "camera": {
+      "style": "mixed"
+    },
+    "text": {
+      "title": "plain"
+    },
+    "effects": {
+      "register": "clean",
+      "max": 1,
+      "promo": false
+    }
+  },
+  "brief": "Dry, few words, let the picture be the joke. Tell it in order. The narrator sounds mildly unimpressed by everything, including the winner. The bouncy finale song."
+}

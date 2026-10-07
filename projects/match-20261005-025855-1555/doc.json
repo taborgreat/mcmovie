@@ -1,0 +1,26 @@
+{
+  "title": "Elevator for a Stomper",
+  "logline": "An endermage builds a tower and pulls the stomper right up to the top of it. The stomper said thanks and came straight back down on him.",
+  "narrator": { "voice": "stock:deadpan", "voice_desc": "bored referee reading out the result, unimpressed by everyone" },
+  "music": { "mood_tags": ["funny", "playful"], "tempo": "medium" },
+  "segments": [
+    { "id": "lift", "title": "The guest", "from_sec": 258, "to_sec": 277, "focus": [".taborgreat", "taborgreat"], "music": "funny",
+      "narration": [
+        { "id": "n1", "at_sec": 0.3, "text": "The endermage built a tower. Now he wants a guest.", "emotion": "dry" },
+        { "id": "n2", "at_sec": 10.5, "text": "One pull, and the stomper is at the top.", "emotion": "dry" },
+        { "id": "n3", "at_sec": 15.5, "text": "The endermage then jumps off. Lands fine.", "emotion": "dry" }
+      ] },
+    { "id": "warning", "title": "Fair warning", "from_sec": 300, "to_sec": 310.4, "focus": ["taborgreat", ".taborgreat"], "music": "sneaky",
+      "narration": [
+        { "id": "p1", "at_sec": 2.2, "speaker": "taborgreat", "chat": true, "text": "im a stomper silly", "emotion": "cheerful" },
+        { "id": "n4", "at_sec": 5.0, "text": "Stompers like heights. The endermage gave him one.", "emotion": "dry" }
+      ] },
+    { "id": "finale_build", "finale": true, "from_sec": 310.4, "to_sec": 311.9, "focus": ["taborgreat", ".taborgreat"], "narration": [] },
+    { "id": "finale_fight", "finale": true, "from_sec": 311.9, "to_sec": 314.3, "focus": ["taborgreat", ".taborgreat"], "narration": [] },
+    { "id": "celebration", "title": "The winner", "from_sec": 314.3, "to_sec": 326.3, "focus": ["taborgreat"], "music": "triumphant",
+      "narration": [
+        { "id": "n5", "at_sec": 1.0, "text": "Stomped. Thanks for the lift.", "emotion": "dry" },
+        { "id": "n6", "at_sec": 5.5, "text": "taborgreat beats taborgreat. One kill. Riveting.", "emotion": "dry" }
+      ] }
+  ]
+}
