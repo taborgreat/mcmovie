@@ -200,9 +200,12 @@ checker holds the plan to it:
   what they did at least three times, and the title names a kit.
 - **narrator-no-kits**: never the word "kit" nor a kit's name anywhere; people
   with names and wants, not classes.
-- **duo** (Tom and Bob): two hosts, no narrator. Every spoken line has
-  `"speaker": "tom"` or `"speaker": "bob"`; their personalities are in
-  strategy.md. The first line is Tom's and starts "Hey, it's Tom", the second
+- **host** (Trina): one host instead of a narrator, every spoken line hers
+  (`"speaker": "trina"`), her personality in strategy.md: shy, quiet, 'ummm',
+  reacting to what the players typed and did, never explaining the game.
+- **duo** (Bob and Hank): two hosts, no narrator. Every spoken line has
+  `"speaker": "hank"` or `"speaker": "bob"`; their personalities are in
+  strategy.md. The first line is Hank's and starts "Hey, it's Hank", the second
   is Bob's and starts "and hey, it's Bob!"; from there they talk to each other
   in turns (never one of them three lines running, roughly half the lines
   each), wander off on tangents and land back on what is on screen. Short
