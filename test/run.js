@@ -267,6 +267,117 @@ test('youtube: the upload cap holds the stream to the speed asked', async () => 
   const t1 = Date.now(); await new Promise((res, rej) => Y.throttled(__filename, 0).on('data', () => {}).on('end', res).on('error', rej)); assert(Date.now() - t1 < 200)
 })
 
+test('stats: samples add up across platforms and the digest reads them back', () => {
+  const S = require('../lib/publish/stats')
+  const t = h => new Date(Date.now() - h * 3600000).toISOString()
+  const db = { videos: {
+    a: { title: 'HardcorePvP.com #1: A', short: true, published: t(80), players: 2, seconds: 60, samples: [{ t: t(72), yt: { views: 10, likes: 1, comments: 0 } }, { t: t(30), yt: { views: 50, likes: 2, comments: 0 }, ig: { views: 20, likes: 1 } }, { t: t(1), yt: { views: 100, likes: 3, comments: 1 }, ig: { views: 40, likes: 2 }, tt: { views: 60, likes: 4 } }] },
+    b: { title: 'HardcorePvP.com #2: B', short: false, published: t(50), players: 12, seconds: 240, samples: [{ t: t(1), yt: { views: 30, likes: 0, comments: 0 } }] }
+  } }
+  const s = S.summary(db)
+  assert.strictEqual(s.videos, 2)
+  assert.strictEqual(s.totals.views, 230) // 100 + 40 + 60 + 30
+  assert.deepStrictEqual(s.totals.by_platform, { youtube: 130, instagram: 40, tiktok: 60 })
+  const a = s.list.find(v => v.id === 'a')
+  assert.strictEqual(a.total, 200)
+  assert.strictEqual(a.day, 200 - 70) // against the sample 30 hours back
+  assert.strictEqual(a.week, 200 - 10)
+  assert.strictEqual(s.best.id, 'a')
+  assert.strictEqual(s.average.shorts, 200); assert.strictEqual(s.average.videos, 30)
+  const r = S.report(db)
+  assert(r.includes('2 films, 230 views') && r.includes('| HardcorePvP.com #1: A | Short | 2 | 60 s | 200 |'))
+})
+
+test('features: what a film did is read off its plan, timeline and digest', () => {
+  const fs = require('fs'); const os = require('os')
+  const F = require('../lib/publish/features')
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'mcfeat-'))
+  U.writeJson(path.join(dir, 'doc.json'), { title: 'HardcorePvP.com #4: Who Pulled Who?', logline: 'A pyro and a stomper settle it. Five hearts left.', narrator: { voice: 'stock:caster' }, segments: [
+    { id: 'a', from_sec: 100, to_sec: 110, music: 'tense', narration: [{ id: 'n1', at_sec: 0.4, text: 'one two three four' }, { id: 'p1', at_sec: 3, speaker: 'bob', chat: true, text: 'gg' }] },
+    { id: 'b', from_sec: 10, to_sec: 30, speed: 4, music: 'funny', narration: [{ id: 'n2', at_sec: 1, text: 'five six' }] }] })
+  U.writeJson(path.join(dir, 'timeline.json'), { total_ticks: 600, tick_rate: 20, shots: [{ start_tick: 100, auto: 'aerial' }, { start_tick: 0, auto: 'follow_front:speech' }], lines: [], music_cues: [{ track_id: 'km_x' }, { track_id: 'finale_song' }] })
+  U.writeJson(path.join(dir, 'digest.json'), { duration_sec: 400, starting_players: 3, winner: 'bob', players: [{ name: 'bob', kit: 'pyro' }, { name: 'al', kit: 'stomper' }], kill_tree: [{ by: 'the pyro kit' }], phases: [{ state: 'ACTIVE' }, { state: 'FEAST' }], insight: { teams: [[1, 2]], highlights: [] }, finale: { slow: false } })
+  const f = F.extract(dir, { title: 'HardcorePvP.com #4: Who Pulled Who?', logline: 'A pyro and a stomper settle it. Five hearts left.', short: true }, { at: '2026-10-07T03:00:00Z' })
+  fs.rmSync(dir, { recursive: true })
+  assert.strictEqual(f.plan.kind, 'match'); assert.strictEqual(f.plan.narrator_voice, 'stock:caster')
+  assert.strictEqual(f.plan.segments, 2); assert.strictEqual(f.plan.film_sec, 30); assert.strictEqual(f.plan.chronological, false); assert.strictEqual(f.plan.sped_segments, 1)
+  assert.strictEqual(f.plan.words, 7); assert.strictEqual(f.plan.words_per_min, 14); assert.strictEqual(f.plan.player_lines, 1); assert.strictEqual(f.plan.chat_lines, 1); assert.strictEqual(f.plan.player_line_share, 0.33)
+  assert.strictEqual(f.plan.hook.first_shot, 'follow_front:speech'); assert.strictEqual(f.plan.hook.first_line, 'one two three four'); assert.strictEqual(f.plan.cuts, 2)
+  assert.deepStrictEqual(f.plan.music.moods, ['tense', 'funny']); assert.strictEqual(f.plan.music.finale_song, true)
+  assert.strictEqual(f.plan.match.players, 3); assert.strictEqual(f.plan.match.winner_kit, 'pyro'); assert.strictEqual(f.plan.match.feast, true); assert.strictEqual(f.plan.match.teams, 1)
+  assert.strictEqual(f.text.title_question, true); assert.deepStrictEqual(f.text.kits_named, ['stomper', 'pyro']); assert.strictEqual(f.upload.format, 'short')
+})
+
+test('finale songs: chosen by name or mood, each with its own drop', () => {
+  const F = require('../lib/match/finale')
+  const list = F.songs()
+  if (!list.length) return // no song files on this machine (Max's copy)
+  assert(list.some(x => x.default))
+  assert.strictEqual(F.findSong(F.config(), 'nope').id, list.find(x => x.default).id)
+  for (const x of list) assert.strictEqual(F.findSong(F.config(), x.id).drop_sec, x.drop_sec)
+  const byMood = list.find(x => (x.moods || []).includes('fun')); if (byMood) assert.strictEqual(F.findSong(F.config(), 'fun').id, byMood.id)
+})
+
+test('strategies: fit the match, learn before judging, and the checker holds the plan to them', () => {
+  const sel = require('../lib/strategy/select'); const chk = require('../lib/strategy/check'); const store = require('../lib/strategy/store')
+  const all = store.load().strategies
+  assert(all.find(x => x.id === 'default') && all.length >= 6)
+  const two = { starting_players: 2, chat: [], insight: { teams: [], abilities: [] }, finale: { slow: false } }
+  assert(/players/.test(sel.fits(all.find(x => x.id === 'love-story'), two)))
+  assert(/typed/.test(sel.fits(all.find(x => x.id === 'players-only'), two)))
+  assert.strictEqual(sel.fits(all.find(x => x.id === 'default'), two), null)
+  let x = 3; const rand = () => { x = (x * 9301 + 49297) % 233280; return x / 233280 }
+  const c = sel.choose(two, { rand, scores: {} })
+  assert(c.eligible.includes('default') && !c.eligible.includes('love-story') && /learning/.test(c.why))
+  // one judged strategy among seven learning ones: the learning ones get most films
+  const picks = new Set(); for (let i = 0; i < 40; i++) picks.add(sel.choose(two, { rand, scores: { default: { n: 14, mean: 0.9 } } }).strategy.id)
+  assert(picks.size >= 3, [...picks].join(','))
+  assert.strictEqual(sel.choose(two, { force: 'music-first' }).strategy.id, 'music-first')
+  const brief = sel.brief(all.find(x => x.id === 'players-only'), two)
+  assert(/NO narrator/.test(brief) && /chat line/.test(brief))
+  const doc = { title: 'HardcorePvP.com #1: Stomped', logline: 'x', narrator: { voice: 'stock:deadpan' }, segments: [
+    { id: 'a', from_sec: 10, to_sec: 40, music: 'funny', narration: [{ id: 'n1', at_sec: 0.3, text: 'one two three four five six seven eight nine ten' }, { id: 'n2', at_sec: 10, text: 'the stomper kit lands' }] },
+    { id: 'b', from_sec: 50, to_sec: 60, music: 'tense', narration: [{ id: 'p1', at_sec: 1, speaker: 'bob', chat: true, text: 'gg' }] }] }
+  const errs = id => chk.check(doc, all.find(x => x.id === id), { kill_tree: [{ at_sec: 58 }], insight: { abilities: [] } })
+  assert.strictEqual(errs('default').length, 0, errs('default').join(' | ')) // the house style asks nothing special
+  assert(errs('caster-kill-first').some(e => /voice/.test(e)) && errs('caster-kill-first').some(e => /teaser/.test(e)) && errs('caster-kill-first').some(e => /music/.test(e)))
+  assert(errs('no-kits-story').some(e => /kit talk/.test(e)))
+  assert(errs('players-only').some(e => /at most one narrator/.test(e)))
+  assert(errs('music-first').some(e => /question/.test(e)) && errs('music-first').some(e => /physical/.test(e)))
+  const m = chk.measure(doc)
+  assert.strictEqual(m.segments, 2); assert.strictEqual(m.player_lines, 1); assert.strictEqual(m.words, 15)
+})
+
+test('strategy score: hold, reach against the baseline, engagement', () => {
+  const S = require('../lib/strategy/score')
+  const t = h => new Date(Date.now() - h * 3600000).toISOString()
+  const v = { published: t(100), retention: { relative: 0.5 }, samples: [{ t: t(60), yt: { views: 100, likes: 10, comments: 0 } }, { t: t(1), yt: { views: 300, likes: 20, comments: 5 } }] }
+  const r = S.filmScore(v, 100) // baseline: 100 views in 48 h
+  assert.strictEqual(r.parts.hold, 0.5)
+  assert(Math.abs(r.parts.reach - 0.5) < 1e-9) // 100 views in 48 h = the baseline -> 1/(1+1)
+  assert(r.parts.engage > 0 && r.score > 0 && r.score <= 1)
+  assert.strictEqual(S.filmScore({ samples: [] }, 100), null)
+})
+
+test('music health: a struck film suspends its commercial songs, never the free ones', () => {
+  const fs = require('fs')
+  const mh = require('../lib/publish/music_health'); const films = require('../lib/publish/films')
+  const bak = fs.existsSync(films.FILE) ? fs.readFileSync(films.FILE) : null
+  const bakH = fs.existsSync(mh.FILE) ? fs.readFileSync(mh.FILE) : null
+  try {
+    U.writeJson(films.FILE, { films: [{ id: 'zzSTRIKE', url: 'x', title: 'Struck', features: { plan: { music: { tracks: ['km_sneaky_snitch', 'rush_e', 'finale_song'], finale: 'kirby' } } } }] })
+    if (bakH) fs.unlinkSync(mh.FILE)
+    const r = mh.strike('zzSTRIKE', 'muted', 'test')
+    assert.deepStrictEqual(r.tracks, ['km_sneaky_snitch', 'rush_e', 'finale:kirby'])
+    assert.deepStrictEqual(r.suspended.sort(), ['finale:kirby', 'rush_e'].sort()) // Kevin MacLeod is CC BY: never suspended
+    assert(mh.suspended().has('finale:kirby') && !mh.suspended().has('km_sneaky_snitch'))
+    mh.clear('finale:kirby'); assert(!mh.suspended().has('finale:kirby'))
+  } finally {
+    if (bak) fs.writeFileSync(films.FILE, bak); else fs.unlinkSync(films.FILE)
+    if (bakH) fs.writeFileSync(mh.FILE, bakH); else if (fs.existsSync(mh.FILE)) fs.unlinkSync(mh.FILE)
+  }
+})
+
 test('social: captions per platform, sign-in links, and what is skipped', async () => {
   const social = require('../lib/publish/social')
   const ig = require('../lib/publish/instagram'); const tt = require('../lib/publish/tiktok')
@@ -285,11 +396,11 @@ test('social: captions per platform, sign-in links, and what is skipped', async 
   assert.deepStrictEqual(await social.post('/nonexistent.mp4', meta, { youtube_id: 'x' }, cfg), {})
   const igUrl = new URL(ig.authUrl(cfg.instagram, 'st'))
   assert.strictEqual(igUrl.origin + igUrl.pathname, 'https://www.instagram.com/oauth/authorize')
-  assert.strictEqual(igUrl.searchParams.get('scope'), 'instagram_business_basic,instagram_business_content_publish')
+  assert.strictEqual(igUrl.searchParams.get('scope'), 'instagram_business_basic,instagram_business_content_publish,instagram_business_manage_insights')
   const ttUrl = new URL(tt.authUrl(cfg.tiktok, 'st'))
   assert.strictEqual(ttUrl.origin + ttUrl.pathname, 'https://www.tiktok.com/v2/auth/authorize/')
-  assert.strictEqual(ttUrl.searchParams.get('scope'), 'user.info.basic,video.upload') // drafts only until the app is audited
-  assert.strictEqual(new URL(tt.authUrl({ ...cfg.tiktok, mode: 'direct' }, 'st')).searchParams.get('scope'), 'user.info.basic,video.upload,video.publish')
+  assert.strictEqual(ttUrl.searchParams.get('scope'), 'user.info.basic,video.upload,video.list,user.info.stats') // drafts only until the app is audited; the last two for the stats
+  assert.strictEqual(new URL(tt.authUrl({ ...cfg.tiktok, mode: 'direct' }, 'st')).searchParams.get('scope'), 'user.info.basic,video.upload,video.publish,video.list,user.info.stats')
   // signed in: wide videos and non-public uploads are still not cross-posted
   const on = { ...cfg, instagram: { ...cfg.instagram, access_token: 't', ig_user_id: '1' } }
   assert.deepStrictEqual(social.enabled(on), ['instagram'])
@@ -410,20 +521,20 @@ test('finale: silent build-up on the faces, the drop on the first hit, then the 
   // a long fight: 5800..6000 ticks (10 s). The middle is skipped.
   const long = { meta: { ticks: 7300 }, players: [{ name: 'A' }, { name: 'B' }], events: [...hits(5800, 6000), { type: 'death', t: 6000, v: 1, k: 0 }] }
   const w = finale.plan(long, song)
-  assert.deepStrictEqual(w.parts.map(p => [p.id, p.from_sec, p.to_sec, p.film_sec]), [['finale_build', 285.5, 290, 9], ['finale_fight', 290, 291.5, 3], ['finale_kill', 297.4, 300.9, 7]])
+  assert.deepStrictEqual(w.parts.map(p => [p.id, p.from_sec, p.to_sec, p.film_sec]), [['finale_build', 285.5, 290, 9], ['finale_fight', 290, 291.5, 3], ['finale_kill', 297.8, 301.3, 7]])
   assert.strictEqual(w.film_sec, 19)
   // a short fight fits whole, and a one-second fight is slowed further
   const short = { ...long, events: [...hits(5940, 6000), { type: 'death', t: 6000, v: 1, k: 0 }] }
   const ws = finale.plan(short, song)
   assert.deepStrictEqual(ws.parts.map(p => p.id), ['finale_build', 'finale_fight'])
-  assert(ws.parts[1].speed < 0.5 && ws.parts[1].speed >= 0.25 && ws.parts[1].to_sec === 300.9)
+  assert(ws.parts[1].speed < 0.5 && ws.parts[1].speed >= 0.25 && ws.parts[1].to_sec === 301.3)
   // ordinary sword fights stay at real speed; a stomp or a blink-of-an-eye kill goes slow
   const auto = { ...song, slow: 'auto' }
   const real = finale.plan(long, auto)
   assert.strictEqual(real.slow, false)
-  assert.deepStrictEqual(real.parts.map(p => [p.id, p.from_sec, p.to_sec, p.speed]), [['finale_build', 281, 290, 1], ['finale_fight', 290, 293, 1], ['finale_kill', 293.9, 300.9, 1]])
+  assert.deepStrictEqual(real.parts.map(p => [p.id, p.from_sec, p.to_sec, p.speed]), [['finale_build', 281, 290, 1], ['finale_fight', 290, 293, 1], ['finale_kill', 294.3, 301.3, 1]])
   const realShort = finale.plan({ ...long, events: [...hits(5900, 6000), { type: 'death', t: 6000, v: 1, k: 0, cause: 'entity_attack' }] }, auto)
-  assert.deepStrictEqual(realShort.parts.map(p => [p.id, p.speed, p.film_sec]), [['finale_build', 1, 9], ['finale_fight', 1, 5.9]])
+  assert.deepStrictEqual(realShort.parts.map(p => [p.id, p.speed, p.film_sec]), [['finale_build', 1, 9], ['finale_fight', 1, 6.3]])
   assert.strictEqual(finale.plan({ ...long, events: [{ type: 'hit', t: 5990, a: 0, v: 1 }, { type: 'death', t: 6000, v: 1, k: 0, cause: 'entity_attack' }] }, auto).why_slow, 'over in a blink')
   assert(/fall/.test(finale.plan({ ...long, events: [{ type: 'death', t: 6000, v: 1, cause: 'fall' }] }, auto).why_slow))
   const stomp = { ...long, players: [{ name: 'A', kit: 'Stomper', track: [{ t: 5960, y: 80 }, { t: 5990, y: 70 }, { t: 6000, y: 64 }] }, { name: 'B' }] }
@@ -434,8 +545,8 @@ test('finale: silent build-up on the faces, the drop on the first hit, then the 
     seg({ id: 'road', from_sec: 250, to_sec: 285.5, narration: [{ id: 'n1', at_sec: 2, text: 'This is it.' }] }),
     seg({ id: 'finale_build', finale: true, from_sec: 285.5, to_sec: 290 }),
     seg({ id: 'finale_fight', finale: true, from_sec: 290, to_sec: 291.5, narration: [{ id: 'n2', at_sec: 0.6, text: 'He hits hard.' }] }),
-    seg({ id: 'finale_kill', finale: true, from_sec: 297.4, to_sec: 300.9 }),
-    seg({ id: 'cake', from_sec: 300.9, to_sec: w.celebration_to_sec })] }
+    seg({ id: 'finale_kill', finale: true, from_sec: 297.8, to_sec: 301.3 }),
+    seg({ id: 'cake', from_sec: 301.3, to_sec: w.celebration_to_sec })] }
   assert.deepStrictEqual(finaleErrors(good, long, w), [])
   assert(finaleErrors({ segments: [seg({ id: 'a', from_sec: 250, to_sec: 305 })] }, long, w)[0].includes('needs the finale segment'))
   const talk = JSON.parse(JSON.stringify(good)); talk.segments[1].narration = [{ id: 'x', at_sec: 1, text: 'They stare.' }]

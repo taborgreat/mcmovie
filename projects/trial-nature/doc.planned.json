@@ -1,0 +1,72 @@
+{
+  "title": "The Perch",
+  "logline": "One player sat on top of a tower for nine minutes. The other walked the whole map, came back, and climbed up to meet him.",
+  "strategy_id": "nature-doc",
+  "narrator": { "voice": "stock:storyteller", "voice_desc": "warm, unhurried nature documentary narrator, gentle and precise" },
+  "music": { "mood_tags": ["mysterious", "calm"], "tempo": "slow" },
+  "cards": { "end_text": "hardcorepvp.com" },
+  "segments": [
+    {
+      "id": "perch",
+      "title": "The perch",
+      "from_sec": 389.5,
+      "to_sec": 422,
+      "focus": ["WorkingStorage"],
+      "music": "enchanting",
+      "narration": [
+        { "id": "n1", "at_sec": 0.3, "text": "On a hilltop, a creature begins to climb.", "emotion": "gentle" },
+        { "id": "n2", "at_sec": 8.0, "text": "Block by block, he raises a perch above anything that might reach him.", "emotion": "gentle" },
+        { "id": "n3", "at_sec": 17.0, "text": "Up here he can see for miles. And for miles, he can be seen.", "emotion": "thoughtful" },
+        { "id": "p1", "at_sec": 29.4, "speaker": "WorkingStorage", "chat": true, "text": "high risk, high reward", "emotion": "calm" }
+      ],
+      "shots": "auto"
+    },
+    {
+      "id": "night",
+      "title": "The wanderer",
+      "from_sec": 844.8,
+      "to_sec": 862,
+      "focus": ["taborgreat"],
+      "music": "dark",
+      "narration": [
+        { "id": "n1", "at_sec": 0.5, "text": "Far away, the wanderer has walked all night, and the night has noticed.", "emotion": "hushed" },
+        { "id": "n2", "at_sec": 7.5, "text": "He answers each bite with a bowl of stew.", "emotion": "hushed" },
+        { "id": "n3", "at_sec": 12.5, "text": "He is learning that the ground is no place to live.", "emotion": "thoughtful" }
+      ],
+      "shots": "auto"
+    },
+    {
+      "id": "climb",
+      "title": "The climb",
+      "from_sec": 934.8,
+      "to_sec": 951.8,
+      "focus": ["taborgreat", "WorkingStorage"],
+      "music": "suspense",
+      "narration": [
+        { "id": "n1", "at_sec": 1.0, "text": "So he returns to the hill, and climbs toward the one who never came down.", "emotion": "building" },
+        { "id": "n2", "at_sec": 9.0, "text": "Above, the watcher stirs. Below, a life lost here is lost for good.", "emotion": "tense" }
+      ],
+      "shots": "auto"
+    },
+    { "id": "finale_build", "finale": true, "from_sec": 951.8, "to_sec": 959.8, "focus": ["WorkingStorage", "taborgreat"], "narration": [] },
+    { "id": "finale_fight", "finale": true, "from_sec": 959.8, "to_sec": 967.1, "focus": ["WorkingStorage", "taborgreat"],
+      "narration": [
+        { "id": "n1", "at_sec": 0.5, "text": "The hunter drops from the sky and the climber falls.", "emotion": "urgent" },
+        { "id": "n2", "at_sec": 5.8, "text": "Three hearts left. One bite settles it.", "emotion": "urgent" }
+      ] },
+    {
+      "id": "celebration",
+      "title": "The last one standing",
+      "from_sec": 967.1,
+      "to_sec": 979.1,
+      "focus": ["WorkingStorage"],
+      "music": "triumphant",
+      "narration": [
+        { "id": "n1", "at_sec": 1.0, "text": "And then there is one.", "emotion": "warm" },
+        { "id": "n2", "at_sec": 4.0, "text": "WorkingStorage, one kill, and the whole plain to himself.", "emotion": "warm" },
+        { "id": "n3", "at_sec": 8.5, "text": "He never needed the feast.", "emotion": "amused" }
+      ],
+      "shots": "auto"
+    }
+  ]
+}

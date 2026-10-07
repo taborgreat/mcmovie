@@ -1,0 +1,57 @@
+{
+  "_": "The songs the last fight can be cut to. Files live at the repo root or in music/finale/ (not in git). drop_sec is where each song's drop lands: the cut puts the first hit of the fight (or a Stomper's leap) exactly there. moods are what an edit strategy asks for; the default plays when nothing asks. words: how much narration the fight under it may carry (normal = two lines, few = one, none); soft_duck: the song is barely turned down under a voice (a feel song).",
+  "songs": [
+    {
+      "id": "kirby",
+      "file": "New kirby use this.mp3",
+      "drop_sec": 9,
+      "moods": [
+        "epic",
+        "hype",
+        "triumphant"
+      ],
+      "default": true,
+      "words": "normal"
+    },
+    {
+      "id": "hide-seek",
+      "file": "hide-and-seek-official-video.mp3",
+      "drop_sec": 8,
+      "moods": [
+        "dramatic",
+        "sad",
+        "intense",
+        "dreamy"
+      ],
+      "words": "few",
+      "soft_duck": true,
+      "feel": "a feel song: the picture and the song carry it"
+    },
+    {
+      "id": "whatcha-say",
+      "file": "Jason Derulo - Whatcha Say [Official Music Video]_82_110.mp3",
+      "drop_sec": 3,
+      "moods": [
+        "fun",
+        "bouncy",
+        "comedy"
+      ],
+      "note": "three seconds of build-up only",
+      "words": "few",
+      "soft_duck": true
+    },
+    {
+      "id": "face-off",
+      "file": "epic-fight-face-off-drop 3s.mp3",
+      "drop_sec": 3,
+      "moods": [
+        "epic",
+        "fight",
+        "intense",
+        "hype"
+      ],
+      "note": "18 s long: three seconds of build-up, then about fifteen of fight",
+      "words": "normal"
+    }
+  ]
+}

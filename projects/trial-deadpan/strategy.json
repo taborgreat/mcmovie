@@ -1,0 +1,47 @@
+{
+  "id": "deadpan-chrono",
+  "name": "Deadpan, in order",
+  "version": 1,
+  "parent": null,
+  "chosen_at": "2026-10-07T13:51:45.937Z",
+  "why": "asked for by name",
+  "eligible": [
+    "deadpan-chrono"
+  ],
+  "skipped": {},
+  "fits": {
+    "min_players": 2,
+    "needs": []
+  },
+  "knobs": {
+    "frame": "comedy",
+    "narration": {
+      "mode": "narrator",
+      "voice": "stock:deadpan",
+      "wpm": [
+        40,
+        75
+      ],
+      "data": "little",
+      "persona": "a bored referee reading out what happened, unimpressed by everyone including the winner"
+    },
+    "structure": {
+      "open": "chronological",
+      "segments": [
+        2,
+        5
+      ]
+    },
+    "music": {
+      "opening": "funny",
+      "finale_song": "whatcha-say"
+    },
+    "camera": {
+      "style": "mixed"
+    },
+    "text": {
+      "title": "plain"
+    }
+  },
+  "brief": "Dry, few words, let the picture be the joke. Tell it in order. The narrator sounds mildly unimpressed by everything, including the winner. The bouncy finale song."
+}

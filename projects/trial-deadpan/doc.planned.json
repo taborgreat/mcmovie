@@ -1,0 +1,64 @@
+{
+  "title": "High Risk High Reward",
+  "logline": "A stomper builds a tower so tall you can barely see him up there. The kaya builds a shorter one right next to it, which is exactly what the stomper was waiting for.",
+  "narrator": { "voice": "stock:deadpan", "voice_desc": "bored referee reading out what happened, unimpressed by everyone including the winner" },
+  "music": { "mood_tags": ["funny"], "tempo": "mid" },
+  "cards": { "end_text": "hardcorepvp.com" },
+  "segments": [
+    {
+      "id": "tower",
+      "title": "The stomper goes up",
+      "from_sec": 393,
+      "to_sec": 421,
+      "focus": ["WorkingStorage"],
+      "music": "funny",
+      "narration": [
+        { "id": "n1", "at_sec": 0.3, "text": "The stomper is going up.", "emotion": "dry" },
+        { "id": "p1", "at_sec": 3.4, "speaker": "taborgreat", "chat": true, "text": "only one of us will grow old", "emotion": "dry" },
+        { "id": "n2", "at_sec": 8.0, "text": "Very tall. Still going.", "emotion": "dry" },
+        { "id": "n3", "at_sec": 20.0, "text": "He says this is a strategy.", "emotion": "dry" },
+        { "id": "p2", "at_sec": 25.9, "speaker": "WorkingStorage", "chat": true, "text": "high risk, high reward", "emotion": "calm" }
+      ],
+      "shots": "auto"
+    },
+    {
+      "id": "second_tower",
+      "title": "The kaya builds a shorter one",
+      "from_sec": 936,
+      "to_sec": 956.8,
+      "focus": ["taborgreat", "WorkingStorage"],
+      "music": "suspense",
+      "narration": [
+        { "id": "n1", "at_sec": 0.5, "text": "Nine minutes later. The kaya has found the tower.", "emotion": "dry" },
+        { "id": "n2", "at_sec": 6.0, "text": "He builds his own next to it. Shorter.", "emotion": "dry" },
+        { "id": "n3", "at_sec": 12.0, "text": "The stomper, above him, waits. Stompers hurt whatever they land on.", "emotion": "dry" }
+      ],
+      "shots": "auto"
+    },
+    { "id": "finale_build", "finale": true, "from_sec": 956.8, "to_sec": 959.8, "focus": ["WorkingStorage", "taborgreat"], "narration": [] },
+    {
+      "id": "finale_fight",
+      "finale": true,
+      "from_sec": 959.8,
+      "to_sec": 967.1,
+      "focus": ["WorkingStorage", "taborgreat"],
+      "narration": [
+        { "id": "f1", "at_sec": 0.6, "text": "He lands on him. Then follows him down.", "emotion": "dry" },
+        { "id": "f2", "at_sec": 5.0, "text": "Six stews. Not enough.", "emotion": "dry" }
+      ]
+    },
+    {
+      "id": "celebration",
+      "title": "The winner",
+      "from_sec": 967.1,
+      "to_sec": 979.1,
+      "focus": ["WorkingStorage"],
+      "music": "triumphant",
+      "narration": [
+        { "id": "c1", "at_sec": 1.0, "text": "That is that.", "emotion": "dry" },
+        { "id": "c2", "at_sec": 4.0, "text": "WorkingStorage wins. One kill. He built a tower and fell off it. On purpose.", "emotion": "dry" }
+      ],
+      "shots": "auto"
+    }
+  ]
+}

@@ -21,6 +21,13 @@ const HELP = `mcpublish - upload a finished film and announce it
   social send [--id <youtube id>] [--to tiktok,instagram] [--again]   send a kept Short by hand (newest if no id)
   social tick                   retry failed Instagram/TikTok posts, renew tokens, clear old hosted clips
   social <slug>                 send an already-uploaded project to Instagram/TikTok now
+  stats scan [--force]          ask YouTube, Instagram and TikTok for every film's numbers (the loop does this hourly)
+  stats show                    the numbers, as JSON (what the admin page shows)
+  stats report                  the plain-words digest (automation/performance.md)
+  music status                  every song: which films used it, any trouble, suspended or not
+  music strike <youtube id> [--what text]   a film was muted/blocked/removed: suspend the commercial songs it used
+  music clear <track id>        allow a suspended song again
+  media                         every song, track, overlay and sting the films can use, with its purpose and standing
   show <slug>                   print the title/description that would be used
   verify <slug>                 check that final.mp4 is complete and sound (publishing refuses otherwise)
   <slug> [--dry-run] [--privacy public|unlisted|private] [--no-discord] [--no-social] [--force]
@@ -138,6 +145,21 @@ async function main () {
   if (cmd === 'auth' && (args._[1] === 'instagram' || args._[1] === 'tiktok')) return authSocial(args._[1], args)
   if (cmd === 'auth') return auth(args)
   if (cmd === 'social') return socialCmd(args)
+  if (cmd === 'media') { const M = require('../lib/media'); console.log(JSON.stringify(M.catalogue(), null, 2)); return }
+  if (cmd === 'music') {
+    const mh = require('../lib/publish/music_health')
+    const what = args._[1] || 'status'
+    if (what === 'strike') { if (!args._[2]) throw new Error('music strike <youtube id>'); console.log(JSON.stringify(mh.strike(String(args._[2]), String(args.what || 'struck'), 'admin'), null, 2)); return }
+    if (what === 'clear') { if (!args._[2]) throw new Error('music clear <track id>'); mh.clear(String(args._[2])); console.log('cleared ' + args._[2]); return }
+    console.log(JSON.stringify(mh.status(), null, 2)); return
+  }
+  if (cmd === 'stats') {
+    const stats = require('../lib/publish/stats')
+    const what = args._[1] || 'show'
+    if (what === 'scan') { console.log(JSON.stringify(await stats.scan(P.config(), { force: !!args.force, log: m => console.error('[stats] ' + m) }))); return }
+    if (what === 'report') { console.log(stats.report()); return }
+    console.log(JSON.stringify(stats.summary())); return
+  }
   if (cmd === 'verify') { const r = require('../lib/publish/verify').verify(U.projectDir(args._[1])); console.log(JSON.stringify(r, null, 2)); if (!r.ok) process.exitCode = 1; return }
   if (cmd === 'show') { console.log(JSON.stringify(P.metadata(U.projectDir(args._[1])), null, 2)); return }
   const r = await P.publish(U.projectDir(cmd), { dryRun: !!args['dry-run'], privacy: args.privacy, noDiscord: !!args['no-discord'], noSocial: !!args['no-social'], force: !!args.force })

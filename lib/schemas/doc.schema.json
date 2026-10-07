@@ -23,7 +23,9 @@
         "properties": {
           "id": { "type": "string", "pattern": "^[a-z0-9_]+$" },
           "title": { "type": "string" },
-          "finale": { "type": "boolean", "description": "The slow-motion last kill under the finale song. Exactly the segment digest.md gives under \"The finale\"; the program sets its speed and music." },
+          "stings": { "type": "array", "description": "effects the planner calls for at a moment of this segment (config/effects.json, type sting): [{ \"id\": \"troll-face\", \"at_sec\": 4.0 }], at_sec in film seconds from the segment start", "items": { "type": "object", "required": ["id", "at_sec"], "properties": { "id": { "type": "string" }, "at_sec": { "type": "number", "minimum": 0 } } } },
+                "teaser": { "type": "boolean", "description": "true on the first segment only: a two-to-four-second teaser of the final kill before the film goes back to the start (an edit strategy that opens on the kill asks for it); it may overlap the finale" },
+                "finale": { "type": "boolean", "description": "The slow-motion last kill under the finale song. Exactly the segment digest.md gives under \"The finale\"; the program sets its speed and music." },
           "from_sec": { "type": "number", "minimum": 0 },
           "to_sec": { "type": "number", "minimum": 0 },
           "speed": { "type": "number", "minimum": 0.25, "maximum": 16, "description": "Playback speed; 1 = real time, 4 = timelapse" },

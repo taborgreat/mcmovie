@@ -1,0 +1,47 @@
+{
+  "id": "nature-doc",
+  "name": "Nature documentary",
+  "version": 1,
+  "parent": null,
+  "chosen_at": "2026-10-07T13:51:45.665Z",
+  "why": "asked for by name",
+  "eligible": [
+    "nature-doc"
+  ],
+  "skipped": {},
+  "fits": {
+    "min_players": 2,
+    "needs": []
+  },
+  "knobs": {
+    "frame": "machinima-story",
+    "narration": {
+      "mode": "narrator-no-kits",
+      "voice": "stock:storyteller",
+      "wpm": [
+        55,
+        95
+      ],
+      "data": "little",
+      "persona": "a nature documentary: the players are creatures observed in their habitat, their habits and instincts described gently and precisely; the winner is simply the one best adapted"
+    },
+    "structure": {
+      "open": "any",
+      "segments": [
+        2,
+        6
+      ]
+    },
+    "music": {
+      "opening": "enchanting",
+      "finale_song": "hide-seek"
+    },
+    "camera": {
+      "style": "wide"
+    },
+    "text": {
+      "title": "plain"
+    }
+  },
+  "brief": "A nature documentary about the match. Observe the players as creatures: where they go, what they gather, how they hunt, how they hide. Never a game term, never a kit name; a stomp is a creature dropping on its prey from a height. Enchanting music to open, the dramatic song for the kill."
+}

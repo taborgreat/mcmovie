@@ -4,7 +4,8 @@ Project folder: projects/{{slug}}/
 Film format: {{format}} ({{format_label}}). Plan {{min_sec}} to {{max_sec}} seconds of film in total; for a Short, as short as the match allows (a two-player match is usually about a minute, a bigger match with more moments can use the full three), never padded.
 
 Do exactly this:
-1. Read prompts/match.md (the method, the rules and the doc.json format).
+0. Read projects/{{slug}}/strategy.md: the edit strategy this film is made under. Its rules are held by the checker and win where they differ from the general method.
+1. Read prompts/match.md (the method, the rules and the doc.json format), with care for "The opening" and "Narration modes".
 2. Read projects/{{slug}}/digest.md. It is the skeleton of the match: the ending, the winner's road backwards, side moments, one line per player.
 3. Plan backwards from the ending as prompts/match.md describes: the ending, then the moments on the winner's road that explain it, then one to three side moments about players off the main road.
 4. Open only the moment files you chose (projects/{{slug}}/moments/<id>.md) for the detail and the suggested segment times. Use prompts/reference/kits.md for what a kit does.
@@ -17,6 +18,8 @@ Rules that are checked by a program after you finish:
 - Every `focus` name must be a player from the digest, spelled exactly, and alive during that segment.
 - Segment times must lie inside the match.
 - Total film length must fit the format above.
+- Every rule in projects/{{slug}}/strategy.md (voice, narration mode and density, how the film opens, music, title).
+- The opening: never a headcount ("two players", "eight players joined") and never a kit's description as the first thing said. The first line lands inside the first second on something happening.
 - `title` and `logline` are published on YouTube exactly as written. Follow "Title and logline" in prompts/match.md: a short plain title, and one or two casual sentences that call players by their kit.
 
 Do not run any commands and do not edit any other file. When doc.json is written, reply with the single word DONE.

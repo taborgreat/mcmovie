@@ -208,6 +208,33 @@ xvfb-run -a -s "-screen 0 1920x1080x24" node bin/mcmatch.js make <slug> [--mock-
   start of the celebration if the fight ends first. The celebration ends when the winner stops doing anything on the
   cake tower or hops off (at least 4 s, at most 12 s; `check` enforces the
   end time digest.md gives), so the end card comes promptly. No song file means no finale.
+- **The teaser never spoils.** A `"teaser": true` first segment runs up to
+  the final blow and ends on it (within a quarter second of the kill), never
+  past it: the leap, the swing, not the death or the result. `finaleErrors`
+  holds it there.
+- **Feel songs carry few words.** `config/finale_songs.json` gives each song
+  `words` (normal = two lines in the fight parts, few = one, none) and
+  `soft_duck` (the song barely dips under a voice: its own music bus in
+  `lib/assemble/ffmpeg.js`, `soft_duck_ratio` 1.6 instead of `duck_ratio`).
+  Hide and Seek and Whatcha Say are feel songs. The checker enforces the
+  line count; digest.md tells the planner.
+- **The ending, Tabor's cut** (build.js, the celebration segment: the one
+  that starts where the finale ends): the winner's reaction over the loot
+  until the lift to the cake tower; a swoosh on the lift (a white flash and
+  a rush of air, built in; `swoosh` in `config/effects.json` can name a clip
+  instead); then the lens rushes in from far to the winner's face (crane,
+  ease-in), circles them once (orbit, 360), and settles back as the
+  fireworks go up. The server now waits `win.breath-ticks` (30 = 1.5 s,
+  hardcorekits `GameManager`) between the final kill and the lift, so the
+  loot and the reaction exist to film. Older recordings without a teleport
+  event get the swoosh a second in.
+- **Overlay effects** (`config/effects.json`, `assets/effects/`): clips on
+  black keyed onto the picture under the captions, their sound on the game
+  bus. `rewind` over the cut back after a teaser (4 s), `fastforward` over
+  the start of a sped-up segment (3 s). Tabor makes them; `"effects":
+  false` in `config/mix.json` turns them off. Songs live in `music/finale/`
+  (the finale list) and `music/tabor/` (mood tracks, absolute-free paths in
+  the manifest); nothing is kept at the repo root any more.
 - **Whoever speaks is on screen.** A line with a player `speaker` (their chat
   or a line in their voice) gets its own camera window in `autoShots`
   (`speech`): the cut goes to that player on the frame the line starts, from
@@ -394,6 +421,71 @@ node bin/mcauto.js status | once | story | run
   `http/public/site.js` holds the three account addresses (an empty one hides
   that platform everywhere) and draws the Watch menu and the footer logos;
   the profile's Movies tab filters by platform.
+- **How the films are doing** (`lib/publish/stats.js`): once an hour the loop
+  asks YouTube (Data + Analytics APIs), Instagram (Reel insights) and TikTok
+  (video list) for every film's numbers and keeps hourly samples in
+  `automation/stats.json` (daily after a week). `mcpublish stats scan|show|report`;
+  the admin page shows totals, per-film rows with a 7-day line, and "Update
+  now". `automation/performance.md` is a plain-words digest (best films,
+  views a day by match size and film length) meant to be handed to the
+  planner later so what does well feeds back into how films are planned.
+  The three logins need their read scopes (YouTube `youtube.readonly` +
+  `yt-analytics.readonly`, Instagram `instagram_business_manage_insights`,
+  TikTok `video.list`): a login made before this needs one more consent.
+  Every film and every sample is also written to MongoDB on this box
+  (`lib/publish/db.js`; database `hardcorepvp`, collections `films` and
+  `film_samples`, `MCMOVIE_MONGO_URL` or `stats.mongo_url` to point
+  elsewhere): the durable copy, meant for the planner's feedback loop (Tabor:
+  "what methods worked"); tags for what a film tried are still to come.
+  YouTube's Analytics API (watch time, % watched) must be enabled in the
+  Google Cloud project once or that part is refused while the counts work.
+  Also kept: the accounts' own numbers each hour (subscribers/followers;
+  `channel_samples`); per film, once a day, YouTube's retention curve (the
+  share still watching at each 1% of the film, `relative` against YouTube's
+  videos of that length, `half_gone_at`, `steepest_drop`) and where its views
+  came from (`traffic`); the analytics calls must start at the film's upload
+  date or they take 40x longer. And at upload, **what the film did**
+  (`lib/publish/features.js` -> `features` on the film record): narrator
+  voice, segments, words per minute, player-line share, how it opened (first
+  shot, first line), cuts per minute, shot kinds, music moods, finale kind,
+  the match's size and contents, title/logline traits, posting hour. These
+  are the as-built facts an edit strategy (being designed with Tabor, not
+  built yet: `strategy_id` on the plan) will be judged on.
+- **Edit strategies: the feedback loop** (`lib/strategy/`, reference
+  `prompts/reference/strategies.md`, Tabor's sketch of 2026-10-07). Every
+  match film is planned under a strategy: a recipe of checkable knobs (frame,
+  narration mode/voice/density/data, how it opens, segments, opening music,
+  finale song, camera lean, title rule) plus a brief. `mcmatch import`
+  chooses one from what the match has in it (`lib/strategy/select.js`:
+  eligibility by `fits`, learning strategies tried in proportion until each
+  has 5 films, then the best score with a little randomness, never the same
+  twice running) and writes `strategy.json` + `strategy.md` into the project;
+  the digest's finale section follows the strategy's song
+  (`config/finale_songs.json`: kirby drop 9 s, hide-seek 8 s, whatcha-say 3 s).
+  The planner reads strategy.md first; `check` holds the plan to it
+  (`lib/strategy/check.js`); then the loop runs an editor pass
+  (`prompts/auto/match_review.md`: the opening, nothing pointless, the
+  narration, strategy fit; `llm.review` in config) and checks again. A
+  `"teaser": true` first segment (2-4 s containing the final kill) is the one
+  allowed overlap with the finale, for strategies that open on the kill.
+  Scores (`lib/strategy/score.js`, after every stats scan): per film 60% hold
+  (relative retention) + 30% first-48-h views against the median of the ten
+  films before + 10% engagement per view; per strategy mean/recent/spread,
+  judged only at 5+ films; films before strategies count as `default`.
+  Seeds: `config/edit_strategies.json` (8); live set `automation/strategies.json`
+  + Mongo `edit_strategies`; grow with `store.derive(parent, changes, {notes})`,
+  one knob at a time, hypothesis written down. `mcmatch strategy list|<slug> --id x`.
+  The opening rule (never a headcount or a kit description first; first line
+  inside the first second; vary it) is in prompts/match.md "The opening".
+- **Music health** (`lib/publish/music_health.js`): a copyright claim that
+  only shares revenue is fine; a film that is muted, blocked or removed is not,
+  and the commercial songs it used (the finale songs, Rush E, Sugar Plum,
+  Harvest Dawn; never the CC-BY library) are suspended and never picked again
+  (the finale list and both music pickers skip them). The half-hourly scan
+  records each upload's YouTube status and suspends on a rejection or a
+  vanished video; a mute is invisible to the APIs, so the admin page has
+  "Music was struck" per film (`mcpublish music strike <id>`, `music clear
+  <track>` to allow again, `music status`). Record: `automation/music_health.json`.
 - **Who is in each film** (`lib/publish/films.js`): at upload the publisher
   works out the players who appear: everyone the camera caught in a frame of
   any cut (inside the lens and within 64 blocks; walking through the back of

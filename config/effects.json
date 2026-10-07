@@ -1,0 +1,10 @@
+{
+  "_": "Overlay effects (assets/effects/): short clips keyed onto the picture under the captions (lib/assemble/ffmpeg.js). type overlay = the pipeline places it itself (rewind after a teaser, fastforward on sped-up travel, swoosh on the lift to the cake); type sting = the planner may call for it in doc.json (segment \"stings\": [{ \"id\", \"at_sec\" }]) when its `use` fits the moment. key: black (colorkey) or green (chromakey, with the colour and strength that cut this clip cleanly). layout full = stretched to the frame; centre = scaled to `scale` of the frame width, centred. sound mix = on the game bus; takeover = the music drops to a whisper while it plays and it is heard at `gain_db`; none. in/out are seconds inside the file.",
+  "effects": {
+    "fastforward": { "type": "overlay", "file": "assets/effects/rewind-fastforward.mp4", "in": 0, "out": 3, "key": "black", "layout": "full", "sound": "mix" },
+    "rewind": { "type": "overlay", "file": "assets/effects/rewind-fastforward.mp4", "in": 3, "out": 7, "key": "black", "layout": "full", "sound": "mix" },
+    "swoosh": { "type": "overlay", "file": null, "note": "built in (a white flash and a rush of air) until Tabor supplies a clip; a file here replaces it", "key": "black", "layout": "full", "sound": "mix" },
+    "troll-face": { "type": "sting", "file": "assets/effects/troll-face.mp4", "in": 2.2, "out": 10.7, "key": "green", "key_color": "0x3fc900", "key_similarity": 0.28, "key_blend": 0.06, "layout": "centre", "scale": 0.55, "sound": "takeover", "gain_db": -2,
+      "moods": ["troll", "mischief", "betrayal", "bait"], "use": "TO FILL IN (Tabor): when a player gets trolled, baited into a trap, or killed from behind by someone they trusted; the blue troll face with its own sound takes over the music for its eight seconds" }
+  }
+}

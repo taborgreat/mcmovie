@@ -117,6 +117,56 @@ way a player would tell a friend what happened, not the way a trailer would.
 `check` rejects a title over 40 characters or with ":" or "#", a missing
 logline, a logline over 220 characters, and dashes or semicolons in either.
 
+## The opening
+
+The first second decides whether a thumb stops. Open on something happening:
+a blow, a leap, a chat line, a question the match answers, the final kill
+itself (a teaser, below). Never open with a headcount ("Two players in this
+match", "Eight players dropped in"), a date, or what a kit does; the kit can
+be explained the moment it matters, not before. The first line is spoken
+inside the first second of the film. Vary it: the same opening twice in a
+row is a failure of imagination, and the retention curves show the audience
+agrees.
+
+A `"teaser": true` on the FIRST segment only makes it a two-to-four-second
+teaser that runs up to the final blow and ENDS on it (the leap, the swing,
+the fall: never the death, never the result; the checker holds it to ending
+within a quarter second of the kill), at real speed, before the film goes
+back to the start; it is the one segment allowed to
+overlap the finale window. An edit strategy that opens on the kill asks for
+it; otherwise do not use it.
+
+The finale song decides how much may be said over the fight: a feel song
+(digest.md says which) carries at most one short line, and silence is
+better. Let the picture and the song do it.
+
+## Stings
+
+digest.md lists the stings on offer (short clips with their own sound, laid
+over the picture at a moment: a troll face, and whatever Tabor adds). Call
+for one with `"stings": [{ "id": "<id>", "at_sec": <seconds from the
+segment start> }]` on the segment where its purpose fits, at most one per
+film, and only when the moment really is that; most films have none.
+
+## Narration modes
+
+The film's edit strategy (projects/<slug>/strategy.md) sets the mode, and the
+checker holds the plan to it:
+
+- **narrator**: the narrator tells it, in the voice the strategy names.
+- **players-only**: at most one narrator line in the whole film; the
+  players' own chat lines in their voices carry it (`"speaker"`, `"chat":
+  true`), with the music and the game's sound.
+- **kit-focused**: the kits are the characters; the narration names them and
+  what they did at least three times, and the title names a kit.
+- **narrator-no-kits**: never the word "kit" nor a kit's name anywhere; people
+  with names and wants, not classes.
+- **minimal**: five short narrator lines at most, 45 words in total; the
+  picture and the music do the work.
+
+Density is words a minute of film (every spoken word over the film's length);
+the strategy gives a band and the checker allows 15% either side.
+
 ## Voices: the narrator and the players
 
 Pick the narrator to suit the match with `"narrator": { "voice": "stock:<id>" }`:

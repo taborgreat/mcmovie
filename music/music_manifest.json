@@ -509,6 +509,93 @@
       "license": "CC BY 4.0",
       "credit": "\"Heroic Age\" Kevin MacLeod (incompetech.com) Licensed under Creative Commons: By Attribution 4.0 License http://creativecommons.org/licenses/by/4.0/",
       "notes": "demo library; incompetech.com"
+    },
+    {
+      "id": "rush_e",
+      "path": "tabor/RUSH E_maybe whole thing used as one short machinima going with song.mp3",
+      "title": "Rush E",
+      "artist": "Sheet Music Boss",
+      "duration_sec": 133,
+      "mood_tags": [
+        "frantic",
+        "chaos",
+        "fast",
+        "intense",
+        "silly",
+        "comedy"
+      ],
+      "tempo": "fast",
+      "intensity": 5,
+      "loopable": false,
+      "in_sec": 0,
+      "out_sec": 133,
+      "gain_db": -18.4,
+      "license": "copyrighted; Tabor's choice, as with the finale songs",
+      "notes": "Tabor's note on the file: maybe the whole thing as one short machinima cut to the song (a future strategy); until then a frantic/chaos mood track"
+    },
+    {
+      "id": "sugar_plum",
+      "path": "tabor/Tchaikovsky ~ Dance of the Sugar Plum Fairy_9_141.mp3",
+      "title": "Dance of the Sugar Plum Fairy",
+      "artist": "Tchaikovsky",
+      "duration_sec": 131.5,
+      "mood_tags": [
+        "deadpan",
+        "sneaky",
+        "silly",
+        "noob",
+        "bot",
+        "mischief",
+        "comedy"
+      ],
+      "tempo": "medium",
+      "intensity": 2,
+      "loopable": true,
+      "in_sec": 0,
+      "out_sec": 131.5,
+      "gain_db": 1.2,
+      "license": "copyrighted; Tabor's choice, as with the finale songs",
+      "notes": "Tabor: for deadpan stuff, bot-like behaviour, noobs"
+    },
+    {
+      "id": "harvest_dawn",
+      "path": "tabor/The Elder Scrolls IV - Oblivion Soundtrack - 04 Harvest Dawn_0_220.mp3",
+      "title": "Harvest Dawn",
+      "artist": "Jeremy Soule (Oblivion)",
+      "duration_sec": 220,
+      "mood_tags": [
+        "enchanting",
+        "fairytale",
+        "warm",
+        "wonder",
+        "calm",
+        "peaceful",
+        "hopeful"
+      ],
+      "tempo": "slow",
+      "intensity": 1,
+      "loopable": true,
+      "in_sec": 0,
+      "out_sec": 220,
+      "gain_db": -11.7,
+      "license": "copyrighted; Tabor's choice, as with the finale songs",
+      "notes": "Tabor: for enchanting moments"
+    },
+    {
+      "id": "finale_song",
+      "path": "/home/tabor/github/mcmovie/music/finale/hide-and-seek-official-video.mp3",
+      "duration_sec": 31.04,
+      "mood_tags": [
+        "finale"
+      ],
+      "tempo": "fast",
+      "intensity": 5,
+      "loopable": false,
+      "in_sec": 0,
+      "out_sec": 31.04,
+      "gain_db": -11.5,
+      "notes": "the finale song: slow-motion last kill",
+      "source": "/home/tabor/github/mcmovie/music/finale/hide-and-seek-official-video.mp3:496749:-21"
     }
   ],
   "updated": "2026-10-04T10:42:19.487Z",

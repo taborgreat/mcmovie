@@ -27,11 +27,12 @@ function parseArgs (argv) {
 const HELP = `mcmatch - a recorded match in, a narrated film out
 
   list                          recordings waiting in the plugin's recordings folder
-  import [id|latest] [slug] [--format short|long]
+  import [id|latest] [slug] [--format short|long] [--strategy <id>]
                                 make projects/<slug>/ with digest.md + digest.json, sync skins;
                                 format defaults to short for matches under 12 minutes
   * write doc.json              the narration plan (prompts/match.md), from digest.md
-  check <slug>                  validate doc.json against the recording
+  strategy list | <slug> [--id x]   the edit strategies and their scores; or re-choose (or force) a project's strategy
+  check <slug>                  validate doc.json against the recording and its edit strategy
   build <slug>                  doc.json + recording -> replays, timeline.json, voice.json
   make <slug> [--mock-voice] [--size 1920x1080] [--fps 30] [--keep-recording]
                                 build -> voice -> render -> assemble, then DELETE the recording
@@ -119,7 +120,7 @@ async function main () {
       fs.mkdirSync(dir, { recursive: true })
       fs.writeFileSync(path.join(dir, 'recording.txt'), recDir + '\n')
       const fmt = formats.writeProject(dir, args.format || formats.forMatch(rec.meta.ticks / 20, rec.meta.starting_players || (rec.meta.players || []).length).id, args.format ? 'forced' : `${rec.meta.starting_players || (rec.meta.players || []).length} players, ${Math.round(rec.meta.ticks / 1200)} minutes`)
-      const d = require('../lib/match/digest').write(rec, dir, fmt)
+      const d = require('../lib/match/digest').write(rec, dir, fmt, { strategy: args.strategy || null })
       console.log(`format: ${fmt.id} (${fmt.label})`)
       const sk = await require('../lib/skins').sync(rec.players.filter(p => !p.anon).map(p => ({ name: p.name, uuid: p.uuid })), { source: 'match' })
       console.log(`project ${slug}: ${d.players.length} players, ${Math.floor(d.duration_sec / 60)}m${d.duration_sec % 60}s, winner ${d.winner || 'nobody'}; ${sk.length} skins ready`)
@@ -127,10 +128,25 @@ async function main () {
       return
     }
 
+    case 'strategy': {
+      const store = require('../lib/strategy/store'); const sel = require('../lib/strategy/select')
+      if (!args._[1] || args._[1] === 'list') {
+        let scores = {}; try { scores = require('../lib/strategy/score').load().strategies || {} } catch { /* none yet */ }
+        for (const st of store.load().strategies) { const sc = scores[st.id] || {}; console.log(`${st.id.padEnd(20)} ${(st.status || 'active').padEnd(8)} films ${String(sc.n || 0).padStart(2)}  score ${sc.mean !== undefined ? sc.mean.toFixed(2) : ' -  '}  ${st.name}`) }
+        return
+      }
+      const dir = U.projectDir(args._[1])
+      const d = U.readJson(path.join(dir, 'digest.json'))
+      const choice = sel.choose(d, { force: args.id || null })
+      const rec = sel.write(dir, choice, d)
+      console.log(`${args._[1]}: ${rec.id} (${choice.why}); strategy.json and strategy.md written. Re-run check/build so the finale follows its song.`)
+      return
+    }
+
     case 'check': {
       const dir = U.projectDir(args._[1])
       const rec = R.load(recordingOf(dir))
-      const r = require('../lib/match/build').check(U.readJson(path.join(dir, 'doc.json')), rec, formats.ofProject(dir, args.format).id)
+      const r = require('../lib/match/build').check(U.readJson(path.join(dir, 'doc.json')), rec, formats.ofProject(dir, args.format).id, { strategy: require('../lib/strategy/select').read(dir), digest: U.exists(path.join(dir, 'digest.json')) ? U.readJson(path.join(dir, 'digest.json')) : {} })
       for (const e of r.errors) console.log('error: ' + e)
       for (const w of r.warnings) console.log('warn:  ' + w)
       console.log(r.errors.length ? 'FAIL' : `OK (${(r.video_sec || 0).toFixed(0)}s of film)`)
