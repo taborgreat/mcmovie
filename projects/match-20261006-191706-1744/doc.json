@@ -1,0 +1,31 @@
+{
+  "title": "Only One Grows Old",
+  "logline": "A kaya tells a stomper that only one of them will grow old. Ten minutes later the stomper jumps off a sky tower and proves it.",
+  "narrator": { "voice": "stock:narrator" },
+  "music": { "mood_tags": ["dreamy", "calm"], "tempo": "slow" },
+  "segments": [
+    { "id": "talk", "title": "Hilltop small talk", "from_sec": 368.5, "to_sec": 404, "focus": ["taborgreat", "WorkingStorage"], "music": "dreamy",
+      "narration": [
+        { "id": "c1", "at_sec": 0.5, "speaker": "taborgreat", "chat": true, "text": "you look great from over here on that hill top", "emotion": "cheerful" },
+        { "id": "t2", "at_sec": 6.0, "speaker": "trina", "text": "that's... kind of sweet, actually.", "emotion": "soft" },
+        { "id": "c2", "at_sec": 14.5, "speaker": "WorkingStorage", "chat": true, "text": "thank you young man", "emotion": "warm" },
+        { "id": "t3", "at_sec": 18.0, "speaker": "trina", "text": "young man. hehe... okay.", "emotion": "giggly" },
+        { "id": "c3", "at_sec": 27.9, "speaker": "taborgreat", "chat": true, "text": "only one of us will grow old", "emotion": "ominous" },
+        { "id": "t4", "at_sec": 32.0, "speaker": "trina", "text": "oh no. that got... dark fast.", "emotion": "flustered" }
+      ] },
+    { "id": "climb", "title": "Back at the tower", "from_sec": 936, "to_sec": 953, "focus": ["taborgreat", "WorkingStorage"], "music": "suspense",
+      "narration": [
+        { "id": "t1", "at_sec": 0.5, "speaker": "trina", "text": "um... later they typed ill be back. and... they meant it.", "emotion": "shy" },
+        { "id": "t2", "at_sec": 6.0, "speaker": "trina", "text": "building right up next to WorkingStorage's tower... that's brave.", "emotion": "soft" },
+        { "id": "t3", "at_sec": 10.8, "speaker": "trina", "text": "living on stew all game... please be okay.", "emotion": "worried" },
+        { "id": "t4", "at_sec": 15.0, "speaker": "trina", "text": "oh. oh no.", "emotion": "worried" }
+      ] },
+    { "id": "finale_build", "finale": true, "from_sec": 953, "to_sec": 957, "focus": ["WorkingStorage", "taborgreat"], "narration": [] },
+    { "id": "finale_fight", "finale": true, "from_sec": 957, "to_sec": 963, "focus": ["WorkingStorage", "taborgreat"], "narration": [] },
+    { "id": "finale_kill", "finale": true, "from_sec": 963, "to_sec": 967.1, "focus": ["WorkingStorage", "taborgreat"], "narration": [] },
+    { "id": "celebration", "title": "Cake", "from_sec": 967.1, "to_sec": 979.1, "focus": ["WorkingStorage"], "music": "triumphant",
+      "narration": [
+        { "id": "t1", "at_sec": 11.0, "speaker": "trina", "text": "gg.", "emotion": "soft" }
+      ] }
+  ]
+}

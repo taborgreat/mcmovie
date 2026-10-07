@@ -31,7 +31,9 @@ const HELP = `mcmatch - a recorded match in, a narrated film out
                                 make projects/<slug>/ with digest.md + digest.json, sync skins;
                                 format defaults to short for matches under 12 minutes
   * write doc.json              the narration plan (prompts/match.md), from digest.md
-  strategy list | <slug> [--id x]   the edit strategies and their scores; or re-choose (or force) a project's strategy
+  strategy list | show [id] | edit <id> --file <json> [--by who] [--note why] | <slug> [--id x]
+                                the edit strategies and their scores; all of them as JSON with their edit history; replace one
+                                (version up, change logged); or re-choose (or force) a project's strategy
   check <slug>                  validate doc.json against the recording and its edit strategy
   build <slug>                  doc.json + recording -> replays, timeline.json, voice.json
   make <slug> [--mock-voice] [--size 1920x1080] [--fps 30] [--keep-recording]
@@ -130,6 +132,18 @@ async function main () {
 
     case 'strategy': {
       const store = require('../lib/strategy/store'); const sel = require('../lib/strategy/select')
+      if (args._[1] === 'show') {
+        let scores = {}; try { scores = require('../lib/strategy/score').load().strategies || {} } catch { /* none yet */ }
+        const all = store.load().strategies.filter(s => !args._[2] || s.id === args._[2])
+        console.log(JSON.stringify({ ok: true, strategies: all.map(s => ({ ...s, score: scores[s.id] || null, history: store.history(s.id).slice(-30) })), history: args._[2] ? undefined : store.history().slice(-100) }))
+        return
+      }
+      if (args._[1] === 'edit') {
+        if (!args._[2] || !args.file) throw new Error('strategy edit <id> --file <json> [--by who] [--note why]')
+        const r = store.edit(args._[2], U.readJson(args.file), { by: args.by || 'ai', note: args.note || '' })
+        console.log(JSON.stringify({ ok: true, id: r.strategy.id, version: r.strategy.version, changes: r.changes }))
+        return
+      }
       if (!args._[1] || args._[1] === 'list') {
         let scores = {}; try { scores = require('../lib/strategy/score').load().strategies || {} } catch { /* none yet */ }
         for (const st of store.load().strategies) { const sc = scores[st.id] || {}; console.log(`${st.id.padEnd(20)} ${(st.status || 'active').padEnd(8)} films ${String(sc.n || 0).padStart(2)}  score ${sc.mean !== undefined ? sc.mean.toFixed(2) : ' -  '}  ${st.name}`) }

@@ -551,6 +551,13 @@ node bin/mcauto.js status | once | story | run
   one knob at a time, hypothesis written down. `mcmatch strategy list|<slug> --id x`.
   The opening rule (never a headcount or a kit description first; first line
   inside the first second; vary it) is in prompts/match.md "The opening".
+  **Every change to a strategy is logged** (`store.edit/derive/retire` ->
+  `automation/strategy_history.json` and Mongo `strategy_edits`: who, when,
+  why, each field's old and new value); the admin page opens a strategy to
+  show its brief, persona, every knob as JSON and that log, and saves a hand
+  edit as the next version under the signed-in name (`mcmatch strategy show
+  [id]` / `strategy edit <id> --file <json> --by who --note why`). Tabor's
+  edits and the planner's experiments read the same in the log.
 - **Music health** (`lib/publish/music_health.js`): a copyright claim that
   only shares revenue is fine; a film that is muted, blocked or removed is not,
   and the commercial songs it used (the finale songs, Rush E, Sugar Plum,

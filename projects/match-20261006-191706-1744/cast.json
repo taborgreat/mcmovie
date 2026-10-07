@@ -1,0 +1,26 @@
+{
+  "characters": {
+    "narrator": {
+      "voice": "stock:narrator",
+      "voice_desc": "narrator, deep smooth baritone, measured, sports documentary",
+      "profile_id": "narrator",
+      "speed": 1
+    },
+    "taborgreat": {
+      "voice": "design",
+      "voice_desc": "tired voice that sighs before speaking",
+      "profile_id": "player_taborgreat"
+    },
+    "trina": {
+      "voice": "design",
+      "voice_desc": "A shy young woman in her early twenties, soft and quiet, a little husky, hesitant with small pauses and a murmured 'um', gentle and warm, a goth gamer girl who would rather not be heard but is",
+      "profile_id": "host_trina",
+      "name": "Trina"
+    },
+    "WorkingStorage": {
+      "voice": "stock:wise",
+      "profile_id": "wise",
+      "chosen": true
+    }
+  }
+}
