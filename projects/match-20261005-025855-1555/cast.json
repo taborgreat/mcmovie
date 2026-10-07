@@ -1,0 +1,15 @@
+{
+  "characters": {
+    "narrator": {
+      "voice": "stock:deadpan",
+      "voice_desc": "bored referee reading out the result, unimpressed by everyone",
+      "profile_id": "deadpan",
+      "speed": 1
+    },
+    "taborgreat": {
+      "voice": "design",
+      "voice_desc": "tired voice that sighs before speaking",
+      "profile_id": "player_taborgreat"
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "title": "Yanked Up, Stomped Down",
+  "logline": "An endermage builds a tower, yanks the stomper up to him and then jumps off. Less than a minute later the stomper comes down right on his head.",
+  "narrator": { "voice": "stock:caster" },
+  "music": { "mood_tags": ["intense", "battle"], "tempo": "fast" },
+  "cards": { "end_text": "hardcorepvp.com" },
+  "segments": [
+    { "id": "teaser", "title": "The blow", "teaser": true, "from_sec": 311.0, "to_sec": 314.0, "focus": ["taborgreat", ".taborgreat"], "music": "epic",
+      "narration": [
+        { "id": "n1", "at_sec": 0.2, "text": "Here it comes, LOOK UP!", "emotion": "shouting" }
+      ] },
+    { "id": "pull", "title": "The yank", "from_sec": 248.0, "to_sec": 278.0, "focus": [".taborgreat", "taborgreat"], "music": ["tense", "battle"],
+      "narration": [
+        { "id": "n1", "at_sec": 0.3, "text": "Rewind! The endermage is camped on top of a dirt tower he threw up in fifteen seconds!", "emotion": "excited" },
+        { "id": "n2", "at_sec": 8.0, "text": "The stomper comes hunting, ladder in hand, right underneath him.", "emotion": "building" },
+        { "id": "n3", "at_sec": 13.0, "text": "Five minutes in and not one hit landed!", "emotion": "tense" },
+        { "id": "n4", "at_sec": 17.0, "text": "And the endermage drops his portal, the stomper gets YANKED up the tower!", "emotion": "shouting" },
+        { "id": "n5", "at_sec": 23.3, "text": "And he just LEAPS off! A massive drop and he walks away without a scratch!", "emotion": "shouting" }
+      ] },
+    { "id": "setup", "title": "Toe to toe", "from_sec": 300.0, "to_sec": 307.9, "focus": ["taborgreat", ".taborgreat"], "music": "intense",
+      "narration": [
+        { "id": "n1", "at_sec": 0.0, "text": "Toe to toe!", "emotion": "excited" },
+        { "id": "p1", "at_sec": 2.2, "speaker": "taborgreat", "chat": true, "text": "im a stomper silly", "emotion": "cheeky" },
+        { "id": "n2", "at_sec": 4.4, "text": "Stompers crush what they land on!", "emotion": "building" }
+      ] },
+    { "id": "finale_build", "finale": true, "from_sec": 307.9, "to_sec": 311.9, "focus": ["taborgreat", ".taborgreat"], "narration": [] },
+    { "id": "finale_fight", "finale": true, "from_sec": 311.9, "to_sec": 314.3, "focus": ["taborgreat", ".taborgreat"],
+      "narration": [
+        { "id": "n1", "at_sec": 0.8, "text": "He's coming DOWN!", "emotion": "shouting" }
+      ] },
+    { "id": "celebration", "title": "The cake", "from_sec": 314.3, "to_sec": 326.3, "focus": ["taborgreat"], "music": "triumphant",
+      "narration": [
+        { "id": "n1", "at_sec": 1.5, "text": "OH! Crushed from the sky!", "emotion": "shouting" },
+        { "id": "n2", "at_sec": 4.0, "text": "He got yanked up and came down harder! taborgreat the stomper takes the cake on full hearts!", "emotion": "triumphant" }
+      ] }
+  ]
+}

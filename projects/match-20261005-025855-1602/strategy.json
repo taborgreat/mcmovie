@@ -1,0 +1,69 @@
+{
+  "id": "caster-kill-first",
+  "name": "Caster, straight to the kill",
+  "version": 1,
+  "parent": null,
+  "chosen_at": "2026-10-07T16:02:49.828Z",
+  "why": "still learning: caster-kill-first has 0 of 5 films; fits the match (duel)",
+  "eligible": [
+    "default",
+    "caster-kill-first",
+    "deadpan-chrono",
+    "kit-focused",
+    "no-kits-story",
+    "music-first",
+    "nature-doc",
+    "memed-caster"
+  ],
+  "skipped": {
+    "players-only": "needs players who typed (4+ chat lines)",
+    "love-story": "needs 3+ players",
+    "story-first": "needs players who typed (4+ chat lines)"
+  },
+  "fits": {
+    "min_players": 2,
+    "needs": [],
+    "prefers": [
+      "duel",
+      "rampage"
+    ]
+  },
+  "knobs": {
+    "frame": "intense-fight",
+    "narration": {
+      "mode": "narrator",
+      "voice": "stock:caster",
+      "wpm": [
+        95,
+        140
+      ],
+      "data": "some",
+      "persona": "an esports caster calling it live: present tense, shouting at the big moments, hearts and pressure",
+      "player_lines": "any"
+    },
+    "structure": {
+      "open": "kill-first",
+      "segments": [
+        3,
+        6
+      ],
+      "travel": "any"
+    },
+    "music": {
+      "opening": "epic",
+      "finale_song": "hide-seek"
+    },
+    "camera": {
+      "style": "close"
+    },
+    "text": {
+      "title": "plain"
+    },
+    "effects": {
+      "register": "clean",
+      "max": 1,
+      "promo": false
+    }
+  },
+  "brief": "Esports energy. The very first thing on screen is the last second before the final blow (the leap, the swing), with the caster already mid-shout, cut on the blow itself so the result stays unknown; then rewind and show how it came to that. Fast talk, excited, every line about pressure and hearts. Dramatic finale song."
+}

@@ -1,0 +1,36 @@
+{
+  "title": "Never Fight Poseidon in Water",
+  "logline": "A jackhammer and a poseidon chat politely for fourteen minutes. Then they meet in a cave full of water and the sea wins in three seconds.",
+  "narrator": { "voice": "stock:caster" },
+  "music": { "mood_tags": ["battle", "intense"], "tempo": "fast" },
+  "segments": [
+    { "id": "teaser", "teaser": true, "title": "The swing", "from_sec": 878.2, "to_sec": 881.2, "focus": ["WorkingStorage", "taborgreat"], "music": "epic",
+      "narration": [
+        { "id": "n1", "at_sec": 0.2, "text": "Poseidon in the water, and he SWINGS!", "emotion": "shouting" }
+      ] },
+    { "id": "start", "title": "Tough terrain", "from_sec": 128, "to_sec": 141, "focus": ["taborgreat", "WorkingStorage"], "music": "tense",
+      "narration": [
+        { "id": "n1", "at_sec": 0.5, "text": "Rewind! It all starts so politely.", "emotion": "excited" },
+        { "id": "p1", "at_sec": 3.7, "speaker": "taborgreat", "chat": true, "text": "this terrain is tough", "emotion": "tired" },
+        { "id": "p2", "at_sec": 7.6, "speaker": "WorkingStorage", "chat": true, "text": "for real", "emotion": "friendly" },
+        { "id": "n2", "at_sec": 9.0, "text": "Nice and polite. It will NOT stay that way!", "emotion": "excited" }
+      ] },
+    { "id": "closing_in", "title": "Face to face", "from_sec": 846, "to_sec": 870.4, "focus": ["taborgreat", "WorkingStorage"], "music": "intense",
+      "narration": [
+        { "id": "n1", "at_sec": 0.8, "text": "taborgreat has jackhammered half the map into holes, and look where it got him: a cave full of water!", "emotion": "excited" },
+        { "id": "n2", "at_sec": 9.2, "text": "Full hearts, stone axe in hand. But the man coming down after him is Poseidon!", "emotion": "excited" },
+        { "id": "n3", "at_sec": 16.0, "text": "And Poseidon LOVES water. One leap down and this whole cave is his arena!", "emotion": "shouting" }
+      ] },
+    { "id": "finale_build", "finale": true, "from_sec": 870.4, "to_sec": 878.4, "focus": ["WorkingStorage", "taborgreat"], "narration": [] },
+    { "id": "finale_fight", "finale": true, "from_sec": 878.4, "to_sec": 881.5, "focus": ["WorkingStorage", "taborgreat"],
+      "narration": [
+        { "id": "n1", "at_sec": 0.6, "text": "This is HIS water!", "emotion": "shouting" }
+      ] },
+    { "id": "celebration", "title": "The power of the sea", "from_sec": 881.5, "to_sec": 893.5, "focus": ["WorkingStorage"], "music": "triumphant",
+      "narration": [
+        { "id": "n1", "at_sec": 1.0, "text": "Three seconds. OVER!", "emotion": "shouting" },
+        { "id": "n2", "at_sec": 3.8, "text": "WorkingStorage, the Poseidon! One kill, ten full hearts, never once in danger!", "emotion": "triumphant" },
+        { "id": "p1", "at_sec": 9.5, "speaker": "WorkingStorage", "chat": true, "text": "never underestimate the power of the sea", "emotion": "proud" }
+      ] }
+  ]
+}

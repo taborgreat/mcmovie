@@ -631,8 +631,8 @@
     },
     {
       "id": "finale_song",
-      "path": "/home/tabor/github/mcmovie/music/finale/Jason Derulo - Whatcha Say [Official Music Video]_82_110.mp3",
-      "duration_sec": 28.056,
+      "path": "/home/tabor/github/mcmovie/music/finale/hide-and-seek-official-video.mp3",
+      "duration_sec": 31.04,
       "mood_tags": [
         "finale"
       ],
@@ -640,10 +640,10 @@
       "intensity": 5,
       "loopable": false,
       "in_sec": 0,
-      "out_sec": 28.056,
+      "out_sec": 31.04,
       "gain_db": -11.5,
       "notes": "the finale song: slow-motion last kill",
-      "source": "/home/tabor/github/mcmovie/music/finale/Jason Derulo - Whatcha Say [Official Music Video]_82_110.mp3:449240:-21"
+      "source": "/home/tabor/github/mcmovie/music/finale/hide-and-seek-official-video.mp3:496749:-21"
     }
   ],
   "updated": "2026-10-04T10:42:19.487Z",

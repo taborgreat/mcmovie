@@ -1,5 +1,5 @@
 {
-  "_": "Overlay effects (assets/effects/): short clips keyed onto the picture under the captions (lib/assemble/ffmpeg.js). type overlay = the pipeline places it itself (rewind after a teaser, fastforward on sped-up travel, swoosh on the lift to the cake); type sting = the planner calls for it and the film PAUSES on that frame while it plays; type insert = the planner calls for it and it plays over the moving picture; type transition = the planner puts it between two segments (\"transition\": \"<id>\" on the later segment; it wipes over the cut); type promo = never the planner's: the assembler lays one over a quiet moment in promo_chance of the films. A planner call is {\"id\", \"at_sec\"} or {\"id\", \"on\": \"death\"|\"hit\"|\"start\"|\"end\"} (snapped to the first such moment in the segment); lead_sec is the beat inside the clip that lands on the moment. register: clean = any film; memed = only under a strategy whose effects.register is memed; promo = the pipeline only. key: green or blue (chromakey with the clip's measured colour), black (colorkey). layout full = scaled to cover the frame; centre = `scale` of the frame width, centred, at `y` (0-1, default 0.5). sound mix = on the game bus at gain_db; takeover = the music drops to a whisper while it plays; none = silent clip. in/out are seconds inside the file; seconds_measured is the whole clip; preview_sec is the fullest frame, for tools/effects-preview.js. Key strength 0.15/0.05 keeps the content and no screen on every clip (measured 2026-10-07); 0.28 ate the Hulk and the chestplates. dim true = the picture under the clip is greyed and darkened while it plays.",
+  "_": "Overlay effects (assets/effects/): short clips keyed onto the picture under the captions (lib/assemble/ffmpeg.js). type overlay = the pipeline places it itself (rewind after a teaser, fastforward on sped-up travel, swoosh on the lift to the cake); type sting = the planner calls for it and the film PAUSES on that frame while it plays; type insert = the planner calls for it and it plays over the moving picture; type transition = the planner puts it between two segments (\"transition\": \"<id>\" on the later segment; it wipes over the cut); type promo = never the planner's: the assembler lays one over a quiet moment in promo_chance of the films. A planner call is {\"id\", \"at_sec\"} or {\"id\", \"on\": \"death\"|\"hit\"|\"start\"|\"end\"} (snapped to the first such moment in the segment); lead_sec is the beat inside the clip that lands on the moment. register: clean = any film; memed = only under a strategy whose effects.register is memed; promo = the pipeline only. key: green or blue (chromakey with the clip's measured colour), black (colorkey). layout full = scaled to cover the frame (cropped); fit = the whole clip across the frame's width at `y`; centre = `scale` of the frame width, centred, at `y` (0-1, default 0.5). sound mix = on the game bus at gain_db; takeover = the music drops to a whisper while it plays; none = silent clip. in/out are seconds inside the file; seconds_measured is the whole clip; preview_sec is the fullest frame, for tools/effects-preview.js. Key strength 0.15/0.05 keeps the content and no screen on every clip (measured 2026-10-07); 0.28 ate the Hulk and the chestplates. dim true = the picture under the clip is greyed and darkened while it plays.",
   "effects": {
     "fastforward": {
       "type": "overlay",
@@ -7,9 +7,10 @@
       "in": 0,
       "out": 3,
       "key": "black",
-      "layout": "full",
+      "layout": "fit",
       "sound": "mix",
-      "register": "clean"
+      "register": "clean",
+      "y": 0.42
     },
     "rewind": {
       "type": "overlay",
@@ -17,9 +18,10 @@
       "in": 3,
       "out": 7,
       "key": "black",
-      "layout": "full",
+      "layout": "fit",
       "sound": "mix",
-      "register": "clean"
+      "register": "clean",
+      "y": 0.42
     },
     "swoosh": {
       "type": "overlay",
