@@ -70,3 +70,4 @@ projects/outro-test/
 
 # finished films never go to git (sample/ included)
 sample/**/*.mp4
+documenaty music/
