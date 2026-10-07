@@ -11,7 +11,7 @@
     "mcauto": "bin/mcauto.js"
   },
   "scripts": {
-    "test": "node test/run.js"
+    "test": "node test/run.js && node test/replay-fidelity.js && node test/motion-integrity.js && node test/puppet-motion.js && node test/voice-backend.js"
   },
   "engines": {
     "node": ">=20"

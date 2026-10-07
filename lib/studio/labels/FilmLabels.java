@@ -22,6 +22,8 @@ import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityExplodeEvent;
 import org.bukkit.event.block.BlockIgniteEvent;
 import org.bukkit.event.block.BlockBurnEvent;
+import io.papermc.paper.event.player.PlayerFailMoveEvent;
+import org.bukkit.event.player.PlayerTeleportEvent;
 import org.bukkit.util.Transformation;
 import org.joml.Quaternionf;
 import org.joml.Vector3f;
@@ -30,6 +32,11 @@ import org.joml.Vector3f;
 public final class FilmLabels extends JavaPlugin implements Listener {
     private final Map<UUID, TextDisplay> labels = new HashMap<>();
     @Override public void onEnable() {
+        if (getServer().getOnlineMode()) {
+            getLogger().severe("FilmLabels is for the isolated offline film studio only.");
+            getServer().getPluginManager().disablePlugin(this);
+            return;
+        }
         getCommand("filmlabel").setExecutor(this);
         getCommand("filmactor").setExecutor(this);
         Bukkit.getPluginManager().registerEvents(this, this);
@@ -108,6 +115,29 @@ public final class FilmLabels extends JavaPlugin implements Listener {
     private boolean replayActor(Entity entity) {
         return entity.getScoreboardTags().contains("mmob") ||
             (entity instanceof Player player && player.getName().matches("FilmActor\\d+"));
+    }
+    @EventHandler(priority = EventPriority.HIGHEST)
+    public void retainRecordedMovement(PlayerFailMoveEvent event) {
+        // Only actors explicitly attached by the director may bypass the live
+        // game's movement correction. Interpolated edge/climb poses and real
+        // recorded teleports are not a fresh attempt to play the match.
+        if (!labels.containsKey(event.getPlayer().getUniqueId())) return;
+        switch (event.getFailReason()) {
+            case CLIPPED_INTO_BLOCK, MOVED_WRONGLY, MOVED_TOO_QUICKLY -> {
+                event.setAllowed(true);
+                event.setLogWarning(false);
+            }
+            default -> { } // unloaded chunks still stop movement
+        }
+    }
+    @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
+    public void preventUnrecordedTeleport(PlayerTeleportEvent event) {
+        if (!labels.containsKey(event.getPlayer().getUniqueId()) || event.getTo() == null) return;
+        if (event.getCause() == PlayerTeleportEvent.TeleportCause.COMMAND) return; // director placement
+        if (event.getFrom().getWorld() == event.getTo().getWorld() && event.getFrom().distanceSquared(event.getTo()) < 0.0001D) return; // skin refresh
+        // A real portal or kit must not teleport the puppet a second time.
+        // Recorded teleports arrive in the authoritative movement stream.
+        event.setCancelled(true);
     }
     @EventHandler(priority = EventPriority.HIGHEST)
     public void preventUnrecordedDamage(EntityDamageEvent event) {

@@ -161,7 +161,7 @@ test('match: packed long arrays unpack', () => {
 })
 
 test('match: digest finds fights and the plan check demands the ending', () => {
-  const mk = (name, kit) => ({ name, kit, kills: 0, track: [{ t: 0, x: 0, y: 65, z: 0, yaw: 0, pitch: 0, flags: 0, hp: 20 }, { t: 600, x: 5, y: 65, z: 0, yaw: 0, pitch: 0, flags: 0, hp: 4 }], held: [], first: 0, last: 600 })
+  const mk = (name, kit) => ({ name, kit, kills: 0, track: Array.from({ length: 16 }, (_, i) => ({ t: i * 40, x: i / 3, y: 65, z: 0, yaw: 0, pitch: 0, flags: 0, hp: i === 15 ? 4 : 20 })), held: [], first: 0, last: 600 })
   const rec = { meta: { id: 'x', ticks: 700, winner: 'A', starting_players: 2 }, players: [mk('A', 'thor'), mk('B', 'tank')], entities: new Map(), sampleTicks: 2,
     events: [{ t: 400, type: 'hit', a: 0, v: 1, dmg: 6, hp: 14 }, { t: 420, type: 'hit', a: 1, v: 0, dmg: 6, hp: 14 }, { t: 440, type: 'hit', a: 0, v: 1, dmg: 6, hp: 8 }, { t: 600, type: 'death', v: 1, k: 0, weapon: 'iron_sword', k_hp: 14, x: 5, y: 65, z: 0 }, { t: 600, type: 'eliminated', p: 1, remaining: 1 }] }
   const d = digest.build(rec)
@@ -364,19 +364,17 @@ test('knockback follows the server settings', () => {
   assert.deepStrictEqual(tr.oneshotsAt(20), ['hurt'])
 })
 
-test('match walker stays on the ground under a tree', () => {
-  const { standY, unstick } = require('../lib/match/build')
-  // ground at y 64 everywhere; a canopy edge two blocks up at x 5..7; a trunk at x 9
-  const kind = (x, y, z) => (y <= 64 ? 'stone' : (y === 66 && x >= 5 && x <= 7 ? 'leaves' : (x === 9 && y <= 68 ? 'log' : null)))
-  const world = { isSolid: (x, y, z, o) => { const k = kind(Math.floor(x), Math.floor(y), Math.floor(z)); return k === 'leaves' ? !(o && o.leaves === false) : !!k } }
-  assert.strictEqual(standY(world, 6.5, 65, 0.5), 65) // under the leaves: stay down (used to pop up to 67)
-  assert.strictEqual(standY(world, 6.5, 67.2, 0.5), 67) // really up in the tree: stay up
-  assert.strictEqual(standY(world, 2.5, 65.4, 0.5), 65)
-  assert.strictEqual(standY(world, 2.5, 69.5, 0.5), 69.5) // mid-fall, four blocks up: left alone, not snapped to the ground
-  const lake = { isSolid: (x, y) => Math.floor(y) <= 59, isLiquid: (x, y) => Math.floor(y) >= 60 && Math.floor(y) <= 62 }
-  assert.strictEqual(standY(lake, 0.5, 62.6, 0.5), 62.6) // a swimmer stays at the surface, not on the lake bed
-  assert.deepStrictEqual(unstick(world, 6.5, 65, 0.5), { x: 6.5, z: 0.5 }) // leaves do not shove a walker aside
-  assert.notDeepStrictEqual(unstick(world, 9.5, 65, 0.5), { x: 9.5, z: 0.5 }) // a trunk does
+test('match players keep recorded fractional feet heights', () => {
+  const { playerState } = require('../lib/match/build')
+  for (const y of [62.6, 65, 65.4, 67.2, 69.5]) {
+    const p = { name: 'A', held: [], armor: [], track: [0, 40].map(t => ({ t, x: 6.5, y, z: 0.5, yaw: 0, pitch: 0, flags: 16, hp: 20 })) }
+    const rec = { players: [p], events: [] }
+    for (const tick of [0, 1, 20, 39, 40]) {
+      const s = playerState(rec, p, 0, tick, 1, null)
+      assert.strictEqual(s.y, y)
+      assert.strictEqual(s.x, 6.5)
+    }
+  }
 })
 
 test('narration: raw data is caught, caster language is not', () => {
