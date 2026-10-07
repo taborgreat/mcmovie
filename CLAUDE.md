@@ -163,11 +163,13 @@ xvfb-run -a -s "-screen 0 1920x1080x24" node bin/mcmatch.js make <slug> [--mock-
 
 - The recorder is `com.hardcorekits.record.MatchRecorder` in ~/github/hardcorekits
   (config block `recording:`). It logs deaths, hits, block changes,
-  explosions, projectiles and chat, and samples positions adaptively: a
-  point every 2 s while a player only travels, every 0.5 s with another
-  player within 24 blocks, 10 per second only in a fight (damage, a player
-  within 8 blocks, the drop, the ceremony); a player standing still is not
-  rewritten. On the next boot the retired map's region files are moved into
+  explosions, projectiles and chat, and samples positions adaptively: 10 per
+  second in a fight (damage, a player within 8 blocks, the drop, the
+  ceremony), 5 per second for anyone moving, turning, building or sneaking
+  (`active-sample-ticks`, 2026-10-07: between sparse points the film had to
+  invent the walk and the head, and it showed), every 0.5 s with another
+  player within 24 blocks, every 2 s otherwise; a player standing still is
+  not rewritten. On the next boot the retired map's region files are moved into
   the recording.
 - `lib/match/digest.js` is the layer between the recording and you. You do
   not read tracks or raw events: `digest.md` is the skeleton (ending,
