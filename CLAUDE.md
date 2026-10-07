@@ -236,8 +236,12 @@ xvfb-run -a -s "-screen 0 1920x1080x24" node bin/mcmatch.js make <slug> [--mock-
   event get the swoosh a second in.
 - **Overlay effects** (`config/effects.json`, `assets/effects/`): clips on
   black keyed onto the picture under the captions, their sound on the game
-  bus. `rewind` over the cut back after a teaser (4 s), `fastforward` over
-  the start of a sped-up segment (3 s). Tabor makes them; `"effects":
+  bus. `fastforward` over the start of a sped-up segment (3 s). **The rewind
+  after a teaser is a segment of its own** (`rewind` segments in
+  `lib/assemble/edl.js`, Tabor's cut): everything stops, the teaser runs
+  backwards fast in black and white (about a second and a half) with a
+  tape-rewind whine and the rewind icon over it, the music silent under it,
+  and only then does the next scene start clean. Tabor makes them; `"effects":
   false` in `config/mix.json` turns them off. Songs live in `music/finale/`
   (the finale list) and `music/tabor/` (mood tracks, absolute-free paths in
   the manifest); nothing is kept at the repo root any more.
