@@ -140,13 +140,19 @@ The finale song decides how much may be said over the fight: a feel song
 (digest.md says which) carries at most one short line, and silence is
 better. Let the picture and the song do it.
 
-## Stings
+## Effects (stings, inserts, transitions)
 
-digest.md lists the stings on offer (short clips with their own sound, laid
-over the picture at a moment: a troll face, and whatever Tabor adds). Call
-for one with `"stings": [{ "id": "<id>", "at_sec": <seconds from the
-segment start> }]` on the segment where its purpose fits, at most one per
-film, and only when the moment really is that; most films have none.
+digest.md lists the effects on offer for this film: short clips laid over
+the picture at a moment, each with a purpose written next to it. Call for one
+with `"stings": [{ "id": "<id>", "at_sec": <seconds from the segment
+start> }]`, or `{ "id": "<id>", "on": "death" | "hit" | "start" | "end" }` to
+land it on the first death or hit in the segment. A transition goes on the
+segment it wipes into: `"transition": "<id>"` (never the first segment).
+Only where the moment really is what the clip is for, within the count the
+strategy allows (digest.md says), and most films have none. Memes are on
+offer only under a memed strategy; under a clean one the checker refuses
+them. A sting that pauses the film (the troll face) must have nobody
+talking: no line may start inside it or run into it.
 
 ## Narration modes
 

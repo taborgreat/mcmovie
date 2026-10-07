@@ -41,6 +41,24 @@ strategies from the films' numbers. `node bin/mcmatch.js strategy list` shows th
   that changes one thing, with the reason in `notes`; `store.retire(id, why)` retires one.
   Change one knob at a time, and write the hypothesis down, or the scores mean nothing.
 
+## `effects` (what the plan may lay over the picture)
+
+- `register`: `clean` (default) or `memed`. Clean offers only the game-native
+  clips (armour and sword upgrades, the chest, the bat, the heart / dirt /
+  challenge transitions). Memed also offers the meme clips (WASTED, YOU DIED,
+  FIGHT / K.O., the Hulk, the troll face, the countdowns, "here we go
+  again"). Memes only ever appear under a memed strategy: Tabor does not want
+  them in every video, only the right ones.
+- `promo`: true lets the assembler lay a subscribe nudge (a promo clip)
+  over a quiet moment in about half of this strategy's films. Off unless set:
+  Tabor never wants it in every video, only in certain kinds, never spam.
+- `max`: how many effects (stings, inserts and transitions together) one film
+  may carry; 1 under clean, 3 under memed unless set. The checker counts.
+- Each clip's purpose is in `config/effects.json` (`use`), and digest.md
+  prints the ones on offer. A call lands on a moment (`at_sec`) or on the
+  first death / hit in the segment (`on`), and clips with a beat (a
+  countdown's GO, the PERFECT K.O.) are timed so the beat hits the moment.
+
 ## Ideas waiting for a knob
 
 - **A whole Short cut to one song** (Tabor's note on the Rush E file: "maybe whole thing used as

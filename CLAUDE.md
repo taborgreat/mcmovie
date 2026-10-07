@@ -328,6 +328,41 @@ xvfb-run -a -s "-screen 0 1920x1080x24" node bin/mcmatch.js make <slug> [--mock-
   (peaceful difficulty and `bukkit.yml` still keep monsters out of stories).
   Tabor approved the clips in `assets/outro/` by eye: do not remake them
   unasked (copies in `keep/outro-approved-0707/`).
+- **Media registry** (`lib/media.js`): every finale song (`config/finale_songs.json`),
+  mood track (`music/music_manifest.json`; Tabor's in `music/tabor/`), overlay,
+  insert, sting and transition (`config/effects.json`, clips in `assets/effects/`)
+  in one list with its type, settings, moods, when-to-use text and standing
+  (suspended, file missing, needs details); mirrored to Mongo `media` at every
+  stats scan, printed by `mcpublish media`, shown on the admin page. New media
+  goes in those files, never in code. `tools/effects-preview.js <frame>` keys
+  every clip onto a game frame with the assembler's own filter, both shapes.
+- **Effects** (`config/effects.json`): `type overlay` the pipeline places itself
+  (rewind after a teaser, fastforward on sped travel, swoosh on the lift to the
+  cake). `sting` (the film pauses on the frame while it plays: the troll face),
+  `insert` (plays over the moving picture) and `transition` (wipes over the cut
+  into a segment) are for the planner: `"stings": [{ "id", "at_sec" | "on":
+  death|hit|start|end }]` and `"transition": "<id>"` on a doc segment; build.js
+  snaps `on` to the first such moment and starts a clip with a beat `lead_sec`
+  early (a countdown's GO, the PERFECT K.O. land on the moment). `register`
+  is the knob Tabor asked for: `clean` clips (armour and sword upgrades, the
+  chest, the bat, heart / dirt / challenge wipes) are on offer to every film;
+  `memed` clips (WASTED, YOU DIED, FIGHT / K.O., the Hulk, the troll face,
+  countdowns, "here we go again"…) only under a strategy whose
+  `effects.register` is memed (`memed-caster` seed, up to `effects.max` 3;
+  clean strategies allow 1). The digest lists only what is on offer; `check`
+  refuses the rest, a death clip where nobody dies, a hit clip without a hit,
+  anything in the teaser or finale (except `allow_finale`: perfect-ko), and a
+  line spoken over a pausing sting. `promo` clips (the subscribe buttons) are
+  the assembler's, and only under a strategy with `effects.promo` true
+  (the memed caster seed; off elsewhere): in `promo_chance` (0.5) of those
+  films one is laid low in the frame over a quiet moment, seeded by the
+  title. Tabor: not in every video, only certain kinds, never spam. Keying: `key` green/blue with the
+  clip's measured `key_color` (chromakey), black (colorkey); `layout full`
+  covers the frame cropped, never stretched, `centre` is `scale` of the frame
+  width at `y`; `sound` mix (game bus, `gain_db` levels every clip to about
+  -18 dB) / takeover (music to a whisper) / none. Tabor cuts packs into clips
+  with `tools/cutpack.py` in `cutthis/` and names the keepers; only named
+  clips are registered.
 - The renderer animates idle life itself (arm sway, small head movement) and
   makes whoever is speaking nod and gesture; plans do not need to ask for it.
   It also draws clouds and a sun, hit sparks, death puffs with scattered

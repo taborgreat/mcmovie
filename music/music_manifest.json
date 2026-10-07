@@ -596,6 +596,54 @@
       "gain_db": -11.5,
       "notes": "the finale song: slow-motion last kill",
       "source": "/home/tabor/github/mcmovie/music/finale/hide-and-seek-official-video.mp3:496749:-21"
+    },
+    {
+      "id": "across_the_stars",
+      "path": "tabor/Across the Stars (love theme).mp3",
+      "title": "Across the Stars (love theme)",
+      "artist": "John Williams (Star Wars)",
+      "duration_sec": 298.9,
+      "mood_tags": [
+        "love",
+        "romantic",
+        "epic",
+        "orchestral",
+        "sad",
+        "longing",
+        "documentary"
+      ],
+      "tempo": "slow",
+      "intensity": 2,
+      "loopable": false,
+      "in_sec": 0,
+      "out_sec": 298.9,
+      "gain_db": 0.6,
+      "license": "copyrighted; Tabor's choice, as with the finale songs",
+      "notes": "Tabor: documentary music. A love theme: two players who stuck together, a betrayal that hurt, the love-story strategy"
+    },
+    {
+      "id": "geladas",
+      "path": "tabor/Planet Earth - The Geladas (intense).mp3",
+      "title": "The Geladas (Planet Earth)",
+      "artist": "George Fenton",
+      "duration_sec": 159.8,
+      "mood_tags": [
+        "intense",
+        "nature",
+        "documentary",
+        "tense",
+        "hunt",
+        "suspense",
+        "epic"
+      ],
+      "tempo": "medium",
+      "intensity": 4,
+      "loopable": false,
+      "in_sec": 0,
+      "out_sec": 159.8,
+      "gain_db": 0.8,
+      "license": "copyrighted; Tabor's choice, as with the finale songs",
+      "notes": "Tabor: documentary music, intense. A hunt, a stalk, the nature-doc strategy"
     }
   ],
   "updated": "2026-10-04T10:42:19.487Z",

@@ -33,6 +33,11 @@
         },
         "text": {
           "title": "plain"
+        },
+        "effects": {
+          "register": "clean",
+          "max": 1,
+          "promo": false
         }
       },
       "brief": "The way films have been made so far, as prompts/match.md describes, with no extra rule. The baseline the others are measured against.",
@@ -76,6 +81,11 @@
         },
         "text": {
           "title": "plain"
+        },
+        "effects": {
+          "register": "clean",
+          "max": 1,
+          "promo": false
         }
       },
       "brief": "Esports energy. The very first thing on screen is the last second before the final blow (the leap, the swing), with the caster already mid-shout, cut on the blow itself so the result stays unknown; then rewind and show how it came to that. Fast talk, excited, every line about pressure and hearts. Dramatic finale song.",
@@ -119,6 +129,11 @@
         },
         "text": {
           "title": "plain"
+        },
+        "effects": {
+          "register": "clean",
+          "max": 1,
+          "promo": false
         }
       },
       "brief": "Dry, few words, let the picture be the joke. Tell it in order. The narrator sounds mildly unimpressed by everything, including the winner. The bouncy finale song.",
@@ -164,6 +179,11 @@
         },
         "text": {
           "title": "plain"
+        },
+        "effects": {
+          "register": "clean",
+          "max": 1,
+          "promo": false
         }
       },
       "brief": "No narrator except one line at most. The film is carried by the players' own chat, spoken in their voices, the game's sound and the music. Open on a chat line. Needs a match where people actually typed.",
@@ -209,6 +229,11 @@
         },
         "text": {
           "title": "kits"
+        },
+        "effects": {
+          "register": "clean",
+          "max": 1,
+          "promo": false
         }
       },
       "brief": "The kits are the characters. Every beat is explained through what a kit can do and the moment it did it; name the kits in the title. The viewer should leave knowing exactly what the winning kit is for.",
@@ -252,6 +277,11 @@
         },
         "text": {
           "title": "plain"
+        },
+        "effects": {
+          "register": "clean",
+          "max": 1,
+          "promo": false
         }
       },
       "brief": "A small story about people with names and wants; never say the word kit or a kit's name. What someone wanted, what they did, what it cost. Wide, calm shots; the dramatic finale song.",
@@ -297,6 +327,11 @@
         },
         "text": {
           "title": "plain"
+        },
+        "effects": {
+          "register": "clean",
+          "max": 1,
+          "promo": false
         }
       },
       "brief": "Two players who stuck together, told as a relationship: how they met, what they shared, and the moment it ended (a betrayal, a death, the rule that only one can win). Warm music first, the dramatic song at the end. Needs a real team-up in the data.",
@@ -340,6 +375,11 @@
         },
         "text": {
           "title": "question"
+        },
+        "effects": {
+          "register": "clean",
+          "max": 1,
+          "promo": false
         }
       },
       "brief": "Epic music from the first frame, four or five lines in the whole film, each one short and heavy. Open on the most physical moment there is (a leap, a hit, a fall). The picture and the music do the work.",
@@ -383,10 +423,63 @@
         },
         "text": {
           "title": "plain"
+        },
+        "effects": {
+          "register": "clean",
+          "max": 1,
+          "promo": false
         }
       },
       "brief": "A nature documentary about the match. Observe the players as creatures: where they go, what they gather, how they hunt, how they hide. Never a game term, never a kit name; a stomp is a creature dropping on its prey from a height. Enchanting music to open, the dramatic song for the kill.",
       "notes": "Tabor's idea (2026-10-07): the narrator's point of view is its own variable. Hypothesis: a documentary frame makes the game legible to people who never played it."
+    },
+    {
+      "id": "memed-caster",
+      "name": "Caster with memes",
+      "status": "active",
+      "parent": "caster-kill-first",
+      "version": 1,
+      "fits": {
+        "min_players": 2,
+        "needs": []
+      },
+      "knobs": {
+        "frame": "intense-fight",
+        "narration": {
+          "mode": "narrator",
+          "voice": "stock:caster",
+          "wpm": [
+            95,
+            140
+          ],
+          "data": "some",
+          "persona": "an esports caster calling it live: present tense, shouting at the big moments, hearts and pressure"
+        },
+        "structure": {
+          "open": "kill-first",
+          "segments": [
+            3,
+            6
+          ]
+        },
+        "music": {
+          "opening": "epic",
+          "finale_song": "hide-seek"
+        },
+        "camera": {
+          "style": "close"
+        },
+        "text": {
+          "title": "plain"
+        },
+        "effects": {
+          "register": "memed",
+          "max": 3,
+          "promo": true
+        }
+      },
+      "brief": "Esports energy. The very first thing on screen is the last second before the final blow (the leap, the swing), with the caster already mid-shout, cut on the blow itself so the result stays unknown; then rewind and show how it came to that. Fast talk, excited, every line about pressure and hearts. Dramatic finale song. This one may use the meme clips (a WASTED on a death, a FIGHT on the first hit, the Hulk on a rampage, the troll face on a pause): up to three in the film, each on a moment that really is that, never two on one beat.",
+      "notes": "Hypothesis: a meme on the right beat lifts shares and comments on a Short without hurting hold. Compare with caster-kill-first."
     }
   ]
 }
