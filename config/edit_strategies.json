@@ -69,7 +69,7 @@
             110
           ],
           "data": "some",
-          "persona": "an esports caster calling it live, excited but human: present tense, short plain sentences, hearts and pressure, never shouting (no capitals, one exclamation mark at most in a segment, no filler like 'INSANE' or 'like crazy'); the picture is the hype, the voice just keeps up with it",
+          "persona": "an esports caster calling it live, excited but human: present tense, short plain sentences, hearts and pressure, never shouting, never a stock phrase; the picture is the hype, the voice keeps up with it",
           "player_lines": "any"
         },
         "structure": {
@@ -96,7 +96,7 @@
           "promo": false
         }
       },
-      "brief": "Esports energy without the noise. The very first thing on screen is the last second before the final blow (the leap, the swing), cut on the blow itself so the result stays unknown; then rewind and show how it came to that. Lively, present tense, short sentences about pressure and hearts; never shouted, never in capitals. A fight is told in a line or two and then left to the game's own sound.",
+      "brief": "Esports energy without the noise. The very first thing on screen is the last second before the final blow (the leap, the swing), cut on the blow itself so the result stays unknown; then rewind and show how it came to that. Lively, present tense, short sentences about pressure and hearts, in words that belong to this match only; never shouted, never in capitals, never a stock phrase. A fight is told in a line or two and then left to the game's own sound.",
       "notes": "Hypothesis: a kill in the first two seconds keeps the swipe-happy viewer. Watch the retention curve's first 10%."
     },
     {
@@ -123,7 +123,7 @@
             75
           ],
           "data": "little",
-          "persona": "a bored referee reading out what happened, unimpressed by everyone including the winner",
+          "persona": "a bored referee reading out what happened, unimpressed by everyone including the winner; dry in his own way each film, never a stock line",
           "player_lines": "any"
         },
         "structure": {
@@ -446,7 +446,7 @@
             95
           ],
           "data": "little",
-          "persona": "a nature documentary: the players are creatures observed in their habitat, their habits and instincts described gently and precisely; the winner is simply the one best adapted",
+          "persona": "a nature documentary: the players are creatures observed in their habitat, their habits and instincts described gently and precisely; the winner is simply the one best adapted; fresh observations from this match, never a stock line",
           "player_lines": "any"
         },
         "structure": {
@@ -500,7 +500,7 @@
             110
           ],
           "data": "some",
-          "persona": "an esports caster calling it live, excited but human: present tense, short plain sentences, hearts and pressure, never shouting (no capitals, one exclamation mark at most in a segment, no filler like 'INSANE' or 'like crazy'); the picture is the hype, the voice just keeps up with it",
+          "persona": "an esports caster calling it live, excited but human: present tense, short plain sentences, hearts and pressure, never shouting, never a stock phrase; the picture is the hype, the voice keeps up with it",
           "player_lines": "any"
         },
         "structure": {
@@ -527,7 +527,7 @@
           "promo": true
         }
       },
-      "brief": "Esports energy without the noise. The very first thing on screen is the last second before the final blow (the leap, the swing), cut on the blow itself so the result stays unknown; then rewind and show how it came to that. Lively, present tense, short sentences about pressure and hearts; never shouted, never in capitals. A fight is told in a line or two and then left to the game's own sound. This one may use the meme clips (a WASTED on a death, a FIGHT on the first hit, the Hulk on a rampage, the troll face on a pause): up to three in the film, each on a moment that really is that, never two on one beat.",
+      "brief": "Esports energy without the noise. The very first thing on screen is the last second before the final blow (the leap, the swing), cut on the blow itself so the result stays unknown; then rewind and show how it came to that. Lively, present tense, short sentences about pressure and hearts, in words that belong to this match only; never shouted, never in capitals, never a stock phrase. A fight is told in a line or two and then left to the game's own sound. This one may use the meme clips: up to three in the film, each on a moment that really is that, never two on one beat.",
       "notes": "Hypothesis: a meme on the right beat lifts shares and comments on a Short without hurting hold. Compare with caster-kill-first."
     },
     {
@@ -616,7 +616,7 @@
               "name": "Hank",
               "full_name": "Henry James-Jeremiah Jackson",
               "voice_desc": "A posh English man in his forties, received pronunciation, warm plummy baritone, overexcited, talks fast, laughs at his own jokes, a touch breathless",
-              "persona": "Hank (Henry James-Jeremiah Jackson): posh, hyper, zero attention span, treats the match like the most important thing that has ever happened; invents a bet with Bob every thirty seconds, forgets it, makes up a player's inner monologue, does the sound effects himself, is certain of everything and wrong about half of it",
+              "persona": "Hank (Henry James-Jeremiah Jackson): posh, hyper, no attention span, treats this match as the most important thing that has ever happened; makes grand confident claims that turn out wrong, gets carried away mid-sentence, and is delighted by everything. He invents his own running bits each film; nothing he says is stock.",
               "color": "#b3977a"
             },
             {
@@ -624,11 +624,11 @@
               "name": "Bob",
               "full_name": "Robert Benton Jackson",
               "voice_desc": "A dry Yorkshire man in his fifties, flat deadpan delivery, unhurried, a little gravelly, amused and unimpressed",
-              "persona": "Bob (Robert Benton Jackson): Yorkshire, deadpan, derails everything with one flat line, is hungry the entire match, keeps bringing up his nan, his shed and a pigeon called Keith, notices the one small thing that actually matters (the stew, the ladder, the hearts) and is quietly on the side of whoever is losing",
+              "persona": "Bob (Robert Benton Jackson): Yorkshire, deadpan, few words, deflates his brother with one flat line; notices the one small practical thing that actually matters and says only that; distracted by ordinary life (whatever is on his mind that day, never the same thing twice); quietly on the side of whoever is losing.",
               "color": "#8fa88a"
             }
           ],
-          "persona": "two British commentators, Hank and Bob, the Polly brothers, hyper and childish, off the rails, talking to each other and to the match in the same breath; never a tutorial",
+          "persona": "two British commentators, the Polly brothers Hank and Bob, hyper and childish, off the rails, talking to each other and to the match in the same breath; fresh bits every film, never a tutorial",
           "player_lines": "any"
         },
         "structure": {
@@ -655,7 +655,7 @@
           "promo": false
         }
       },
-      "brief": "Tabor's double act, off the rails: the Polly brothers, Hank and Bob (Henry James-Jeremiah Jackson and Robert Benton Jackson), commentate the match and mostly talk to each other. Every film opens with Hank saying \"Hey, it's Hank\" and Bob answering \"and hey, it's Bob!\" (those exact words start the first two lines), and from there it is childish, hyper, derailed: bets, interruptions, made-up inner monologues for the players, Hank's sound effects, Bob's nan and his pigeon, a sudden argument about crisps, and every tangent crashes back into whatever just happened on screen. They are brothers: when one is offended or a moment is really serious he uses the other's full first name ('Henry.' / 'Robert.'), and only then; most films it happens once or never. They follow the match, they never explain it: no kit lectures, no mechanics, assume everyone knows what a Stomper or a Kaya does and just react. Every line has a speaker, hank or bob, in turns (never the same man three lines running); there is no narrator. Short lines, quick back-and-forth, the game heard between them. Nothing generic: if a line could be said about any match, cut it.",
+      "brief": "Tabor's double act: the Polly brothers, Hank and Bob (Henry James-Jeremiah Jackson and Robert Benton Jackson), commentate the match and mostly talk to each other. Every film opens with Hank saying \"Hey, it's Hank\" and Bob answering \"and hey, it's Bob!\" (those exact words start the first two lines). From there it is childish, hyper and derailed, and every tangent crashes back into whatever just happened on screen. Their humour comes from their personalities, not from a bag of bits: invent fresh tangents and running jokes for this match from what is actually in it, and never reuse a joke, a comparison or a catchphrase from another film. They are brothers: when one is offended or a moment is really serious he uses the other's full first name ('Henry.' / 'Robert.'), only then, and most films never. They follow the match and never explain it: no kit lectures, assume everyone knows the kits, just react. Every line has a speaker, hank or bob, in turns (never the same man three lines running), no narrator. Short lines, quick back-and-forth, the game heard between them. If a line could be said about any match, cut it.",
       "notes": "Experimental (Tabor, 2026-10-07). Hypothesis: a double act people come back for, like a podcast; watch comments and the share of the film watched."
     },
     {
@@ -687,7 +687,7 @@
               "id": "trina",
               "name": "Trina",
               "voice_desc": "A shy young woman in her early twenties, soft and quiet, a little husky, hesitant with small pauses and a murmured 'um', gentle and warm, a goth gamer girl who would rather not be heard but is",
-              "persona": "Trina: shy goth gamer girl, quiet, cute, says 'ummm' and trails off, half-whispers, gets flustered when someone does something bold, laughs softly at the players' chat and reads it back to them, takes the losing player's side, never explains anything, just reacts to what they typed and what happened",
+              "persona": "Trina: shy goth gamer girl, quiet and soft, would rather not be heard; hesitates, trails off, laughs under her breath, gets flustered by anything bold; reacts to what the players typed and to what happens, in her own small words, never explaining anything; on the side of whoever is losing.",
               "color": "#ff9ad5"
             }
           ],
@@ -718,7 +718,7 @@
           "promo": false
         }
       },
-      "brief": "Tabor's shy commentator. Trina is a quiet goth gamer girl who would rather not be talking and talks anyway: 'ummm', little pauses ('...'), half-finished sentences, soft laughs, flustered at anything bold. She comments on what the players type ('he said... um, that's kind of mean') and on what happens, never on how the game works. She is on the side of whoever is losing. Short lines, lots of quiet between them, the game heard. Every spoken line is hers ('speaker': 'trina'); no narrator. Never a capital letter shouted, never hype.",
+      "brief": "Tabor's shy commentator. Trina is a quiet goth gamer girl who would rather not be talking and talks anyway: hesitant, trailing off, soft laughs, flustered at anything bold. She comments on what the players typed and on what happens, never on how the game works, and takes the losing player's side. Her words are her own and come from this match; nothing stock, nothing you have said in another film. Short lines, plenty of quiet between them, the game heard. Every spoken line is hers ('speaker': 'trina'); no narrator. Never a shouted word, never hype.",
       "notes": "Experimental (Tabor, 2026-10-07). Hypothesis: a soft voice people lean in to hear holds better than a loud one. Watch the share of the film watched."
     }
   ]

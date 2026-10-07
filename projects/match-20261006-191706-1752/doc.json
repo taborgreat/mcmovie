@@ -1,0 +1,37 @@
+{
+  "title": "A Compliment Then A Stomp",
+  "logline": "A kaya tells the stomper he looks great up on his hill top and swears only one of them will grow old. Nine minutes later the stomper drops off his tower and proves him right.",
+  "narrator": { "voice": "stock:narrator" },
+  "music": { "mood_tags": ["funny", "playful"], "tempo": "fast" },
+  "segments": [
+    { "id": "flirt", "title": "You look great from over here", "from_sec": 362, "to_sec": 404.5, "focus": ["taborgreat", "WorkingStorage"], "music": "funny",
+      "narration": [
+        { "id": "h1", "at_sec": 0.3, "speaker": "hank", "text": "Hey, it's Hank!", "emotion": "hyper" },
+        { "id": "b1", "at_sec": 1.9, "speaker": "bob", "text": "and hey, it's Bob! He's chatting up his own killer.", "emotion": "hyper" },
+        { "id": "c1", "at_sec": 7.0, "speaker": "taborgreat", "chat": true, "text": "you look great from over here on that hill top", "emotion": "cheerful" },
+        { "id": "h2", "at_sec": 11.3, "speaker": "hank", "text": "Flirting. He's flirting, in a death match! Bold, Bob.", "emotion": "amazed" },
+        { "id": "b2", "at_sec": 15.2, "speaker": "bob", "text": "My nan says that to her pigeon every morning.", "emotion": "matter-of-fact" },
+        { "id": "h3", "at_sec": 19.0, "speaker": "hank", "text": "Her pigeon?!", "emotion": "shocked" },
+        { "id": "c2", "at_sec": 21.0, "speaker": "WorkingStorage", "chat": true, "text": "thank you young man", "emotion": "warm" },
+        { "id": "b3", "at_sec": 23.0, "speaker": "bob", "text": "Young man. He's taken it, Hank. He's taken the compliment!", "emotion": "hyper" },
+        { "id": "h4", "at_sec": 27.3, "speaker": "hank", "text": "Ding ding ding, the romance is on!", "emotion": "gleeful" },
+        { "id": "b4", "at_sec": 30.1, "speaker": "bob", "text": "Shush, he's typing again. I can feel it.", "emotion": "whisper" },
+        { "id": "c3", "at_sec": 34.4, "speaker": "taborgreat", "chat": true, "text": "only one of us will grow old", "emotion": "ominous" },
+        { "id": "h5", "at_sec": 37.5, "speaker": "hank", "text": "Oh. Oh, that's a threat with a smiley face on it.", "emotion": "uneasy" }
+      ] },
+    { "id": "climb", "title": "Up to meet him", "from_sec": 938, "to_sec": 955.5, "focus": ["taborgreat", "WorkingStorage"], "music": "suspense",
+      "narration": [
+        { "id": "h7", "at_sec": 0.3, "speaker": "hank", "text": "Nine minutes on, he's been bitten, shot, nearly blown up, and drunk thirteen stews!", "emotion": "hyper" },
+        { "id": "b7", "at_sec": 6.7, "speaker": "bob", "text": "So he builds a tower right next to dirt man's. To say hello!", "emotion": "excited" },
+        { "id": "h10", "at_sec": 11.8, "speaker": "hank", "text": "Shh. Shh. He's at the top, he's level with him.", "emotion": "whisper" },
+        { "id": "b8", "at_sec": 15.0, "speaker": "bob", "text": "Hank, do the noise!", "emotion": "nervous" }
+      ] },
+    { "id": "finale_build", "finale": true, "from_sec": 955.5, "to_sec": 957, "focus": ["WorkingStorage", "taborgreat"], "narration": [] },
+    { "id": "finale_fight", "finale": true, "from_sec": 957, "to_sec": 963, "focus": ["WorkingStorage", "taborgreat"],
+      "narration": [
+        { "id": "h9", "at_sec": 0.8, "speaker": "hank", "text": "Wheeeee, here comes dirt man!", "emotion": "gleeful" }
+      ] },
+    { "id": "finale_kill", "finale": true, "from_sec": 963, "to_sec": 967.1, "focus": ["WorkingStorage", "taborgreat"], "narration": [] },
+    { "id": "celebration", "title": "Dirt man wins", "from_sec": 967.1, "to_sec": 979.1, "focus": ["WorkingStorage"], "music": "triumphant", "narration": [] }
+  ]
+}

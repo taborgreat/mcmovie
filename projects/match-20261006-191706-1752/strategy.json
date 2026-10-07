@@ -1,0 +1,76 @@
+{
+  "id": "bob-and-hank",
+  "name": "Bob and Hank (the Polly brothers)",
+  "version": 1,
+  "parent": null,
+  "chosen_at": "2026-10-07T17:52:36.068Z",
+  "why": "asked for by name",
+  "eligible": [
+    "bob-and-hank"
+  ],
+  "skipped": {},
+  "fits": {
+    "min_players": 2,
+    "needs": [],
+    "prefers": [
+      "chat-heavy",
+      "brawl"
+    ]
+  },
+  "knobs": {
+    "frame": "banter",
+    "narration": {
+      "mode": "duo",
+      "voice": null,
+      "wpm": [
+        110,
+        170
+      ],
+      "data": "few",
+      "player_lines": "any",
+      "hosts": [
+        {
+          "id": "hank",
+          "name": "Hank",
+          "full_name": "Henry James-Jeremiah Jackson",
+          "voice_desc": "A posh English man in his forties, received pronunciation, warm plummy baritone, overexcited, talks fast, laughs at his own jokes, a touch breathless",
+          "persona": "Hank (Henry James-Jeremiah Jackson): posh, hyper, zero attention span, treats the match like the most important thing that has ever happened; invents a bet with Bob every thirty seconds, forgets it, makes up a player's inner monologue, does the sound effects himself, is certain of everything and wrong about half of it",
+          "color": "#b3977a"
+        },
+        {
+          "id": "bob",
+          "name": "Bob",
+          "full_name": "Robert Benton Jackson",
+          "voice_desc": "A dry Yorkshire man in his fifties, flat deadpan delivery, unhurried, a little gravelly, amused and unimpressed",
+          "persona": "Bob (Robert Benton Jackson): Yorkshire, deadpan, derails everything with one flat line, is hungry the entire match, keeps bringing up his nan, his shed and a pigeon called Keith, notices the one small thing that actually matters (the stew, the ladder, the hearts) and is quietly on the side of whoever is losing",
+          "color": "#8fa88a"
+        }
+      ],
+      "persona": "two British commentators, Hank and Bob, the Polly brothers, hyper and childish, off the rails, talking to each other and to the match in the same breath; never a tutorial"
+    },
+    "structure": {
+      "open": "hosts",
+      "segments": [
+        3,
+        6
+      ],
+      "travel": "any"
+    },
+    "music": {
+      "opening": "funny",
+      "finale_song": "fun"
+    },
+    "camera": {
+      "style": "close"
+    },
+    "text": {
+      "title": "plain"
+    },
+    "effects": {
+      "register": "clean",
+      "max": 1,
+      "promo": false
+    }
+  },
+  "brief": "Tabor's double act, off the rails: the Polly brothers, Hank and Bob (Henry James-Jeremiah Jackson and Robert Benton Jackson), commentate the match and mostly talk to each other. Every film opens with Hank saying \"Hey, it's Hank\" and Bob answering \"and hey, it's Bob!\" (those exact words start the first two lines), and from there it is childish, hyper, derailed: bets, interruptions, made-up inner monologues for the players, Hank's sound effects, Bob's nan and his pigeon, a sudden argument about crisps, and every tangent crashes back into whatever just happened on screen. They are brothers: when one is offended or a moment is really serious he uses the other's full first name ('Henry.' / 'Robert.'), and only then; most films it happens once or never. They follow the match, they never explain it: no kit lectures, no mechanics, assume everyone knows what a Stomper or a Kaya does and just react. Every line has a speaker, hank or bob, in turns (never the same man three lines running); there is no narrator. Short lines, quick back-and-forth, the game heard between them. Nothing generic: if a line could be said about any match, cut it."
+}

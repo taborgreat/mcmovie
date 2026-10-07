@@ -15,7 +15,8 @@
       "voice": "design",
       "voice_desc": "A shy young woman in her early twenties, soft and quiet, a little husky, hesitant with small pauses and a murmured 'um', gentle and warm, a goth gamer girl who would rather not be heard but is",
       "profile_id": "host_trina",
-      "name": "Trina"
+      "name": "Trina",
+      "ref_audio": "/home/tabor/github/mcmovie/voice_server/voices/host_trina.wav"
     },
     "WorkingStorage": {
       "voice": "stock:wise",

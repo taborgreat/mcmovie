@@ -140,6 +140,14 @@ The finale song decides how much may be said over the fight: a feel song
 (digest.md says which) carries at most one short line, and silence is
 better. Let the picture and the song do it.
 
+## Fresh every film
+
+A persona is a set of traits, not a script. Write what that person would say
+about this match, in words that come from what is actually in it. Never a
+stock phrase, never a comparison or a running joke you have used for another
+match, never the same opening twice. If a line could be said about any match,
+cut it.
+
 ## What the match is
 
 digest.md opens with "What this match is": a few labels from the data. Start
