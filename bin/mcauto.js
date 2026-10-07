@@ -135,6 +135,28 @@ async function main () {
   // --no-publish: make the film and keep it, upload nothing (for looking at a result first)
   const loadCfg = () => { const c = C.load(); if (process.argv.includes('--no-publish')) c.publish = false; return c }
   if (cmd === 'story') { await runJob(loadCfg(), state, { kind: 'story' }); return }
+  // test <recording dir | keep id> [--strategy id] [--format short|long]: the whole match job
+  // (plan, review, voices, studio take, export) on a copy of a saved recording, into
+  // projects/test-<id>, with nothing uploaded, nothing kept to keep/ and nothing deleted
+  if (cmd === 'test') {
+    const arg = process.argv[3]
+    if (!arg) throw new Error('mcauto test <recording dir | keep id>')
+    let src = arg
+    if (!U.exists(path.join(src, 'meta.json'))) { for (const c of [path.join(U.ROOT, 'keep', 'matches', arg, 'recording'), path.join(arg, 'recording')]) if (U.exists(path.join(c, 'meta.json'))) src = c }
+    if (!U.exists(path.join(src, 'meta.json'))) throw new Error('no recording at ' + arg)
+    const meta = R.readMeta(src)
+    const id = 'test-' + (meta.id || path.basename(path.dirname(src))) + '-' + new Date().toISOString().slice(11, 16).replace(':', '')
+    const dir = path.join(AUTO_DIR, 'test', id, 'recording')
+    fs.rmSync(path.dirname(dir), { recursive: true, force: true }); fs.mkdirSync(path.dirname(dir), { recursive: true })
+    fs.cpSync(src, dir, { recursive: true })
+    const cfg = { ...C.load(), publish: false, keep_recordings: 0, cleanup_after_publish: false }
+    const si = process.argv.indexOf('--strategy'); if (si > 0) cfg.force_strategy = process.argv[si + 1]
+    const fi = process.argv.indexOf('--format'); if (fi > 0) cfg.match_format = process.argv[fi + 1]
+    const recording = { id: id.replace(/^test-/, ''), dir, seconds: Math.round((meta.ticks || 0) / 20), players: meta.starting_players || (meta.players || []).length }
+    log(`test render of ${src} as projects/match-${recording.id}${cfg.force_strategy ? ' under ' + cfg.force_strategy : ''}`)
+    await runJob(cfg, state, { kind: 'match', recording })
+    return
+  }
   if (cmd === 'once') { const cfg = loadCfg(); const job = nextJob(cfg, state); if (job) await runJob(cfg, state, job); else log('nothing to do'); return }
   log('mcauto running; one job at a time')
   let storyFirst = process.argv.includes('--story-first')
