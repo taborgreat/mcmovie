@@ -227,9 +227,9 @@ xvfb-run -a -s "-screen 0 1920x1080x24" node bin/mcmatch.js make <slug> [--mock-
   instead); then "spidey senses": the lens comes in slowly from far away to
   the winner's face in slow motion (shots c1 and c2 carry `slow: 2`; the
   assembler interpolates frames and halves the speed, `minterpolate`), holds
-  on the face, circles once in a 360 that widens and climbs as it turns
-  (`radius_end`, `height_end` on the orbit), and settles as the fireworks go
-  up. Under a feel song (`words` few/none in `config/finale_songs.json`)
+  on the face, then spins out to the very end: faster and wider and higher as
+  it turns (`radius_end`, `height_end`, ease-in on the angle), straight into
+  the freeze and the fade, with no shot after it. Under a feel song (`words` few/none in `config/finale_songs.json`)
   nobody speaks until the song has played out, which runs into the
   celebration (`song_left_sec`; `check` refuses an earlier line). Hide and
   Seek carries no words at all. The server now waits `win.breath-ticks` (30 = 1.5 s,
@@ -331,7 +331,7 @@ xvfb-run -a -s "-screen 0 1920x1080x24" node bin/mcmatch.js make <slug> [--mock-
 - **The ending: flash card + outro** (every film, staged and match, both
   shapes). After the last shot's freeze and fade (`end_freeze_sec`) comes a
   flash of text in the site's pixel font on black, up for `end_flash_sec`
-  (1.2 s: Tabor wanted it to hang a little longer than a flash): `end_flash_text` ("EVERY VIDEO IS
+  (1.7 s: Tabor wanted it to hang a little longer than a flash, then half a second more): `end_flash_text` ("EVERY VIDEO IS
   A REAL MATCH / WANT TO BE IN ONE WITHIN THE HOUR? / GO TO", line
   `end_flash_highlight` in yellow); a staged story is not a match, so its card
   is `end_flash_text_story` ("EVERY MATCH IS RECORDED / WANT TO BE IN A VIDEO
