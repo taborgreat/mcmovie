@@ -1,0 +1,23 @@
+{
+  "title": "Can You Outrun a Stomper?",
+  "logline": "The kaya ran all over the map while the stomper built a tower to the clouds and waited. In the end he came down right on top of him.",
+  "narrator": { "voice": "stock:trailer" },
+  "music": { "mood_tags": ["epic", "battle"], "tempo": "fast" },
+  "segments": [
+    { "id": "teaser", "teaser": true, "title": "The last blows", "from_sec": 963.5, "to_sec": 966.7, "focus": ["WorkingStorage", "taborgreat"], "music": "epic",
+      "narration": [
+        { "id": "n1", "at_sec": 0.1, "text": "Never stand under a stomper.", "emotion": "heavy" }
+      ] },
+    { "id": "finale_build", "finale": true, "from_sec": 952.5, "to_sec": 957, "focus": ["WorkingStorage", "taborgreat"], "narration": [] },
+    { "id": "finale_fight", "finale": true, "from_sec": 957, "to_sec": 963, "focus": ["WorkingStorage", "taborgreat"],
+      "narration": [
+        { "id": "n2", "at_sec": 1.0, "text": "The stomper drops from the sky.", "emotion": "heavy" }
+      ] },
+    { "id": "finale_kill", "finale": true, "from_sec": 963, "to_sec": 967.1, "focus": ["WorkingStorage", "taborgreat"], "narration": [] },
+    { "id": "celebration", "title": "The cake", "from_sec": 967.1, "to_sec": 979.1, "focus": ["WorkingStorage"], "music": "triumphant",
+      "narration": [
+        { "id": "n3", "at_sec": 1.5, "text": "One ran all match. One waited.", "emotion": "heavy" },
+        { "id": "n4", "at_sec": 6.0, "text": "WorkingStorage. One fall was all it took.", "emotion": "triumphant" }
+      ] }
+  ]
+}

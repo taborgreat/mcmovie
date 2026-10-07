@@ -1,0 +1,40 @@
+{
+  "title": "Never Lift a Stomper",
+  "logline": "An endermage builds a dirt tower and pulls the stomper up to the top with him. Then he jumps off, and the stomper follows him down feet first.",
+  "narrator": { "voice": "stock:caster" },
+  "music": { "mood_tags": ["battle", "tense"], "tempo": "fast" },
+  "segments": [
+    { "id": "teaser", "title": "Right above him", "teaser": true, "from_sec": 311.0, "to_sec": 314.0,
+      "focus": ["taborgreat", ".taborgreat"], "music": "epic",
+      "narration": [
+        { "id": "n1", "at_sec": 0.2, "text": "He is right above him.", "emotion": "building" }
+      ] },
+    { "id": "pull", "title": "The portal", "from_sec": 256.0, "to_sec": 278.0,
+      "focus": [".taborgreat", "taborgreat"], "music": "tense",
+      "narration": [
+        { "id": "n1", "at_sec": 0.5, "text": "Up on his dirt tower, the endermage is waiting.", "emotion": "building" },
+        { "id": "n2", "at_sec": 5.5, "text": "Down below walks a stomper, and a stomper crushes whatever he lands on.", "emotion": "building" },
+        { "id": "n3", "at_sec": 11.5, "text": "The portal drags the stomper twenty two blocks straight up.", "emotion": "excited" },
+        { "id": "n4", "at_sec": 16.0, "text": "And the endermage? He jumps straight off his own tower.", "emotion": "amused" }
+      ] },
+    { "id": "lead", "title": "Underneath", "from_sec": 296.0, "to_sec": 310.4,
+      "focus": ["taborgreat", ".taborgreat"], "music": "suspense",
+      "narration": [
+        { "id": "n1", "at_sec": 0.5, "text": "Now the endermage comes back for him, right underneath.", "emotion": "tense" },
+        { "id": "p1", "at_sec": 6.2, "speaker": "taborgreat", "chat": true, "text": "im a stomper silly", "emotion": "playful" },
+        { "id": "n2", "at_sec": 8.7, "text": "He gave a stomper height.", "emotion": "dry" }
+      ] },
+    { "id": "finale_build", "finale": true, "from_sec": 310.4, "to_sec": 311.9, "focus": ["taborgreat", ".taborgreat"], "narration": [] },
+    { "id": "finale_fight", "finale": true, "from_sec": 311.9, "to_sec": 314.3, "focus": ["taborgreat", ".taborgreat"],
+      "narration": [
+        { "id": "n1", "at_sec": 0.6, "text": "He steps off.", "emotion": "tense" }
+      ] },
+    { "id": "celebration", "title": "The cake", "from_sec": 314.3, "to_sec": 326.3,
+      "focus": ["taborgreat"], "music": "triumphant",
+      "narration": [
+        { "id": "n1", "at_sec": 1.0, "text": "One leap, and it is over.", "emotion": "excited" },
+        { "id": "n2", "at_sec": 4.2, "text": "taborgreat, the stomper, wins on full health with one kill.", "emotion": "warm" },
+        { "id": "n3", "at_sec": 8.8, "text": "The endermage built that height for him.", "emotion": "amused" }
+      ] }
+  ]
+}

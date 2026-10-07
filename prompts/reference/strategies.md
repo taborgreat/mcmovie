@@ -53,6 +53,16 @@ row never share a recipe. So
 a match full of typed dialogue goes to the chat-led recipes, a small match
 with one fight to the caster, a quiet one to the nature documentary.
 
+## `narration.mode: duo` (Tom and Bob)
+
+Two hosts instead of a narrator, each with a designed voice and a
+personality (`narration.hosts`: id, name, voice_desc, persona). The checker
+holds the plan to the double act: every spoken line is a host's, the first
+two lines are the greeting ("Hey, it's Tom" / "and hey, it's Bob!"), turns
+are taken, the talking is shared. Hosts are not players: no camera cut to
+them, their lines do not count as player lines. Tabor's experiment of
+2026-10-07; `structure.open: hosts`.
+
 ## `narration.player_lines` and `structure.travel` (Max's rules as modes)
 
 - `player_lines`: `any` (default: real chat and short invented in-character

@@ -1,0 +1,10 @@
+{
+  "characters": {
+    "narrator": {
+      "voice": "stock:trailer",
+      "voice_desc": "narrator, deep smooth baritone, measured, sports documentary",
+      "profile_id": "trailer",
+      "speed": 1
+    }
+  }
+}

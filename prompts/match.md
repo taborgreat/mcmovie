@@ -179,6 +179,14 @@ checker holds the plan to it:
   what they did at least three times, and the title names a kit.
 - **narrator-no-kits**: never the word "kit" nor a kit's name anywhere; people
   with names and wants, not classes.
+- **duo** (Tom and Bob): two hosts, no narrator. Every spoken line has
+  `"speaker": "tom"` or `"speaker": "bob"`; their personalities are in
+  strategy.md. The first line is Tom's and starts "Hey, it's Tom", the second
+  is Bob's and starts "and hey, it's Bob!"; from there they talk to each other
+  in turns (never one of them three lines running, roughly half the lines
+  each), wander off on tangents and land back on what is on screen. Short
+  lines, quick back-and-forth, the game heard between them. The camera does
+  not cut to them (they are voices), so a line can sit over any shot.
 - **minimal**: five short narrator lines at most, 45 words in total; the
   picture and the music do the work.
 

@@ -1,0 +1,66 @@
+{
+  "id": "music-first",
+  "name": "Trailer: music first, few words",
+  "version": 1,
+  "parent": null,
+  "chosen_at": "2026-10-07T16:48:25.635Z",
+  "why": "still learning: music-first has 0 of 5 films",
+  "eligible": [
+    "default",
+    "caster-kill-first",
+    "deadpan-chrono",
+    "players-only",
+    "no-kits-story",
+    "music-first",
+    "nature-doc",
+    "memed-caster",
+    "story-first"
+  ],
+  "skipped": {
+    "kit-focused": "needs kit abilities on record (2+)",
+    "love-story": "needs 3+ players"
+  },
+  "fits": {
+    "min_players": 2,
+    "needs": [],
+    "prefers": []
+  },
+  "knobs": {
+    "frame": "intense-fight",
+    "narration": {
+      "mode": "minimal",
+      "voice": "stock:trailer",
+      "wpm": [
+        15,
+        50
+      ],
+      "data": "none",
+      "persona": "a film trailer voice: four or five lines, each one heavy",
+      "player_lines": "any"
+    },
+    "structure": {
+      "open": "leap-or-kill",
+      "segments": [
+        2,
+        5
+      ],
+      "travel": "any"
+    },
+    "music": {
+      "opening": "epic",
+      "finale_song": "epic"
+    },
+    "camera": {
+      "style": "wide"
+    },
+    "text": {
+      "title": "question"
+    },
+    "effects": {
+      "register": "clean",
+      "max": 1,
+      "promo": false
+    }
+  },
+  "brief": "Epic music from the first frame, four or five lines in the whole film, each one short and heavy. Open on the most physical moment there is (a leap, a hit, a fall). The picture and the music do the work."
+}

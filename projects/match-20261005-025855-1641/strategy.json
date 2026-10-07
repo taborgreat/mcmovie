@@ -1,0 +1,57 @@
+{
+  "id": "caster-kill-first",
+  "name": "Caster, straight to the kill",
+  "version": 1,
+  "parent": null,
+  "chosen_at": "2026-10-07T16:41:58.369Z",
+  "why": "asked for by name",
+  "eligible": [
+    "caster-kill-first"
+  ],
+  "skipped": {},
+  "fits": {
+    "min_players": 2,
+    "needs": [],
+    "prefers": [
+      "rampage"
+    ]
+  },
+  "knobs": {
+    "frame": "intense-fight",
+    "narration": {
+      "mode": "narrator",
+      "voice": "stock:caster",
+      "wpm": [
+        70,
+        110
+      ],
+      "data": "some",
+      "persona": "an esports caster calling it live, excited but human: present tense, short plain sentences, hearts and pressure, never shouting (no capitals, one exclamation mark at most in a segment, no filler like 'INSANE' or 'like crazy'); the picture is the hype, the voice just keeps up with it",
+      "player_lines": "any"
+    },
+    "structure": {
+      "open": "kill-first",
+      "segments": [
+        3,
+        6
+      ],
+      "travel": "any"
+    },
+    "music": {
+      "opening": "epic",
+      "finale_song": "epic"
+    },
+    "camera": {
+      "style": "close"
+    },
+    "text": {
+      "title": "plain"
+    },
+    "effects": {
+      "register": "clean",
+      "max": 1,
+      "promo": false
+    }
+  },
+  "brief": "Esports energy without the noise. The very first thing on screen is the last second before the final blow (the leap, the swing), cut on the blow itself so the result stays unknown; then rewind and show how it came to that. Lively, present tense, short sentences about pressure and hearts; never shouted, never in capitals. A fight is told in a line or two and then left to the game's own sound."
+}

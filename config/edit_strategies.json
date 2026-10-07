@@ -582,6 +582,74 @@
       },
       "brief": "Max's editorial rules as a recipe. Find the one causal story the chat and the fights support (setup, choice, reversal, payoff) and tell only that; no side moment for its own sake, no kit lecture, no winner's stats after the climax. Players speak only what they really typed, word for word. Nothing is sped up: a dull stretch is cut. Close, readable shots of people, not landscape.",
       "notes": "Hypothesis (Max): restraint and real chat hold viewers better than hype and invented lines. Only offered when the match has chat to build on."
+    },
+    {
+      "id": "tom-and-bob",
+      "name": "Tom and Bob",
+      "status": "active",
+      "parent": null,
+      "version": 1,
+      "fits": {
+        "min_players": 2,
+        "needs": [],
+        "prefers": [
+          "chat-heavy",
+          "brawl"
+        ]
+      },
+      "knobs": {
+        "frame": "banter",
+        "narration": {
+          "mode": "duo",
+          "voice": null,
+          "wpm": [
+            110,
+            170
+          ],
+          "data": "few",
+          "hosts": [
+            {
+              "id": "tom",
+              "name": "Tom",
+              "voice_desc": "A posh English man in his forties, received pronunciation, warm plummy baritone, overconfident and delighted with himself, a touch breathless when excited",
+              "persona": "Tom: posh, grand, certain of everything and wrong about half of it; makes sweeping theories about what a player is thinking, compares the match to cricket, Shakespeare or his school days, and is always slightly impressed by himself"
+            },
+            {
+              "id": "bob",
+              "name": "Bob",
+              "voice_desc": "A dry Yorkshire man in his fifties, flat deadpan delivery, unhurried, a little gravelly, amused and unimpressed",
+              "persona": "Bob: Yorkshire, dry, says little and means it, deflates Tom's theories with one flat line, notices the small practical things (the stew, the ladder, the hearts) and is quietly fond of whoever is losing"
+            }
+          ],
+          "persona": "two British commentators, Tom and Bob, talking to each other as much as about the match: proper goofy banter, tangents that wander off and then land back on what just happened on screen",
+          "player_lines": "any"
+        },
+        "structure": {
+          "open": "hosts",
+          "segments": [
+            3,
+            6
+          ],
+          "travel": "any"
+        },
+        "music": {
+          "opening": "funny",
+          "finale_song": "fun"
+        },
+        "camera": {
+          "style": "close"
+        },
+        "text": {
+          "title": "plain"
+        },
+        "effects": {
+          "register": "clean",
+          "max": 1,
+          "promo": false
+        }
+      },
+      "brief": "Tabor's experiment: two British blokes commentate the match and mostly talk to each other. Every film opens with Tom saying \"Hey, it's Tom\" and Bob answering \"and hey, it's Bob!\" (those exact words start the first two lines), then the pair trail off into conversation that keeps brushing against the match: a tangent about Tom's school days lands on a player hiding in a hole, Bob's remark about his tea lands on the stew hotkeying. They disagree, interrupt, go off on tangents and come back. Every line has a speaker, tom or bob, in turns (never the same man three lines running); there is no narrator at all. Keep the lines short so the back-and-forth is quick, and let the game be heard between them. The finale under a fun song, where they may keep talking.",
+      "notes": "Experimental (Tabor, 2026-10-07). Hypothesis: a double act people come back for, like a podcast; watch comments and the share of the film watched."
     }
   ]
 }
