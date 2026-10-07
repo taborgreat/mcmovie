@@ -56,7 +56,6 @@
         "min_players": 2,
         "needs": [],
         "prefers": [
-          "duel",
           "rampage"
         ]
       },

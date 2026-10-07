@@ -46,7 +46,10 @@ strategies from the films' numbers. `node bin/mcmatch.js strategy list` shows th
 digest.md opens with "What this match is": labels worked out from the data
 (`chat-heavy`, `duel`, `rampage`, `brawl`, `quiet`, `mob-heavy`,
 `mob-deaths`). A strategy lists the labels it is made for in `fits.prefers`;
-when a match carries them, those strategies are chosen before the rest. So
+when a match carries them, those strategies are drawn twice as often while
+learning and get a small bonus once scored. A nudge, never a lock, and
+`duel` is not a signal (nearly every small match is one). Two films in a
+row never share a recipe. So
 a match full of typed dialogue goes to the chat-led recipes, a small match
 with one fight to the caster, a quiet one to the nature documentary.
 
