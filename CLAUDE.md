@@ -222,9 +222,15 @@ xvfb-run -a -s "-screen 0 1920x1080x24" node bin/mcmatch.js make <slug> [--mock-
   that starts where the finale ends): the winner's reaction over the loot
   until the lift to the cake tower; a swoosh on the lift (a white flash and
   a rush of air, built in; `swoosh` in `config/effects.json` can name a clip
-  instead); then the lens rushes in from far to the winner's face (crane,
-  ease-in), circles them once (orbit, 360), and settles back as the
-  fireworks go up. The server now waits `win.breath-ticks` (30 = 1.5 s,
+  instead); then "spidey senses": the lens comes in slowly from far away to
+  the winner's face in slow motion (shots c1 and c2 carry `slow: 2`; the
+  assembler interpolates frames and halves the speed, `minterpolate`), holds
+  on the face, circles once in a 360 that widens and climbs as it turns
+  (`radius_end`, `height_end` on the orbit), and settles as the fireworks go
+  up. Under a feel song (`words` few/none in `config/finale_songs.json`)
+  nobody speaks until the song has played out, which runs into the
+  celebration (`song_left_sec`; `check` refuses an earlier line). Hide and
+  Seek carries no words at all. The server now waits `win.breath-ticks` (30 = 1.5 s,
   hardcorekits `GameManager`) between the final kill and the lift, so the
   loot and the reaction exist to film. Older recordings without a teleport
   event get the swoosh a second in.

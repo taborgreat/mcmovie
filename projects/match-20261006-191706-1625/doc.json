@@ -1,0 +1,43 @@
+{
+  "title": "The Tower Next Door",
+  "logline": "A stomper camps on a sky high tower, so the kaya builds one right next to it. One jump later the stomper lands on the kaya and takes the cake.",
+  "narrator": { "voice": "stock:caster" },
+  "music": { "mood_tags": ["battle", "intense"], "tempo": "fast" },
+  "segments": [
+    { "id": "teaser", "teaser": true, "title": "The last swing", "from_sec": 963.3, "to_sec": 966.8, "focus": ["WorkingStorage", "taborgreat"], "music": "epic",
+      "narration": [
+        { "id": "n1", "at_sec": 0.1, "text": "One swing for the cake, AND...", "emotion": "shouting" }
+      ] },
+    { "id": "hilltop", "title": "Hilltop banter", "from_sec": 364.8, "to_sec": 421.5, "focus": ["WorkingStorage", "taborgreat"], "music": "suspense",
+      "narration": [
+        { "id": "n1", "at_sec": 0.2, "text": "Rewind! Six minutes in, and the hills are talking!", "emotion": "excited" },
+        { "id": "p0", "at_sec": 4.2, "speaker": "taborgreat", "chat": true, "text": "you look great from over here on that hill top", "emotion": "cheerful" },
+        { "id": "n1b", "at_sec": 9.5, "text": "Is that... a compliment? In a fight to the DEATH?", "emotion": "excited" },
+        { "id": "p1", "at_sec": 18.2, "speaker": "WorkingStorage", "chat": true, "text": "thank you young man", "emotion": "cheerful" },
+        { "id": "n2", "at_sec": 20.5, "text": "WorkingStorage is the Stomper: land on somebody from up high and THEY take the fall damage!", "emotion": "excited" },
+        { "id": "p2", "at_sec": 31.6, "speaker": "taborgreat", "chat": true, "text": "only one of us will grow old", "emotion": "dry" },
+        { "id": "n3", "at_sec": 35.0, "text": "And the answer is UP! A sixty-one block tower, straight into the clouds!", "emotion": "shouting" },
+        { "id": "n4", "at_sec": 41.5, "text": "Build it, sit on top, and wait for anybody brave enough to walk underneath!", "emotion": "excited" },
+        { "id": "p3", "at_sec": 54.1, "speaker": "WorkingStorage", "chat": true, "text": "high risk, high reward", "emotion": "confident" }
+      ] },
+    { "id": "next_door", "title": "The tower next door", "from_sec": 934.8, "to_sec": 951.8, "focus": ["taborgreat", "WorkingStorage"], "music": "tense",
+      "narration": [
+        { "id": "n1", "at_sec": 0.3, "text": "Fast forward! Nine minutes of zombies and arrows later, taborgreat is DONE running!", "emotion": "excited" },
+        { "id": "n2", "at_sec": 7.0, "text": "Pillar up RIGHT beside the Stomper's tower, let's GO!", "emotion": "shouting" },
+        { "id": "p1", "at_sec": 11.0, "speaker": "taborgreat", "text": "Face to face.", "emotion": "determined" },
+        { "id": "n3", "at_sec": 12.8, "text": "Full hearts, one block apart, NOBODY blinks!", "emotion": "building" }
+      ] },
+    { "id": "finale_build", "finale": true, "from_sec": 951.8, "to_sec": 959.8, "focus": ["WorkingStorage", "taborgreat"], "narration": [] },
+    { "id": "finale_fight", "finale": true, "from_sec": 959.8, "to_sec": 967.1, "focus": ["WorkingStorage", "taborgreat"],
+      "narration": [
+        { "id": "n1", "at_sec": 0.6, "text": "STOMPED! And taborgreat is hotkeying stew like CRAZY!", "emotion": "shouting" }
+      ] },
+    { "id": "celebration", "title": "The cake", "from_sec": 967.1, "to_sec": 979.1, "focus": ["WorkingStorage"], "music": "triumphant",
+      "stings": [{ "id": "gta-mission-passed", "at_sec": 0.2 }],
+      "narration": [
+        { "id": "n1", "at_sec": 0.5, "text": "It's OVER!", "emotion": "shouting" },
+        { "id": "n2", "at_sec": 2.0, "text": "Down to three hearts and the Stomper STILL takes it!", "emotion": "excited" },
+        { "id": "n3", "at_sec": 6.8, "text": "WorkingStorage wins it from the sky, one kill, the one that counted!", "emotion": "triumphant" }
+      ] }
+  ]
+}
