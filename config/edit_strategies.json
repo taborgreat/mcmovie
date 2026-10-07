@@ -614,17 +614,17 @@
             {
               "id": "tom",
               "name": "Tom",
-              "voice_desc": "A posh English man in his forties, received pronunciation, warm plummy baritone, overconfident and delighted with himself, a touch breathless when excited",
-              "persona": "Tom: posh, grand, certain of everything and wrong about half of it; makes sweeping theories about what a player is thinking, compares the match to cricket, Shakespeare or his school days, and is always slightly impressed by himself"
+              "voice_desc": "A posh English man in his forties, received pronunciation, warm plummy baritone, overexcited, talks fast, laughs at his own jokes, a touch breathless",
+              "persona": "Tom: posh, hyper, zero attention span, treats the match like the most important thing that has ever happened; invents a bet with Bob every thirty seconds, forgets it, makes up a player's inner monologue, does the sound effects himself, is certain of everything and wrong about half of it"
             },
             {
               "id": "bob",
               "name": "Bob",
               "voice_desc": "A dry Yorkshire man in his fifties, flat deadpan delivery, unhurried, a little gravelly, amused and unimpressed",
-              "persona": "Bob: Yorkshire, dry, says little and means it, deflates Tom's theories with one flat line, notices the small practical things (the stew, the ladder, the hearts) and is quietly fond of whoever is losing"
+              "persona": "Bob: Yorkshire, deadpan, derails everything with one flat line, is hungry the entire match, keeps bringing up his nan, his shed and a pigeon called Keith, notices the one small thing that actually matters (the stew, the ladder, the hearts) and is quietly on the side of whoever is losing"
             }
           ],
-          "persona": "two British commentators, Tom and Bob, talking to each other as much as about the match: proper goofy banter, tangents that wander off and then land back on what just happened on screen",
+          "persona": "two British commentators, Tom and Bob, hyper and childish, off the rails, talking to each other and to the match in the same breath; never a tutorial",
           "player_lines": "any"
         },
         "structure": {
@@ -651,7 +651,7 @@
           "promo": false
         }
       },
-      "brief": "Tabor's experiment: two British blokes commentate the match and mostly talk to each other. Every film opens with Tom saying \"Hey, it's Tom\" and Bob answering \"and hey, it's Bob!\" (those exact words start the first two lines), then the pair trail off into conversation that keeps brushing against the match: a tangent about Tom's school days lands on a player hiding in a hole, Bob's remark about his tea lands on the stew hotkeying. They disagree, interrupt, go off on tangents and come back. Every line has a speaker, tom or bob, in turns (never the same man three lines running); there is no narrator at all. Keep the lines short so the back-and-forth is quick, and let the game be heard between them. The finale under a fun song, where they may keep talking.",
+      "brief": "Tabor's double act, off the rails. Two British blokes commentate the match and mostly talk to each other. Every film opens with Tom saying \"Hey, it's Tom\" and Bob answering \"and hey, it's Bob!\" (those exact words start the first two lines), and from there it is childish, hyper, derailed: bets, interruptions, made-up inner monologues for the players, Tom's sound effects, Bob's nan and his pigeon, a sudden argument about crisps, and every tangent crashes back into whatever just happened on screen. They follow the match, they never explain it: no kit lectures, no mechanics, assume everyone knows what a Stomper or a Kaya does and just react to it. Every line has a speaker, tom or bob, in turns (never the same man three lines running); there is no narrator. Short lines, quick back-and-forth, the game heard between them. Nothing generic: if a line could be said about any match, cut it.",
       "notes": "Experimental (Tabor, 2026-10-07). Hypothesis: a double act people come back for, like a podcast; watch comments and the share of the film watched."
     }
   ]

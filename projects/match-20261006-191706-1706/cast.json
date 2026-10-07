@@ -10,15 +10,13 @@
       "voice": "design",
       "voice_desc": "A posh English man in his forties, received pronunciation, warm plummy baritone, overconfident and delighted with himself, a touch breathless when excited",
       "profile_id": "host_tom",
-      "name": "Tom",
-      "ref_audio": "/home/tabor/github/mcmovie/voice_server/voices/host_tom.wav"
+      "name": "Tom"
     },
     "bob": {
       "voice": "design",
       "voice_desc": "A dry Yorkshire man in his fifties, flat deadpan delivery, unhurried, a little gravelly, amused and unimpressed",
       "profile_id": "host_bob",
-      "name": "Bob",
-      "ref_audio": "/home/tabor/github/mcmovie/voice_server/voices/host_bob.wav"
+      "name": "Bob"
     }
   }
 }

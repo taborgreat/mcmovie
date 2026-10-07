@@ -152,6 +152,16 @@ empty field is never a segment. A creature only enters the story when it
 kills somebody. If the players typed a lot and the film is about two creeper
 explosions, the plan is wrong.
 
+## Builds and traps
+
+A `build` moment in the index is a player spending minutes placing blocks in
+one place: a trap over lava, a bridge, a base. Its moment file says what it
+was built over, what was dug, and whether anyone ever came near it. That is a
+story whether or not it paid off ("he built a trap over the lava and the
+other one ran two hundred blocks the other way"): show the building (a
+time-lapse at 3-6x is fine), the finished thing, and the moment it mattered
+or did not. Never skip a build because nothing died there.
+
 ## Dialogue matches
 
 When digest.md labels the match **dialogue**, the players typed the story
