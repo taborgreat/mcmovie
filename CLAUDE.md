@@ -264,6 +264,15 @@ xvfb-run -a -s "-screen 0 1920x1080x24" node bin/mcmatch.js make <slug> [--mock-
   (a bite that did not kill is a low moment, an explosion or a bolt gets a
   camera window only when a player is within 10 blocks, `GROUND_KITS`
   abilities such as the Jackhammer's column get one when they fire).
+- **A typed-out match is a dialogue film** (Tabor's roleplay case): 20+ chat
+  lines from 2+ players label the match `dialogue`; every run of chat with no
+  minute of silence becomes a `talk` moment carrying all its lines (the moment
+  file lists them word for word), digest.md prints the whole chat, the chooser
+  sends the match only to recipes made for dialogue (`fits.prefers` has
+  `dialogue`: love-story, players-only, story-first), the planner is told to
+  make a segment of every conversation at real speed with every line as a chat
+  line, and `check` does not call a talking segment "going nowhere" nor cap a
+  small dialogue match at 90 s.
 - **Block changes the recorder could not see**: a kit that changes blocks
   through the API (Jackhammer column, Digger hole, Endermage portal, Scorch
   fire, Cultivator crops and trees, the endgame arena) now reports each block

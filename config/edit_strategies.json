@@ -165,7 +165,8 @@
           "chat"
         ],
         "prefers": [
-          "chat-heavy"
+          "chat-heavy",
+          "dialogue"
         ]
       },
       "knobs": {
@@ -327,7 +328,8 @@
         ],
         "prefers": [
           "chat-heavy",
-          "teaming"
+          "teaming",
+          "dialogue"
         ]
       },
       "knobs": {
@@ -367,7 +369,7 @@
           "promo": false
         }
       },
-      "brief": "Two players who stuck together, told as a relationship: how they met, what they shared, and the moment it ended (a betrayal, a death, the rule that only one can win). Warm music first, the dramatic song at the end. Needs a real team-up in the data.",
+      "brief": "Two players who stuck together, told as a relationship: how they met, what they shared, and the moment it ended (a betrayal, a death, the rule that only one can win). Warm music first, the dramatic song at the end. Needs a real team-up in the data. When the match was a typed-out story (digest: dialogue), every conversation is a segment of its own at real speed, every line spoken in the players' voices at the second it was said, nothing skipped: the picnic, the walk, the vows, the fall. The narrator only joins the scenes.",
       "notes": "Hypothesis: the teaming drama is the most human thing in these matches."
     },
     {
@@ -540,7 +542,8 @@
           "chat"
         ],
         "prefers": [
-          "chat-heavy"
+          "chat-heavy",
+          "dialogue"
         ]
       },
       "knobs": {

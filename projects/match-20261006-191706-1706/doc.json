@@ -5,46 +5,34 @@
   "music": { "mood_tags": ["funny", "playful"], "tempo": "mid" },
   "cards": { "end_text": "hardcorepvp.com" },
   "segments": [
-    { "id": "hilltop", "title": "Compliments and a lighthouse", "from_sec": 365, "to_sec": 446, "focus": ["WorkingStorage"], "music": "funny",
+    { "id": "hilltop", "title": "Only one of us will grow old", "from_sec": 395, "to_sec": 419.5, "focus": ["WorkingStorage"], "music": "funny",
       "narration": [
         { "id": "l1", "at_sec": 0.3, "speaker": "tom", "text": "Hey, it's Tom.", "emotion": "cheerful" },
-        { "id": "l2", "at_sec": 2.0, "speaker": "bob", "text": "and hey, it's Bob! Taborgreat's just typed something lovely.", "emotion": "cheerful" },
-        { "id": "l3", "at_sec": 6.0, "speaker": "tom", "text": "He has. You look great from over here on that hill top.", "emotion": "amused" },
-        { "id": "l4", "at_sec": 11.2, "speaker": "bob", "text": "That's the nicest thing anyone's said to me since school.", "emotion": "warm" },
-        { "id": "l5", "at_sec": 15.6, "speaker": "tom", "text": "Nobody said anything nice to you at school, Bob.", "emotion": "dry" },
-        { "id": "l6", "at_sec": 19.6, "speaker": "bob", "text": "And WorkingStorage says thank you, young man. Very proper.", "emotion": "amused" },
-        { "id": "l7", "at_sec": 23.6, "speaker": "tom", "text": "He's a Stomper, Bob. Lands on people from a great height.", "emotion": "dry" },
-        { "id": "l8", "at_sec": 28.4, "speaker": "bob", "text": "Like my nan on the stairs.", "emotion": "cheerful" },
-        { "id": "l9", "at_sec": 31.3, "speaker": "tom", "text": "And here's taborgreat again. Only one of us will grow old.", "emotion": "amused" },
-        { "id": "l10", "at_sec": 36.1, "speaker": "bob", "text": "Oh, that's dark. And the Stomper's answer is... dirt?", "emotion": "surprised" },
-        { "id": "l11", "at_sec": 40.1, "speaker": "tom", "text": "He's going straight up. One block at a time, standing on it.", "emotion": "curious" },
-        { "id": "l12", "at_sec": 44.9, "speaker": "bob", "text": "That's towering. My uncle did that with a stepladder once. Broke his hip.", "emotion": "cheerful" },
-        { "id": "l13", "at_sec": 50.5, "speaker": "tom", "text": "Your uncle wasn't wearing a Stomper kit.", "emotion": "dry" },
-        { "id": "l14", "at_sec": 53.7, "speaker": "bob", "text": "Now he types high risk, high reward.", "emotion": "amused" },
-        { "id": "l15", "at_sec": 56.9, "speaker": "tom", "text": "Higher every second. The trees are getting tiny.", "emotion": "building" },
-        { "id": "l16", "at_sec": 60.5, "speaker": "bob", "text": "I'd need a cup of tea up there. Steadies the nerves.", "emotion": "warm" },
-        { "id": "l17", "at_sec": 65.3, "speaker": "tom", "text": "Sixty-one blocks, Bob. That's not a tower, that's a lighthouse.", "emotion": "impressed" },
-        { "id": "l18", "at_sec": 70.1, "speaker": "bob", "text": "And then nobody comes. For ages. He just sits there.", "emotion": "dry" },
-        { "id": "l19", "at_sec": 74.5, "speaker": "tom", "text": "Like you at a bus stop.", "emotion": "amused" },
-        { "id": "l20", "at_sec": 77.4, "speaker": "bob", "text": "The bus did come, Tom. Eventually.", "emotion": "dry" }
+        { "id": "l2", "at_sec": 1.6, "speaker": "bob", "text": "and hey, it's Bob! Taborgreat's just told the Stomper only one of them will grow old.", "emotion": "cheerful" },
+        { "id": "l3", "at_sec": 7.0, "speaker": "tom", "text": "Charming. And the Stomper's answer to that is... dirt?", "emotion": "surprised" },
+        { "id": "l4", "at_sec": 10.4, "speaker": "bob", "text": "Straight up, one block at a time, standing on it.", "emotion": "curious" },
+        { "id": "l5", "at_sec": 13.8, "speaker": "tom", "text": "That's towering, Bob. Stompers jump on people from up there.", "emotion": "dry" },
+        { "id": "l6", "at_sec": 17.2, "speaker": "bob", "text": "Like my nan on the stairs.", "emotion": "cheerful" },
+        { "id": "l7", "at_sec": 19.6, "speaker": "tom", "text": "Sixty-one blocks. That's not a tower, that's a lighthouse.", "emotion": "impressed" }
       ] },
-    { "id": "copycat", "title": "The tower next door", "from_sec": 926.8, "to_sec": 955.5, "focus": ["taborgreat", "WorkingStorage"], "music": "suspense",
+    { "id": "copycat", "title": "The tower next door", "from_sec": 931, "to_sec": 955.5, "focus": ["taborgreat", "WorkingStorage"], "music": "suspense",
       "narration": [
-        { "id": "m1", "at_sec": 0.3, "speaker": "tom", "text": "Meanwhile taborgreat's been mugged by every zombie and spider going.", "emotion": "amused" },
-        { "id": "m2", "at_sec": 5.1, "speaker": "bob", "text": "Thirteen stews he's had. That's more than my tea.", "emotion": "cheerful" },
-        { "id": "m3", "at_sec": 9.1, "speaker": "tom", "text": "And now look. He's building his own tower. Right beside the Stomper's.", "emotion": "building" },
-        { "id": "m4", "at_sec": 14.3, "speaker": "bob", "text": "Copying his homework. Classic.", "emotion": "amused" },
-        { "id": "m5", "at_sec": 16.4, "speaker": "tom", "text": "Bob, you never build up next to a Stomper.", "emotion": "worried" },
-        { "id": "m6", "at_sec": 20.4, "speaker": "bob", "text": "Why not?", "emotion": "curious" },
-        { "id": "m7", "at_sec": 21.7, "speaker": "tom", "text": "Because he's still above you.", "emotion": "tense" },
-        { "id": "m8", "at_sec": 24.2, "speaker": "bob", "text": "Oh no. He's looking down, isn't he.", "emotion": "tense" }
+        { "id": "m1", "at_sec": 0.3, "speaker": "tom", "text": "Earlier the Stomper asked taborgreat if he had a plan.", "emotion": "amused" },
+        { "id": "m2", "at_sec": 4.0, "speaker": "bob", "text": "He said he did, but it was on the ground.", "emotion": "cheerful" },
+        { "id": "m3", "at_sec": 7.7, "speaker": "tom", "text": "So now he's building his own tower, one block from the Stomper's.", "emotion": "building" },
+        { "id": "m4", "at_sec": 12.0, "speaker": "bob", "text": "Copying his homework. I did that at school.", "emotion": "amused" },
+        { "id": "m5", "at_sec": 15.1, "speaker": "tom", "text": "And you failed. Never build next to a Stomper.", "emotion": "worried" },
+        { "id": "m6", "at_sec": 18.1, "speaker": "bob", "text": "Why not?", "emotion": "curious" },
+        { "id": "m7", "at_sec": 19.0, "speaker": "tom", "text": "Because he's still up there. Above you.", "emotion": "tense" },
+        { "id": "m8", "at_sec": 21.4, "speaker": "bob", "text": "Oh no. He's looking down.", "emotion": "tense" }
       ] },
     { "id": "finale_build", "finale": true, "from_sec": 955.5, "to_sec": 957, "focus": ["WorkingStorage", "taborgreat"], "narration": [] },
     { "id": "finale_fight", "finale": true, "from_sec": 957, "to_sec": 963, "focus": ["WorkingStorage", "taborgreat"],
       "narration": [
-        { "id": "f1", "at_sec": 1.0, "speaker": "tom", "text": "Down he comes!", "emotion": "excited" }
+        { "id": "f1", "at_sec": 1.0, "speaker": "bob", "text": "Here comes Nan!", "emotion": "excited" }
       ] },
     { "id": "finale_kill", "finale": true, "from_sec": 963, "to_sec": 967.1, "focus": ["WorkingStorage", "taborgreat"], "narration": [] },
-    { "id": "celebration", "title": "Cake", "from_sec": 967.1, "to_sec": 979.1, "focus": ["WorkingStorage"], "music": "triumphant", "narration": [] }
+    { "id": "celebration", "title": "Cake", "from_sec": 967.1, "to_sec": 979.1, "focus": ["WorkingStorage"], "music": "triumphant",
+      "narration": [] }
   ]
 }

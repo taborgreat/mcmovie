@@ -152,6 +152,17 @@ empty field is never a segment. A creature only enters the story when it
 kills somebody. If the players typed a lot and the film is about two creeper
 explosions, the plan is wrong.
 
+## Dialogue matches
+
+When digest.md labels the match **dialogue**, the players typed the story
+themselves (a roleplay, a picnic, a love story, a feud) and the film is that
+dialogue. The moment index has a `talk` moment for every conversation with
+every line in it. Make a segment of each one at real speed, quote every line
+as a chat line (`"speaker"`, `"chat": true`, the exact words, at the second it
+was said), and let the narrator only join the scenes. Nothing is skipped
+because it is "just talking": the talking is the match. The film may run the
+full length a Short allows.
+
 ## Effects (stings, inserts, transitions)
 
 digest.md lists the effects on offer for this film: short clips laid over
