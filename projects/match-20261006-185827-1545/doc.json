@@ -1,0 +1,29 @@
+{
+  "title": "Never Underestimate the Sea",
+  "logline": "A jackhammer spent the whole match digging. Then a poseidon jumped into the water next to him and it was over in three seconds.",
+  "narrator": { "voice": "stock:deadpan", "voice_desc": "bored referee reading out what happened, unimpressed by everyone" },
+  "music": { "mood_tags": ["funny", "playful"], "tempo": "mid" },
+  "segments": [
+    { "id": "terrain", "title": "The complaints begin", "from_sec": 129.5, "to_sec": 143.0, "focus": ["taborgreat"], "music": "funny",
+      "narration": [
+        { "id": "n1", "at_sec": 0.3, "text": "The complaints begin.", "emotion": "dry" },
+        { "id": "p1", "at_sec": 2.2, "speaker": "taborgreat", "chat": true, "text": "this terrain is tough", "emotion": "tired" },
+        { "id": "p2", "at_sec": 6.1, "speaker": "WorkingStorage", "chat": true, "text": "for real", "emotion": "agreeing" },
+        { "id": "n2", "at_sec": 8.0, "text": "Then taborgreat goes underground and stays there.", "emotion": "dry" }
+      ] },
+    { "id": "jump", "title": "Into the water", "from_sec": 861.8, "to_sec": 875.4, "focus": ["WorkingStorage", "taborgreat"], "music": "sneaky",
+      "narration": [
+        { "id": "n1", "at_sec": 0.5, "text": "Much later, taborgreat is still mining.", "emotion": "dry" },
+        { "id": "n2", "at_sec": 4.5, "text": "WorkingStorage is Poseidon, stronger in water.", "emotion": "dry" },
+        { "id": "n3", "at_sec": 9.8, "text": "So, into the water.", "emotion": "dry" }
+      ] },
+    { "id": "finale_build", "finale": true, "from_sec": 875.4, "to_sec": 878.4, "focus": ["WorkingStorage", "taborgreat"], "narration": [] },
+    { "id": "finale_fight", "finale": true, "from_sec": 878.4, "to_sec": 881.5, "focus": ["WorkingStorage", "taborgreat"], "narration": [] },
+    { "id": "celebration", "title": "The sea wins", "from_sec": 881.5, "to_sec": 893.5, "focus": ["WorkingStorage"], "music": "triumphant",
+      "narration": [
+        { "id": "n1", "at_sec": 1.0, "text": "Twelve minutes of digging, over in three seconds.", "emotion": "dry" },
+        { "id": "n2", "at_sec": 5.0, "text": "WorkingStorage wins. Poseidon, one kill, full hearts.", "emotion": "dry" },
+        { "id": "p1", "at_sec": 9.5, "speaker": "WorkingStorage", "chat": true, "text": "never underestimate the power of the sea", "emotion": "smug" }
+      ] }
+  ]
+}

@@ -608,6 +608,17 @@ node bin/mcauto.js status | once | story | run
   `automation/state.json` (title, URL, time) and the logs for two weeks. A
   film that was not uploaded (publishing off, or the upload failed) is kept.
   After a staged story the set world is wiped; it regrows from its seed.
+- **Test renders**: `node bin/mcauto.js test <recording dir | keep id>
+  [--strategy id] [--format short|long]` runs the whole match job (plan,
+  review, voices, studio take, export) on a copy of a saved recording into
+  `projects/match-test-<id>-<hhmm>/`, uploads nothing, keeps nothing to
+  `keep/` and deletes nothing. Stop the loop first (`tools/stop-films.sh`,
+  the studio is shared) and start it after. `automation/test/run-tests.sh`
+  chains the saved matches.
+- **In game**: `/movie list [page]` lists the films a player appears in,
+  ten a page, each title a YouTube link (the plugin reads
+  `automation/films.json`, `movie.films-file`); `/highlight <why>` (or
+  `/movie highlight <why>`) marks a moment during a match, three a game.
 - Start and stop the loop with `tools/start-films.sh [--story-first]` and
   `tools/stop-films.sh` (tmux window "films", log `automation/loop.log`).
 - **Staged stories are shot on natural terrain.** The set server is a
