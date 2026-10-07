@@ -1,0 +1,20 @@
+{
+  "characters": {
+    "narrator": {
+      "voice": "stock:storyteller",
+      "voice_desc": "narrator, deep smooth baritone, measured, sports documentary",
+      "profile_id": "storyteller",
+      "speed": 1
+    },
+    "taborgreat": {
+      "voice": "design",
+      "voice_desc": "tired voice that sighs before speaking",
+      "profile_id": "player_taborgreat"
+    },
+    "WorkingStorage": {
+      "voice": "stock:wise",
+      "profile_id": "wise",
+      "chosen": true
+    }
+  }
+}

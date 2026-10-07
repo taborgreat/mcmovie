@@ -1,6 +1,6 @@
 {
   "title": "Only One Grows Old",
-  "logline": "Two players trade compliments across a valley, then spend the whole match building towers. When they finally meet up high, the older one drops on the younger from above.",
+  "logline": "Two players trade compliments across a valley, then one builds a nest in the sky. When the other finally climbs up beside him, the old man drops on him from above.",
   "narrator": { "voice": "stock:storyteller" },
   "music": { "mood_tags": ["warm", "calm"], "tempo": "slow" },
   "cards": { "end_text": "hardcorepvp.com" },
@@ -10,16 +10,22 @@
         { "id": "p1", "at_sec": 0.5, "speaker": "taborgreat", "chat": true, "text": "you look great from over here on that hill top", "emotion": "cheerful" },
         { "id": "n1", "at_sec": 6.0, "text": "On the open plains, taborgreat calls to a neighbour across the valley.", "emotion": "gentle" },
         { "id": "p2", "at_sec": 14.5, "speaker": "WorkingStorage", "chat": true, "text": "thank you young man", "emotion": "warm" },
-        { "id": "n2", "at_sec": 18.0, "text": "WorkingStorage does not answer the threat. He gathers earth instead.", "emotion": "gentle" },
+        { "id": "n2", "at_sec": 18.0, "text": "The elder accepts the compliment, and keeps gathering earth.", "emotion": "gentle" },
         { "id": "p3", "at_sec": 27.9, "speaker": "taborgreat", "chat": true, "text": "only one of us will grow old", "emotion": "playful" },
         { "id": "n3", "at_sec": 32.5, "text": "Then, block by block, he climbs, high above the grass, where nothing can follow.", "emotion": "wonder" },
         { "id": "n4", "at_sec": 41.0, "text": "Sixty-one blocks of dirt. A nest in the sky.", "emotion": "wonder" },
         { "id": "p4", "at_sec": 50.4, "speaker": "WorkingStorage", "chat": true, "text": "high risk, high reward", "emotion": "confident" }
       ] },
+    { "id": "plan", "title": "A question from the nest", "from_sec": 731.5, "to_sec": 747, "focus": ["WorkingStorage", "taborgreat"], "music": "calm",
+      "narration": [
+        { "id": "p1", "at_sec": 2.5, "speaker": "WorkingStorage", "chat": true, "text": "hope you have a plan", "emotion": "dry" },
+        { "id": "n1", "at_sec": 5.5, "text": "From the nest, a question drifts down.", "emotion": "gentle" },
+        { "id": "p2", "at_sec": 11.7, "speaker": "taborgreat", "chat": true, "text": "i did but it was on ground lol", "emotion": "sheepish" }
+      ] },
     { "id": "perch", "title": "A perch beside the nest", "from_sec": 935, "to_sec": 951.8, "focus": ["taborgreat", "WorkingStorage"], "music": "tense",
       "narration": [
-        { "id": "n1", "at_sec": 0.5, "text": "Much later, taborgreat has learned the habit. He builds his own perch, right beside the old nest.", "emotion": "gentle" },
-        { "id": "n2", "at_sec": 9.0, "text": "Zombies and spiders have chewed at him all evening. Now the two meet at last.", "emotion": "building" }
+        { "id": "n1", "at_sec": 0.5, "text": "Much later, taborgreat takes the lesson. He builds his own perch, right beside the old nest.", "emotion": "gentle" },
+        { "id": "n2", "at_sec": 9.0, "text": "Two nests now, side by side. And only one of these creatures will grow old.", "emotion": "building" }
       ] },
     { "id": "finale_build", "finale": true, "from_sec": 951.8, "to_sec": 959.8, "focus": ["WorkingStorage", "taborgreat"], "narration": [] },
     { "id": "finale_fight", "finale": true, "from_sec": 959.8, "to_sec": 967.1, "focus": ["WorkingStorage", "taborgreat"], "narration": [] },

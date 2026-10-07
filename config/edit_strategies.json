@@ -29,7 +29,7 @@
         },
         "music": {
           "opening": "any",
-          "finale_song": "kirby"
+          "finale_song": null
         },
         "camera": {
           "style": "mixed"
@@ -65,11 +65,11 @@
           "mode": "narrator",
           "voice": "stock:caster",
           "wpm": [
-            95,
-            140
+            70,
+            110
           ],
           "data": "some",
-          "persona": "an esports caster calling it live: present tense, shouting at the big moments, hearts and pressure",
+          "persona": "an esports caster calling it live, excited but human: present tense, short plain sentences, hearts and pressure, never shouting (no capitals, one exclamation mark at most in a segment, no filler like 'INSANE' or 'like crazy'); the picture is the hype, the voice just keeps up with it",
           "player_lines": "any"
         },
         "structure": {
@@ -82,7 +82,7 @@
         },
         "music": {
           "opening": "epic",
-          "finale_song": "hide-seek"
+          "finale_song": "epic"
         },
         "camera": {
           "style": "close"
@@ -96,7 +96,7 @@
           "promo": false
         }
       },
-      "brief": "Esports energy. The very first thing on screen is the last second before the final blow (the leap, the swing), with the caster already mid-shout, cut on the blow itself so the result stays unknown; then rewind and show how it came to that. Fast talk, excited, every line about pressure and hearts. Dramatic finale song.",
+      "brief": "Esports energy without the noise. The very first thing on screen is the last second before the final blow (the leap, the swing), cut on the blow itself so the result stays unknown; then rewind and show how it came to that. Lively, present tense, short sentences about pressure and hearts; never shouted, never in capitals. A fight is told in a line or two and then left to the game's own sound.",
       "notes": "Hypothesis: a kill in the first two seconds keeps the swipe-happy viewer. Watch the retention curve's first 10%."
     },
     {
@@ -136,7 +136,7 @@
         },
         "music": {
           "opening": "funny",
-          "finale_song": "whatcha-say"
+          "finale_song": "fun"
         },
         "camera": {
           "style": "mixed"
@@ -191,7 +191,7 @@
         },
         "music": {
           "opening": "any",
-          "finale_song": "kirby"
+          "finale_song": "intense"
         },
         "camera": {
           "style": "close"
@@ -246,7 +246,7 @@
         },
         "music": {
           "opening": "any",
-          "finale_song": "kirby"
+          "finale_song": "hype"
         },
         "camera": {
           "style": "mixed"
@@ -297,7 +297,7 @@
         },
         "music": {
           "opening": "quiet",
-          "finale_song": "hide-seek"
+          "finale_song": "dramatic"
         },
         "camera": {
           "style": "wide"
@@ -353,7 +353,7 @@
         },
         "music": {
           "opening": "warm",
-          "finale_song": "hide-seek"
+          "finale_song": "sad"
         },
         "camera": {
           "style": "close"
@@ -404,7 +404,7 @@
         },
         "music": {
           "opening": "epic",
-          "finale_song": "kirby"
+          "finale_song": "epic"
         },
         "camera": {
           "style": "wide"
@@ -457,7 +457,7 @@
         },
         "music": {
           "opening": "enchanting",
-          "finale_song": "hide-seek"
+          "finale_song": "dreamy"
         },
         "camera": {
           "style": "wide"
@@ -494,11 +494,11 @@
           "mode": "narrator",
           "voice": "stock:caster",
           "wpm": [
-            95,
-            140
+            70,
+            110
           ],
           "data": "some",
-          "persona": "an esports caster calling it live: present tense, shouting at the big moments, hearts and pressure",
+          "persona": "an esports caster calling it live, excited but human: present tense, short plain sentences, hearts and pressure, never shouting (no capitals, one exclamation mark at most in a segment, no filler like 'INSANE' or 'like crazy'); the picture is the hype, the voice just keeps up with it",
           "player_lines": "any"
         },
         "structure": {
@@ -511,7 +511,7 @@
         },
         "music": {
           "opening": "epic",
-          "finale_song": "hide-seek"
+          "finale_song": "fun"
         },
         "camera": {
           "style": "close"
@@ -525,7 +525,7 @@
           "promo": true
         }
       },
-      "brief": "Esports energy. The very first thing on screen is the last second before the final blow (the leap, the swing), with the caster already mid-shout, cut on the blow itself so the result stays unknown; then rewind and show how it came to that. Fast talk, excited, every line about pressure and hearts. Dramatic finale song. This one may use the meme clips (a WASTED on a death, a FIGHT on the first hit, the Hulk on a rampage, the troll face on a pause): up to three in the film, each on a moment that really is that, never two on one beat.",
+      "brief": "Esports energy without the noise. The very first thing on screen is the last second before the final blow (the leap, the swing), cut on the blow itself so the result stays unknown; then rewind and show how it came to that. Lively, present tense, short sentences about pressure and hearts; never shouted, never in capitals. A fight is told in a line or two and then left to the game's own sound. This one may use the meme clips (a WASTED on a death, a FIGHT on the first hit, the Hulk on a rampage, the troll face on a pause): up to three in the film, each on a moment that really is that, never two on one beat.",
       "notes": "Hypothesis: a meme on the right beat lifts shares and comments on a Short without hurting hold. Compare with caster-kill-first."
     },
     {
@@ -566,7 +566,7 @@
         },
         "music": {
           "opening": null,
-          "finale_song": null
+          "finale_song": "dramatic"
         },
         "camera": {
           "style": "close"
