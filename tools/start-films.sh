@@ -19,8 +19,13 @@ java_dir="${JAVA_DIR:-$HOME/.jdks/jdk-25.0.4.1+1/bin}"
 [ -x "$node_bin" ] || { echo "start-films: no node found (nvm)" >&2; exit 1; }
 
 if $tmux list-windows -a -F '#{window_name}' 2>/dev/null | grep -qx "$window"; then
-    echo "already running in tmux window $window"
-    exit 0
+    # a window whose loop has exited (remain-on-exit keeps it) is not a running loop
+    if $tmux list-panes -a -F '#{window_name} #{pane_dead}' 2>/dev/null | grep -qx "$window 1"; then
+        $tmux kill-window -t "$window"
+    else
+        echo "already running in tmux window $window"
+        exit 0
+    fi
 fi
 
 # The loop needs node, java (set server), claude (planning), xvfb-run and ffmpeg on PATH.

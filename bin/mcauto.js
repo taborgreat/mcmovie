@@ -149,7 +149,7 @@ async function main () {
     const dir = path.join(AUTO_DIR, 'test', id, 'recording')
     fs.rmSync(path.dirname(dir), { recursive: true, force: true }); fs.mkdirSync(path.dirname(dir), { recursive: true })
     fs.cpSync(src, dir, { recursive: true })
-    const cfg = { ...C.load(), publish: false, keep_recordings: 0, cleanup_after_publish: false }
+    const cfg = { ...C.load(), publish: false, keep_recordings: 0, cleanup_after_publish: false, keep_recording: true }
     const si = process.argv.indexOf('--strategy'); if (si > 0) cfg.force_strategy = process.argv[si + 1]
     const fi = process.argv.indexOf('--format'); if (fi > 0) cfg.match_format = process.argv[fi + 1]
     const recording = { id: id.replace(/^test-/, ''), dir, seconds: Math.round((meta.ticks || 0) / 20), players: meta.starting_players || (meta.players || []).length }
