@@ -617,7 +617,8 @@
               "full_name": "Henry James-Jeremiah Jackson",
               "voice_desc": "A posh English man in his forties, received pronunciation, warm plummy baritone, overexcited, talks fast, laughs at his own jokes, a touch breathless",
               "persona": "Hank (Henry James-Jeremiah Jackson): posh, hyper, no attention span, treats this match as the most important thing that has ever happened; makes grand confident claims that turn out wrong, gets carried away mid-sentence, and is delighted by everything. He invents his own running bits each film; nothing he says is stock.",
-              "color": "#b3977a"
+              "color": "#b3977a",
+              "side": "right"
             },
             {
               "id": "bob",
@@ -625,7 +626,8 @@
               "full_name": "Robert Benton Jackson",
               "voice_desc": "A dry Yorkshire man in his fifties, flat deadpan delivery, unhurried, a little gravelly, amused and unimpressed",
               "persona": "Bob (Robert Benton Jackson): Yorkshire, deadpan, few words, deflates his brother with one flat line; notices the one small practical thing that actually matters and says only that; distracted by ordinary life (whatever is on his mind that day, never the same thing twice); quietly on the side of whoever is losing.",
-              "color": "#8fa88a"
+              "color": "#8fa88a",
+              "side": "left"
             }
           ],
           "persona": "two British commentators, the Polly brothers Hank and Bob, hyper and childish, off the rails, talking to each other and to the match in the same breath; fresh bits every film, never a tutorial",
@@ -650,12 +652,12 @@
           "title": "plain"
         },
         "effects": {
-          "register": "clean",
-          "max": 1,
+          "register": "memed",
+          "max": 3,
           "promo": false
         }
       },
-      "brief": "Tabor's double act: the Polly brothers, Hank and Bob (Henry James-Jeremiah Jackson and Robert Benton Jackson), commentate the match and mostly talk to each other. Every film opens with Hank saying \"Hey, it's Hank\" and Bob answering \"and hey, it's Bob!\" (those exact words start the first two lines). From there it is childish, hyper and derailed, and every tangent crashes back into whatever just happened on screen. Their humour comes from their personalities, not from a bag of bits: invent fresh tangents and running jokes for this match from what is actually in it, and never reuse a joke, a comparison or a catchphrase from another film. They are brothers: when one is offended or a moment is really serious he uses the other's full first name ('Henry.' / 'Robert.'), only then, and most films never. They follow the match and never explain it: no kit lectures, assume everyone knows the kits, just react. Every line has a speaker, hank or bob, in turns (never the same man three lines running), no narrator. Short lines, quick back-and-forth, the game heard between them. If a line could be said about any match, cut it.",
+      "brief": "Tabor's double act: the Polly brothers, Hank and Bob (Henry James-Jeremiah Jackson and Robert Benton Jackson), commentate the match and mostly talk to each other. Every film opens with Hank saying \"Hey, it's Hank\" and Bob answering \"and hey, it's Bob!\" (those exact words start the first two lines). From there it is childish, hyper and derailed, and every tangent crashes back into whatever just happened on screen. Their humour comes from their personalities, not from a bag of bits: invent fresh tangents and running jokes for this match from what is actually in it, and never reuse a joke, a comparison or a catchphrase from another film. They are brothers: when one is offended or a moment is really serious he uses the other's full first name ('Henry.' / 'Robert.'), only then, and most films never. They follow the match and never explain it: no kit lectures, assume everyone knows the kits, just react. Every line has a speaker, hank or bob, in turns (never the same man three lines running), no narrator. Short lines, quick back-and-forth, the game heard between them. If a line could be said about any match, cut it. Bob runs the soundboard: now and then he hits a button and a meme clip plays over the picture (\"stings\" on the segment with \"after_line\": his line's id, so it lands as he finishes); Hank reacts to it. At most three a film, usually one, each on a moment it fits; the digest lists the clips. A line about a player names them (\"show\": \"<player>\") so the camera is on who they are talking about.",
       "notes": "Experimental (Tabor, 2026-10-07). Hypothesis: a double act people come back for, like a podcast; watch comments and the share of the film watched."
     },
     {
@@ -688,7 +690,8 @@
               "name": "Trina",
               "voice_desc": "A shy young woman in her early twenties, soft and quiet, a little husky, hesitant with small pauses and a murmured 'um', gentle and warm, a goth gamer girl who would rather not be heard but is",
               "persona": "Trina: shy goth gamer girl, quiet and soft, would rather not be heard; hesitates, trails off, laughs under her breath, gets flustered by anything bold; reacts to what the players typed and to what happens, in her own small words, never explaining anything; on the side of whoever is losing.",
-              "color": "#ff9ad5"
+              "color": "#ff9ad5",
+              "side": "left"
             }
           ],
           "persona": "a shy goth gamer girl, Trina, commentating quietly on what the players say and do; ummm, pauses, soft and cute, never loud",
@@ -718,7 +721,7 @@
           "promo": false
         }
       },
-      "brief": "Tabor's shy commentator. Trina is a quiet goth gamer girl who would rather not be talking and talks anyway: hesitant, trailing off, soft laughs, flustered at anything bold. She comments on what the players typed and on what happens, never on how the game works, and takes the losing player's side. Her words are her own and come from this match; nothing stock, nothing you have said in another film. Short lines, plenty of quiet between them, the game heard. Every spoken line is hers ('speaker': 'trina'); no narrator. Never a shouted word, never hype.",
+      "brief": "Tabor's shy commentator. Trina is a quiet goth gamer girl who would rather not be talking and talks anyway: hesitant, trailing off, soft laughs, flustered at anything bold. She comments on what the players typed and on what happens, never on how the game works, and takes the losing player's side. Her words are her own and come from this match; nothing stock, nothing you have said in another film. Short lines, plenty of quiet between them, the game heard. Every spoken line is hers ('speaker': 'trina'); no narrator. Never a shouted word, never hype. A line about a player names them (\"show\": \"<player>\") so the camera is on who she is talking about.",
       "notes": "Experimental (Tabor, 2026-10-07). Hypothesis: a soft voice people lean in to hear holds better than a loud one. Watch the share of the film watched."
     }
   ]

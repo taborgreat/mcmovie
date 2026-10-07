@@ -23,7 +23,7 @@
         "properties": {
           "id": { "type": "string", "pattern": "^[a-z0-9_]+$" },
           "title": { "type": "string" },
-          "stings": { "type": "array", "description": "effects the planner calls for at a moment of this segment (config/effects.json, type sting): [{ \"id\": \"troll-face\", \"at_sec\": 4.0 }], at_sec in film seconds from the segment start", "items": { "type": "object", "required": ["id"], "properties": { "id": { "type": "string" }, "at_sec": { "type": "number", "minimum": 0 }, "on": { "type": "string", "enum": ["death", "hit", "start", "end"], "description": "instead of at_sec: land it on the first death or hit in the segment, its start, or its end" } } } },
+          "stings": { "type": "array", "description": "effects the planner calls for at a moment of this segment (config/effects.json, type sting): [{ \"id\": \"troll-face\", \"at_sec\": 4.0 }], at_sec in film seconds from the segment start", "items": { "type": "object", "required": ["id"], "properties": { "id": { "type": "string" }, "at_sec": { "type": "number", "minimum": 0 }, "after_line": { "type": "string", "description": "instead of at_sec: the sting lands the moment this line (its id, in this segment) is said; the soundboard" }, "on": { "type": "string", "enum": ["death", "hit", "start", "end"], "description": "instead of at_sec: land it on the first death or hit in the segment, its start, or its end" } } } },
                 "transition": { "type": "string", "description": "an effect of type transition (config/effects.json) that wipes over the cut into this segment; never on the first segment" },
                 "teaser": { "type": "boolean", "description": "true on the first segment only: a two-to-four-second teaser of the final kill before the film goes back to the start (an edit strategy that opens on the kill asks for it); it may overlap the finale" },
                 "finale": { "type": "boolean", "description": "The slow-motion last kill under the finale song. Exactly the segment digest.md gives under \"The finale\"; the program sets its speed and music." },
@@ -43,6 +43,7 @@
                 "text": { "type": "string", "minLength": 1 },
                 "speaker": { "type": "string", "description": "Omit for the narrator. A player name makes it that player's voice: a real chat line (set chat true) or an invented in-character line." },
                 "chat": { "type": "boolean", "description": "true when the text is a real chat line from the digest" },
+                "show": { "type": "string", "description": "a host's line about a player: the camera holds that player while it is said" },
                 "show_speaker": { "type": "boolean", "description": "false keeps the camera where it is while a player's line is heard (a voice aimed over other footage); by default the film cuts to the player speaking as the line starts" },
                 "emotion": { "type": "string" },
                 "delivery": { "type": "string" }

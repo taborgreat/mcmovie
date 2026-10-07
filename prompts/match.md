@@ -218,7 +218,10 @@ checker holds the plan to it:
   in turns (never one of them three lines running, roughly half the lines
   each), wander off on tangents and land back on what is on screen. Short
   lines, quick back-and-forth, the game heard between them. The camera does
-  not cut to them (they are voices), so a line can sit over any shot.
+  not cut to them (they are voices); a host's line about a player names
+  them with `"show": "<player>"` and the camera holds that player while it
+  is said. Bob runs the soundboard: a meme sting hung on his line
+  (`"stings": [{ "id", "after_line": "<his line id>" }]`) plays as he finishes.
 - **minimal**: five short narrator lines at most, 45 words in total; the
   picture and the music do the work.
 
